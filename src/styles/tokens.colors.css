@@ -1,0 +1,14 @@
+:root {
+	/* Colors */
+	--color-gray-0: #1f1f1f;
+	--color-gray-100: #15161a;
+	--color-gray-200: #292b33;
+	--color-gray-300: #3d404d;
+	--color-gray-400: #767a8c;
+	--color-gray-900: #d3d5dc;
+	--color-base: #ebedf5;
+	--color-base-alpha-50: rgba(235, 237, 245, 0.5);
+	--color-base-alpha-20: rgba(235, 237, 245, 0.2);
+	--color-base-alpha-10: rgba(235, 237, 245, 0.1);
+	--color-base-alpha-6: rgba(235, 237, 245, 0.06);
+}

@@ -1,0 +1,40 @@
+:root {
+	/* Spacing */
+	--space-base: calc(1rem / 16); /* 1px */
+	--space-0: calc(0 * var(--space-base));
+	--space-px: calc(1 * var(--space-base));
+	--space-1: calc(2 * var(--space-base));
+	--space-2: calc(4 * var(--space-base));
+	--space-3: calc(6 * var(--space-base));
+	--space-4: calc(8 * var(--space-base));
+	--space-5: calc(10 * var(--space-base));
+	--space-6: calc(12 * var(--space-base));
+	--space-7: calc(14 * var(--space-base));
+	--space-8: calc(16 * var(--space-base));
+	--space-9: calc(18 * var(--space-base));
+	--space-10: calc(20 * var(--space-base));
+	--space-11: calc(24 * var(--space-base));
+	--space-12: calc(32 * var(--space-base));
+	--space-13: calc(40 * var(--space-base));
+	--space-14: calc(48 * var(--space-base));
+	--space-15: calc(56 * var(--space-base));
+	--space-16: calc(64 * var(--space-base));
+	--space-17: calc(80 * var(--space-base));
+	--space-18: calc(96 * var(--space-base));
+	--space-19: calc(128 * var(--space-base));
+	--space-20: calc(256 * var(--space-base));
+
+	/* Border-radius */
+	--border-radius-0: var(--space-0);
+	--border-radius-1: var(--space-1);
+	--border-radius-2: var(--space-2);
+	--border-radius-3: var(--space-3);
+	--border-radius-4: var(--space-4);
+	--border-radius-5: var(--space-5);
+	--border-radius-6: var(--space-6);
+	--border-radius-7: var(--space-7);
+	--border-radius-8: var(--space-8);
+
+	/* Distances */
+	--offset-base: var(--space-10);
+}
