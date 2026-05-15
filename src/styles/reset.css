@@ -23,7 +23,7 @@
 		-webkit-font-smoothing: antialiased;
 		block-size: 100%;
 		text-rendering: optimizeSpeed;
-		scroll-behavior: smooth;
+		/* scroll-behavior: smooth; */
 	}
 
 	body {

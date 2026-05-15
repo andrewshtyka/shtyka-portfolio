@@ -10,10 +10,12 @@ type Props = {
 export default function LangSwitcher({ currentLang }: Props) {
 	const pathname = usePathname();
 
-	const targetLang = currentLang === "ua" ? "en" : "ua";
-	const label = currentLang === "ua" ? "eng" : "укр";
+	if (!currentLang || typeof currentLang !== "string") return;
 
-	const targetPath = pathname.replace(`/${currentLang}`, `/${targetLang}`);
+	const targetLang = currentLang === "ua" ? "en" : "ua";
+	const label = currentLang === "ua" ? "Eng" : "Укр";
+
+	const targetPath = pathname?.replace(`/${currentLang}`, `/${targetLang}`);
 
 	return <Link href={targetPath}>{label}</Link>;
 }

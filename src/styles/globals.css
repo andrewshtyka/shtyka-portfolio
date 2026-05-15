@@ -3,10 +3,11 @@
 /* BASE */
 
 body {
-	background-color: var(--color-gray-0);
-	color: var(--color-base);
-	display: grid;
-	place-content: center;
+	/* min-height: 100svh; */
+	/* background-color: var(--color-gray-0); */
+	/* color: var(--color-base); */
+	/* display: grid; */
+	/* place-content: center; */
 }
 
 /* ================================================== */
