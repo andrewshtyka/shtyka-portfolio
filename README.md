@@ -13,3 +13,4 @@ npm install
 - Next.js 16 (App Router)
 - React 19
 - TypeScript
+- Motion (ex Framer Motion)
