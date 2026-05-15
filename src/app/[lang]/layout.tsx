@@ -10,7 +10,7 @@ import Footer from "@/components/Footer/Footer";
 import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
 
 // fonts
-import { fontDisplay, fontMono, fontSerif } from "@/styles/importFonts";
+import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 
 // sanity
 import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
@@ -18,9 +18,9 @@ import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
 // styles
 import "@/styles/globals.css";
 import "@/styles/reset.css";
-import "@/styles/tokens.colors.css";
-import "@/styles/tokens.fonts.css";
-import "@/styles/tokens.spacing.css";
+import "@/styles/tokens/tokens.colors.css";
+import "@/styles/tokens/tokens.fonts.css";
+import "@/styles/tokens/tokens.spacing.css";
 
 // #endregion ===========================
 

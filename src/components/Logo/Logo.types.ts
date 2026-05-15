@@ -1,11 +1,8 @@
 export interface Props {
-	lang: string;
-	logo: LogoProps;
-	menu: string[];
-	menuMobile: string;
+	logo: Item;
 }
 
-export interface LogoProps {
+interface Item {
 	alt: string;
 	svg: {
 		asset: {

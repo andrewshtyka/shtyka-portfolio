@@ -1,0 +1,9 @@
+.container {
+	display: flex;
+	width: fit-content;
+
+	position: sticky;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}

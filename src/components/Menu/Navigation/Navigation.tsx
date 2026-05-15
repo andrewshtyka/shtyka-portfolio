@@ -1,18 +1,24 @@
+// styles
+import css from "./Navigation.module.css";
+
+// types
 import { Props } from "./Navigation.types";
 
 export default function Navigation({ menuItems }: Props) {
 	return (
 		<nav>
-			<ol>
+			<ul className={css.list_container}>
 				{menuItems.map(({ item, id }) => (
 					<li key={id}>
 						{/* TO DO
 							Pass here id of section, that will be scrolled to
 							*/}
-						<a href="#">{item}</a>
+						<a href="#" className="f_display f_semibold">
+							{item}
+						</a>
 					</li>
 				))}
-			</ol>
+			</ul>
 		</nav>
 	);
 }

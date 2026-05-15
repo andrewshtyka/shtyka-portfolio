@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+}
+
+@media (width >= 600px) {
+	.container {
+		display: none;
+	}
+}

@@ -1,20 +1,22 @@
+// #region ============================== Imports
+
 // components
-import Image from "next/image";
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
 import Desktop from "./Desktop/Desktop";
 import Mobile from "./Mobile/Mobile";
+import Logo from "../Logo/Logo";
 
-// sanity
-import { urlFor } from "@/sanity/lib/image";
+// styles
+import css from "./Menu.module.css";
 
 // types
 import { Props } from "./Menu.types";
 import Navigation from "./Navigation/Navigation";
 
+// #endregion ===========================
+
 export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 	if (!lang || !logo || !menu || !menuMobile) return;
-
-	const srcLogo = urlFor(logo.svg)?.url() ?? "";
 
 	const menuItems = menu.map((el) => {
 		return {
@@ -24,14 +26,9 @@ export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 	});
 
 	return (
-		<header>
-			<Image
-				src={srcLogo}
-				alt={logo.alt}
-				width="31"
-				height="20"
-				unoptimized={true}
-			/>
+		<header className={css.container}>
+			<Logo logo={logo} />
+
 			<Desktop>
 				<Navigation menuItems={menuItems} />
 			</Desktop>

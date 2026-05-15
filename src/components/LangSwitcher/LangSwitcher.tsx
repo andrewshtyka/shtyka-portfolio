@@ -1,21 +1,28 @@
+// #region ============================== Imports
 "use client";
 
+// components
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-type Props = {
-	currentLang: string;
-};
+// utils
+import { usePathname } from "next/navigation";
+import { getTargetPath } from "./lib/helpers/getTargetPath";
+
+// types
+import { Props } from "./LangSwitcher.types";
+
+// #endregion ===========================
 
 export default function LangSwitcher({ currentLang }: Props) {
 	const pathname = usePathname();
 
 	if (!currentLang || typeof currentLang !== "string") return;
 
-	const targetLang = currentLang === "ua" ? "en" : "ua";
-	const label = currentLang === "ua" ? "Eng" : "Укр";
+	const targetPath = getTargetPath(currentLang, pathname);
 
-	const targetPath = pathname?.replace(`/${currentLang}`, `/${targetLang}`);
-
-	return <Link href={targetPath}>{label}</Link>;
+	return (
+		<Link href={targetPath} className="f_display f_semibold">
+			{currentLang === "ua" ? "Eng" : "Укр"}
+		</Link>
+	);
 }
