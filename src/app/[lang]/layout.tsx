@@ -49,6 +49,7 @@ export default async function RootLayout({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 				> */}
+
 				<Menu
 					lang={lang}
 					logo={ui?.logoSvg}

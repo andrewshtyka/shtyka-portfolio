@@ -1,7 +1,8 @@
 .container {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	left: 0;
+	width: 100%;
 	padding-block-start: var(--offset-base);
 
 	pointer-events: none;

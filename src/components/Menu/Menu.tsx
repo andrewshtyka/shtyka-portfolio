@@ -39,6 +39,10 @@ export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 
 				<Divider isHiddenOnMobile={true} />
 
+				{/* 
+				TODO
+				Make mob menu to have white bg - when 'Menu' is tapped
+				 */}
 				<Mobile menuMobile={menuMobile}>
 					<Navigation menuItems={menuItems} />
 					<Divider isHorizontal={true} />

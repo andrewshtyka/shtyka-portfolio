@@ -25,7 +25,12 @@ export default function Mobile({ children, menuMobile }: Props) {
 	return (
 		<div className={css.container}>
 			<MenuButton onClick={handleClick}>{menuMobile}</MenuButton>
-			<span className={css.children}>{isOpened && children}</span>
+			<span
+				className={css.children}
+				style={{ display: isOpened ? "revert" : "none" }}
+			>
+				{isOpened && children}
+			</span>
 		</div>
 	);
 }
