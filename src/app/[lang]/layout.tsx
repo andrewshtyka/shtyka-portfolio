@@ -40,11 +40,10 @@ export default async function RootLayout({
 	});
 
 	return (
-		<html
-			lang={lang}
-			className={`${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`}
-		>
-			<body>
+		<html lang={lang}>
+			<body
+				className={`${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`}
+			>
 				{/* <LayoutTransition
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}

@@ -1,6 +1,6 @@
 :root {
 	/* Spacing */
-	--space-base: calc(1rem / 16); /* 1px */
+	--space-base: calc(1rem / 16); /* default: 16 (1px) */
 	--space-0: calc(0 * var(--space-base));
 	--space-px: calc(1 * var(--space-base));
 	--space-1: calc(2 * var(--space-base));
@@ -36,5 +36,7 @@
 	--border-radius-8: var(--space-8);
 
 	/* Distances */
-	--offset-base: var(--space-10);
+	--offset-base: var(--space-10); /* 20px */
+	--offset-button-primary: var(--space-9); /* 18px */
+	--offset-button-secondary: var(--space-6); /* 12px */
 }

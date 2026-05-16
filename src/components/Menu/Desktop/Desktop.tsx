@@ -5,5 +5,7 @@ import css from "./Desktop.module.css";
 import { Props } from "./Desktop.types";
 
 export default function Desktop({ children }: Props) {
-	return <div className={css.container}>{children}</div>;
+	const classes = `mob_hidden ${css.container} `;
+
+	return <div className={classes}>{children}</div>;
 }

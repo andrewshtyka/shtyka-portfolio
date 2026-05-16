@@ -5,13 +5,14 @@ import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
 import Desktop from "./Desktop/Desktop";
 import Mobile from "./Mobile/Mobile";
 import Logo from "../Logo/Logo";
+import Navigation from "./Navigation/Navigation";
+import Divider from "./Divider/Divider";
 
 // styles
 import css from "./Menu.module.css";
 
 // types
 import { Props } from "./Menu.types";
-import Navigation from "./Navigation/Navigation";
 
 // #endregion ===========================
 
@@ -27,17 +28,24 @@ export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 
 	return (
 		<header className={css.container}>
-			<Logo logo={logo} />
+			<div className={css.header}>
+				<Logo logo={logo} />
 
-			<Desktop>
-				<Navigation menuItems={menuItems} />
-			</Desktop>
+				<Divider />
 
-			<Mobile menuMobile={menuMobile}>
-				<Navigation menuItems={menuItems} />
-			</Mobile>
+				<Desktop>
+					<Navigation menuItems={menuItems} />
+				</Desktop>
 
-			<LangSwitcher currentLang={lang} />
+				<Divider isHiddenOnMobile={true} />
+
+				<Mobile menuMobile={menuMobile}>
+					<Navigation menuItems={menuItems} />
+					<LangSwitcher currentLang={lang} />
+				</Mobile>
+
+				<LangSwitcher currentLang={lang} isHiddenOnMobile={true} />
+			</div>
 		</header>
 	);
 }

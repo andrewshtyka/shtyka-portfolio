@@ -1,4 +1,3 @@
 export interface Props {
-	currentLang: string;
 	isHiddenOnMobile?: boolean;
 }

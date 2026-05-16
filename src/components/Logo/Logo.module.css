@@ -1,0 +1,15 @@
+.link {
+	display: flex;
+	height: 100%;
+
+	padding-inline: var(--offset-button-secondary);
+	border-radius: var(--border-radius-3);
+}
+
+.link:hover {
+	background-color: var(--color-base-alpha-20);
+}
+
+.image {
+	margin-block-end: var(--space-1);
+}

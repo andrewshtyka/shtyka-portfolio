@@ -2,27 +2,38 @@
 "use client";
 
 // components
-import Link from "next/link";
+import MenuLinkPrimary from "../MenuLinkPrimary/MenuLinkPrimary";
 
 // utils
 import { usePathname } from "next/navigation";
 import { getTargetPath } from "./lib/helpers/getTargetPath";
+
+// styles
+import css from "./LangSwitcher.module.css";
 
 // types
 import { Props } from "./LangSwitcher.types";
 
 // #endregion ===========================
 
-export default function LangSwitcher({ currentLang }: Props) {
+export default function LangSwitcher({
+	currentLang,
+	isHiddenOnMobile = false,
+}: Props) {
 	const pathname = usePathname();
 
 	if (!currentLang || typeof currentLang !== "string") return;
 
 	const targetPath = getTargetPath(currentLang, pathname);
 
+	const visibilityClass = isHiddenOnMobile ? "mob_hidden" : "";
+	const classes = `${visibilityClass} ${css.container}`;
+
 	return (
-		<Link href={targetPath} className="f_display f_semibold">
-			{currentLang === "ua" ? "Eng" : "Укр"}
-		</Link>
+		<span className={classes}>
+			<MenuLinkPrimary href={targetPath} isTransparent={true}>
+				{currentLang === "ua" ? "Eng" : "Укр"}
+			</MenuLinkPrimary>
+		</span>
 	);
 }

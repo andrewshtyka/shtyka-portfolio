@@ -15,7 +15,7 @@ export default function Mobile({ children, menuMobile }: Props) {
 			<button type="button" onClick={() => setIsOpened(!isOpened)}>
 				{menuMobile}
 			</button>
-			{isOpened && children}
+			<span className={css.children}>{isOpened && children}</span>
 		</div>
 	);
 }

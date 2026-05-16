@@ -41,3 +41,26 @@ body {
 .f_semibold {
 	font-weight: 600;
 }
+
+/* ================================================== */
+/* */
+/* MEDIA QUERY */
+.mob_hidden {
+	display: none;
+}
+
+@media (width >= 600px) {
+	.mob_hidden {
+		display: revert;
+	}
+}
+
+.desktop_hidden {
+	display: revert;
+}
+
+@media (width >= 600px) {
+	.desktop_hidden {
+		display: none;
+	}
+}

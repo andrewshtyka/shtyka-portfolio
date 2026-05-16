@@ -9,3 +9,10 @@
 		display: none;
 	}
 }
+
+.children {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-color: red;
+}

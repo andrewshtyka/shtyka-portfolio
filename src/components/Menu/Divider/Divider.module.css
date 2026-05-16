@@ -1,0 +1,10 @@
+.container {
+	height: 100%;
+	padding-block: var(--space-2);
+}
+
+.line {
+	height: 100%;
+	width: var(--space-px);
+	background-color: var(--color-base-alpha-10);
+}

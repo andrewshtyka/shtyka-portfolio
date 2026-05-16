@@ -28,7 +28,7 @@ import type { Metadata } from "next";
 
 // #endregion ===========================
 
-// TO DO
+// TODO
 //
 // Generate Metadata
 // title = hero title

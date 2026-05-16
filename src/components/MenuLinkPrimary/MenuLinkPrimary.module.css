@@ -1,0 +1,29 @@
+.base {
+	padding-inline: var(--offset-button-secondary);
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.children {
+	display: inline-block;
+	margin-block-end: var(--space-px);
+	/* height: 100%; */
+}
+
+.transparent {
+	color: var(--color-base-alpha-50);
+}
+
+.solid {
+	color: var(--color-base);
+}
+
+.link {
+	border-radius: var(--border-radius-3);
+}
+
+.link:hover {
+	background-color: var(--color-base-alpha-20);
+	color: var(--color-base);
+}

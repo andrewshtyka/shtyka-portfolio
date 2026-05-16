@@ -1,9 +1,28 @@
 .container {
-	display: flex;
-	width: fit-content;
-
 	position: sticky;
 	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
+	left: 0;
+	padding-block-start: var(--offset-base);
+
+	pointer-events: none;
+}
+
+.header {
+	margin-inline: auto;
+
+	display: flex;
+	align-items: center;
+	column-gap: var(--space-2);
+
+	height: var(--space-13);
+	padding: var(--space-2);
+	width: fit-content;
+
+	background-color: var(--color-base-alpha-10);
+	border: var(--space-px) solid var(--color-base-alpha-6);
+	border-radius: var(--border-radius-4);
+
+	pointer-events: auto;
+
+	position: relative;
 }
