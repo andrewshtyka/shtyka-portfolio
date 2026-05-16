@@ -10,7 +10,7 @@
 	align-items: center;
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
 	.base {
 		width: revert;
 		height: 100%;

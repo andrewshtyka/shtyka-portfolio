@@ -15,7 +15,7 @@ import getUrlForImage from "@/lib/util/getUrlForImage";
 
 const { projectId, dataset } = client.config();
 
-export default function Video({ video, poster, variant = "preview" }: Props) {
+export default function Video({ video, poster }: Props) {
 	const videoUrl = getFileAsset(video, {
 		projectId,
 		dataset,
@@ -23,15 +23,13 @@ export default function Video({ video, poster, variant = "preview" }: Props) {
 
 	const posterUrl = getUrlForImage(poster)?.url() ?? "";
 
-	const style = {
-		height: variant === "fullscreen" ? "100svh" : "calc(var(--space-20) * 2)",
-	};
-
 	return (
-		<div className={css.container} style={style}>
+		<div className={css.container}>
 			<video autoPlay muted loop playsInline width="100%" poster={posterUrl}>
 				<source src={videoUrl} type="video/mp4" />
 			</video>
+			<div className={css.overlay_top}></div>
+			<div className={css.overlay_bottom}></div>
 		</div>
 	);
 }

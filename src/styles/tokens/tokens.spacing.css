@@ -39,4 +39,7 @@
 	--offset-base: var(--space-10); /* 20px */
 	--offset-button-primary: var(--space-9); /* 18px */
 	--offset-button-secondary: var(--space-6); /* 12px */
+
+	/* Content width */
+	--content-width-max: calc(var(--space-18) * 10);
 }

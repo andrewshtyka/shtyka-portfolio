@@ -10,17 +10,51 @@ body {
 /* ================================================== */
 /* */
 /* FONTS */
-.f_serif {
+.f_serif_primary {
 	font-family: var(--font-serif);
 	font-size: var(--font-size-10);
 	font-weight: 400;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-base);
+	text-transform: capitalize;
 }
 
-.f_display {
+.f_serif_secondary {
+	font-family: var(--font-serif);
+	font-size: var(--font-size-8);
+	font-weight: 400;
+	line-height: var(--line-height-serif);
+	letter-spacing: var(--letter-spacing-base);
+	text-transform: capitalize;
+}
+
+.f_display_subtitle {
+	font-family: var(--font-display);
+	font-size: var(--font-size-6);
+	font-weight: 500;
+	line-height: var(--line-height-display);
+	letter-spacing: var(--letter-spacing-display);
+}
+
+.f_display_body {
+	font-family: var(--font-display);
+	font-size: var(--font-size-4);
+	font-weight: 500;
+	line-height: var(--line-height-display);
+	letter-spacing: var(--letter-spacing-display);
+}
+
+.f_display_buttons {
 	font-family: var(--font-display);
 	font-size: var(--font-size-3);
+	font-weight: 600;
+	line-height: var(--line-height-display);
+	letter-spacing: var(--letter-spacing-display);
+}
+
+.f_display_caption {
+	font-family: var(--font-display);
+	font-size: var(--font-size-2);
 	font-weight: 500;
 	line-height: var(--line-height-display);
 	letter-spacing: var(--letter-spacing-display);
@@ -32,14 +66,11 @@ body {
 	font-weight: 500;
 	line-height: var(--line-height-mono);
 	letter-spacing: var(--letter-spacing-base);
+	text-transform: uppercase;
 }
 
 .f_italic {
 	font-style: italic;
-}
-
-.f_semibold {
-	font-weight: 600;
 }
 
 /* ================================================== */
@@ -49,7 +80,7 @@ body {
 	display: none;
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
 	.mob_hidden {
 		display: revert;
 	}
@@ -59,7 +90,7 @@ body {
 	display: revert;
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
 	.desktop_hidden {
 		display: none;
 	}

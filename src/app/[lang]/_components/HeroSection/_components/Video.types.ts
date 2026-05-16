@@ -1,7 +1,6 @@
 export interface Props {
 	video: Item;
 	poster: Item;
-	variant?: "fullscreen" | "preview";
 }
 
 type Item = {

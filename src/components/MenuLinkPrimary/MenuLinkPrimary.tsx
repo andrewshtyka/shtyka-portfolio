@@ -19,7 +19,7 @@ export default function MenuLinkPrimary({
 	const classes = `${css.base} ${transparencyClass}`;
 
 	return (
-		<Link href={href} className={`f_display f_semibold ${classes}`}>
+		<Link href={href} className={`f_display_buttons f_semibold ${classes}`}>
 			<span className={css.children}>{children}</span>
 		</Link>
 	);

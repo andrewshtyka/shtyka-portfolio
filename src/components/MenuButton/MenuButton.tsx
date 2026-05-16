@@ -10,7 +10,7 @@ export default function MenuButton({ onClick, children }: Props) {
 	return (
 		<button
 			type="button"
-			className={`f_display f_semibold ${classes}`}
+			className={`f_display_buttons f_semibold ${classes}`}
 			onClick={onClick}
 		>
 			<span className={css.children}>{children}</span>

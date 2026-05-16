@@ -44,7 +44,6 @@ export const metadata: Metadata = {
 interface Props {
 	params: Promise<{ lang: string }>;
 }
-
 export default async function HomePage({ params }: Props) {
 	const { lang } = await params;
 
@@ -83,7 +82,7 @@ export default async function HomePage({ params }: Props) {
 	const homeExperimentsString = JSON.stringify(experiments?.data);
 
 	return (
-		<>
+		<main>
 			<HeroSection uiString={uiStringHero} />
 			<AboutSection uiString={uiStringAbout} />
 			<ExperienceSection uiString={uiStringExperience} />
@@ -98,6 +97,6 @@ export default async function HomePage({ params }: Props) {
 				uiString={uiStringExperiments}
 				experimentsString={homeExperimentsString}
 			/>
-		</>
+		</main>
 	);
 }

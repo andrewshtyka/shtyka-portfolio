@@ -1,0 +1,7 @@
+.container {
+	border: var(--space-px) solid var(--color-base-alpha-20);
+	border-radius: var(--border-radius-4);
+    
+    padding-inline: var(--space-3);
+    padding-block: var(--space-1);
+}
