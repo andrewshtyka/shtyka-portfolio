@@ -16,7 +16,7 @@ export default function MenuLinkPrimary({
 		? `${css.transparent}`
 		: `${css.solid}`;
 
-	const classes = `${css.base} ${css.link} ${transparencyClass}`;
+	const classes = `${css.base} ${transparencyClass}`;
 
 	return (
 		<Link href={href} className={`f_display f_semibold ${classes}`}>

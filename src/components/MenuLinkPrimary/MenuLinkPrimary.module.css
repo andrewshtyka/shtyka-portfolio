@@ -1,14 +1,31 @@
 .base {
 	padding-inline: var(--offset-button-secondary);
-	height: 100%;
+	padding-block: calc(var(--offset-button-secondary) - var(--space-2));
+
+	width: 100%;
+	height: revert;
+	border-radius: var(--border-radius-3);
+
 	display: flex;
 	align-items: center;
+}
+
+@media (width >= 600px) {
+	.base {
+		width: revert;
+		height: 100%;
+		padding-block: revert;
+	}
+}
+
+.base:hover {
+	background-color: var(--color-base-alpha-20);
+	color: var(--color-base);
 }
 
 .children {
 	display: inline-block;
 	margin-block-end: var(--space-px);
-	/* height: 100%; */
 }
 
 .transparent {
@@ -16,14 +33,5 @@
 }
 
 .solid {
-	color: var(--color-base);
-}
-
-.link {
-	border-radius: var(--border-radius-3);
-}
-
-.link:hover {
-	background-color: var(--color-base-alpha-20);
 	color: var(--color-base);
 }

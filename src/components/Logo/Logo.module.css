@@ -1,5 +1,6 @@
 .link {
 	display: flex;
+	align-items: center;
 	height: 100%;
 
 	padding-inline: var(--offset-button-secondary);
@@ -12,4 +13,6 @@
 
 .image {
 	margin-block-end: var(--space-1);
+	height: var(--space-10);
+	width: auto;
 }

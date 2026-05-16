@@ -41,6 +41,7 @@ export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 
 				<Mobile menuMobile={menuMobile}>
 					<Navigation menuItems={menuItems} />
+					<Divider isHorizontal={true} />
 					<LangSwitcher currentLang={lang} />
 				</Mobile>
 

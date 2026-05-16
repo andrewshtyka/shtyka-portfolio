@@ -1,6 +1,8 @@
 /* 
     Original version by vale.rocks
     https://vale.rocks/posts/css-reset
+
+	Extended by Andrew Shtyka
  */
 
 *,
@@ -157,7 +159,7 @@ a:focus-visible {
 	outline: 1px solid;
 }
 
-/* Lists */
+/* List */
 ul {
 	list-style: none;
 	margin: 0;
@@ -165,4 +167,12 @@ ul {
 }
 ul[role="list"] {
 	list-style: none;
+}
+
+/* Button */
+button {
+	all: unset;
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
 }

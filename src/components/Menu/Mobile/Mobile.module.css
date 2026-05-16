@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
+	height: 100%;
 }
 
 @media (width >= 600px) {
@@ -12,7 +13,17 @@
 
 .children {
 	position: absolute;
-	top: 50px;
-	left: 0;
-	background-color: red;
+	top: calc(100% + var(--space-4));
+	left: 50%;
+	transform: translateX(-50%);
+
+	background-color: var(--color-base-alpha-6);
+	border: var(--space-px) solid var(--color-base-alpha-10);
+	border-radius: var(--border-radius-4);
+
+	padding: var(--space-2);
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
 }
