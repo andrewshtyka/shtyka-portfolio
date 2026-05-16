@@ -6,9 +6,10 @@
 	padding-inline: var(--offset-button-secondary);
 	border-radius: var(--border-radius-3);
 }
-
-.link:hover {
-	background-color: var(--color-base-alpha-20);
+@media (hover: hover) {
+	.link:hover {
+		background-color: var(--color-base-alpha-20);
+	}
 }
 
 .image {

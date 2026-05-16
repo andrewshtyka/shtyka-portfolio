@@ -293,7 +293,10 @@ button {
 	overflow: visible;
 	margin: 0;
 	padding: 0;
-	outline: 0;
+
+	/* outline: 0 -> removes focus state */
+	/* outline: 0; */
+
 	border: 0;
 	background: none;
 	color: inherit;

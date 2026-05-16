@@ -18,9 +18,11 @@
 	}
 }
 
-.base:hover {
-	background-color: var(--color-base-alpha-20);
-	color: var(--color-base);
+@media (hover: hover) {
+	.base:hover {
+		background-color: var(--color-base-alpha-20);
+		color: var(--color-base);
+	}
 }
 
 .children {
