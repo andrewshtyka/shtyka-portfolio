@@ -3,8 +3,8 @@ import { IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 export const fontSerif = Source_Serif_4({
 	variable: "--font-serif",
 	subsets: ["latin", "cyrillic"],
-	// weight: "400",
-	axes: ["wght", "opsz"],
+	weight: "variable",
+	axes: ["opsz"],
 	style: ["normal", "italic"],
 	display: "swap",
 });
@@ -20,6 +20,5 @@ export const fontDisplay = Manrope({
 	variable: "--font-display",
 	subsets: ["latin", "cyrillic"],
 	weight: ["500", "600"],
-	// axes: ["wght"],
 	display: "swap",
 });
