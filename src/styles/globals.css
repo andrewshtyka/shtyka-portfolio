@@ -12,17 +12,26 @@ body {
 /* FONTS */
 .f_serif_primary {
 	font-family: var(--font-serif);
-	font-size: var(--font-size-10);
+	font-size: var(--font-size-9);
 	font-weight: 400;
+	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-base);
 	text-transform: capitalize;
+}
+
+@media (width >= 600px) {
+	.f_serif_primary {
+		font-size: var(--font-size-10);
+		font-variation-settings: "opsz" 60;
+	}
 }
 
 .f_serif_secondary {
 	font-family: var(--font-serif);
 	font-size: var(--font-size-8);
 	font-weight: 400;
+	font-variation-settings: "opsz" 60;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-base);
 	text-transform: capitalize;
@@ -76,22 +85,23 @@ body {
 /* ================================================== */
 /* */
 /* MEDIA QUERY */
-.mob_hidden {
+
+.mob_hidden_768 {
 	display: none;
 }
 
 @media (width >= 768px) {
-	.mob_hidden {
+	.mob_hidden_768 {
 		display: revert;
 	}
 }
 
-.desktop_hidden {
+.desktop_hidden_768 {
 	display: revert;
 }
 
 @media (width >= 768px) {
-	.desktop_hidden {
+	.desktop_hidden_768 {
 		display: none;
 	}
 }

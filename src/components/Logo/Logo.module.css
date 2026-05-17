@@ -8,7 +8,7 @@
 }
 @media (hover: hover) {
 	.link:hover {
-		background-color: var(--color-base-alpha-20);
+		background-color: var(--color-base-alpha-mid);
 	}
 }
 

@@ -26,7 +26,7 @@ export default function LangSwitcher({
 
 	const targetPath = getTargetPath(currentLang, pathname);
 
-	const visibilityClass = isHiddenOnMobile ? "mob_hidden" : "";
+	const visibilityClass = isHiddenOnMobile ? "mob_hidden_768" : "";
 	const classes = `${visibilityClass} ${css.container}`;
 
 	return (

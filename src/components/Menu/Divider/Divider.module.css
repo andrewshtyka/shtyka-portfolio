@@ -9,7 +9,7 @@
 }
 
 .line {
-	background-color: var(--color-base-alpha-10);
+	background-color: var(--color-base-alpha-muted);
 }
 
 .line_vertical {

@@ -8,7 +8,7 @@ export default function Divider({
 	isHiddenOnMobile = false,
 	isHorizontal = false,
 }: Props) {
-	const visibilityClass = isHiddenOnMobile ? "mob_hidden" : "";
+	const visibilityClass = isHiddenOnMobile ? "mob_hidden_768" : "";
 
 	const classesContainer = `${css.container} ${visibilityClass} ${isHorizontal ? css.container_horizontal : css.container_vertical}`;
 	const classesLine = `${css.line} ${visibilityClass} ${isHorizontal ? css.line_horizontal : css.line_vertical}`;

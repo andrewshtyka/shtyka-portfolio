@@ -1,8 +1,10 @@
 // #region ============================== Imports
 
 // components
-import { li } from "motion/react-client";
 import Video from "./_components/Video";
+import Tag from "@/components/Tag/Tag";
+import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
+import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
@@ -13,8 +15,7 @@ import css from "./HeroSection.module.css";
 
 // types
 import { Props } from "./HeroSection.types";
-import Tag from "@/components/Tag/Tag";
-import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
+import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 
 // #endregion ===========================
 
@@ -51,9 +52,15 @@ export default function HeroSection({ uiString }: Props) {
 						<p className={`${css.subtitle} f_display_body`}>
 							{ui.subtitle[0].children[0].text}
 							<span>{ui.subtitle[0].children[1].text}</span>
-							<br />
+							<br className={css.br} />
 							{ui.subtitle[0].children[2].text}
 						</p>
+					</div>
+
+					{/* Icons (mobile only) */}
+					<div className={css.container_icons}>
+						<IconAsterisk color="white" size={10} />
+						<IconAsterisk color="white" size={10} />
 					</div>
 
 					{/* Right part */}
@@ -76,7 +83,10 @@ export default function HeroSection({ uiString }: Props) {
 							)}
 						</ul>
 
-						<ButtonPrimary href={buttonResumeData.href}>
+						<ButtonPrimary
+							href={buttonResumeData.href}
+							icon={<IconArrowCurve color="black" />}
+						>
 							{buttonResumeData.text}
 						</ButtonPrimary>
 					</div>

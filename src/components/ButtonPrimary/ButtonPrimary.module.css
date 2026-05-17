@@ -1,0 +1,19 @@
+.button {
+	border: var(--space-px) solid var(--color-base-alpha-mid);
+	border-radius: var(--border-radius-4);
+
+	padding-inline: var(--offset-button-primary);
+	padding-block: calc(var(--offset-button-primary) - var(--space-1));
+
+	background-color: var(--color-base);
+	color: var(--color-gray-0);
+}
+
+.children {
+	display: flex;
+	align-items: center;
+}
+
+.space_between {
+	justify-content: space-between;
+}

@@ -21,8 +21,8 @@
 	padding: var(--space-2);
 	width: fit-content;
 
-	background-color: var(--color-base-alpha-10);
-	border: var(--space-px) solid var(--color-base-alpha-6);
+	background-color: var(--color-base-alpha-subtle);
+	border: var(--space-px) solid var(--color-base-alpha-muted);
 	border-radius: var(--border-radius-4);
 
 	pointer-events: auto;
