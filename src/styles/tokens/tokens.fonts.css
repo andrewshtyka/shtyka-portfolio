@@ -23,6 +23,7 @@
 	--line-height-mono: 1.5;
 
 	/* Letter-spacing */
+	--letter-spacing-serif: -0.04em;
 	--letter-spacing-display: -0.02em;
-	--letter-spacing-base: -0.04em;
+	--letter-spacing-mono: -0.01em;
 }

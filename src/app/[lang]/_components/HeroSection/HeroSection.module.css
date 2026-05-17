@@ -19,9 +19,9 @@
 .content {
 	display: flex;
 	height: fit-content;
-	max-width: var(--content-width-max);
+	max-width: var(--content-wide-width-max);
 	margin-inline: auto;
-	padding: var(--offset-base);
+	padding-block-end: var(--offset-base);
 
 	flex-direction: column;
 	width: 100%;
@@ -65,7 +65,7 @@
 @media (width >= 768px) {
 	.container_secondary {
 		row-gap: var(--space-11);
-		max-width: calc(var(--space-20) + var(--space-12) + var(--space-1));
+		max-width: calc(var(--space-20) + var(--space-14));
 		justify-content: space-between;
 
 		padding-block-start: var(--space-4);
@@ -82,6 +82,14 @@
 	& span {
 		color: var(--color-base-alpha-heavy);
 		white-space: nowrap;
+	}
+}
+
+@media (width >= 768px) {
+	.subtitle {
+		& span {
+			color: var(--color-gray-400);
+		}
 	}
 }
 

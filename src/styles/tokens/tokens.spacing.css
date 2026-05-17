@@ -36,10 +36,12 @@
 	--border-radius-8: var(--space-8);
 
 	/* Distances */
+	--offset-sections: calc(var(--space-17) + var(--space-19)); /* 208px */
 	--offset-base: var(--space-10); /* 20px */
 	--offset-button-primary: var(--space-9); /* 18px */
 	--offset-button-secondary: var(--space-6); /* 12px */
 
 	/* Content width */
-	--content-width-max: calc(var(--space-18) * 10);
+	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
+	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
 }

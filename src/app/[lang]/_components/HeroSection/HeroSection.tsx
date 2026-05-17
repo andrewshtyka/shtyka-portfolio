@@ -38,7 +38,7 @@ export default function HeroSection({ uiString }: Props) {
 			<Video video={ui.video.video} poster={ui.video.poster} />
 
 			<div className={css.container_content}>
-				<div className={css.content}>
+				<div className={`${css.content} content_padding_limit`}>
 					{/* Left part */}
 					<div className={css.container_primary}>
 						<div className={css.container_title}>
