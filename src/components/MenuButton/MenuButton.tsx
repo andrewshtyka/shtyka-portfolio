@@ -11,8 +11,6 @@ export default function MenuButton({
 }: Props) {
 	const classes = `${css.base} ${customClass}`;
 
-	// TODO
-	// Opened menu mob = replace 'Menu' with 'Close'
 	return (
 		<button
 			type="button"

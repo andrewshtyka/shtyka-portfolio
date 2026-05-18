@@ -10,6 +10,9 @@ import Logo from "../Logo/Logo";
 import Navigation from "./Navigation/Navigation";
 import Divider from "./Divider/Divider";
 
+// hooks
+import useMediaQueryListener from "@/hooks/useMediaQueryListener";
+
 // styles
 import css from "./Menu.module.css";
 
@@ -24,6 +27,9 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	const [isMenuOpened, setIsMenuOpened] = React.useState(false);
 	const menuItemId = React.useId();
 
+	// close menu automatically on resize
+	useMediaQueryListener(setIsMenuOpened);
+
 	if (!lang || !menu || !menuMobile) return;
 
 	function toggleMenuMobile() {
@@ -32,7 +38,10 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 
 	const menuOpenedStyles = {
 		header: isMenuOpened
-			? { backgroundColor: "var(--color-base)" }
+			? {
+					backgroundColor: "var(--color-base)",
+					border: "var(--space-px) solid var(--color-gray-alpha-subtle)",
+				}
 			: { backdropFilter: "blur(24px)" },
 		logo: isMenuOpened ? "black" : "white",
 		divider: isMenuOpened
@@ -46,9 +55,6 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 			id: `${menuItemId}-${i}`,
 		};
 	});
-
-	// TODO
-	// Close menu automatically if it's opened and it's desktop
 
 	return (
 		<header className={css.container}>

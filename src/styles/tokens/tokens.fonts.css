@@ -27,3 +27,9 @@
 	--letter-spacing-display: -0.02em;
 	--letter-spacing-mono: -0.01em;
 }
+
+@media (width < 600px) {
+	:root {
+		--line-height-display: 1.35;
+	}
+}
