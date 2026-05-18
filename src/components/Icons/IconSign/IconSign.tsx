@@ -1,5 +1,5 @@
 export default function IconSign() {
-	const color = "var(--color-gray-400)";
+	const color = "var(--color-gray-500)";
 	const thickness = "var(--space-1)";
 
 	return (

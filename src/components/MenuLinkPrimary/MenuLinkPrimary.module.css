@@ -20,7 +20,8 @@
 
 @media (hover: hover) {
 	.base:hover {
-		background-color: var(--color-base-alpha-mid);
+		/* background-color: var(--color-base-alpha-mid); */
+		background-color: var(--color-base-alpha-muted);
 		color: var(--color-base);
 	}
 }

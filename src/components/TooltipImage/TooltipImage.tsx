@@ -1,6 +1,8 @@
+"use client";
+
+// #region ============================== Imports
 // components
 import { Tooltip } from "radix-ui";
-import LinkText from "../LinkText/LinkText";
 
 // styles
 import css from "./TooltipImage.module.css";
@@ -9,12 +11,23 @@ import css from "./TooltipImage.module.css";
 import { Props } from "./TooltipImage.types";
 import Image from "next/image";
 
+// utils
+import React from "react";
+// #endregion ===========================
+
 export default function TooltipImage({ children, src, alt }: Props) {
+	const [open, setOpen] = React.useState(false);
+
+	function handleTooltipClick() {
+		setOpen((prev) => !prev);
+	}
+
 	return (
-		<Tooltip.Root>
-			<Tooltip.Trigger asChild>
-				<LinkText type="tooltip">{children}</LinkText>
+		<Tooltip.Root open={open} onOpenChange={setOpen}>
+			<Tooltip.Trigger onClick={handleTooltipClick} asChild>
+				<span className={css.link}>{children}</span>
 			</Tooltip.Trigger>
+
 			<Tooltip.Portal>
 				<Tooltip.Content>
 					<span className={css.container_image}>

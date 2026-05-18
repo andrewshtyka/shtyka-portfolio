@@ -7,6 +7,7 @@ import { Props } from "./Divider.types";
 export default function Divider({
 	isHiddenOnMobile = false,
 	isHorizontal = false,
+	style = {},
 }: Props) {
 	const visibilityClass = isHiddenOnMobile ? "mob_hidden_768" : "";
 
@@ -15,7 +16,7 @@ export default function Divider({
 
 	return (
 		<div className={classesContainer}>
-			<div className={classesLine} />
+			<div className={classesLine} style={style} />
 		</div>
 	);
 }

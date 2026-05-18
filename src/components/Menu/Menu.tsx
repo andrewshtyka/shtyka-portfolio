@@ -1,3 +1,5 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
@@ -14,24 +16,46 @@ import css from "./Menu.module.css";
 // types
 import { Props } from "./Menu.types";
 
+// utils
+import React from "react";
 // #endregion ===========================
 
 export default function Menu({ lang, menu, menuMobile }: Props) {
+	const [isMenuOpened, setIsMenuOpened] = React.useState(false);
+	const menuItemId = React.useId();
+
 	if (!lang || !menu || !menuMobile) return;
 
-	const menuItems = menu.map((el) => {
+	function toggleMenuMobile() {
+		setIsMenuOpened((currentIsMenuOpened) => !currentIsMenuOpened);
+	}
+
+	const menuOpenedStyles = {
+		header: isMenuOpened
+			? { backgroundColor: "var(--color-base)" }
+			: { backdropFilter: "blur(24px)" },
+		logo: isMenuOpened ? "black" : "white",
+		divider: isMenuOpened
+			? { backgroundColor: "var(--color-gray-alpha-subtle)" }
+			: {},
+	};
+
+	const menuItems = menu.map((el, i) => {
 		return {
 			item: el,
-			id: crypto.randomUUID(),
+			id: `${menuItemId}-${i}`,
 		};
 	});
 
+	// TODO
+	// Close menu automatically if it's opened and it's desktop
+
 	return (
 		<header className={css.container}>
-			<div className={css.header}>
-				<Logo />
+			<div className={css.header} style={menuOpenedStyles.header}>
+				<Logo isMenuOpened={isMenuOpened} />
 
-				<Divider />
+				<Divider style={menuOpenedStyles.divider} />
 
 				<Desktop>
 					<Navigation menuItems={menuItems} />
@@ -39,11 +63,12 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 
 				<Divider isHiddenOnMobile={true} />
 
-				{/* 
-				TODO
-				Make mob menu to have white bg - when 'Menu' is tapped
-				 */}
-				<Mobile menuMobile={menuMobile}>
+				<Mobile
+					open={menuMobile.open}
+					close={menuMobile.close}
+					isMenuOpened={isMenuOpened}
+					onClick={toggleMenuMobile}
+				>
 					<Navigation menuItems={menuItems} />
 					<Divider isHorizontal={true} />
 					<LangSwitcher currentLang={lang} />

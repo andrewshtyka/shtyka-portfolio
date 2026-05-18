@@ -4,9 +4,15 @@ import css from "./MenuButton.module.css";
 // styles
 import { Props } from "./MenuButton.types";
 
-export default function MenuButton({ onClick, children }: Props) {
-	const classes = `${css.base}`;
+export default function MenuButton({
+	onClick,
+	children,
+	customClass = "",
+}: Props) {
+	const classes = `${css.base} ${customClass}`;
 
+	// TODO
+	// Opened menu mob = replace 'Menu' with 'Close'
 	return (
 		<button
 			type="button"

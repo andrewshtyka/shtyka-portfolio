@@ -3,8 +3,10 @@
 	height: 100%;
 	display: flex;
 	align-items: center;
-
 	border-radius: var(--border-radius-3);
+
+	background-color: var(--color-base-alpha-transparent);
+	color: var(--color-base);
 }
 @media (hover: hover) {
 	.base:hover {

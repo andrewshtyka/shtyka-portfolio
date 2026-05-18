@@ -5,10 +5,13 @@
 
 	padding-inline: var(--offset-button-secondary);
 	border-radius: var(--border-radius-3);
+
+	background-color: var(--color-base-alpha-transparent);
 }
 @media (hover: hover) {
 	.link:hover {
-		background-color: var(--color-base-alpha-mid);
+		/* background-color: var(--color-base-alpha-mid); */
+		background-color: var(--color-base-alpha-muted);
 	}
 }
 
@@ -16,4 +19,6 @@
 	margin-block-end: var(--space-1);
 	height: var(--space-10);
 	width: auto;
+
+	fill: var(--color-base);
 }

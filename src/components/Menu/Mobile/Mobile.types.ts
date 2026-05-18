@@ -1,4 +1,7 @@
 export interface Props {
 	children: React.ReactNode;
-	menuMobile: string;
+	open: string;
+	close: string;
+	isMenuOpened?: boolean;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

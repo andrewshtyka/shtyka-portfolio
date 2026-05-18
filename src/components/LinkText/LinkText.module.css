@@ -1,8 +1,8 @@
 .link {
-	color: var(--color-gray-400);
+	color: var(--color-gray-500);
 
 	text-decoration-line: underline;
-	text-decoration-color: var(--color-gray-300);
+	text-decoration-color: var(--color-gray-400);
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0.1em;
 	text-underline-offset: var(--space-2);

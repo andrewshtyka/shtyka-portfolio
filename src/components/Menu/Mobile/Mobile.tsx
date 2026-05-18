@@ -1,11 +1,4 @@
 // #region ============================== Imports
-"use client";
-
-import React from "react";
-
-// components
-import MenuLinkPrimary from "@/components/MenuLinkPrimary/MenuLinkPrimary";
-
 // styles
 import css from "./Mobile.module.css";
 
@@ -15,21 +8,30 @@ import MenuButton from "@/components/MenuButton/MenuButton";
 
 // #endregion ===========================
 
-export default function Mobile({ children, menuMobile }: Props) {
-	const [isOpened, setIsOpened] = React.useState(false);
+export default function Mobile({
+	children,
+	open,
+	close,
+	isMenuOpened,
+	onClick,
+}: Props) {
+	const appliedNavClasses = isMenuOpened
+		? `${css.children} bg_blur`
+		: `${css.children}`;
 
-	function handleClick() {
-		setIsOpened((currentIsOpened) => !currentIsOpened);
-	}
+	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 
 	return (
 		<div className={css.container}>
-			<MenuButton onClick={handleClick}>{menuMobile}</MenuButton>
+			<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
+				{isMenuOpened ? close : open}
+			</MenuButton>
+
 			<span
-				className={css.children}
-				style={{ display: isOpened ? "revert" : "none" }}
+				className={appliedNavClasses}
+				style={{ display: isMenuOpened ? "flex" : "none" }}
 			>
-				{isOpened && children}
+				{isMenuOpened && children}
 			</span>
 		</div>
 	);

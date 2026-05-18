@@ -45,3 +45,9 @@
 	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
 	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
 }
+
+@media (width < 600px) {
+	:root {
+		--offset-sections: calc(var(--space-19) + var(--space-12));
+	}
+}

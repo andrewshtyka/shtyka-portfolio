@@ -12,7 +12,7 @@ export default function IconArrowCurve({
 	// color
 	if (color === "white") appliedColor = "var(--color-base)";
 	else if (color === "black") appliedColor = "var(--color-gray-0)";
-	else if (color === "gray") appliedColor = "var(--color-gray-400)";
+	else if (color === "gray") appliedColor = "var(--color-gray-500)";
 	else appliedColor = "var(--color-base)";
 
 	// direction
