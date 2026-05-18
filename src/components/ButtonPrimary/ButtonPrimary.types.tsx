@@ -3,4 +3,5 @@ export interface Props {
 	href: string;
 	icon?: React.ReactNode;
 	fileName?: string;
+	isExternal?: boolean;
 }
