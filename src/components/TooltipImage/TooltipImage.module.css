@@ -1,0 +1,20 @@
+.container_image {
+	position: relative;
+	display: flex;
+	padding: 1rem;
+
+	--aspect: 16 / 9;
+
+	aspect-ratio: var(--aspect);
+	width: 80vmin;
+	height: auto;
+
+	background-color: var(--color-base-alpha-subtle);
+	border: var(--space-px) solid var(--color-base-alpha-muted);
+	border-radius: var(--border-radius-4);
+}
+
+.image {
+	aspect-ratio: var(--aspect);
+	border-radius: var(--border-radius-4);
+}

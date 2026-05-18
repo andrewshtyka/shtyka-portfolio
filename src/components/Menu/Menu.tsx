@@ -16,8 +16,8 @@ import { Props } from "./Menu.types";
 
 // #endregion ===========================
 
-export default function Menu({ lang, logo, menu, menuMobile }: Props) {
-	if (!lang || !logo || !menu || !menuMobile) return;
+export default function Menu({ lang, menu, menuMobile }: Props) {
+	if (!lang || !menu || !menuMobile) return;
 
 	const menuItems = menu.map((el) => {
 		return {
@@ -29,7 +29,7 @@ export default function Menu({ lang, logo, menu, menuMobile }: Props) {
 	return (
 		<header className={css.container}>
 			<div className={css.header}>
-				<Logo logo={logo} />
+				<Logo />
 
 				<Divider />
 

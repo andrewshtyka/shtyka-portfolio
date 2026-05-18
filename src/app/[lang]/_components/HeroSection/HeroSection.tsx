@@ -26,11 +26,13 @@ export default function HeroSection({ uiString }: Props) {
 	const ui = JSON.parse(uiString);
 
 	const buttonResumeData = {
-		text: ui.resume.title,
-		href: getFileAsset(ui.resume.file, {
-			projectId,
-			dataset,
-		}).url,
+		text: ui.resume.title ?? "",
+		href:
+			getFileAsset(ui.resume.file, {
+				projectId,
+				dataset,
+			}).url ?? "",
+		name: ui.fileName ?? "",
 	};
 
 	return (
@@ -85,7 +87,8 @@ export default function HeroSection({ uiString }: Props) {
 
 						<ButtonPrimary
 							href={buttonResumeData.href}
-							icon={<IconArrowCurve color="black" />}
+							icon={<IconArrowCurve color="black" direction="right" />}
+							fileName={buttonResumeData.name}
 						>
 							{buttonResumeData.text}
 						</ButtonPrimary>

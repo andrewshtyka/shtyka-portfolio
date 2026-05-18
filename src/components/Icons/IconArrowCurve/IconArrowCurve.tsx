@@ -1,18 +1,30 @@
 // types
 import { Props } from "./IconArrowCurve.types";
 
-export default function IconArrowCurve({ color = "white", size = 12 }: Props) {
+export default function IconArrowCurve({
+	color = "white",
+	size = 12,
+	direction = "down",
+}: Props) {
 	let appliedColor;
+	let appliedDirection;
 
+	// color
 	if (color === "white") appliedColor = "var(--color-base)";
 	else if (color === "black") appliedColor = "var(--color-gray-0)";
 	else if (color === "gray") appliedColor = "var(--color-gray-400)";
 	else appliedColor = "var(--color-base)";
 
+	// direction
+	if (direction === "down") appliedDirection = {};
+	else if (direction === "right")
+		appliedDirection = { transform: "scaleX(-1)", rotate: "-90deg" };
+
 	return (
 		<svg
 			width={size}
 			height={size}
+			style={appliedDirection}
 			viewBox="0 0 16 16"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

@@ -19,12 +19,6 @@
 	}
 }
 
-.p {
-	& span {
-		color: var(--color-gray-400);
-	}
-}
-
 .container_image {
 	display: inline-block;
 	margin-block-end: var(--space-10);

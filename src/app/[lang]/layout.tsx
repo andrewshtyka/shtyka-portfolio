@@ -1,5 +1,4 @@
 // #region ============================== Imports
-
 // components
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
 import Menu from "@/components/Menu/Menu";
@@ -11,6 +10,9 @@ import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
 
 // fonts
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
+
+// providers
+import { TooltipProvider } from "@/providers/TooltipProvider/TooltipProvider";
 
 // sanity
 import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
@@ -49,20 +51,20 @@ export default async function RootLayout({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 				> */}
-
-				<Menu
-					lang={lang}
-					logo={ui?.logoSvg}
-					menu={ui?.menu}
-					menuMobile={ui?.menuMobile}
-				/>
-				{children}
-				<ContactSection
-					message={ui?.contact.message}
-					title={ui?.contact.title}
-					video={ui?.contact.video}
-				/>
-				<Footer obj={ui?.footer} />
+				<TooltipProvider>
+					<Menu
+						lang={lang}
+						menu={ui?.menu}
+						menuMobile={ui?.menuMobile}
+					/>
+					{children}
+					<ContactSection
+						message={ui?.contact.message}
+						title={ui?.contact.title}
+						video={ui?.contact.video}
+					/>
+					<Footer obj={ui?.footer} />
+				</TooltipProvider>
 				{/* </LayoutTransition> */}
 			</body>
 		</html>
