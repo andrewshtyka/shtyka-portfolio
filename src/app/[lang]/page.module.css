@@ -1,3 +1,19 @@
 .container {
 	padding-inline: var(--offset-base);
 }
+
+.double {
+	display: flex;
+	flex-direction: column;
+	gap: var(--offset-base);
+	margin-block-end: var(--offset-sections);
+	max-width: var(--content-main-width-max);
+	margin-inline: auto;
+	height: fit-content;
+}
+
+@media (width >= 600px) {
+	.double {
+		flex-direction: row;
+	}
+}

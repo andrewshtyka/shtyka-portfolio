@@ -1,0 +1,9 @@
+.item {
+	margin-inline-end: calc(var(--space-3) + var(--space-px));
+}
+
+.container_icon {
+	position: relative;
+	bottom: var(--space-px);
+	margin-inline-end: var(--space-2);
+}

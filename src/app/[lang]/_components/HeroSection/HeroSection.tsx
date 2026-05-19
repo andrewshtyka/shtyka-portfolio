@@ -24,7 +24,6 @@ const { projectId, dataset } = client.config();
 export default function HeroSection({ uiString }: Props) {
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
-	// console.log(ui.video.poster);
 
 	const buttonResumeData = {
 		text: ui.resume.title ?? "",

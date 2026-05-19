@@ -55,12 +55,7 @@ export default async function RootLayout({
 				<TooltipProvider>
 					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
 					{children}
-					<ContactSection
-						uiString={contactString}
-						// message={ui?.contact.message}
-						// title={ui?.contact.title}
-						// video={ui?.contact.video}
-					/>
+					<ContactSection uiString={contactString} />
 					<Footer obj={ui?.footer} />
 				</TooltipProvider>
 				{/* </LayoutTransition> */}

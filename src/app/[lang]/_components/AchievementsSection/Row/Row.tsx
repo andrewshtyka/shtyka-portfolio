@@ -35,6 +35,9 @@ export default function Row({ achievement, num }: RowProps) {
 		imgAlt_2 = data.srcArr[1].alt;
 	}
 
+	// TODO
+	// Replace "any" type
+
 	return (
 		<>
 			<div className={css.line}></div>

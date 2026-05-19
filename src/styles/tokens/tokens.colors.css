@@ -21,7 +21,8 @@
 	--color-gray-500: hsl(227, 15%, 64%);
 	--color-gray-900: #d3d5dc;
 
-	--color-blue: #58a0ff;
+	--color-blue-light: #58a0ff;
+	--color-blue-saturated: #0009FF;
 }
 
 .invert_colors {

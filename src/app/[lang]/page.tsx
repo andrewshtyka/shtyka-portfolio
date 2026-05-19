@@ -61,7 +61,7 @@ export default async function HomePage({ params }: Props) {
 	const uiStringExperience = JSON.stringify(ui?.experience);
 	const uiStringAchievements = JSON.stringify(ui?.achievements);
 	const uiStringClients = JSON.stringify(ui?.clients);
-	const uiStringResume = JSON.stringify([ui?.resume, ui?.file]);
+	const uiStringResume = JSON.stringify([ui?.resume, ui?.file, ui?.fileName]);
 	const uiStringProjects = JSON.stringify(ui?.projects);
 	const uiStringExperiments = JSON.stringify([
 		ui?.experiments,
@@ -92,8 +92,12 @@ export default async function HomePage({ params }: Props) {
 				<AboutSection uiString={uiStringAbout} />
 				<ExperienceSection uiString={uiStringExperience} />
 				<AchievementsSection uiString={uiStringAchievements} />
-				<ClientsSection uiString={uiStringClients} />
-				<ResumeSection uiString={uiStringResume} />
+
+				<div className={css.double}>
+					<ClientsSection uiString={uiStringClients} />
+					<ResumeSection uiString={uiStringResume} />
+				</div>
+
 				<ProjectsSection
 					uiString={uiStringProjects}
 					projectsString={homeProjectsString}
