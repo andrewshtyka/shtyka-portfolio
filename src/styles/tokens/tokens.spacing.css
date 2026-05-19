@@ -37,9 +37,15 @@
 
 	/* Distances */
 	--offset-sections: calc(var(--space-17) + var(--space-19)); /* 208px */
+	--offset-sections-large: calc(var(--space-17) * 2); /* 160px */
+	--offset-sections-mid: var(--space-19); /* 128px */
+	--offset-sections-small: var(--space-17); /* 80px */
+
 	--offset-base: var(--space-10); /* 20px */
 	--offset-button-primary: var(--space-9); /* 18px */
 	--offset-button-secondary: var(--space-6); /* 12px */
+
+	--table-col-1-width: calc(var(--space-19) - var(--space-4)); /* 120px */
 
 	/* Content width */
 	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
@@ -48,6 +54,9 @@
 
 @media (width < 600px) {
 	:root {
-		--offset-sections: calc(var(--space-19) + var(--space-12));
+		--offset-sections: calc(var(--space-17) * 2); /* 160px */
+		--offset-sections-large: var(--space-19); /* 128px */
+		--offset-sections-mid: var(--space-17); /* 80px */
+		--offset-sections-small: var(--space-15); /* 56px */
 	}
 }

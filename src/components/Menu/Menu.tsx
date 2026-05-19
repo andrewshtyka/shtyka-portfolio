@@ -8,7 +8,7 @@ import Desktop from "./Desktop/Desktop";
 import Mobile from "./Mobile/Mobile";
 import Logo from "../Logo/Logo";
 import Navigation from "./Navigation/Navigation";
-import Divider from "./Divider/Divider";
+import Divider from "../Divider/Divider";
 
 // hooks
 import useMediaQueryListener from "@/hooks/useMediaQueryListener";

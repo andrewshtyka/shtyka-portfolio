@@ -35,6 +35,9 @@ export default function HeroSection({ uiString }: Props) {
 		name: ui.fileName ?? "",
 	};
 
+	// TODO
+	// Nulish coalescing - for checking if data is ok (and to not render if it's not ok)
+
 	return (
 		<section className={css.container}>
 			<Video video={ui.video.video} poster={ui.video.poster} />

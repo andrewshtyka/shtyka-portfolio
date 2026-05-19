@@ -1,9 +1,8 @@
-interface Props {
-	obj: unknown;
-}
+// types
+import { Props } from "./Footer.types";
 
-export default function Footer({ obj }: Props) {
-	if (!obj || typeof obj !== "object") return;
+export default function Footer({ obj: ui }: Props) {
+	if (!ui || typeof ui !== "object") return;
 
 	return <></>;
 }

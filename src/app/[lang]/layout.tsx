@@ -40,6 +40,7 @@ export default async function RootLayout({
 		params: { lang },
 		tags: SANITY_UI_TAGS,
 	});
+	const contactString = JSON.stringify(ui?.contact);
 
 	return (
 		<html lang={lang}>
@@ -52,16 +53,13 @@ export default async function RootLayout({
 					exit={{ opacity: 0 }}
 				> */}
 				<TooltipProvider>
-					<Menu
-						lang={lang}
-						menu={ui?.menu}
-						menuMobile={ui?.menuMobile}
-					/>
+					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
 					{children}
 					<ContactSection
-						message={ui?.contact.message}
-						title={ui?.contact.title}
-						video={ui?.contact.video}
+						uiString={contactString}
+						// message={ui?.contact.message}
+						// title={ui?.contact.title}
+						// video={ui?.contact.video}
 					/>
 					<Footer obj={ui?.footer} />
 				</TooltipProvider>

@@ -2,6 +2,7 @@
 	max-width: var(--content-main-width-max);
 	margin-inline: auto;
 	padding-block-start: var(--offset-sections);
+	padding-block-end: var(--offset-sections-mid);
 }
 
 .content {

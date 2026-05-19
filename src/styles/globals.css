@@ -45,6 +45,12 @@ body {
 	letter-spacing: var(--letter-spacing-serif);
 	text-transform: capitalize;
 }
+@media (width >= 600px) {
+	.f_serif_secondary {
+		font-size: var(--font-size-7);
+		font-variation-settings: "opsz" 40;
+	}
+}
 
 .f_display_subtitle {
 	font-family: var(--font-display);
