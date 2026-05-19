@@ -54,9 +54,12 @@
 
 @media (width < 600px) {
 	:root {
+		/* Distances */
 		--offset-sections: calc(var(--space-17) * 2); /* 160px */
 		--offset-sections-large: var(--space-19); /* 128px */
 		--offset-sections-mid: var(--space-17); /* 80px */
 		--offset-sections-small: var(--space-15); /* 56px */
+
+		--offset-base: var(--space-8); /* 16px */
 	}
 }

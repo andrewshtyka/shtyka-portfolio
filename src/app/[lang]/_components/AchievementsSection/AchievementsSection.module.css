@@ -1,7 +1,7 @@
 .container {
+	border: var(--space-px) solid var(--color-gray-200);
 	border-radius: var(--border-radius-4);
-	background-color: var(--color-base);
-	color: var(--color-gray-0);
+	background-color: var(--color-gray-100);
 
 	padding: var(--offset-base);
 	margin-block-end: var(--offset-base);
@@ -11,29 +11,12 @@
 }
 
 .title {
-	display: block;
 	margin-block-end: var(--space-16);
 }
 
 .grid {
 	display: grid;
-	grid-template-columns: 1fr;
-}
-
-@media (width >= 600px) {
-	.grid {
-		grid-template-columns: var(--table-col-1-width) 1fr;
-	}
-}
-
-.grid.head {
-	display: none;
-}
-
-@media (width >= 600px) {
-	.grid.head {
-		display: grid;
-	}
+	grid-template-columns: var(--table-col-1-width) 1fr;
 }
 
 .table_head_item {

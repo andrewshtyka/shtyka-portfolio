@@ -1,7 +1,7 @@
 // #region ============================== Imports
 
 // components
-import Video from "./_components/Video";
+import Video from "./Video/Video";
 import Tag from "@/components/Tag/Tag";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
@@ -24,6 +24,7 @@ const { projectId, dataset } = client.config();
 export default function HeroSection({ uiString }: Props) {
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
+	// console.log(ui.video.poster);
 
 	const buttonResumeData = {
 		text: ui.resume.title ?? "",

@@ -20,6 +20,7 @@ export default function Row({ duration, years, role, company }: RowProps) {
 						<span>{duration}</span>
 					</span>
 				</div>
+
 				{/* col 2 */}
 				<div className={css.col_right}>
 					<span className={`${css.role} f_display_body`}>{role}</span>

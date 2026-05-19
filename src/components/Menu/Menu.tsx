@@ -56,6 +56,9 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 		};
 	});
 
+	// TODO
+	// Inverty menu colors on white bg
+
 	return (
 		<header className={css.container}>
 			<div className={css.header} style={menuOpenedStyles.header}>

@@ -1,3 +1,6 @@
+// styles
+import css from "./IconArrowCurve.module.css";
+
 // types
 import { Props } from "./IconArrowCurve.types";
 
@@ -28,6 +31,7 @@ export default function IconArrowCurve({
 			viewBox="0 0 16 16"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			className={css.svg}
 		>
 			<path
 				fill={appliedColor}

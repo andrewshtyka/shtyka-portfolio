@@ -38,17 +38,17 @@ body {
 
 .f_serif_secondary {
 	font-family: var(--font-serif);
-	font-size: var(--font-size-8);
+	font-size: var(--font-size-7);
 	font-weight: 400;
-	font-variation-settings: "opsz" 60;
+	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-serif);
 	text-transform: capitalize;
 }
 @media (width >= 600px) {
 	.f_serif_secondary {
-		font-size: var(--font-size-7);
-		font-variation-settings: "opsz" 40;
+		font-size: var(--font-size-8);
+		font-variation-settings: "opsz" 60;
 	}
 }
 

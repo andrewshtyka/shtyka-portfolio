@@ -23,6 +23,9 @@ import {
 // sanity
 import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
 
+// styles
+import css from "./page.module.css";
+
 // types
 import type { Metadata } from "next";
 
@@ -84,19 +87,22 @@ export default async function HomePage({ params }: Props) {
 	return (
 		<main>
 			<HeroSection uiString={uiStringHero} />
-			<AboutSection uiString={uiStringAbout} />
-			<ExperienceSection uiString={uiStringExperience} />
-			<AchievementsSection uiString={uiStringAchievements} />
-			<ClientsSection uiString={uiStringClients} />
-			<ResumeSection uiString={uiStringResume} />
-			<ProjectsSection
-				uiString={uiStringProjects}
-				projectsString={homeProjectsString}
-			/>
-			<ExperimentsSection
-				uiString={uiStringExperiments}
-				experimentsString={homeExperimentsString}
-			/>
+
+			<div className={css.container}>
+				<AboutSection uiString={uiStringAbout} />
+				<ExperienceSection uiString={uiStringExperience} />
+				<AchievementsSection uiString={uiStringAchievements} />
+				<ClientsSection uiString={uiStringClients} />
+				<ResumeSection uiString={uiStringResume} />
+				<ProjectsSection
+					uiString={uiStringProjects}
+					projectsString={homeProjectsString}
+				/>
+				<ExperimentsSection
+					uiString={uiStringExperiments}
+					experimentsString={homeExperimentsString}
+				/>
+			</div>
 		</main>
 	);
 }

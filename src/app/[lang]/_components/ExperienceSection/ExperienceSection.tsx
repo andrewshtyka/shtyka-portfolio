@@ -21,7 +21,7 @@ export default function ExperienceSection({ uiString }: Props) {
 
 			<div>
 				{/* head */}
-				<div className={css.grid}>
+				<div className={`${css.grid} ${css.head}`}>
 					<span className={`${css.table_head_item} f_mono`}>
 						{ui?.header.col1}
 					</span>
