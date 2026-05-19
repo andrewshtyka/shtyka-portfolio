@@ -14,3 +14,24 @@ npm install
 - React 19
 - TypeScript
 - Motion (ex Framer Motion)
+
+# Antigrafile components
+
+### Hero
+- [x] Menu
+    - [x] Logo
+    - [x] Desktop nav
+    - [x] Mobile nav
+    - [x] Langswitcher
+
+- Hero video
+- Texts
+- Tags
+- Button
+
+### About
+- Texts
+- Links
+- Tooltips (+ images)
+
+...

@@ -13,19 +13,21 @@ export default function LinkText({
 	hasIcon = true,
 	iconSize = 16,
 }: Props) {
-	return (
-		<a href={href} className={css.link}>
-			{hasIcon && (
-				<span
-					className={css.icon}
-					style={{
-						marginInline: iconSize / 2,
-					}}
-				>
-					<IconArrowCurve direction="right" color="gray" size={iconSize} />
-				</span>
-			)}
-			{children}
-		</a>
-	);
+	if (href && children) {
+		return (
+			<a href={href} className={css.link}>
+				{hasIcon && (
+					<span
+						className={css.icon}
+						style={{
+							marginInline: iconSize / 2,
+						}}
+					>
+						<IconArrowCurve direction="right" color="gray" size={iconSize} />
+					</span>
+				)}
+				{children}
+			</a>
+		);
+	} else return;
 }

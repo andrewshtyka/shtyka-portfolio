@@ -1,5 +1,6 @@
-// #region ============================== Imports
 "use client";
+
+// #region ============================== Imports
 
 // components
 import MenuLinkPrimary from "../MenuLinkPrimary/MenuLinkPrimary";

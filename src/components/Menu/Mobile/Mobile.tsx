@@ -21,18 +21,21 @@ export default function Mobile({
 
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 
-	return (
-		<div className={css.container}>
-			<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
-				{isMenuOpened ? close : open}
-			</MenuButton>
+	if (!open || !close) return;
+	else {
+		return (
+			<div className={css.container}>
+				<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
+					{isMenuOpened ? close : open}
+				</MenuButton>
 
-			<span
-				className={appliedNavClasses}
-				style={{ display: isMenuOpened ? "flex" : "none" }}
-			>
-				{isMenuOpened && children}
-			</span>
-		</div>
-	);
+				<span
+					className={appliedNavClasses}
+					style={{ display: isMenuOpened ? "flex" : "none" }}
+				>
+					{isMenuOpened && children}
+				</span>
+			</div>
+		);
+	}
 }

@@ -18,7 +18,7 @@ export default function Row({ achievement, num }: RowProps) {
 		titleArr: ui[0]?.children ?? "",
 		subtitleArr: ui[1]?.children ?? "",
 		hrefArr: ui[1]?.markDefs ?? "",
-		srcArr: ui.slice(2).length > 0 && ui.slice(2),
+		srcArr: ui.slice(2)?.length > 0 ? ui.slice(2) : "",
 	};
 
 	// URLs for images (last achievement)
@@ -28,15 +28,18 @@ export default function Row({ achievement, num }: RowProps) {
 	let imgAlt_2: string;
 
 	if (data.srcArr) {
-		imgUrl_1 = getUrlForImage(data.srcArr[0].image)?.url() ?? "";
-		imgUrl_2 = getUrlForImage(data.srcArr[1].image)?.url() ?? "";
+		imgUrl_1 = getUrlForImage(data?.srcArr[0]?.image)?.url() ?? "";
+		imgUrl_2 = getUrlForImage(data?.srcArr[1]?.image)?.url() ?? "";
 
-		imgAlt_1 = data.srcArr[0].alt;
-		imgAlt_2 = data.srcArr[1].alt;
+		imgAlt_1 = data?.srcArr[0]?.alt ?? "";
+		imgAlt_2 = data?.srcArr[1]?.alt ?? "";
 	}
 
 	// TODO
 	// Replace "any" type
+
+	// TODO
+	// Check all components - make sure site doesn't fail if some data is not passed
 
 	return (
 		<>
@@ -61,7 +64,7 @@ export default function Row({ achievement, num }: RowProps) {
 					{/* subtitle */}
 					<span className={`${css.subtitle} f_display_body`}>
 						{data.subtitleArr.map((item: any, i: number) => {
-							if (data.hrefArr.length > 0) {
+							if (data?.hrefArr?.length > 0) {
 								// link
 								return (
 									<LinkText key={i} href={data.hrefArr[0].href} iconSize={12}>

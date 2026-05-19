@@ -28,6 +28,9 @@ export default function ResumeSection({ uiString }: Props) {
 		fileName: fileName,
 	};
 
+	// TODO
+	// Add poster for video
+
 	return (
 		<a
 			href={`${data.href}/${data.fileName}`}

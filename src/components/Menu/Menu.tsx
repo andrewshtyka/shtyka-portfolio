@@ -57,7 +57,7 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	});
 
 	// TODO
-	// Inverty menu colors on white bg
+	// Invert menu colors on white bg
 
 	return (
 		<header className={css.container}>
@@ -73,8 +73,8 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 				<Divider isHiddenOnMobile={true} />
 
 				<Mobile
-					open={menuMobile.open}
-					close={menuMobile.close}
+					open={menuMobile?.open}
+					close={menuMobile?.close}
 					isMenuOpened={isMenuOpened}
 					onClick={toggleMenuMobile}
 				>
