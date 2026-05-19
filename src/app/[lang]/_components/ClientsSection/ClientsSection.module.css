@@ -9,7 +9,7 @@
 
 .title_1 {
 	display: block;
-	margin-block-end: var(--space-2);
+	margin-block-end: var(--offset-title-serif-secondary);
 }
 
 .title_2 {

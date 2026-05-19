@@ -1,23 +1,21 @@
-// #region ============================== Imports
-
+// #region ============================== imports
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
 import { client } from "@/sanity/lib/client";
 
 // styles
-import css from "./Video.module.css";
+import css from "./VideoProject.module.css";
 
 // types
-import { Props } from "./Video.types";
+import { Props } from "./VideoProject.types";
 
 // utils
 import getUrlForImage from "@/lib/util/getUrlForImage";
-
 // #endregion ===========================
 
 const { projectId, dataset } = client.config();
 
-export default function Video({ video, poster }: Props) {
+export default function VideoProject({ video, poster }: Props) {
 	const videoUrl = getFileAsset(video, {
 		projectId,
 		dataset,
@@ -27,11 +25,17 @@ export default function Video({ video, poster }: Props) {
 
 	return (
 		<div className={css.container}>
-			<video autoPlay muted loop playsInline width="100%" poster={posterUrl}>
+			<video
+				autoPlay
+				muted
+				loop
+				playsInline
+				width="100%"
+				height="100%"
+				poster={posterUrl}
+			>
 				<source src={videoUrl} type="video/mp4" />
 			</video>
-			<div className={css.overlay_top}></div>
-			<div className={css.overlay_bottom}></div>
 		</div>
 	);
 }

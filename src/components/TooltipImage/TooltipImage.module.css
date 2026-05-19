@@ -11,7 +11,7 @@
 
 	background-color: var(--color-gray-alpha-subtle);
 
-	border: var(--space-px) solid var(--color-base-alpha-muted);
+	border: var(--space-px) solid var(--color-gray-200);
 	border-radius: var(--border-radius-4);
 
 	margin-inline: var(--offset-base);

@@ -63,3 +63,8 @@ export default async function RootLayout({
 		</html>
 	);
 }
+
+/**
+ * TODO
+ * Add vignette on top and bottom (when scroll on pages)
+ */
