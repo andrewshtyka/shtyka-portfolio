@@ -24,15 +24,20 @@ export const SANITY_HOME_TAGS = [sanityPageTypes.home];
 
 /**
  * Fetch projects (on home page)
+ *
+ * order(releaseDate asc) = shows oldest on top
+ * change "asc" to "desc" to show newest on top
  */
 export const SANITY_HOME_PROJECTS_QUERY = `
-*[_type == "${sanityPageTypes.project}" && language == $lang]{
+*[_type == "${sanityPageTypes.project}" && language == $lang]| order(releaseDate asc)
+{
+	"title": title,
 	"about": about,
 	"details": details,
 	"heroVideo": heroVideo,
 	"_id": _id,
 	"slug": slug
-	}
+}
 `;
 export const SANITY_HOME_PROJECTS_TAGS = [sanityPageTypes.project];
 

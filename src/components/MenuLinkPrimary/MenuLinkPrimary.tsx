@@ -18,7 +18,7 @@ export default function MenuLinkPrimary({
 
 	const classes = `${css.base} ${transparencyClass}`;
 
-	if (!href || !children) return;
+	if (!href || !children) return null;
 	else {
 		return (
 			<Link href={href} className={`f_display_buttons f_semibold ${classes}`}>

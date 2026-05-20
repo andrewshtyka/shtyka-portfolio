@@ -1,9 +1,10 @@
 .item {
-	margin-inline-end: calc(var(--space-3) + var(--space-px));
+	display: flex;
+	width: fit-content;
 }
 
 .container_icon {
 	position: relative;
 	bottom: var(--space-px);
-	margin-inline-end: var(--space-2);
+	margin-inline-end: var(--space-3);
 }

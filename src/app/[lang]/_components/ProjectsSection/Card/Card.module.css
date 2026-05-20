@@ -1,3 +1,64 @@
-.container {
+.container_video {
+	margin-block-end: var(--space-11);
+}
+
+.container_details {
+	max-width: var(--content-main-width-max);
 	width: 100%;
+	margin-inline: auto;
+}
+
+.top {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-block-end: var(--space-8);
+}
+
+/* 
+TODO
+In sanity schema - add description to limit max amount of characters for subtitile to 40-45
+*/
+
+.subtitle {
+	margin-block-end: var(--space-1);
+	max-width: 20ch;
+	text-align: right;
+}
+
+.bottom {
+	padding-block: var(--space-10);
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: var(--offset-base);
+}
+
+.column_1 {
+	grid-column: 1 / 2;
+}
+
+.column_2 {
+	grid-column: 2 / 3;
+}
+
+.column_3 {
+	grid-column: 3 / -1;
+}
+
+.right {
+	justify-items: flex-end;
+}
+
+.column_title {
+	color: var(--color-gray-450);
+	margin-block-end: var(--space-6);
+}
+
+.list {
+	width: fit-content;
+}
+
+.list > :not(:last-child) {
+	margin-block-end: var(--space-2);
 }

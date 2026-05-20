@@ -9,6 +9,7 @@ import css from "./Row.module.css";
 // types
 import { RowProps } from "./Row.types";
 import getUrlForImage from "@/lib/util/getUrlForImage";
+import Divider from "@/components/Divider/Divider";
 // #endregion ===========================
 
 export default function Row({ achievement, num }: RowProps) {
@@ -43,7 +44,7 @@ export default function Row({ achievement, num }: RowProps) {
 
 	return (
 		<>
-			<div className={css.line}></div>
+			<Divider isHorizontal={true} willHide={false} />
 
 			<div className={`${css.grid} ${css.distance}`}>
 				{/* number */}

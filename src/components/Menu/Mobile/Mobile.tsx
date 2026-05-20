@@ -21,7 +21,7 @@ export default function Mobile({
 
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 
-	if (!open || !close) return;
+	if (!open || !close) return null;
 	else {
 		return (
 			<div className={css.container}>

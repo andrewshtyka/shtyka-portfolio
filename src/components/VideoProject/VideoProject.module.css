@@ -2,7 +2,7 @@
 	display: flex;
 
 	border-radius: var(--border-radius-4);
-	border: var(--space-px) solid var(--color-gray-200);
+	border: var(--space-px) solid var(--color-base-alpha-muted);
 
 	overflow: hidden;
 

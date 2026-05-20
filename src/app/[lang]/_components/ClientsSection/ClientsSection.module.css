@@ -19,5 +19,6 @@
 .list {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--space-3);
+	column-gap: var(--space-8);
+	row-gap: var(--space-3);
 }

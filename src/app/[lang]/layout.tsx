@@ -43,7 +43,7 @@ export default async function RootLayout({
 	const contactString = JSON.stringify(ui?.contact);
 
 	return (
-		<html lang={lang}>
+		<html lang={lang} data-scroll-behavior="smooth">
 			<body
 				className={`${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`}
 			>

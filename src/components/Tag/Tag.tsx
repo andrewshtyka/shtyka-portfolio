@@ -4,12 +4,12 @@ import css from "./Tag.module.css";
 // types
 import { Props } from "./Tag.types";
 
-export default function Tag({ children, href }: Props) {
+export default function Tag({ children = "", href }: Props) {
+	if (!href) return null;
+
 	return (
-		<span className={css.container}>
-			<a href={href} className="f_mono">
-				{children}
-			</a>
-		</span>
+		<a href={href} className={`${css.container} f_mono`}>
+			{children}
+		</a>
 	);
 }

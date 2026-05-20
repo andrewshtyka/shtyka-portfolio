@@ -62,7 +62,7 @@ export default async function HomePage({ params }: Props) {
 	const uiStringAchievements = JSON.stringify(ui?.achievements);
 	const uiStringClients = JSON.stringify(ui?.clients);
 	const uiStringResume = JSON.stringify([ui?.resume, ui?.file, ui?.fileName]);
-	const uiStringProjects = JSON.stringify(ui?.projects);
+	const uiStringProjects = JSON.stringify([ui?.projects, ui?.buttonTitle]);
 	const uiStringExperiments = JSON.stringify([
 		ui?.experiments,
 		ui?.buttonTitle,

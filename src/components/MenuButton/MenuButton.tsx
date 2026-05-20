@@ -6,7 +6,7 @@ import { Props } from "./MenuButton.types";
 
 export default function MenuButton({
 	onClick,
-	children,
+	children = "",
 	customClass = "",
 }: Props) {
 	const classes = `${css.base} ${customClass}`;

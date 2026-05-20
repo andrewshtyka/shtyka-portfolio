@@ -8,11 +8,12 @@ import css from "./ProjectsSection.module.css";
 // types
 import { Props } from "./ProjectsSection.types";
 
-export default function ProjectsSection({ projectsString, uiString }: Props) {
+export default function ProjectsSection({ uiString, projectsString }: Props) {
 	if (!projectsString || typeof projectsString !== "string") return;
 	if (!uiString || typeof uiString !== "string") return;
 
-	const ui = JSON.parse(uiString);
+	const [ui, buttonTitle] = JSON.parse(uiString);
+
 	const projects = JSON.parse(projectsString);
 
 	const dataTitle = {
@@ -50,7 +51,11 @@ export default function ProjectsSection({ projectsString, uiString }: Props) {
 			{/* projects */}
 			<ul className={css.list}>
 				{dataProjects.map(({ key, data }: { key: string; data: string }) => (
-					<Card key={key} uiString={JSON.stringify(data)} />
+					<Card
+						key={key}
+						uiString={JSON.stringify(data)}
+						buttonTitle={buttonTitle}
+					/>
 				))}
 			</ul>
 		</section>

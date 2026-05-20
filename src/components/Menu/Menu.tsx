@@ -28,9 +28,9 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	const menuItemId = React.useId();
 
 	// close menu automatically on resize
-	useMediaQueryListener(setIsMenuOpened);
+	useMediaQueryListener(setIsMenuOpened, 768);
 
-	if (!lang || !menu || !menuMobile) return;
+	if (!lang || !menu || !menuMobile) return null;
 
 	function toggleMenuMobile() {
 		setIsMenuOpened((currentIsMenuOpened) => !currentIsMenuOpened);

@@ -8,10 +8,26 @@ export default function Divider({
 	isHiddenOnMobile = false,
 	isHorizontal = false,
 	style = {},
+	willHide = true,
 }: Props) {
 	const visibilityClass = isHiddenOnMobile ? "mob_hidden_768" : "";
 
-	const classesContainer = `${css.container} ${visibilityClass} ${isHorizontal ? css.container_horizontal : css.container_vertical}`;
+	let classesContainer;
+
+	if (willHide) {
+		const classes = isHorizontal
+			? `${css.container_horizontal} ${css.horizontal_padding}`
+			: `${css.container_vertical} ${css.vertical_padding}`;
+
+		classesContainer = `${css.container} ${visibilityClass} ${classes}`;
+	} else {
+		const classes = isHorizontal
+			? `${css.container_horizontal}`
+			: `${css.container_vertical}`;
+
+		classesContainer = `${css.container} ${visibilityClass} ${classes}`;
+	}
+
 	const classesLine = `${css.line} ${visibilityClass} ${isHorizontal ? css.line_horizontal : css.line_vertical}`;
 
 	return (

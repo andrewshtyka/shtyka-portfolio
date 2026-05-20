@@ -8,14 +8,25 @@ import css from "./ButtonPrimary.module.css";
 import { Props } from "./ButtonPrimary.types";
 
 export default function ButtonPrimary({
-	children,
+	children = "",
 	href,
 	icon,
-	fileName,
+	fileName = "",
 	isExternal = true,
 }: Props) {
 	const classesLink = `f_display_buttons ${css.button} `;
 	const classesChildren = `${css.children} ${css.space_between}`;
+
+	if (!href) {
+		return (
+			<span className={classesLink}>
+				<span className={classesChildren}>
+					{children}
+					{icon && icon}
+				</span>
+			</span>
+		);
+	}
 
 	if (isExternal) {
 		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;
@@ -28,16 +39,18 @@ export default function ButtonPrimary({
 			>
 				<span className={classesChildren}>
 					{children}
-					{icon}
+					{icon && icon}
 				</span>
 			</a>
 		);
 	} else {
-		return <Link href={href} className={classesLink}>
-			<span className={classesChildren}>
-				{children}
-				{icon}
-			</span>
-		</Link>;
+		return (
+			<Link href={href} className={classesLink}>
+				<span className={classesChildren}>
+					{children}
+					{icon && icon}
+				</span>
+			</Link>
+		);
 	}
 }

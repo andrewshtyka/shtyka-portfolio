@@ -6,7 +6,7 @@ import css from "./Navigation.module.css";
 import { Props } from "./Navigation.types";
 
 export default function Navigation({ menuItems }: Props) {
-	if (!menuItems) return;
+	if (!menuItems) return null;
 
 	return (
 		<nav className={css.nav}>
