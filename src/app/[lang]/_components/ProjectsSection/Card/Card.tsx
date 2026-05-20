@@ -25,6 +25,9 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 	const details_2 = processDetailsData(ui?.details[1]?.content);
 	const details_3 = processDetailsData(ui?.details[2]?.content);
 
+	// TODO
+	// Make mobile adaptation
+
 	return (
 		<li className={css.container}>
 			{/* video */}

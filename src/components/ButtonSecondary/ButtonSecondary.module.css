@@ -1,0 +1,55 @@
+/* 
+TODO
+Add extra hover area for button
+*/
+
+.button {
+	display: flex;
+
+	background-color: var(--color-gray-alpha-subtle);
+	border: var(--space-px) solid var(--color-base-alpha-mid);
+	border-radius: var(--border-radius-4);
+
+	padding: var(--offset-button-tetriary);
+	padding-inline-start: var(--offset-button-tetriary);
+	width: fit-content;
+
+	backdrop-filter: blur(24px);
+}
+
+.items {
+	display: flex;
+	align-items: center;
+	gap: var(--space-6);
+
+	width: 100%;
+}
+
+.space_between {
+	justify-content: space-between;
+}
+
+.hidden_letter {
+	position: relative;
+	left: 50%;
+	visibility: hidden;
+	cursor: none;
+}
+
+.icon {
+	position: relative;
+	bottom: var(--space-px);
+	left: calc(var(--space-2) + var(--space-px));
+}
+
+.text {
+	display: none;
+}
+
+.button:hover .text {
+	display: initial;
+}
+
+.button:hover {
+	padding-inline-start: calc(var(--offset-button-tetriary) + var(--space-2));
+}

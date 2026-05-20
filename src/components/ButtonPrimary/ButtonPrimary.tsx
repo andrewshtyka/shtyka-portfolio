@@ -17,17 +17,7 @@ export default function ButtonPrimary({
 	const classesLink = `f_display_buttons ${css.button} `;
 	const classesChildren = `${css.children} ${css.space_between}`;
 
-	if (!href) {
-		return (
-			<span className={classesLink}>
-				<span className={classesChildren}>
-					{children}
-					{icon && icon}
-				</span>
-			</span>
-		);
-	}
-
+	if (!href) return null;
 	if (isExternal) {
 		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;
 		return (

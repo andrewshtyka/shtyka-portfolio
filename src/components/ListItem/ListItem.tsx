@@ -15,7 +15,7 @@ export default function ListItem({ children, hasIcon = true }: Props) {
 					<IconAsterisk color="gray" size={8} />
 				</span>
 			)}
-			<span className={`f_mono`}>{children}</span>
+			<span className={`${css.children} f_mono`}>{children}</span>
 		</li>
 	);
 }

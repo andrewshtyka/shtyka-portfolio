@@ -56,6 +56,7 @@ export default async function HomePage({ params }: Props) {
 		params: { lang },
 		tags: SANITY_HOME_TAGS,
 	});
+
 	const uiStringHero = JSON.stringify(ui?.hero);
 	const uiStringAbout = JSON.stringify(ui?.about);
 	const uiStringExperience = JSON.stringify(ui?.experience);
@@ -63,10 +64,7 @@ export default async function HomePage({ params }: Props) {
 	const uiStringClients = JSON.stringify(ui?.clients);
 	const uiStringResume = JSON.stringify([ui?.resume, ui?.file, ui?.fileName]);
 	const uiStringProjects = JSON.stringify([ui?.projects, ui?.buttonTitle]);
-	const uiStringExperiments = JSON.stringify([
-		ui?.experiments,
-		ui?.buttonTitle,
-	]);
+	const uiStringExperiments = JSON.stringify(ui?.experiments);
 
 	// fetch Projects (preview)
 	const projects = await sanityFetchData({

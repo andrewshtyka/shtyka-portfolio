@@ -60,5 +60,5 @@ In sanity schema - add description to limit max amount of characters for subtiti
 }
 
 .list > :not(:last-child) {
-	margin-block-end: var(--space-2);
+	margin-block-end: var(--space-1);
 }

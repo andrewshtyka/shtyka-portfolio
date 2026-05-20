@@ -44,6 +44,7 @@
 	--offset-base: var(--space-10); /* 20px */
 	--offset-button-primary: var(--space-9); /* 18px */
 	--offset-button-secondary: var(--space-6); /* 12px */
+	--offset-button-tetriary: var(--space-4); /* 8px */
 
 	--table-col-1-width: calc(var(--space-19) - var(--space-4)); /* 120px */
 
@@ -53,6 +54,12 @@
 	/* Content width */
 	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
 	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
+
+	/* Sizes */
+	--width-card-experiment: calc(
+		(var(--content-wide-width-max) - var(--offset-base) * 2) / 3
+	);
+	--height-card-experiment: calc(var(--space-20) * 2);
 }
 
 @media (width < 600px) {

@@ -1,6 +1,8 @@
 .container {
 	max-width: var(--content-wide-width-max);
 	margin-inline: auto;
+
+	margin-block-end: var(--offset-sections);
 }
 
 .container_title {
@@ -26,5 +28,5 @@
 .list {
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--offset-sections-small);
+	row-gap: var(--offset-sections-mid);
 }

@@ -2,7 +2,7 @@
 	/* Colors */
 	--color-base: #ebedf5;
 	--color-base-alpha-heavy: rgba(235, 237, 245, 0.5);
-	--color-base-alpha-inderline: rgba(235, 237, 245, 0.32);
+	--color-base-alpha-underline: rgba(235, 237, 245, 0.32);
 	--color-base-alpha-mid: rgba(235, 237, 245, 0.2);
 	--color-base-alpha-muted: rgba(235, 237, 245, 0.16);
 	--color-base-alpha-subtle: rgba(235, 237, 245, 0.06);

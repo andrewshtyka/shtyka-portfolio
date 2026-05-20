@@ -1,0 +1,35 @@
+.container {
+	max-width: var(--content-wide-width-max);
+	width: 100%;
+	margin-inline: auto;
+
+	margin-block-end: var(--offset-sections);
+}
+
+.title {
+	width: fit-content;
+	margin-inline: auto;
+	margin-block-end: var(--space-12);
+}
+
+.subtitle {
+	width: fit-content;
+	margin-inline: auto;
+	margin-block-end: var(--space-12);
+	max-width: 40ch;
+	text-align: center;
+}
+
+.icons {
+	display: flex;
+	column-gap: var(--space-1);
+	width: fit-content;
+	margin-inline: auto;
+	margin-block-end: var(--space-13);
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--offset-base);
+}

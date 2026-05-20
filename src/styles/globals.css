@@ -26,7 +26,6 @@ body {
 	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-serif);
-	text-transform: capitalize;
 }
 
 @media (width >= 600px) {
@@ -43,8 +42,8 @@ body {
 	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);
 	letter-spacing: var(--letter-spacing-serif);
-	text-transform: capitalize;
 }
+
 @media (width >= 600px) {
 	.f_serif_secondary {
 		font-size: var(--font-size-8);
@@ -101,6 +100,10 @@ body {
 
 .f_italic {
 	font-style: italic;
+}
+
+.f_capital {
+	text-transform: capitalize;
 }
 
 /* ================================================== */

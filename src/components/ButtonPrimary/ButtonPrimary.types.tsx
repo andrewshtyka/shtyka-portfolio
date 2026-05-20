@@ -1,5 +1,5 @@
 export interface Props {
-	children?: React.ReactNode;
+	children?: string;
 	href: string;
 	icon?: React.ReactNode;
 	fileName?: string;
