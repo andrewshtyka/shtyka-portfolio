@@ -37,6 +37,9 @@ export default function ResumeSection({ uiString }: Props) {
 	// TODO
 	// Add poster for video
 
+	// TODO
+	// Make video for resume with overlay applied
+
 	return (
 		<a
 			href={`${data.href}/${data.fileName}`}

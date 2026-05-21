@@ -84,7 +84,12 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 				</li>
 
 				<li className={css.list_bottom_item_2}>
-					<Emblem color="gray" isFit={true} />
+					<span className={css.mobile_only}>
+						<Emblem color="gray" size={28} />
+					</span>
+					<span className={css.desktop_only}>
+						<Emblem color="gray" size={20} />
+					</span>
 				</li>
 
 				<li className={css.list_bottom_item_3}>

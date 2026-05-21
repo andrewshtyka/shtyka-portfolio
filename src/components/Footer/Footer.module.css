@@ -170,3 +170,23 @@
 		grid-row: initial;
 	}
 }
+
+.mobile_only {
+	display: initial;
+}
+
+@media (width >= 600px) {
+	.mobile_only {
+		display: none;
+	}
+}
+
+.desktop_only {
+	display: none;
+}
+
+@media (width >= 600px) {
+	.desktop_only {
+		display: initial;
+	}
+}
