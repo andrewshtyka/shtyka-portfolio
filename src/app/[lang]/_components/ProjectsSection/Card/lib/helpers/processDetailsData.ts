@@ -1,14 +1,28 @@
-/**
- * TODO
- * Fix red issues, types
- */
+interface DetailInputItem {
+	listItem?: "bullet";
+	children: DetailChild[];
+}
 
-export default function processDetailsData(arr: any) {
+interface DetailChild {
+	text: string;
+}
+
+interface MasterItem {
+	item: string;
+	key: string;
+}
+
+interface MasterObject {
+	title: string;
+	items: MasterItem[];
+}
+
+export default function processDetailsData(arr: DetailInputItem[]) {
 	if (!Array.isArray(arr)) return;
 
 	const nextArr = [...arr];
 
-	const masterObj = {
+	const masterObj: MasterObject = {
 		title: "",
 		items: [],
 	};
