@@ -1,5 +1,6 @@
 export interface Props {
 	obj: Obj;
+	lang?: string;
 }
 type Obj = {
 	item1: string;

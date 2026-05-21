@@ -1,6 +1,9 @@
+// #region ============================== Imports
+
 // components
 import Divider from "../Divider/Divider";
 import Dimensions from "./Dimensions/Dimensions";
+import Emblem from "../Icons/Emblem/Emblem";
 
 // styles
 import css from "./Footer.module.css";
@@ -10,26 +13,27 @@ import { Props } from "./Footer.types";
 
 // utils
 import { headers } from "next/headers";
-import Emblem from "../Icons/Emblem/Emblem";
+import { getUkrMonthYear } from "./lib/helpers/getUkrMonthYear";
 
-export default async function Footer({ obj: ui }: Props) {
+// #endregion ===========================
+
+export default async function Footer({ obj: ui, lang = "en" }: Props) {
 	if (!ui || typeof ui !== "object") return;
-
-	// TODO
-	// Make todays' date in user language (currently only ENG)
 
 	// get browser name (from proxy.ts)
 	const headersList = await headers();
 	const browserName = headersList.get("x-browser-name");
 
 	// last website update
-	const lastUpdate: string = new Intl.DateTimeFormat("en-US", {
+	const appliedLang = lang === "ua" ? "uk" : "en";
+	const date: string = new Intl.DateTimeFormat(appliedLang, {
 		month: "long",
 		year: "numeric",
 	}).format(new Date());
+	const lastUpdate = appliedLang === "uk" ? getUkrMonthYear(date) : date;
 
 	// current year
-	const currentYear: string = new Intl.DateTimeFormat("en-US", {
+	const currentYear: string = new Intl.DateTimeFormat(lang, {
 		year: "numeric",
 	}).format(new Date());
 

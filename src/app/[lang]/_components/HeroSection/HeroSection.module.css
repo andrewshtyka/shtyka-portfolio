@@ -65,7 +65,7 @@
 @media (width >= 768px) {
 	.container_secondary {
 		row-gap: var(--space-11);
-		max-width: calc(var(--space-20) + var(--space-14));
+		max-width: calc(var(--space-20) + var(--space-15) + var(--space-1));
 		justify-content: space-between;
 
 		padding-block-start: var(--space-4);

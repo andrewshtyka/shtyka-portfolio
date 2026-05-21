@@ -59,7 +59,7 @@ export default async function RootLayout({
 					{children}
 					<div className={css.container}>
 						<ContactSection uiString={contactString} />
-						<Footer obj={ui?.footer} />
+						<Footer obj={ui?.footer} lang={lang} />
 					</div>
 				</TooltipProvider>
 				{/* </LayoutTransition> */}
