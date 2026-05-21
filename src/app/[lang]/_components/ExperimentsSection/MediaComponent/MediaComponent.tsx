@@ -1,8 +1,7 @@
 // #region ============================== Imports
 
-// sanity
-import { getFileAsset } from "@sanity/asset-utils";
-import { client } from "@/sanity/lib/client";
+// components
+import Image from "next/image";
 
 // styles
 import css from "./MediaComponent.module.css";
@@ -12,26 +11,19 @@ import { Props } from "./MediaComponent.types";
 
 // utils
 import getUrlForImage from "@/lib/util/getUrlForImage";
-import Image from "next/image";
+import getUrlForVideo from "@/lib/util/getUrlForVideo";
 
 // #endregion ===========================
-
-const { projectId, dataset } = client.config();
 
 export default function MediaComponent({ uiString }: Props) {
 	if (!uiString || typeof uiString !== "string") return null;
 
 	const ui = JSON.parse(uiString);
-
 	if (!ui || typeof ui !== "object") return null;
 
 	if (ui._type === "video") {
-		const videoUrl = getFileAsset(ui.video, {
-			projectId,
-			dataset,
-		}).url;
-
-		const posterUrl = getUrlForImage(ui.poster)?.url() ?? "";
+		const data = getUrlForVideo(ui.video, ui.poster) ?? "";
+		if (!data || typeof data !== "object") return null;
 
 		return (
 			<>
@@ -42,10 +34,10 @@ export default function MediaComponent({ uiString }: Props) {
 					playsInline
 					width="100%"
 					height="100%"
-					poster={posterUrl}
+					poster={data.poster}
 					className={css.video}
 				>
-					<source src={videoUrl} type="video/mp4" />
+					<source src={data.video} type="video/mp4" />
 				</video>
 				{/* <div className={css.test}></div> */}
 				<div className={css.overlay_top}></div>

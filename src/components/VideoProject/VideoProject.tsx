@@ -1,7 +1,4 @@
 // #region ============================== imports
-// sanity
-import { getFileAsset } from "@sanity/asset-utils";
-import { client } from "@/sanity/lib/client";
 
 // styles
 import css from "./VideoProject.module.css";
@@ -10,18 +7,15 @@ import css from "./VideoProject.module.css";
 import { Props } from "./VideoProject.types";
 
 // utils
-import getUrlForImage from "@/lib/util/getUrlForImage";
+import getUrlForVideo from "@/lib/util/getUrlForVideo";
 // #endregion ===========================
 
-const { projectId, dataset } = client.config();
-
 export default function VideoProject({ video, poster }: Props) {
-	const videoUrl = getFileAsset(video, {
-		projectId,
-		dataset,
-	}).url;
+	const data = getUrlForVideo(video, poster) ?? "";
+	if (!data || typeof data !== "object") return null;
 
-	const posterUrl = getUrlForImage(poster)?.url() ?? "";
+	// TODO
+	// If not src = return placeholder
 
 	return (
 		<div className={css.container}>
@@ -32,9 +26,9 @@ export default function VideoProject({ video, poster }: Props) {
 				playsInline
 				width="100%"
 				height="100%"
-				poster={posterUrl}
+				poster={data.poster}
 			>
-				<source src={videoUrl} type="video/mp4" />
+				<source src={data.video} type="video/mp4" />
 			</video>
 		</div>
 	);

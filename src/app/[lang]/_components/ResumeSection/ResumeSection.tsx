@@ -1,3 +1,9 @@
+// #region ============================== Imports
+
+// components
+import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
+import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
 // styles
 import css from "./ResumeSection.module.css";
 
@@ -7,8 +13,8 @@ import { client } from "@/sanity/lib/client";
 
 // types
 import { Props } from "./ResumeSection.types";
-import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
-import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
+// #endregion ===========================
 
 const { projectId, dataset } = client.config();
 

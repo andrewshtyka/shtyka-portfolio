@@ -15,7 +15,12 @@ export default function LinkText({
 }: Props) {
 	if (href && children) {
 		return (
-			<a href={href} className={css.link}>
+			<a
+				href={href}
+				className={css.link}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				{hasIcon && (
 					<span
 						className={css.icon}

@@ -86,25 +86,23 @@ export default async function HomePage({ params }: Props) {
 		<main>
 			<HeroSection uiString={uiStringHero} />
 
-			<div className={css.container}>
-				<AboutSection uiString={uiStringAbout} />
-				<ExperienceSection uiString={uiStringExperience} />
-				<AchievementsSection uiString={uiStringAchievements} />
+			<AboutSection uiString={uiStringAbout} />
+			<ExperienceSection uiString={uiStringExperience} />
+			<AchievementsSection uiString={uiStringAchievements} />
 
-				<div className={css.double}>
-					<ClientsSection uiString={uiStringClients} />
-					<ResumeSection uiString={uiStringResume} />
-				</div>
-
-				<ProjectsSection
-					uiString={uiStringProjects}
-					projectsString={homeProjectsString}
-				/>
-				<ExperimentsSection
-					uiString={uiStringExperiments}
-					experimentsString={homeExperimentsString}
-				/>
+			<div className={css.double}>
+				<ClientsSection uiString={uiStringClients} />
+				<ResumeSection uiString={uiStringResume} />
 			</div>
+
+			<ProjectsSection
+				uiString={uiStringProjects}
+				projectsString={homeProjectsString}
+			/>
+			<ExperimentsSection
+				uiString={uiStringExperiments}
+				experimentsString={homeExperimentsString}
+			/>
 		</main>
 	);
 }

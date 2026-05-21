@@ -40,7 +40,7 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 					<IconArrowShortCut direction="up" />
 				</span>
 
-				<h2 className={css.h2}>
+				<h2>
 					<span className={`${css.title_1} f_serif_primary`}>
 						{dataTitle.title_1}
 					</span>

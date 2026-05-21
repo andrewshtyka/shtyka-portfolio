@@ -15,6 +15,9 @@ export default function ButtonSecondary({ children = "", href, icon }: Props) {
 
 	const hiddenLetter = children && children[0];
 
+	// TODO
+	// Put letter as main, and icon as position absolute
+
 	return (
 		<a
 			href={href}

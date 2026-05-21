@@ -23,6 +23,7 @@ import "@/styles/reset.css";
 import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
+import css from "./layout.module.css";
 
 // #endregion ===========================
 
@@ -54,9 +55,12 @@ export default async function RootLayout({
 				> */}
 				<TooltipProvider>
 					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
-					{children}
-					<ContactSection uiString={contactString} />
-					<Footer obj={ui?.footer} />
+
+					<div className={css.container}>
+						{children}
+						<ContactSection uiString={contactString} />
+						<Footer obj={ui?.footer} />
+					</div>
 				</TooltipProvider>
 				{/* </LayoutTransition> */}
 			</body>
