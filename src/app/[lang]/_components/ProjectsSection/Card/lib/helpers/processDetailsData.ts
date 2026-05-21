@@ -1,20 +1,14 @@
 interface DetailInputItem {
 	listItem?: "bullet";
-	children: DetailChild[];
-}
-
-interface DetailChild {
-	text: string;
-}
-
-interface MasterItem {
-	item: string;
-	key: string;
+	children: { text: string }[];
 }
 
 interface MasterObject {
 	title: string;
-	items: MasterItem[];
+	items: {
+		item: string;
+		key: string;
+	}[];
 }
 
 export default function processDetailsData(arr: DetailInputItem[]) {
