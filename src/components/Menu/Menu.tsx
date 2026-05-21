@@ -62,7 +62,13 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	return (
 		<header className={css.container}>
 			<div className={css.header} style={menuOpenedStyles.header}>
-				<Logo isMenuOpened={isMenuOpened} />
+				{/* 
+				TODO
+				Separate logo from button
+				 */}
+				<span className={css.container_logo}>
+					<Logo isMenuOpened={isMenuOpened} />
+				</span>
 
 				<Divider style={menuOpenedStyles.divider} />
 

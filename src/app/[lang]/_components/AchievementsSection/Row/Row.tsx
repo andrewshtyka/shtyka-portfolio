@@ -68,7 +68,12 @@ export default function Row({ achievement, num }: RowProps) {
 							if (data?.hrefArr?.length > 0) {
 								// link
 								return (
-									<LinkText key={i} href={data.hrefArr[0].href} iconSize={12}>
+									<LinkText
+										key={i}
+										href={data.hrefArr[0].href}
+										iconSize={12}
+										hasIcon={false}
+									>
 										{item.text}
 									</LinkText>
 								);

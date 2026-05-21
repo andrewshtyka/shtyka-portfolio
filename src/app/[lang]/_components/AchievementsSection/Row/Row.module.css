@@ -17,13 +17,15 @@
 }
 
 .num {
+	color: var(--color-gray-450);
+
 	margin-block-start: var(--space-0);
 	margin-block-end: var(--space-10);
 }
 
 @media (width >= 600px) {
 	.num {
-		margin-block-start: calc(var(--space-1) + var(--space-px));
+		margin-block-start: var(--space-1);
 		margin-block-end: var(--space-0);
 	}
 }

@@ -59,7 +59,8 @@
 	--width-card-experiment: calc(
 		(var(--content-wide-width-max) - var(--offset-base) * 2) / 3
 	);
-	--height-card-experiment: calc(var(--space-20) * 2);
+	--height-card-experiment: calc(var(--space-20) * 2); /* 512px */
+	--media-mobile-aspect: 8 / 9;
 }
 
 @media (width < 600px) {
@@ -71,5 +72,10 @@
 		--offset-sections-small: var(--space-15); /* 56px */
 
 		--offset-base: var(--space-8); /* 16px */
+
+		/* Sizes */
+		--height-card-experiment: calc(
+			var(--space-20) * 2 - var(--space-19)
+		); /* 384px */
 	}
 }

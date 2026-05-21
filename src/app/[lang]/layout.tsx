@@ -56,8 +56,8 @@ export default async function RootLayout({
 				<TooltipProvider>
 					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
 
+					{children}
 					<div className={css.container}>
-						{children}
 						<ContactSection uiString={contactString} />
 						<Footer obj={ui?.footer} />
 					</div>

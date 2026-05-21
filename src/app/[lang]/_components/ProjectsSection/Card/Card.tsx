@@ -5,6 +5,8 @@ import VideoProject from "@/components/VideoProject/VideoProject";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import Divider from "@/components/Divider/Divider";
+import ListItem from "@/components/ListItem/ListItem";
+import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
 
 // styles
 import css from "./Card.module.css";
@@ -14,7 +16,6 @@ import { Props } from "./Card.types";
 
 // utils
 import processDetailsData from "./lib/helpers/processDetailsData";
-import ListItem from "@/components/ListItem/ListItem";
 
 // #endregion ===========================
 
@@ -40,9 +41,16 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 				{/* title */}
 				<div className={css.top}>
 					<h3 className={`${css.title} f_serif_primary`}>{ui?.title ?? ""}</h3>
-					<h4 className={`${css.subtitle} f_display_buttons`}>
-						{ui?.about?.description ?? ""}
-					</h4>
+
+					<span className={css.grid}>
+						<span className={css.container_icon}>
+							<IconArrowShortCut size={5} direction="up" color="gray" />
+							<IconArrowShortCut size={5} direction="up" color="gray" />
+						</span>
+						<h4 className={`${css.subtitle} f_display_buttons`}>
+							{ui?.about?.description ?? ""}
+						</h4>
+					</span>
 				</div>
 
 				<Divider isHorizontal={true} willHide={false} />
@@ -50,7 +58,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 				{/* details */}
 				<div className={css.bottom}>
 					{/* col 1 */}
-					<div className={css.column_1}>
+					<div className={`${css.part_1} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
 							{details_1?.title ?? ""}
 						</h5>
@@ -62,7 +70,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 					</div>
 
 					{/* col 2 */}
-					<div className={css.column_2}>
+					<div className={`${css.part_2} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
 							{details_2?.title ?? ""}
 						</h5>
@@ -74,15 +82,13 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 					</div>
 
 					{/* col 3 */}
-					<div className={`${css.column_3} ${css.right}`}>
+					<div className={`${css.part_3} ${css.right} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
 							{details_3?.title ?? ""}
 						</h5>
 						<ul className={css.list}>
 							{details_3?.items.map(({ key, item }) => (
-								<ListItem key={key} hasIcon={false}>
-									{item}
-								</ListItem>
+								<ListItem key={key}>{item}</ListItem>
 							))}
 						</ul>
 					</div>

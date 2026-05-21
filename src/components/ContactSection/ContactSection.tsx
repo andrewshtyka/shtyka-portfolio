@@ -33,10 +33,6 @@ export default function ContactSection({ uiString }: Props) {
 
 	const dataMessage_1 = getLabelsWithLinks(ui.message[0], ui.fileName);
 	const dataMessage_2 = getLabelsWithLinks(ui.message[1], ui.fileName);
-	console.log(dataMessage_1);
-
-	// console.log(ui.message);
-	// console.log("dataMessage_1 =", dataMessage_1);
 
 	return (
 		<section className={css.container}>

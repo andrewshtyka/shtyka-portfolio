@@ -2,5 +2,13 @@ export interface Props {
 	obj: Obj;
 }
 type Obj = {
-	[key: string]: object | string;
+	item1: string;
+	item2: string;
+	item3: string;
+	item4: {
+		title: string;
+		content: string;
+	};
+	item5: string;
+	item6: string;
 };

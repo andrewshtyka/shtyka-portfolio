@@ -21,7 +21,7 @@ body {
 /* FONTS */
 .f_serif_primary {
 	font-family: var(--font-serif);
-	font-size: var(--font-size-9);
+	font-size: var(--font-size-8);
 	font-weight: 400;
 	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);
@@ -37,7 +37,7 @@ body {
 
 .f_serif_secondary {
 	font-family: var(--font-serif);
-	font-size: var(--font-size-7);
+	font-size: var(--font-size-6);
 	font-weight: 400;
 	font-variation-settings: "opsz" 40;
 	line-height: var(--line-height-serif);

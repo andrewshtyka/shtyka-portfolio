@@ -18,18 +18,17 @@ export default function VideoProject({ video, poster }: Props) {
 	// If not src = return placeholder
 
 	return (
-		<div className={css.container}>
-			<video
-				autoPlay
-				muted
-				loop
-				playsInline
-				width="100%"
-				height="100%"
-				poster={data.poster}
-			>
-				<source src={data.video} type="video/mp4" />
-			</video>
-		</div>
+		<video
+			autoPlay
+			muted
+			loop
+			playsInline
+			width="100%"
+			height="100%"
+			poster={data.poster}
+			className={css.video}
+		>
+			<source src={data.video} type="video/mp4" />
+		</video>
 	);
 }
