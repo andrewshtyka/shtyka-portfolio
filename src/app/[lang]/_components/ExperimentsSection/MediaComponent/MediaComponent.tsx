@@ -1,7 +1,12 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
 import Image from "next/image";
+
+// hooks
+import useVideoObserver from "@/hooks/useVideoObserver";
 
 // styles
 import css from "./MediaComponent.module.css";
@@ -12,10 +17,14 @@ import { Props } from "./MediaComponent.types";
 // utils
 import getUrlForImage from "@/lib/util/getUrlForImage";
 import getUrlForVideo from "@/lib/util/getUrlForVideo";
+import React from "react";
 
 // #endregion ===========================
 
 export default function MediaComponent({ uiString }: Props) {
+	const videoRef = React.useRef<HTMLVideoElement>(null);
+	useVideoObserver(videoRef);
+
 	if (!uiString || typeof uiString !== "string") return null;
 
 	const ui = JSON.parse(uiString);
@@ -28,6 +37,7 @@ export default function MediaComponent({ uiString }: Props) {
 		return (
 			<>
 				<video
+					ref={videoRef}
 					autoPlay
 					muted
 					loop

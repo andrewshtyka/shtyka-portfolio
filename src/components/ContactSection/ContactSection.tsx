@@ -1,4 +1,9 @@
+"use client";
+
 // #region ============================== Imports
+
+// hooks
+import useVideoObserver from "@/hooks/useVideoObserver";
 
 // styles
 import getUrlForVideo from "@/lib/util/getUrlForVideo";
@@ -9,13 +14,15 @@ import { Props } from "./ContactSection.types";
 
 // utils
 import getLabelsWithLinks from "./lib/helpers/getLabelsWithLinks";
-import { span } from "motion/react-client";
-import LinkText from "../LinkText/LinkText";
 import Message from "./Message/Message";
+import React from "react";
 
 // #endregion ===========================
 
 export default function ContactSection({ uiString }: Props) {
+	const videoRef = React.useRef<HTMLVideoElement>(null);
+	useVideoObserver(videoRef);
+
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
 	if (!ui || typeof ui !== "object") return;
@@ -50,6 +57,7 @@ export default function ContactSection({ uiString }: Props) {
 			{dataVideo && (
 				<div className={css.container_video}>
 					<video
+						ref={videoRef}
 						autoPlay
 						muted
 						loop

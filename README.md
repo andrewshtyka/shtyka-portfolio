@@ -15,23 +15,8 @@ npm install
 - TypeScript
 - Motion (ex Framer Motion)
 
-# Antigrafile components
+# Challenges
 
-### Hero
-- [x] Menu
-    - [x] Logo
-    - [x] Desktop nav
-    - [x] Mobile nav
-    - [x] Langswitcher
-
-- Hero video
-- Texts
-- Tags
-- Button
-
-### About
-- Texts
-- Links
-- Tooltips (+ images)
-
-...
+1. Make components antifragile (don't crash if no data is passed)
+2. Videos - play only those in viewport
+    - intersection observer (play when 10% is in viewport)

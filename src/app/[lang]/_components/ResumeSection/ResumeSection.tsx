@@ -1,8 +1,13 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
+// hooks
+import useVideoObserver from "@/hooks/useVideoObserver";
 
 // styles
 import css from "./ResumeSection.module.css";
@@ -14,11 +19,17 @@ import { client } from "@/sanity/lib/client";
 // types
 import { Props } from "./ResumeSection.types";
 
+// utility
+import React from "react";
+
 // #endregion ===========================
 
 const { projectId, dataset } = client.config();
 
 export default function ResumeSection({ uiString }: Props) {
+	const videoRef = React.useRef<HTMLVideoElement>(null);
+	useVideoObserver(videoRef);
+
 	if (!uiString || typeof uiString !== "string") return;
 	const [ui, file, fileName] = JSON.parse(uiString);
 
@@ -50,6 +61,7 @@ export default function ResumeSection({ uiString }: Props) {
 			{/* video */}
 			<div className={css.container_video}>
 				<video
+					ref={videoRef}
 					autoPlay
 					muted
 					loop
@@ -58,9 +70,8 @@ export default function ResumeSection({ uiString }: Props) {
 					poster=""
 					className={css.video}
 				>
-					<source src="/assets/gradient-video.mp4" type="video/mp4" />
+					<source src="/assets/resume-video.mp4" type="video/mp4" />
 				</video>
-				<div className={css.image}></div>
 			</div>
 
 			{/* top */}

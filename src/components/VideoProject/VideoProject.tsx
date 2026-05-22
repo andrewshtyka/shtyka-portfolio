@@ -1,16 +1,26 @@
+"use client";
+
 // #region ============================== imports
 
 // styles
 import css from "./VideoProject.module.css";
+
+// hooks
+import useVideoObserver from "@/hooks/useVideoObserver";
 
 // types
 import { Props } from "./VideoProject.types";
 
 // utils
 import getUrlForVideo from "@/lib/util/getUrlForVideo";
+import React from "react";
+
 // #endregion ===========================
 
 export default function VideoProject({ video, poster }: Props) {
+	const videoRef = React.useRef<HTMLVideoElement>(null);
+	useVideoObserver(videoRef);
+
 	const data = getUrlForVideo(video, poster) ?? "";
 	if (!data || typeof data !== "object") return null;
 
@@ -19,6 +29,7 @@ export default function VideoProject({ video, poster }: Props) {
 
 	return (
 		<video
+			ref={videoRef}
 			autoPlay
 			muted
 			loop
