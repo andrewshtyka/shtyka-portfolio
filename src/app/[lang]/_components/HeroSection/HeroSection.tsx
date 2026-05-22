@@ -16,7 +16,6 @@ import css from "./HeroSection.module.css";
 // types
 import { Props } from "./HeroSection.types";
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
-import MediaComponent from "@/components/MediaComponent/MediaComponent";
 
 // #endregion ===========================
 
