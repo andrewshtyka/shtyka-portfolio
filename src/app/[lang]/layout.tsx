@@ -24,7 +24,6 @@ import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 import css from "./layout.module.css";
-import Vignette from "@/components/Vignette/Vignette";
 
 // #endregion ===========================
 
