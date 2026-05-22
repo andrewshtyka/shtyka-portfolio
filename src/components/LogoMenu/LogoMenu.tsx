@@ -31,9 +31,3 @@ export default function LogoMenu({ isMenuOpened, lang }: Props) {
 		</Link>
 	);
 }
-
-/**
- * TODO 1
- * Remove Index from menu
- * (Logo will lead to hero section)
- */
