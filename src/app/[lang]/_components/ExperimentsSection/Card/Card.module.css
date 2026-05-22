@@ -4,9 +4,8 @@
 
 	padding: var(--space-8);
 
-	background-color: var(--color-base-alpha-subtle);
-	border: var(--space-px) solid var(--color-base-alpha-muted);
-	border-radius: var(--border-radius-4);
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-main);
 
 	display: flex;
 	flex-direction: column;
@@ -37,6 +36,5 @@
 }
 
 .subtitle {
-	/* color: var(--color-gray-450); */
-	color: var(--color-base-alpha-heavy);
+	color: var(--color-base-alpha-xxl);
 }

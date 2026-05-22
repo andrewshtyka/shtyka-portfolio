@@ -45,12 +45,6 @@ export default function ResumeSection({ uiString }: Props) {
 		fileName: fileName,
 	};
 
-	// TODO
-	// Add poster for video
-
-	// TODO
-	// Make video for resume with overlay applied
-
 	return (
 		<a
 			href={`${data.href}/${data.fileName}`}
@@ -62,16 +56,15 @@ export default function ResumeSection({ uiString }: Props) {
 			<div className={css.container_video}>
 				<video
 					ref={videoRef}
-					autoPlay
+					data-src="/assets/resume-video.mp4"
+					preload="none"
 					muted
 					loop
 					playsInline
 					width="100%"
-					poster=""
+					poster="/assets/resume-poster.webp"
 					className={css.video}
-				>
-					<source src="/assets/resume-video.mp4" type="video/mp4" />
-				</video>
+				></video>
 			</div>
 
 			{/* top */}
@@ -92,7 +85,7 @@ export default function ResumeSection({ uiString }: Props) {
 			{/* bottom */}
 			<span className={css.bottom}>
 				<span className={`f_mono`}>{data.label}</span>
-				<IconArrowCurve size={10} />
+				<IconArrowCurve size={10} direction="right" />
 			</span>
 		</a>
 	);

@@ -24,6 +24,7 @@ import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 import css from "./layout.module.css";
+import Vignette from "@/components/Vignette/Vignette";
 
 // #endregion ===========================
 
@@ -61,14 +62,9 @@ export default async function RootLayout({
 						<ContactSection uiString={contactString} />
 						<Footer obj={ui?.footer} lang={lang} />
 					</div>
+					{/* <Vignette position="bottom" /> */}
 				</TooltipProvider>
-				{/* </LayoutTransition> */}
 			</body>
 		</html>
 	);
 }
-
-/**
- * TODO
- * Add vignette on top and bottom (when scroll on pages)
- */

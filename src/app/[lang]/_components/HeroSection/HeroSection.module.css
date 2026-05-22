@@ -80,7 +80,7 @@
 
 .subtitle {
 	& span {
-		color: var(--color-base-alpha-heavy);
+		color: var(--color-base-alpha-xxl);
 		white-space: nowrap;
 	}
 }

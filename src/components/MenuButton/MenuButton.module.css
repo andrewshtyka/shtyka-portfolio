@@ -3,14 +3,14 @@
 	height: 100%;
 	display: flex;
 	align-items: center;
-	border-radius: var(--border-radius-3);
+	border-radius: var(--border-radius-secondary);
 
 	background-color: var(--color-base-alpha-transparent);
 	color: var(--color-base);
 }
 @media (hover: hover) {
 	.base:hover {
-		background-color: var(--color-base-alpha-mid);
+		background-color: var(--color-button-background-hover);
 		color: var(--color-base);
 	}
 }

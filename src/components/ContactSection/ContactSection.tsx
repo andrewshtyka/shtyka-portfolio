@@ -58,7 +58,8 @@ export default function ContactSection({ uiString }: Props) {
 				<div className={css.container_video}>
 					<video
 						ref={videoRef}
-						autoPlay
+						data-src={dataVideo.video}
+						preload="none"
 						muted
 						loop
 						playsInline
@@ -66,9 +67,7 @@ export default function ContactSection({ uiString }: Props) {
 						height="100%"
 						poster={dataVideo.poster}
 						className={css.video}
-					>
-						<source src={dataVideo.video} type="video/mp4" />
-					</video>
+					></video>
 				</div>
 			)}
 

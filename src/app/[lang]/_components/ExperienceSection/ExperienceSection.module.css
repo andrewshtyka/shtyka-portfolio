@@ -1,7 +1,7 @@
 .container {
-	border-radius: var(--border-radius-4);
+	border-radius: var(--border-radius-main);
 	background-color: var(--color-base);
-	color: var(--color-gray-0);
+	color: var(--color-gray);
 
 	padding: var(--offset-base);
 	margin-block-end: var(--offset-base);

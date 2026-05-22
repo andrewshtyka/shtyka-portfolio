@@ -21,7 +21,13 @@ import React from "react";
 
 // #endregion ===========================
 
-export default function MediaComponent({ uiString }: Props) {
+export default function MediaComponent({
+	uiString,
+	hasTop = true,
+	topHeight = 20,
+	hasBottom = true,
+	bottomHeight = 30,
+}: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
 	useVideoObserver(videoRef);
 
@@ -29,6 +35,11 @@ export default function MediaComponent({ uiString }: Props) {
 
 	const ui = JSON.parse(uiString);
 	if (!ui || typeof ui !== "object") return null;
+
+	const styleTop = hasTop ? { height: `${topHeight}%` } : { display: "none" };
+	const styleBottom = hasBottom
+		? { height: `${bottomHeight}%` }
+		: { display: "none" };
 
 	if (ui._type === "video") {
 		const data = getUrlForVideo(ui.video, ui.poster) ?? "";
@@ -38,7 +49,8 @@ export default function MediaComponent({ uiString }: Props) {
 			<>
 				<video
 					ref={videoRef}
-					autoPlay
+					data-src={data.video}
+					preload="none"
 					muted
 					loop
 					playsInline
@@ -46,12 +58,10 @@ export default function MediaComponent({ uiString }: Props) {
 					height="100%"
 					poster={data.poster}
 					className={css.video}
-				>
-					<source src={data.video} type="video/mp4" />
-				</video>
+				></video>
 				{/* <div className={css.test}></div> */}
-				<div className={css.overlay_top}></div>
-				<div className={css.overlay_bottom}></div>
+				<div className={css.overlay_top} style={styleTop}></div>
+				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
 		);
 	} else if (ui._type === "imageExperiment") {
@@ -68,8 +78,8 @@ export default function MediaComponent({ uiString }: Props) {
 					className={css.image}
 				/>
 				{/* <div className={css.test}></div> */}
-				<div className={css.overlay_top}></div>
-				<div className={css.overlay_bottom}></div>
+				<div className={css.overlay_top} style={styleTop}></div>
+				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
 		);
 	} else return null;

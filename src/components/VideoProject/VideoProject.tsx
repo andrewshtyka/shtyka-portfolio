@@ -30,7 +30,8 @@ export default function VideoProject({ video, poster }: Props) {
 	return (
 		<video
 			ref={videoRef}
-			autoPlay
+			data-src={data.video}
+			preload="none"
 			muted
 			loop
 			playsInline
@@ -38,8 +39,6 @@ export default function VideoProject({ video, poster }: Props) {
 			height="100%"
 			poster={data.poster}
 			className={css.video}
-		>
-			<source src={data.video} type="video/mp4" />
-		</video>
+		></video>
 	);
 }

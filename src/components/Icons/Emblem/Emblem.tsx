@@ -7,7 +7,7 @@ import { Props } from "./Emblem.types";
 export default function Emblem({ color = "white", size = 20 }: Props) {
 	let appliedColor;
 	if (color === "white") appliedColor = "var(--color-base)";
-	else if (color === "black") appliedColor = "var(--color-gray-0)";
+	else if (color === "black") appliedColor = "var(--color-gray)";
 	else if (color === "gray") appliedColor = "var(--color-gray-500)";
 
 	const dimensions = {

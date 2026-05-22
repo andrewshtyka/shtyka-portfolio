@@ -1,45 +1,59 @@
 :root {
 	/* Colors */
-	--color-base: #ebedf5;
-	--color-base-alpha-heavy: rgba(235, 237, 245, 0.5);
-	--color-base-alpha-underline: rgba(235, 237, 245, 0.32);
-	--color-base-alpha-mid: rgba(235, 237, 245, 0.2);
-	--color-base-alpha-muted: rgba(235, 237, 245, 0.16);
-	--color-base-alpha-subtle: rgba(235, 237, 245, 0.06);
-	--color-base-alpha-transparent: rgba(235, 237, 245, 0);
+	--hue: 228;
+	--color-base: hsl(var(--hue), 33%, 94%);
+	--color-gray: hsl(var(--hue), 0%, 0%);
+	--color-gray-100: hsl(var(--hue), 11%, 9%);
+	--color-gray-200: hsl(var(--hue), 11%, 18%);
+	--color-gray-300: hsl(var(--hue), 12%, 27%);
+	--color-gray-400: hwb(var(--hue) 36% 56%);
+	--color-gray-450: hsl(var(--hue), 12%, 56%);
+	--color-gray-500: hsl(var(--hue), 15%, 64%);
+	--color-gray-900: hsl(var(--hue), 11%, 85%);
 
-	--color-gray-0: #000000;
-	--color-gray-alpha-muted: rgba(0, 0, 0, 0.3);
-	--color-gray-alpha-subtle: rgba(0, 0, 0, 0.1);
-	--color-gray-alpha-transparent: rgba(0, 0, 0, 0);
+	/* Transparent - light */
+	--color-base-alpha-xxl: hsla(var(--hue), 33%, 94%, 0.5);
+	--color-base-alpha-xl: hsla(var(--hue), 33%, 94%, 0.32);
+	--color-base-alpha-l: hsla(var(--hue), 33%, 94%, 0.2);
+	--color-base-alpha-m: hsla(var(--hue), 33%, 94%, 0.16);
+	--color-base-alpha-s: hsla(var(--hue), 33%, 94%, 0.06);
+	--color-base-alpha-transparent: hsla(var(--hue), 33%, 94%, 0);
 
-	--color-gray-100: #15161a;
-	--color-gray-200: #292b33;
-	--color-gray-300: #3d404d;
-	--color-gray-400: hsl(229, 9%, 40%);
-	--color-gray-450: hsl(229, 12%, 56%);
-	--color-gray-500: hsl(227, 15%, 64%);
-	--color-gray-900: #d3d5dc;
+	/* Transparent - dark */
+	--color-gray-alpha-xl: hsla(var(--hue), 0%, 0%, 0.3);
+	--color-gray-alpha-s: hsla(var(--hue), 0%, 0%, 0.1);
+	--color-gray-alpha-transparent: hsla(var(--hue), 0%, 0%, 0);
 
-	--color-blue-light: #58a0ff;
-	--color-blue-saturated: #0009FF;
+	/* Cards / Bars */
+	--color-background-transparent-dark: var(--color-gray-alpha-s);
+	--color-background-transparent-light: var(--color-base-alpha-s);
+	--color-background-solid: var(--color-gray-100);
+
+	/* Button / Link */
+	--color-button-background-hover: var(--color-base-alpha-l);
+
+	/* Border */
+	--color-border-light: var(--color-base-alpha-l);
+	--color-border-dark: var(--color-gray-alpha-s);
 }
 
 .invert_colors {
-	--color-base: rgb(0, 0, 0);
-	--color-base-alpha-heavy: rgba(0, 0, 0, 0.5);
-	--color-base-alpha-mid: rgba(0, 0, 0, 0.12);
-	--color-base-alpha-muted: rgba(0, 0, 0, 0.1);
-	--color-base-alpha-subtle: rgba(0, 0, 0, 0.06);
-	--color-base-alpha-transparent: rgba(0, 0, 0, 0);
+	--color-base: hsl(var(--hue), 0%, 0%);
+	--color-gray: hsl(var(--hue), 33%, 94%);
+	--color-gray-100: hsl(var(--hue), 11%, 85%);
+	--color-gray-200: hsl(var(--hue), 9%, 51%);
+	--color-gray-300: hsl(var(--hue), 12%, 27%);
+	--color-gray-400: hsl(var(--hue), 11%, 18%);
+	--color-gray-900: hsl(var(--hue), 11%, 9%);
 
-	--color-gray-0: #ebedf5;
-	--color-gray-alpha-muted: rgba(235, 237, 245, 0.3);
-	--color-gray-alpha-transparent: rgba(235, 237, 245, 0);
+	/* Transparent - light */
+	--color-base-alpha-xxl: hsla(var(--hue), 0%, 0%, 0.5);
+	--color-base-alpha-l: hsla(var(--hue), 0%, 0%, 0.12);
+	--color-base-alpha-m: hsla(var(--hue), 0%, 0%, 0.1);
+	--color-base-alpha-s: hsla(var(--hue), 0%, 0%, 0.06);
+	--color-base-alpha-transparent: hsla(var(--hue), 0%, 0%, 0);
 
-	--color-gray-100: #d3d5dc;
-	--color-gray-200: #767a8c;
-	--color-gray-300: #3d404d;
-	--color-gray-400: #292b33;
-	--color-gray-900: #15161a;
+	/* Transparent - dark */
+	--color-gray-alpha-xl: hsla(var(--hue), 33%, 94%, 0.3);
+	--color-gray-alpha-transparent: hsla(var(--hue), 33%, 94%, 0);
 }

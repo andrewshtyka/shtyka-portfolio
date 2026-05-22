@@ -2,7 +2,7 @@
 	color: var(--color-gray-500);
 
 	text-decoration-line: underline;
-	text-decoration-color: var(--color-base-alpha-underline);
+	text-decoration-color: var(--color-base-alpha-xl);
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0.1em;
 	text-underline-offset: var(--space-2);

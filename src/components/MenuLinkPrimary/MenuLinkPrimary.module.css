@@ -4,7 +4,7 @@
 
 	width: 100%;
 	height: revert;
-	border-radius: var(--border-radius-3);
+	border-radius: var(--border-radius-secondary);
 
 	display: flex;
 	align-items: center;
@@ -20,7 +20,7 @@
 
 @media (hover: hover) {
 	.base:hover {
-		background-color: var(--color-base-alpha-muted);
+		background-color: var(--color-button-background-hover);
 		color: var(--color-base);
 	}
 }
@@ -31,7 +31,7 @@
 }
 
 .transparent {
-	color: var(--color-base-alpha-heavy);
+	color: var(--color-base-alpha-xxl);
 }
 
 .solid {

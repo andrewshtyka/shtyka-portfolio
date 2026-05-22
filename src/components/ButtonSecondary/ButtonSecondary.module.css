@@ -6,9 +6,9 @@ Add extra hover area for button
 .button {
 	display: flex;
 
-	background-color: var(--color-gray-alpha-subtle);
-	border: var(--space-px) solid var(--color-base-alpha-mid);
-	border-radius: var(--border-radius-4);
+	background-color: var(--color-background-transparent-dark);
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-secondary);
 
 	padding: var(--offset-button-tetriary);
 	padding-inline-start: var(--offset-button-tetriary);

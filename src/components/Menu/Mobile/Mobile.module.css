@@ -17,9 +17,9 @@
 	left: 50%;
 	transform: translateX(-50%);
 
-	background-color: var(--color-gray-alpha-subtle);
-	border: var(--space-px) solid var(--color-base-alpha-muted);
-	border-radius: var(--border-radius-4);
+	background-color: var(--color-background-transparent-dark);
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-main);
 
 	padding: var(--space-2);
 

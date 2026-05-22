@@ -9,10 +9,10 @@
 	width: 80vmin;
 	height: auto;
 
-	background-color: var(--color-gray-alpha-subtle);
+	background-color: var(--color-background-transparent-dark);
 
-	border: var(--space-px) solid var(--color-gray-200);
-	border-radius: var(--border-radius-4);
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-main);
 
 	margin-inline: var(--offset-base);
 
@@ -21,7 +21,7 @@
 
 .image {
 	aspect-ratio: var(--aspect);
-	border-radius: var(--border-radius-4);
+	border-radius: var(--border-radius-main);
 	object-fit: cover;
 	width: 100%;
 	height: 100%;

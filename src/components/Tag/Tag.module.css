@@ -1,7 +1,15 @@
-.container {
-	border: var(--space-px) solid var(--color-base-alpha-mid);
-	border-radius: var(--border-radius-4);
+.link {
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-secondary);
 
 	padding-inline: var(--space-3);
 	padding-block: var(--space-1);
+
+	backdrop-filter: blur(24px);
+}
+
+@media (hover: hover) {
+	.link:hover {
+		background-color: var(--color-button-background-hover);
+	}
 }

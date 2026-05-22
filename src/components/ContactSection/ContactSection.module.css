@@ -23,8 +23,8 @@
 	max-width: var(--space-20);
 	aspect-ratio: 4 / 5;
 
-	border-radius: var(--border-radius-4);
-	border: var(--space-px) solid var(--color-base-alpha-muted);
+	border-radius: var(--border-radius-main);
+	border: var(--space-px) solid var(--color-border-light);
 	overflow: hidden;
 
 	margin-inline: auto;

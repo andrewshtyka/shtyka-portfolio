@@ -3,7 +3,7 @@
 /* BASE */
 body {
 	height: 200svh;
-	background-color: var(--color-gray-0);
+	background-color: var(--color-gray);
 	color: var(--color-base);
 }
 

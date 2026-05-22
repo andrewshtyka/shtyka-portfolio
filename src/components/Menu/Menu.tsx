@@ -40,12 +40,12 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 		header: isMenuOpened
 			? {
 					backgroundColor: "var(--color-base)",
-					border: "var(--space-px) solid var(--color-gray-alpha-subtle)",
+					border: "var(--space-px) solid var(--color-border-dark)",
 				}
 			: { backdropFilter: "blur(24px)" },
 		logo: isMenuOpened ? "black" : "white",
 		divider: isMenuOpened
-			? { backgroundColor: "var(--color-gray-alpha-subtle)" }
+			? { backgroundColor: "var(--color-gray-alpha-s)" }
 			: {},
 	};
 

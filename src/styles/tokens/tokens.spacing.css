@@ -25,15 +25,12 @@
 	--space-20: calc(256 * var(--space-base));
 
 	/* Border-radius */
-	--border-radius-0: var(--space-0);
-	--border-radius-1: var(--space-1);
-	--border-radius-2: var(--space-2);
-	--border-radius-3: var(--space-3);
-	--border-radius-4: var(--space-4);
-	--border-radius-5: var(--space-5);
-	--border-radius-6: var(--space-6);
-	--border-radius-7: var(--space-7);
-	--border-radius-8: var(--space-8);
+	--border-radius-main: var(--space-6);
+	--border-radius-secondary: var(--space-4);
+
+	/* Content width */
+	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
+	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
 
 	/* Distances */
 	--offset-sections: calc(var(--space-17) + var(--space-19)); /* 208px */
@@ -42,25 +39,22 @@
 	--offset-sections-small: var(--space-17); /* 80px */
 
 	--offset-base: var(--space-10); /* 20px */
+
 	--offset-button-primary: var(--space-9); /* 18px */
 	--offset-button-secondary: var(--space-6); /* 12px */
 	--offset-button-tetriary: var(--space-4); /* 8px */
 
+	/* Home (experience, achievements) */
 	--table-col-1-width: calc(var(--space-19) - var(--space-4)); /* 120px */
 
 	--offset-title-serif-primary: var(--space-1);
 	--offset-title-serif-secondary: var(--space-2);
-
-	/* Content width */
-	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */
-	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
 
 	/* Sizes */
 	--width-card-experiment: calc(
 		(var(--content-wide-width-max) - var(--offset-base) * 2) / 3
 	);
 	--height-card-experiment: calc(var(--space-20) * 2); /* 512px */
-	--media-mobile-aspect: 8 / 9;
 }
 
 @media (width < 600px) {
