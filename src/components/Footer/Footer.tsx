@@ -41,11 +41,6 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 		<footer className={css.container}>
 			<Divider isHorizontal={true} willHide={false} />
 
-			{/* 
-			TODO
-			Center titles and content - in "top"
-			*/}
-
 			{/* top */}
 			<ul className={css.list_top}>
 				{/* update */}

@@ -7,3 +7,11 @@ export interface RowProps {
 export type Item = {
 	[key: string]: unknown;
 };
+
+
+export type Title = {
+	_key: string;
+	_type: string;
+	text: string;
+	marks: string[];
+};

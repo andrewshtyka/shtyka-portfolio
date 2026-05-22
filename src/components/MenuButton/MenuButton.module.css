@@ -1,4 +1,4 @@
-.base {
+.button {
 	padding-inline: var(--offset-button-secondary);
 	height: 100%;
 	display: flex;
@@ -9,7 +9,7 @@
 	color: var(--color-base);
 }
 @media (hover: hover) {
-	.base:hover {
+	.button:hover {
 		background-color: var(--color-button-background-hover);
 		color: var(--color-base);
 	}

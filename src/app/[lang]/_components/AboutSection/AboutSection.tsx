@@ -1,4 +1,7 @@
 // #region ============================== Imports
+// constants
+import { HOME_SECTIONS } from "@/constants/sectionNames";
+
 // styles
 import css from "./AboutSection.module.css";
 
@@ -53,13 +56,16 @@ export default function AboutSection({ uiString }: Props) {
 	// #endregion ===========================
 
 	return (
-		<section className={`${css.container} content_padding_limit`}>
+		<section
+			id={HOME_SECTIONS.bio}
+			className={`${css.container} content_padding_limit`}
+		>
 			<div className={css.content}>
 				{/* Paragraph 1 */}
 				<p className={`${css.p} f_display_subtitle`}>
 					{paragraph_1.text_1}
 					{/* 
-					TODO
+					TODO 3
 					Add loading state
 					 */}
 					<TooltipImage src={imgSrc} alt={imgAlt}>

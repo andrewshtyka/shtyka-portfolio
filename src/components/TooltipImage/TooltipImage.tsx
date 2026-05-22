@@ -3,17 +3,17 @@
 // #region ============================== Imports
 // components
 import { Tooltip } from "radix-ui";
+import Image from "next/image";
 
 // styles
 import css from "./TooltipImage.module.css";
 
 // types
 import { Props } from "./TooltipImage.types";
-import Image from "next/image";
 
 // utils
 import React from "react";
-import { span } from "motion/react-client";
+
 // #endregion ===========================
 
 export default function TooltipImage({

@@ -24,9 +24,6 @@ export default function VideoProject({ video, poster }: Props) {
 	const data = getUrlForVideo(video, poster) ?? "";
 	if (!data || typeof data !== "object") return null;
 
-	// TODO
-	// If not src = return placeholder
-
 	return (
 		<video
 			ref={videoRef}

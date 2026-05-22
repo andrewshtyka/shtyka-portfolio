@@ -2,6 +2,9 @@
 
 // #region ============================== Imports
 
+// constants
+import { HOME_SECTIONS } from "@/constants/sectionNames";
+
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
 
@@ -32,17 +35,13 @@ export default function ContactSection({ uiString }: Props) {
 		title_2: ui?.title[1]?.children[0].text ?? "",
 	};
 
-	// TODO
-	// 1. heroscreen - tags. add tooltips with full name of technology
-	// 2. fit width
-
 	const dataVideo = getUrlForVideo(ui.video.video, ui.video.poster) ?? "";
 
 	const dataMessage_1 = getLabelsWithLinks(ui.message[0], ui.fileName);
 	const dataMessage_2 = getLabelsWithLinks(ui.message[1], ui.fileName);
 
 	return (
-		<section className={css.container}>
+		<section id={HOME_SECTIONS.contact} className={css.container}>
 			{/* title */}
 			<h2>
 				<span className={`${css.title_1} f_serif_primary`}>

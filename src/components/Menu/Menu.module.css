@@ -21,7 +21,7 @@
 	padding: var(--space-2);
 	width: fit-content;
 
-	background-color: var(--color-background-transparent-dark);
+	background-color: var(--color-background-transparent-dark-xl);
 	border: var(--space-px) solid var(--color-border-light);
 	border-radius: var(--border-radius-main);
 

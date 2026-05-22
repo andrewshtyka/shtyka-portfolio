@@ -1,8 +1,3 @@
-/* 
-TODO
-Add extra hover area for button
-*/
-
 .button {
 	display: flex;
 
@@ -46,10 +41,12 @@ Add extra hover area for button
 	display: none;
 }
 
-.button:hover .text {
-	display: initial;
-}
+@media (hover: hover) {
+	.button:hover .text {
+		display: initial;
+	}
 
-.button:hover {
-	padding-inline-start: calc(var(--offset-button-tetriary) + var(--space-2));
+	.button:hover {
+		padding-inline-start: calc(var(--offset-button-tetriary) + var(--space-2));
+	}
 }

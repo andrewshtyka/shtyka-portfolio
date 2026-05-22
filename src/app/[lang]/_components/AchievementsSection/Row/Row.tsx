@@ -1,15 +1,15 @@
 // #region ============================== Imports
 // components
 import TooltipImage from "@/components/TooltipImage/TooltipImage";
+import Divider from "@/components/Divider/Divider";
 
 // styles
 import LinkText from "@/components/LinkText/LinkText";
 import css from "./Row.module.css";
 
 // types
-import { RowProps } from "./Row.types";
+import { RowProps, Title } from "./Row.types";
 import getUrlForImage from "@/lib/util/getUrlForImage";
-import Divider from "@/components/Divider/Divider";
 // #endregion ===========================
 
 export default function Row({ achievement, num }: RowProps) {
@@ -36,10 +36,9 @@ export default function Row({ achievement, num }: RowProps) {
 		imgAlt_2 = data?.srcArr[1]?.alt ?? "";
 	}
 
-	// TODO
-	// Replace "any" type
+	
 
-	// TODO
+	// TODO 2
 	// Check all components - make sure site doesn't fail if some data is not passed
 
 	return (
@@ -54,7 +53,7 @@ export default function Row({ achievement, num }: RowProps) {
 
 				<div className={css.col_right}>
 					{/* title */}
-					{data.titleArr.map((item: any, i: number) => {
+					{data.titleArr.map((item: Title, i: number) => {
 						return (
 							<span key={i} className={`${css.title} f_display_body`}>
 								{item.text}
@@ -64,7 +63,7 @@ export default function Row({ achievement, num }: RowProps) {
 
 					{/* subtitle */}
 					<span className={`${css.subtitle} f_display_body`}>
-						{data.subtitleArr.map((item: any, i: number) => {
+						{data.subtitleArr.map((item: Title, i: number) => {
 							if (data?.hrefArr?.length > 0) {
 								// link
 								return (

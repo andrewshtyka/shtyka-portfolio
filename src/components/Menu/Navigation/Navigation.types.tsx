@@ -1,7 +1,8 @@
 export interface Props {
-	menuItems: Item[];
-}
-interface Item {
-	item: string;
-	id: string;
+	menuItems: {
+		item: string;
+		key: string;
+		id: string;
+	}[];
+	lang: string;
 }

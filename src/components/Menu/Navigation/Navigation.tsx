@@ -5,18 +5,15 @@ import css from "./Navigation.module.css";
 // types
 import { Props } from "./Navigation.types";
 
-export default function Navigation({ menuItems }: Props) {
+export default function Navigation({ menuItems, lang }: Props) {
 	if (!menuItems) return null;
 
 	return (
 		<nav className={css.nav}>
 			<ul className={css.list_container}>
-				{menuItems.map(({ item, id }) => (
-					<li key={id} className={css.list_item}>
-						{/* TODO
-							Pass here id of section, that will be scrolled to
-							*/}
-						<MenuLinkPrimary href="#">{item}</MenuLinkPrimary>
+				{menuItems.map(({ item, key, id }) => (
+					<li key={key} className={css.list_item}>
+						<MenuLinkPrimary href={`/${lang}/#${id}`}>{item}</MenuLinkPrimary>
 					</li>
 				))}
 			</ul>

@@ -6,9 +6,12 @@
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
 import Desktop from "./Desktop/Desktop";
 import Mobile from "./Mobile/Mobile";
-import Logo from "../Logo/Logo";
+import LogoMenu from "../LogoMenu/LogoMenu";
 import Navigation from "./Navigation/Navigation";
 import Divider from "../Divider/Divider";
+
+// constants
+import { HOME_SECTIONS_ARR } from "@/constants/sectionNames";
 
 // hooks
 import useMediaQueryListener from "@/hooks/useMediaQueryListener";
@@ -52,28 +55,22 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	const menuItems = menu.map((el, i) => {
 		return {
 			item: el,
-			id: `${menuItemId}-${i}`,
+			id: HOME_SECTIONS_ARR[i],
+			key: `${menuItemId}-${i}`,
 		};
 	});
-
-	// TODO
-	// Invert menu colors on white bg
 
 	return (
 		<header className={css.container}>
 			<div className={css.header} style={menuOpenedStyles.header}>
-				{/* 
-				TODO
-				Separate logo from button
-				 */}
 				<span className={css.container_logo}>
-					<Logo isMenuOpened={isMenuOpened} />
+					<LogoMenu isMenuOpened={isMenuOpened} />
 				</span>
 
 				<Divider style={menuOpenedStyles.divider} />
 
 				<Desktop>
-					<Navigation menuItems={menuItems} />
+					<Navigation menuItems={menuItems} lang={lang} />
 				</Desktop>
 
 				<Divider isHiddenOnMobile={true} />
@@ -84,7 +81,7 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 					isMenuOpened={isMenuOpened}
 					onClick={toggleMenuMobile}
 				>
-					<Navigation menuItems={menuItems} />
+					<Navigation menuItems={menuItems} lang={lang} />
 					<Divider isHorizontal={true} />
 					<LangSwitcher currentLang={lang} />
 				</Mobile>

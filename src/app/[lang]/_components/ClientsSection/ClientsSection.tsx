@@ -3,7 +3,7 @@ import ListItem from "@/components/ListItem/ListItem";
 import css from "./ClientsSection.module.css";
 
 // types
-import { Props } from "./ClientsSection.types";
+import { Element, Props } from "./ClientsSection.types";
 
 export default function ClientsSection({ uiString }: Props) {
 	if (!uiString || typeof uiString !== "string") return;
@@ -14,10 +14,7 @@ export default function ClientsSection({ uiString }: Props) {
 		title_2: ui?.[1].children[0].text ?? "",
 	};
 
-	// TODO
-	// Replacy "any" type
-
-	const dataClients = ui?.slice(2).map((item: any) => {
+	const dataClients = ui?.slice(2).map((item: Element) => {
 		return {
 			key: item._key ?? "",
 			text: item.children[0].text ?? "",

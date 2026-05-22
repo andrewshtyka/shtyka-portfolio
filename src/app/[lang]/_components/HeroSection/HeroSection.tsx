@@ -6,6 +6,9 @@ import Tag from "@/components/Tag/Tag";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 
+// constants
+import { HOME_SECTIONS } from "@/constants/sectionNames";
+
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
 import { client } from "@/sanity/lib/client";
@@ -35,11 +38,11 @@ export default function HeroSection({ uiString }: Props) {
 		name: ui.fileName ?? "",
 	};
 
-	// TODO
+	// TODO 2
 	// Nulish coalescing - for checking if data is ok (and to not render if it's not ok)
 
 	return (
-		<section className={css.container}>
+		<section id={HOME_SECTIONS.index} className={css.container}>
 			<Video video={ui.video.video} poster={ui.video.poster} />
 
 			<div className={css.container_content}>

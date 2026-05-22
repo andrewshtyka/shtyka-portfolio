@@ -1,10 +1,19 @@
+// #region ============================== Imports
+
+// components
+import Card from "./Card/Card";
+
+// constants
+import { HOME_SECTIONS } from "@/constants/sectionNames";
+
 // styles
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 import css from "./ExperimentsSection.module.css";
 
 // types
-import { Props } from "./ExperimentsSection.types";
-import Card from "./Card/Card";
+import { Element, Props } from "./ExperimentsSection.types";
+
+// #endregion ===========================
 
 export default function ExperimentsSection({
 	experimentsString,
@@ -16,10 +25,7 @@ export default function ExperimentsSection({
 	const experiments = JSON.parse(experimentsString).reverse();
 	const ui = JSON.parse(uiString);
 
-	// TODO
-	// Replace "any" type
-
-	const processedExperiments = experiments.map((item: any) => {
+	const processedExperiments = experiments.map((item: Element) => {
 		return {
 			data: { ...item },
 			key: item._key,
@@ -27,7 +33,7 @@ export default function ExperimentsSection({
 	});
 
 	return (
-		<section className={css.container}>
+		<section id={HOME_SECTIONS.experiments} className={css.container}>
 			{/* title */}
 			<>
 				<h2 className={`${css.title} f_serif_primary`}>

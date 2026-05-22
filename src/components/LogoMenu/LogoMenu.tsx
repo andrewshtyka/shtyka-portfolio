@@ -3,17 +3,17 @@
 import Link from "next/link";
 
 // styles
-import css from "./Logo.module.css";
+import css from "./LogoMenu.module.css";
 
 // types
-import { Props } from "./Logo.types";
+import { Props } from "./LogoMenu.types";
 
 // utils
 import React from "react";
 import Emblem from "../Icons/Emblem/Emblem";
 // #endregion ===========================
 
-export default function Logo({ isMenuOpened }: Props) {
+export default function LogoMenu({ isMenuOpened }: Props) {
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 	const appliedClasses = `${css.link} ${menuOpenedButtonClass}`;
 

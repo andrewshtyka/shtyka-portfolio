@@ -9,7 +9,7 @@ export default function MenuButton({
 	children = "",
 	customClass = "",
 }: Props) {
-	const classes = `${css.base} ${customClass}`;
+	const classes = `${css.button} ${customClass}`;
 
 	return (
 		<button

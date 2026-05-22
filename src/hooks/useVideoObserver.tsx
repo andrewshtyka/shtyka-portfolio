@@ -34,10 +34,10 @@ export default function useVideoObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
 					if (video.readyState >= 3) {
-						// if video already loaded - play now
+						// if video is already loaded - play now
 						video.play().catch(() => {});
 					} else {
-						// if video isn't loaded - wait and play
+						// if video isn't loaded - wait and play (for cases when page is loaded and video is in viewport. Without it - it won't play.)
 						video.addEventListener(
 							"canplay",
 							() => video.play().catch(() => {}),

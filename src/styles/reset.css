@@ -13,11 +13,11 @@ html {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeSpeed;
 
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 html:focus-within {
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 }
 
 body {

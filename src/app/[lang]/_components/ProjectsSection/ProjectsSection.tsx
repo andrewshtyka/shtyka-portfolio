@@ -1,12 +1,19 @@
+// #region ============================== Imports
+
 // components
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
 import Card from "./Card/Card";
+
+// constants
+import { HOME_SECTIONS } from "@/constants/sectionNames";
 
 // styles
 import css from "./ProjectsSection.module.css";
 
 // types
-import { Props } from "./ProjectsSection.types";
+import { ProjectHome, Props } from "./ProjectsSection.types";
+
+// #endregion ===========================
 
 export default function ProjectsSection({ uiString, projectsString }: Props) {
 	if (!projectsString || typeof projectsString !== "string") return;
@@ -21,18 +28,15 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 		title_2: ui[1]?.children[0].text ?? "",
 	};
 
-	const dataProjects = projects.map((project: any) => {
+	const dataProjects = projects.map((project: ProjectHome) => {
 		return {
 			data: { ...project },
 			key: project._id,
 		};
 	});
 
-	// TODO
-	// Replace "any" type
-
 	return (
-		<section className={css.container}>
+		<section id={HOME_SECTIONS.projects} className={css.container}>
 			{/* title */}
 			<div className={css.container_title}>
 				<span className={css.icons}>
