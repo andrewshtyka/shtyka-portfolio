@@ -116,12 +116,12 @@ body {
 
 @media (width >= 768px) {
 	.mob_hidden_768 {
-		display: initial;
+		display: revert;
 	}
 }
 
 .desktop_hidden_768 {
-	display: initial;
+	display: revert;
 }
 
 @media (width >= 768px) {
