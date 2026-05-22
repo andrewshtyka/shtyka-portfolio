@@ -1,9 +1,9 @@
 export const HOME_SECTIONS = {
-	index: "home-scroll-section-index",
-	bio: "home-scroll-section-bio",
-	projects: "home-scroll-section-projects",
-	experiments: "home-scroll-section-experiments",
-	contact: "home-scroll-section-contact",
+	index: "index",
+	bio: "bio",
+	projects: "projects",
+	experiments: "experiments",
+	contact: "contact",
 } as const;
 
 export const HOME_SECTIONS_ARR = [

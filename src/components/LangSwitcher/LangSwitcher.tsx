@@ -5,15 +5,15 @@
 // components
 import MenuLinkPrimary from "../MenuLinkPrimary/MenuLinkPrimary";
 
-// utils
-import { usePathname } from "next/navigation";
-import { getTargetPath } from "./lib/helpers/getTargetPath";
-
 // styles
 import css from "./LangSwitcher.module.css";
 
 // types
 import { Props } from "./LangSwitcher.types";
+
+// utils
+import { usePathname } from "next/navigation";
+import { getTargetPath } from "./lib/helpers/getTargetPath";
 
 // #endregion ===========================
 

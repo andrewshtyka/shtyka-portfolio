@@ -13,12 +13,12 @@ import React from "react";
 import Emblem from "../Icons/Emblem/Emblem";
 // #endregion ===========================
 
-export default function LogoMenu({ isMenuOpened }: Props) {
+export default function LogoMenu({ isMenuOpened, lang }: Props) {
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 	const appliedClasses = `${css.link} ${menuOpenedButtonClass}`;
 
 	return (
-		<Link href="/" className={appliedClasses}>
+		<Link href={`/${lang}`} className={appliedClasses}>
 			<Emblem />
 		</Link>
 	);
