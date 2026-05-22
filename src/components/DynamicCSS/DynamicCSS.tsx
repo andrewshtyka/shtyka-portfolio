@@ -3,7 +3,7 @@ import { HOME_SECTIONS } from "@/constants/sectionNames";
 export default function DynamicCSS() {
 	// margin for home page sections with anchor links (except for "bio")
 	const SELECTORS = Object.values(HOME_SECTIONS)
-		.filter((_, i) => i !== 1)
+		.slice(1)
 		.map((id) => `#${id}`)
 		.join(", ");
 
