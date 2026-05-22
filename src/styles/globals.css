@@ -111,22 +111,22 @@ body {
 /* MEDIA QUERY */
 
 .mob_hidden_768 {
-	display: none !important;
+	display: none;
 }
 
 @media (width >= 768px) {
 	.mob_hidden_768 {
-		display: initial !important;
+		display: initial;
 	}
 }
 
 .desktop_hidden_768 {
-	display: initial !important;
+	display: initial;
 }
 
 @media (width >= 768px) {
 	.desktop_hidden_768 {
-		display: none !important;
+		display: none;
 	}
 }
 
