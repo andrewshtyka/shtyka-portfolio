@@ -33,7 +33,17 @@ export default function useVideoObserver(
 		const playObserver = new IntersectionObserver(
 			([entry]) => {
 				if (entry.isIntersecting) {
-					video.play().catch(() => {});
+					if (video.readyState >= 3) {
+						// if video already loaded - play now
+						video.play().catch(() => {});
+					} else {
+						// if video isn't loaded - wait and play
+						video.addEventListener(
+							"canplay",
+							() => video.play().catch(() => {}),
+							{ once: true }
+						);
+					}
 				} else {
 					video.pause();
 				}
