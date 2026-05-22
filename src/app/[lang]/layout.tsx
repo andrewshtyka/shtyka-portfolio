@@ -4,6 +4,7 @@ import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition
 import Menu from "@/components/Menu/Menu";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
+import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
 
 // constants
 import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
@@ -56,6 +57,7 @@ export default async function RootLayout({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 				> */}
+				<DynamicCSS />
 				<TooltipProvider>
 					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
 

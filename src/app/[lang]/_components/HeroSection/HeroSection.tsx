@@ -66,7 +66,7 @@ export default function HeroSection({ uiString }: Props) {
 					</div>
 
 					{/* Icons (mobile only) */}
-					<div className={css.container_icons}>
+					<div className={`${css.container_icons}`}>
 						<IconAsterisk color="white" size={10} />
 						<IconAsterisk color="white" size={10} />
 					</div>
@@ -90,7 +90,6 @@ export default function HeroSection({ uiString }: Props) {
 								)
 							)}
 						</ul>
-
 						<ButtonPrimary
 							href={buttonResumeData.href}
 							icon={<IconArrowCurve color="black" direction="right" />}

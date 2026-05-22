@@ -3,4 +3,5 @@ export interface Props {
 	href: string;
 	isTransparent?: boolean;
 	isButton?: boolean;
+	scroll?: boolean;
 }

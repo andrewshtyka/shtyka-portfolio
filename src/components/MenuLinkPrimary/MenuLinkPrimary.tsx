@@ -11,6 +11,7 @@ export default function MenuLinkPrimary({
 	children,
 	href,
 	isTransparent = false,
+	scroll = true,
 }: Props) {
 	const transparencyClass = isTransparent
 		? `${css.transparent}`
@@ -21,7 +22,11 @@ export default function MenuLinkPrimary({
 	if (!href || !children) return null;
 	else {
 		return (
-			<Link href={href} className={`f_display_buttons f_semibold ${classes}`}>
+			<Link
+				href={href}
+				className={`f_display_buttons f_semibold ${classes}`}
+				scroll={scroll}
+			>
 				<span className={css.children}>{children}</span>
 			</Link>
 		);

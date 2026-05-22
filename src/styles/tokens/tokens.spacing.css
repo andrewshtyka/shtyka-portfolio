@@ -33,6 +33,8 @@
 	--content-main-width-max: calc(var(--space-13) * 15); /* 600px */
 
 	/* Distances */
+	--offset-hero-top: 55vmax;
+
 	--offset-sections: calc(var(--space-17) + var(--space-19)); /* 208px */
 	--offset-sections-large: calc(var(--space-17) * 2); /* 160px */
 	--offset-sections-mid: var(--space-19); /* 128px */

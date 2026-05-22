@@ -2,7 +2,32 @@
 	position: relative;
 	width: 100%;
 	height: 100svh;
+
+	margin-block-end: var(--offset-sections);
+	padding-block-end: var(--offset-hero-top);
 }
+
+@media (width >= 768px) {
+	.container {
+		margin-block-end: var(--space-0);
+		padding-block-end: var(--space-0);
+	}
+}
+
+/* 
+TODO 1
+Mobile - put face higher, add black bg lower (behind text)
+*/
+
+/* 
+TODO 3
+Make a list of TODOs
+*/
+
+/* 
+TODO 3
+Menu mob - when link clicked, hide menu. Same for Logo click.
+*/
 
 .container_content {
 	position: absolute;
@@ -14,6 +39,16 @@
 
 	display: flex;
 	align-items: flex-end;
+
+	margin-block-start: var(--offset-sections);
+	padding-block-start: var(--offset-hero-top);
+}
+
+@media (width >= 768px) {
+	.container_content {
+		padding-block-start: var(--space-0);
+		margin-block-start: var(--space-0);
+	}
 }
 
 .content {

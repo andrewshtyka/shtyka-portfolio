@@ -32,7 +32,7 @@ export default function LangSwitcher({
 
 	return (
 		<span className={classes}>
-			<MenuLinkPrimary href={targetPath} isTransparent={true}>
+			<MenuLinkPrimary href={targetPath} isTransparent={true} scroll={false}>
 				{currentLang === "ua" ? "Eng" : "Укр"}
 			</MenuLinkPrimary>
 		</span>

@@ -1,8 +1,15 @@
 .container {
 	max-width: var(--content-main-width-max);
 	margin-inline: auto;
-	padding-block-start: var(--offset-sections);
+
+	padding-block-start: var(--offset-sections-mid);
 	padding-block-end: var(--offset-sections-mid);
+}
+
+@media (width >= 768px) {
+	.container {
+		padding-block-start: var(--offset-sections);
+	}
 }
 
 .content {
