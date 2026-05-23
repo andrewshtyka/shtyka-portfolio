@@ -26,8 +26,7 @@ import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 import css from "./layout.module.css";
 
-// types
-import { LangType } from "@/types/lang.types";
+
 
 // #endregion ===========================
 
@@ -36,7 +35,7 @@ export default async function RootLayout({
 	params,
 }: Readonly<{
 	children: React.ReactNode;
-	params: Promise<{ lang: LangType }>;
+	params: Promise<{ lang: string }>;
 }>) {
 	const { lang } = await params;
 

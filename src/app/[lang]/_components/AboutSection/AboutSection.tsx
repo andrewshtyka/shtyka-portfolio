@@ -64,10 +64,6 @@ export default function AboutSection({ uiString }: Props) {
 				{/* Paragraph 1 */}
 				<p className="f_display_subtitle">
 					{paragraph_1?.text_1}
-					{/* 
-					TODO 3
-					Add loading state
-					 */}
 					<TooltipImage src={imgSrc} alt={imgAlt}>
 						{paragraph_1?.text_2?.text}
 					</TooltipImage>

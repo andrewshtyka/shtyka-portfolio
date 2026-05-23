@@ -97,8 +97,3 @@ const anim = (variants: Variants) => {
 		variants,
 	};
 };
-
-/**
- * TODO 3
- * Clean up and set up transition
- */

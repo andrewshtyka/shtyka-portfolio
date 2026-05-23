@@ -72,11 +72,6 @@
 	}
 }
 
-/* 
-TODO 3
-In sanity schema - add description to limit max amount of characters for subtitile to 40-45
-*/
-
 .subtitle {
 	margin-block-end: var(--space-1);
 	grid-column: 2 / -1;

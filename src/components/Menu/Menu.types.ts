@@ -1,7 +1,5 @@
-import { LangType } from "@/types/lang.types";
-
 export interface Props {
-	lang: LangType;
+	lang: string;
 	menu: string[];
 	menuMobile: {
 		open: string;
