@@ -5,7 +5,12 @@ import css from "./Row.module.css";
 // types
 import { RowProps } from "./Row.types";
 
-export default function Row({ duration, years, role, company }: RowProps) {
+export default function Row({
+	duration = "",
+	years = "",
+	role = "",
+	company = "",
+}: RowProps) {
 	return (
 		<>
 			<div className={css.line}></div>

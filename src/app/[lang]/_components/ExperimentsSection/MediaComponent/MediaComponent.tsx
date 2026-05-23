@@ -41,15 +41,15 @@ export default function MediaComponent({
 		? { height: `${bottomHeight}%` }
 		: { display: "none" };
 
-	if (ui._type === "video") {
-		const data = getUrlForVideo(ui.video, ui.poster) ?? "";
+	if (ui?._type === "video") {
+		const data = getUrlForVideo(ui?.video, ui?.poster) ?? "";
 		if (!data || typeof data !== "object") return null;
 
 		return (
 			<>
 				<video
 					ref={videoRef}
-					data-src={data.video}
+					data-src={data?.video}
 					preload="none"
 					muted
 					loop
@@ -64,14 +64,14 @@ export default function MediaComponent({
 				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
 		);
-	} else if (ui._type === "imageExperiment") {
-		const src = getUrlForImage(ui.image)?.url() ?? "";
+	} else if (ui?._type === "imageExperiment") {
+		const src = getUrlForImage(ui?.image)?.url() ?? "";
 
 		return (
 			<>
 				<Image
 					src={src}
-					alt={ui.alt}
+					alt={ui?.alt}
 					sizes="100%"
 					fill={true}
 					preload={true}

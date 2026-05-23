@@ -28,7 +28,7 @@
 }
 
 .link {
-	color: var(--color-gray-500);
+	color: var(--color-text-secondary);
 
 	text-decoration-line: underline;
 	text-decoration-color: var(--color-gray-400);

@@ -17,7 +17,7 @@
 }
 
 .num {
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 
 	margin-block-start: var(--space-0);
 	margin-block-end: var(--space-10);
@@ -35,13 +35,13 @@
 }
 
 .subtitle {
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 }
 
 .duration {
 	display: flex;
 	flex: 1;
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 
 	& span {
 		align-self: flex-end;

@@ -24,14 +24,14 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 	const projects = JSON.parse(projectsString);
 
 	const dataTitle = {
-		title_1: ui[0]?.children[0].text ?? "",
-		title_2: ui[1]?.children[0].text ?? "",
+		title_1: ui[0]?.children[0]?.text ?? "",
+		title_2: ui[1]?.children[0]?.text ?? "",
 	};
 
-	const dataProjects = projects.map((project: ProjectHome) => {
+	const dataProjects = projects?.map((project: ProjectHome) => {
 		return {
 			data: { ...project },
-			key: project._id,
+			key: project?._id,
 		};
 	});
 
@@ -46,9 +46,9 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 
 				<h2>
 					<span className={`${css.title_1} f_serif_primary`}>
-						{dataTitle.title_1}
+						{dataTitle?.title_1}
 					</span>
-					<span className="f_serif_primary f_italic">{dataTitle.title_2}</span>
+					<span className="f_serif_primary f_italic">{dataTitle?.title_2}</span>
 				</h2>
 			</div>
 

@@ -23,15 +23,15 @@ export default function ExperienceSection({ uiString }: Props) {
 				{/* head */}
 				<div className={`${css.grid} ${css.head}`}>
 					<span className={`${css.table_head_item} f_mono`}>
-						{ui?.header.col1}
+						{ui?.header?.col1}
 					</span>
 					<span className={`${css.table_head_item} f_mono`}>
-						{ui?.header.col2}
+						{ui?.header?.col2}
 					</span>
 				</div>
 
 				{/* body */}
-				{ui?.table.map(({ _key, years, duration, role, company }: RowProps) => (
+				{ui?.table?.map(({ _key, years, duration, role, company }: RowProps) => (
 					<Row
 						key={_key}
 						years={years}

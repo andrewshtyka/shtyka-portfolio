@@ -26,20 +26,18 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 	const details_2 = processDetailsData(ui?.details[1]?.content);
 	const details_3 = processDetailsData(ui?.details[2]?.content);
 
-	
-
 	return (
 		<li className={css.container}>
 			{/* video */}
 			<div className={css.container_video}>
-				<VideoProject video={ui.heroVideo.video} poster={ui.heroVideo.poster} />
+				<VideoProject video={ui?.heroVideo?.video} poster={ui?.heroVideo?.poster} />
 			</div>
 
 			{/* details */}
 			<div className={css.container_details}>
 				{/* title */}
 				<div className={css.top}>
-					<h3 className={`${css.title} f_serif_primary`}>{ui?.title ?? ""}</h3>
+					<h3 className={`${css.title} f_serif_primary`}>{ui?.title}</h3>
 
 					<span className={css.grid}>
 						<span className={css.container_icon}>
@@ -47,7 +45,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 							<IconArrowShortCut size={5} direction="up" color="gray" />
 						</span>
 						<h4 className={`${css.subtitle} f_display_buttons`}>
-							{ui?.about?.description ?? ""}
+							{ui?.about?.description}
 						</h4>
 					</span>
 				</div>
@@ -59,10 +57,10 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 					{/* col 1 */}
 					<div className={`${css.part_1} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
-							{details_1?.title ?? ""}
+							{details_1?.title}
 						</h5>
 						<ul className={css.list}>
-							{details_1?.items.map(({ key, item }) => (
+							{details_1?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
 							))}
 						</ul>
@@ -71,10 +69,10 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 					{/* col 2 */}
 					<div className={`${css.part_2} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
-							{details_2?.title ?? ""}
+							{details_2?.title }
 						</h5>
 						<ul className={css.list}>
-							{details_2?.items.map(({ key, item }) => (
+							{details_2?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
 							))}
 						</ul>
@@ -83,10 +81,10 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 					{/* col 3 */}
 					<div className={`${css.part_3} ${css.right} ${css.grid}`}>
 						<h5 className={`${css.column_title} f_mono`}>
-							{details_3?.title ?? ""}
+							{details_3?.title}
 						</h5>
 						<ul className={css.list}>
-							{details_3?.items.map(({ key, item }) => (
+							{details_3?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
 							))}
 						</ul>
@@ -97,6 +95,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 				<ButtonPrimary
 					href={`/projects/${ui?.slug?.current}`}
 					icon={<IconArrowCurve color="black" direction="right" />}
+					isExternal={false}
 				>
 					{buttonTitle}
 				</ButtonPrimary>

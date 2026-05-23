@@ -28,13 +28,13 @@ export default function Video({ video, poster }: Props) {
 		<div className={css.container}>
 			<video
 				ref={videoRef}
-				data-src={data.video}
+				data-src={data?.video}
 				preload="none"
 				muted
 				loop
 				playsInline
 				width="100%"
-				poster={data.poster}
+				poster={data?.poster}
 			></video>
 			<div className={css.overlay_top}></div>
 			<div className={css.overlay_bottom}></div>

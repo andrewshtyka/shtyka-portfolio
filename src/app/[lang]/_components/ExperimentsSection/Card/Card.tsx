@@ -28,9 +28,9 @@ export default function Card({ data }: Props) {
 
 			{/* top */}
 			<div className={css.top}>
-				{data.link && (
+				{data?.link && (
 					<ButtonSecondary
-						href={data.link.link}
+						href={data?.link?.link}
 						icon={<IconArrowCurve direction="right" size={10} />}
 					>
 						{data?.link?.title}

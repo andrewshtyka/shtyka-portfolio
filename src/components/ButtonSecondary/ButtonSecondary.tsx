@@ -1,6 +1,3 @@
-// components
-import Link from "next/link";
-
 // styles
 import css from "./ButtonSecondary.module.css";
 

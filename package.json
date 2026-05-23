@@ -11,8 +11,7 @@
 	"dependencies": {
 		"@sanity/image-url": "^2.1.1",
 		"@sanity/vision": "^5.25.1",
-		"@tanstack/react-virtual": "^3.13.25",
-		"motion": "^12.38.0",
+		"motion": "^12.40.0",
 		"next": "16.2.6",
 		"next-sanity": "^12.4.5",
 		"radix-ui": "^1.4.3",

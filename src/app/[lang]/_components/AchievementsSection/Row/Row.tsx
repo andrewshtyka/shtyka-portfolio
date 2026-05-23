@@ -12,14 +12,14 @@ import { RowProps, Title } from "./Row.types";
 import getUrlForImage from "@/lib/util/getUrlForImage";
 // #endregion ===========================
 
-export default function Row({ achievement, num }: RowProps) {
+export default function Row({ achievement, num = 0 }: RowProps) {
 	const ui = JSON.parse(achievement);
 
 	const data = {
 		titleArr: ui[0]?.children ?? "",
 		subtitleArr: ui[1]?.children ?? "",
 		hrefArr: ui[1]?.markDefs ?? "",
-		srcArr: ui.slice(2)?.length > 0 ? ui.slice(2) : "",
+		srcArr: ui?.slice(2)?.length > 0 ? ui?.slice(2) : "",
 	};
 
 	// URLs for images (last achievement)
@@ -36,11 +36,6 @@ export default function Row({ achievement, num }: RowProps) {
 		imgAlt_2 = data?.srcArr[1]?.alt ?? "";
 	}
 
-	
-
-	// TODO 2
-	// Check all components - make sure site doesn't fail if some data is not passed
-
 	return (
 		<>
 			<Divider isHorizontal={true} willHide={false} />
@@ -53,7 +48,7 @@ export default function Row({ achievement, num }: RowProps) {
 
 				<div className={css.col_right}>
 					{/* title */}
-					{data.titleArr.map((item: Title, i: number) => {
+					{data?.titleArr?.map((item: Title, i: number) => {
 						return (
 							<span key={i} className={`${css.title} f_display_body`}>
 								{item.text}
@@ -63,31 +58,31 @@ export default function Row({ achievement, num }: RowProps) {
 
 					{/* subtitle */}
 					<span className={`${css.subtitle} f_display_body`}>
-						{data.subtitleArr.map((item: Title, i: number) => {
+						{data?.subtitleArr?.map((item: Title, i: number) => {
 							if (data?.hrefArr?.length > 0) {
 								// link
 								return (
 									<LinkText
 										key={i}
-										href={data.hrefArr[0].href}
+										href={data?.hrefArr[0]?.href}
 										iconSize={12}
 										hasIcon={false}
 									>
-										{item.text}
+										{item?.text}
 									</LinkText>
 								);
-							} else if (item.marks[0] === "code") {
+							} else if (item?.marks[0] === "code") {
 								// image
 								if (i === 1) {
 									return (
 										<TooltipImage key={i} src={imgUrl_1} alt={imgAlt_1}>
-											{item.text}
+											{item?.text}
 										</TooltipImage>
 									);
 								} else if (i === 3) {
 									return (
 										<TooltipImage key={i} src={imgUrl_2} alt={imgAlt_2}>
-											{item.text}
+											{item?.text}
 										</TooltipImage>
 									);
 								}
@@ -95,7 +90,7 @@ export default function Row({ achievement, num }: RowProps) {
 								// plain text
 								return (
 									<span key={i} className={`${css.subtitle} f_display_body`}>
-										{item.text}
+										{item?.text}
 									</span>
 								);
 							}

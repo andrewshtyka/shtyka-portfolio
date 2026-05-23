@@ -7,7 +7,7 @@ import { client } from "@/sanity/lib/client";
 const { projectId, dataset } = client.config();
 
 export default function getUrlForImage(source: SanityImageSource) {
-	if (!source) return;
+	if (!source) return null;
 
 	return projectId && dataset
 		? createImageUrlBuilder({ projectId, dataset }).image(source)

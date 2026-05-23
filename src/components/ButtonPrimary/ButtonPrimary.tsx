@@ -8,8 +8,8 @@ import css from "./ButtonPrimary.module.css";
 import { Props } from "./ButtonPrimary.types";
 
 export default function ButtonPrimary({
-	children = "",
 	href,
+	children = "",
 	icon,
 	fileName = "",
 	isExternal = true,
@@ -18,6 +18,7 @@ export default function ButtonPrimary({
 	const classesChildren = `${css.children} ${css.space_between}`;
 
 	if (!href) return null;
+
 	if (isExternal) {
 		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;
 		return (
@@ -33,7 +34,9 @@ export default function ButtonPrimary({
 				</span>
 			</a>
 		);
-	} else {
+	}
+	
+	if (!isExternal) {
 		return (
 			<Link href={href} className={classesLink}>
 				<span className={classesChildren}>

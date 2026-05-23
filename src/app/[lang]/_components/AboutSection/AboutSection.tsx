@@ -22,35 +22,35 @@ export default function AboutSection({ uiString }: Props) {
 	// #region ============================== CMS Data processing
 
 	const ui = JSON.parse(uiString);
-	const imgSrc = getUrlForImage(ui.images[0].image)?.url() ?? "";
+	const imgSrc = getUrlForImage(ui?.images[0]?.image)?.url() ?? "";
 	const imgAlt = ui.images[0].alt ?? "";
 
 	const paragraph_1 = {
-		text_1: ui.message[0].children[0].text ?? "",
+		text_1: ui?.message[0]?.children[0]?.text ?? "",
 		text_2: {
 			src: imgSrc ?? "",
-			alt: ui.images[0].alt ?? "",
-			text: ui.message[0].children[1].text ?? "",
+			alt: ui?.images[0]?.alt ?? "",
+			text: ui?.message[0]?.children[1]?.text ?? "",
 		},
-		text_3: ui.message[0].children[2].text ?? "",
+		text_3: ui?.message[0]?.children[2]?.text ?? "",
 	};
 
 	const paragraph_2 = {
-		text_1: ui?.message[1].children[0].text ?? "",
+		text_1: ui?.message[1]?.children[0]?.text ?? "",
 		text_2: {
-			href: ui.message[1].markDefs[0].href ?? "",
-			text: ui.message[1].children[1].text ?? "",
+			href: ui?.message[1]?.markDefs[0]?.href ?? "",
+			text: ui?.message[1]?.children[1]?.text ?? "",
 		},
-		text_3: ui.message[1].children[2].text ?? "",
+		text_3: ui?.message[1]?.children[2]?.text ?? "",
 	};
 
 	const paragraph_3 = {
-		text_1: ui.message[2].children[0].text ?? "",
+		text_1: ui?.message[2]?.children[0]?.text ?? "",
 		text_2: {
-			href: ui.message[2].markDefs[0].href ?? "",
-			text: ui.message[2].children[1].text ?? "",
+			href: ui?.message[2]?.markDefs[0]?.href ?? "",
+			text: ui?.message[2]?.children[1]?.text ?? "",
 		},
-		text_3: ui.message[2].children[2].text ?? "",
+		text_3: ui?.message[2]?.children[2]?.text ?? "",
 	};
 
 	// #endregion ===========================
@@ -62,34 +62,34 @@ export default function AboutSection({ uiString }: Props) {
 		>
 			<div className={css.content}>
 				{/* Paragraph 1 */}
-				<p className={`${css.p} f_display_subtitle`}>
-					{paragraph_1.text_1}
+				<p className="f_display_subtitle">
+					{paragraph_1?.text_1}
 					{/* 
 					TODO 3
 					Add loading state
 					 */}
 					<TooltipImage src={imgSrc} alt={imgAlt}>
-						{paragraph_1.text_2.text}
+						{paragraph_1?.text_2?.text}
 					</TooltipImage>
-					{paragraph_1.text_3}
+					{paragraph_1?.text_3}
 				</p>
 
 				{/* Paragraph 2 */}
-				<p className={`${css.p} f_display_subtitle`}>
-					{paragraph_2.text_1}
-					<LinkText href={paragraph_2.text_2.href} hasIcon={false}>
-						{paragraph_2.text_2.text}
+				<p className="f_display_subtitle">
+					{paragraph_2?.text_1}
+					<LinkText href={paragraph_2?.text_2?.href} hasIcon={false}>
+						{paragraph_2?.text_2?.text}
 					</LinkText>
-					{paragraph_2.text_3}
+					{paragraph_2?.text_3}
 				</p>
 
 				{/* Paragraph 3 */}
-				<p className={`${css.p} f_display_subtitle`}>
-					{paragraph_3.text_1}
-					<LinkText href={paragraph_3.text_2.href} hasIcon={false}>
-						{paragraph_3.text_2.text}
+				<p className="f_display_subtitle">
+					{paragraph_3?.text_1}
+					<LinkText href={paragraph_3?.text_2?.href} hasIcon={false}>
+						{paragraph_3?.text_2?.text}
 					</LinkText>
-					{paragraph_3.text_3}
+					{paragraph_3?.text_3}
 				</p>
 
 				{/* Sign */}
@@ -99,10 +99,10 @@ export default function AboutSection({ uiString }: Props) {
 					</span>
 
 					<p className={`${css.details} f_mono`}>
-						{ui.details[0].children[0].text}
+						{ui?.details[0]?.children[0]?.text}
 					</p>
 					<p className={`${css.details} f_mono`}>
-						{ui.details[1].children[0].text}
+						{ui?.details[1]?.children[0]?.text}
 					</p>
 				</div>
 			</div>

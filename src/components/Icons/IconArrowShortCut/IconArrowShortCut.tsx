@@ -12,7 +12,7 @@ export default function IconArrowShortCut({
 	// color
 	if (color === "white") appliedColor = "var(--color-base)";
 	else if (color === "black") appliedColor = "var(--color-gray)";
-	else if (color === "gray") appliedColor = "var(--color-gray-500)";
+	else if (color === "gray") appliedColor = "var(--color-text-secondary)";
 	else appliedColor = "var(--color-base)";
 
 	// direction

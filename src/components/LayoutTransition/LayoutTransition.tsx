@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
@@ -89,7 +89,7 @@ export function LayoutTransition({
 	);
 }
 
-const anim = (variants: any) => {
+const anim = (variants: Variants) => {
 	return {
 		initial: "initial",
 		animate: "enter",
@@ -97,3 +97,8 @@ const anim = (variants: any) => {
 		variants,
 	};
 };
+
+/**
+ * TODO 3
+ * Clean up and set up transition
+ */

@@ -9,7 +9,7 @@
 }
 
 .title {
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 	margin-block-end: var(--space-1);
 	text-align: center;
 }

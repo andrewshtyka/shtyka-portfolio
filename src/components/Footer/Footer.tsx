@@ -45,19 +45,19 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 			<ul className={css.list_top}>
 				{/* update */}
 				<li className={css.list_top_item_1}>
-					<h4 className={`${css.title} f_mono`}>{ui.item1 ?? ""}</h4>
+					<h4 className={`${css.title} f_mono`}>{ui?.item1}</h4>
 					<p className="f_display_caption">{lastUpdate}</p>
 				</li>
 
 				{/* browser */}
 				<li className={css.list_top_item_2}>
-					<h4 className={`${css.title} f_mono`}>{ui.item2 ?? ""}</h4>
+					<h4 className={`${css.title} f_mono`}>{ui?.item2}</h4>
 					<p className="f_display_caption">{browserName}</p>
 				</li>
 
 				{/* dimensions */}
 				<li className={css.list_top_item_3}>
-					<h4 className={`${css.title} f_mono`}>{ui.item3 ?? ""}</h4>
+					<h4 className={`${css.title} f_mono`}>{ui?.item3}</h4>
 					<p className="f_display_caption">
 						<Dimensions />
 					</p>
@@ -65,8 +65,8 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 
 				{/* made in */}
 				<li className={css.list_top_item_4}>
-					<h4 className={`${css.title} f_mono`}>{ui.item4.title ?? ""}</h4>
-					<p className="f_display_caption">{ui.item4.content ?? ""}</p>
+					<h4 className={`${css.title} f_mono`}>{ui?.item4?.title}</h4>
+					<p className="f_display_caption">{ui?.item4?.content}</p>
 				</li>
 			</ul>
 
@@ -75,7 +75,7 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 			{/* bottom */}
 			<ul className={css.list_bottom}>
 				<li className={css.list_bottom_item_1}>
-					<span className={`${css.title} f_mono`}>{ui.item5 ?? ""}</span>
+					<span className={`${css.title} f_mono`}>{ui?.item5}</span>
 				</li>
 
 				<li className={css.list_bottom_item_2}>
@@ -89,7 +89,7 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 
 				<li className={css.list_bottom_item_3}>
 					<span className={`${css.title} f_mono`}>
-						{currentYear} • {ui.item6 ?? ""}
+						{currentYear} • {ui?.item6}
 					</span>
 				</li>
 			</ul>

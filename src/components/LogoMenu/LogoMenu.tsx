@@ -15,7 +15,7 @@ import Emblem from "../Icons/Emblem/Emblem";
 
 // #endregion ===========================
 
-export default function LogoMenu({ isMenuOpened, lang }: Props) {
+export default function LogoMenu({ isMenuOpened, lang = "" }: Props) {
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 	const appliedClasses = `${css.link} ${menuOpenedButtonClass}`;
 

@@ -14,6 +14,7 @@ import css from "./ContactSection.module.css";
 
 // types
 import { Props } from "./ContactSection.types";
+import { ItemMaster } from "./Message/Message.types";
 
 // utils
 import getLabelsWithLinks from "./lib/helpers/getLabelsWithLinks";
@@ -31,24 +32,31 @@ export default function ContactSection({ uiString }: Props) {
 	if (!ui || typeof ui !== "object") return;
 
 	const dataTitle = {
-		title_1: ui?.title[0]?.children[0].text ?? "",
-		title_2: ui?.title[1]?.children[0].text ?? "",
+		title_1: ui?.title[0]?.children[0]?.text ?? "",
+		title_2: ui?.title[1]?.children[0]?.text ?? "",
 	};
 
-	const dataVideo = getUrlForVideo(ui.video.video, ui.video.poster) ?? "";
+	const dataVideo = getUrlForVideo(ui?.video?.video, ui?.video?.poster) ?? "";
 
-	const dataMessage_1 = getLabelsWithLinks(ui.message[0], ui.fileName);
-	const dataMessage_2 = getLabelsWithLinks(ui.message[1], ui.fileName);
+	const dataMessage_1 =
+		getLabelsWithLinks(ui?.message[0], ui?.fileName)?.filter(
+			(item): item is ItemMaster => !!item && typeof item !== "string"
+		) ?? null;
+
+	const dataMessage_2 =
+		getLabelsWithLinks(ui?.message[1], ui?.fileName)?.filter(
+			(item): item is ItemMaster => !!item && typeof item !== "string"
+		) ?? null;
 
 	return (
 		<section id={HOME_SECTIONS.contact} className={css.container}>
 			{/* title */}
 			<h2>
 				<span className={`${css.title_1} f_serif_primary`}>
-					{dataTitle.title_1}
+					{dataTitle?.title_1}
 				</span>
 				<span className={`${css.title_2} f_serif_primary f_italic`}>
-					{dataTitle.title_2}
+					{dataTitle?.title_2}
 				</span>
 			</h2>
 
@@ -57,14 +65,14 @@ export default function ContactSection({ uiString }: Props) {
 				<div className={css.container_video}>
 					<video
 						ref={videoRef}
-						data-src={dataVideo.video}
+						data-src={dataVideo?.video ?? ""}
 						preload="none"
 						muted
 						loop
 						playsInline
 						width="100%"
 						height="100%"
-						poster={dataVideo.poster}
+						poster={dataVideo?.poster ?? ""}
 						className={css.video}
 					></video>
 				</div>

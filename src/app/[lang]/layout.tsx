@@ -26,6 +26,9 @@ import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 import css from "./layout.module.css";
 
+// types
+import { LangType } from "@/types/lang.types";
+
 // #endregion ===========================
 
 export default async function RootLayout({
@@ -33,7 +36,7 @@ export default async function RootLayout({
 	params,
 }: Readonly<{
 	children: React.ReactNode;
-	params: Promise<{ lang: string }>;
+	params: Promise<{ lang: LangType }>;
 }>) {
 	const { lang } = await params;
 
@@ -57,17 +60,17 @@ export default async function RootLayout({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 				> */}
-				<DynamicCSS />
-				<TooltipProvider>
-					<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
+					<DynamicCSS />
+					<TooltipProvider>
+						<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
 
-					{children}
-					<div className={css.container}>
-						<ContactSection uiString={contactString} />
-						<Footer obj={ui?.footer} lang={lang} />
-					</div>
-					{/* <Vignette position="bottom" /> */}
-				</TooltipProvider>
+						{children}
+						<div className={css.container}>
+							<ContactSection uiString={contactString} />
+							<Footer obj={ui?.footer} lang={lang} />
+						</div>
+					</TooltipProvider>
+				{/* </LayoutTransition> */}
 			</body>
 		</html>
 	);

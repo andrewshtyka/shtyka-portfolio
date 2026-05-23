@@ -1,10 +1,45 @@
+// types
+import { ItemMaster } from "../../Message/Message.types";
+
 // utils
 import getUrlForFile from "@/lib/util/getUrlForFile";
 
-export default function getLabelsWithLinks(obj: any, fileName: string) {
+interface Obj {
+	style: string;
+	_key: string;
+	_type: string;
+	children: Child[];
+	markDefs: {
+		_key: string;
+		_type: string;
+		href: string;
+	}[];
+}
+
+type Child = {
+	_key: string;
+	_type: string;
+	marks: string[];
+	text: string;
+};
+
+type MarkDef = {
+	_key: string;
+	_type: string;
+	href: string;
+	file?: {
+		_type: string;
+		asset: {
+			_ref: string;
+			_type: string;
+		};
+	};
+};
+
+export default function getLabelsWithLinks(obj: Obj, fileName: string) {
 	if (!obj || typeof obj !== "object") return null;
 
-	const textsArr = obj.children.map((item: any) => {
+	const textsArr = obj.children.map((item: Child) => {
 		if (item.marks.length > 0) {
 			return {
 				isLink: true,
@@ -18,7 +53,7 @@ export default function getLabelsWithLinks(obj: any, fileName: string) {
 		}
 	});
 
-	const assetsArr = obj.markDefs.map((item: any, i: number) => {
+	const assetsArr = obj.markDefs.map((item: MarkDef) => {
 		if (item._type === "link") {
 			return {
 				text: "",
@@ -27,13 +62,13 @@ export default function getLabelsWithLinks(obj: any, fileName: string) {
 		} else if (item._type === "fileDownload") {
 			return {
 				text: "",
-				href: getUrlForFile(item.file),
+				href: item.file ? getUrlForFile(item.file) : "",
 				fileName: fileName,
 			};
 		}
 	});
 
-	const masterArr = textsArr.map((item: any, i: number) => {
+	const masterArr = textsArr.map((item: ItemMaster) => {
 		if (!item.isLink) {
 			return {
 				...item,
@@ -41,6 +76,8 @@ export default function getLabelsWithLinks(obj: any, fileName: string) {
 		}
 
 		if (item.isLink) {
+			if (!assetsArr[0]) return "";
+
 			const nextObj = {
 				...item,
 				href: assetsArr[0].href,

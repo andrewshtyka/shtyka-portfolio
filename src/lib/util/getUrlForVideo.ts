@@ -12,6 +12,9 @@ type Obj = {
 };
 
 export default function getUrlForVideo(objVideo: Obj, objPoster: Obj) {
+	if (!objVideo || typeof objVideo !== "object") return null;
+	if (!objPoster || typeof objPoster !== "object") return null;
+
 	const videoUrl = getFileAsset(objVideo, {
 		projectId,
 		dataset,

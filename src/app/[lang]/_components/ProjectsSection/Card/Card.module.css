@@ -131,7 +131,7 @@ In sanity schema - add description to limit max amount of characters for subtiti
 }
 
 .column_title {
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 	margin-block-end: var(--space-6);
 }
 

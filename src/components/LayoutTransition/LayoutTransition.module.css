@@ -1,15 +1,15 @@
 .inner {
-	background-color: var(--color-gray);
-	min-height: calc(100svh - 1rem);
+	/* background-color: var(--color-gray); */
+	min-height: 100svh;
 }
 
 .page {
-	background-color: var(--color-base);
-	min-height: calc(100svh - 1rem);
+	/* background-color: var(--color-gray); */
+	min-height: 100svh;
 }
 
 .slide {
-	height: 100vh;
+	height: 100svh;
 	width: 100%;
 	position: fixed;
 	left: 0;

@@ -37,6 +37,9 @@
 	/* Border */
 	--color-border-light: var(--color-base-alpha-l);
 	--color-border-dark: var(--color-gray-alpha-s);
+
+	/* Text */
+	--color-text-secondary: var(--color-gray-450);
 }
 
 .invert_colors {

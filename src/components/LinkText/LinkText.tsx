@@ -13,26 +13,26 @@ export default function LinkText({
 	hasIcon = true,
 	iconSize = 16,
 }: Props) {
-	if (href && children) {
-		return (
-			<a
-				href={href}
-				className={css.link}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				{hasIcon && (
-					<span
-						className={css.icon}
-						style={{
-							marginInline: iconSize / 2,
-						}}
-					>
-						<IconArrowCurve direction="right" color="gray" size={iconSize} />
-					</span>
-				)}
-				{children}
-			</a>
-		);
-	} else return;
+	if (!href) return null;
+
+	return (
+		<a
+			href={href}
+			className={css.link}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			{hasIcon && (
+				<span
+					className={css.icon}
+					style={{
+						marginInline: iconSize / 2,
+					}}
+				>
+					<IconArrowCurve direction="right" color="gray" size={iconSize} />
+				</span>
+			)}
+			{children}
+		</a>
+	);
 }

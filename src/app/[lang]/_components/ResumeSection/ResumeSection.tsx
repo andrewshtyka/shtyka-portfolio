@@ -34,23 +34,23 @@ export default function ResumeSection({ uiString }: Props) {
 	const [ui, file, fileName] = JSON.parse(uiString);
 
 	const data = {
-		title_1: ui[0]?.children[0].text ?? "",
-		title_2: ui[1]?.children[0].text ?? "",
-		label: ui[2]?.children[0].text ?? "",
+		title_1: ui[0]?.children[0]?.text ?? "",
+		title_2: ui[1]?.children[0]?.text ?? "",
+		label: ui[2]?.children[0]?.text ?? "",
 		href:
 			getFileAsset(file, {
 				projectId,
 				dataset,
-			}).url ?? "",
+			})?.url ?? "",
 		fileName: fileName,
 	};
 
 	return (
 		<a
-			href={`${data.href}/${data.fileName}`}
+			href={`${data?.href}/${data?.fileName}`}
 			target="_blank"
 			rel="noopener noreferrer"
-			className={css.a}
+			className={css.link}
 		>
 			{/* video */}
 			<div className={css.container_video}>
@@ -71,10 +71,10 @@ export default function ResumeSection({ uiString }: Props) {
 			<span className={css.top}>
 				<h2 className={css.h2}>
 					<span className={`${css.title_1} f_serif_secondary`}>
-						{data.title_1}
+						{data?.title_1}
 					</span>
 					<span className={`${css.title_2} f_serif_secondary f_italic`}>
-						{data.title_2}
+						{data?.title_2}
 					</span>
 				</h2>
 				<span className={css.container_icon}>
@@ -84,7 +84,7 @@ export default function ResumeSection({ uiString }: Props) {
 
 			{/* bottom */}
 			<span className={css.bottom}>
-				<span className={`f_mono`}>{data.label}</span>
+				<span className={`f_mono`}>{data?.label}</span>
 				<IconArrowCurve size={10} direction="right" />
 			</span>
 		</a>

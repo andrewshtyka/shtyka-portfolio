@@ -5,7 +5,7 @@ import css from "./MenuButton.module.css";
 import { Props } from "./MenuButton.types";
 
 export default function MenuButton({
-	onClick,
+	onClick = undefined,
 	children = "",
 	customClass = "",
 }: Props) {

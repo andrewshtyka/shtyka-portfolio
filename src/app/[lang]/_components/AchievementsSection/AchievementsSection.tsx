@@ -19,7 +19,7 @@ export default function AchievementsSection({ uiString }: Props) {
 		<section className={css.container}>
 			<h2 className={`${css.title} f_serif_secondary`}>{ui?.title}</h2>
 			<div>
-				{ui?.table.map(({ _key, achievement }: RowProps, i: number) => (
+				{ui?.table?.map(({ _key, achievement }: RowProps, i: number) => (
 					<Row
 						key={_key}
 						achievement={JSON.stringify(achievement)}

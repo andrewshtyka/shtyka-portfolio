@@ -37,7 +37,7 @@ export default function ExperimentsSection({
 			{/* title */}
 			<>
 				<h2 className={`${css.title} f_serif_primary`}>
-					{ui[0]?.children.map(
+					{ui[0]?.children?.map(
 						({ _key, text }: { _key: string; text: string }, i: number) => {
 							const appliedClass = i === 1 ? "f_italic" : "";
 							return (

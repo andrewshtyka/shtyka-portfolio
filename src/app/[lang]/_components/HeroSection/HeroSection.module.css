@@ -15,11 +15,6 @@
 }
 
 /* 
-TODO 1
-Mobile - put face higher, add black bg lower (behind text)
-*/
-
-/* 
 TODO 3
 Make a list of TODOs
 */
@@ -123,7 +118,7 @@ Menu mob - when link clicked, hide menu. Same for Logo click.
 @media (width >= 768px) {
 	.subtitle {
 		& span {
-			color: var(--color-gray-500);
+			color: var(--color-text-secondary);
 		}
 	}
 }

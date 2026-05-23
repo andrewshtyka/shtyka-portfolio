@@ -33,7 +33,7 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 	// close menu automatically on resize
 	useMediaQueryListener(setIsMenuOpened, 768);
 
-	if (!lang || !menu || !menuMobile) return null;
+	if (!lang || !Array.isArray(menu) || !menuMobile) return null;
 
 	function toggleMenuMobile() {
 		setIsMenuOpened((currentIsMenuOpened) => !currentIsMenuOpened);
@@ -67,7 +67,7 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 					<LogoMenu isMenuOpened={isMenuOpened} lang={lang} />
 				</span>
 
-				<Divider style={menuOpenedStyles.divider} />
+				<Divider style={menuOpenedStyles?.divider} />
 
 				<Desktop>
 					<Navigation menuItems={menuItems} lang={lang} />

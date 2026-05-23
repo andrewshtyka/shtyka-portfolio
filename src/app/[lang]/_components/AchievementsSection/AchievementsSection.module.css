@@ -20,6 +20,6 @@
 }
 
 .table_head_item {
-	color: var(--color-gray-450);
+	color: var(--color-text-secondary);
 	padding-block-end: var(--space-6);
 }

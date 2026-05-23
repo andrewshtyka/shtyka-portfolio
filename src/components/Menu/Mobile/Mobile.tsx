@@ -13,7 +13,7 @@ export default function Mobile({
 	open,
 	close,
 	isMenuOpened,
-	onClick,
+	onClick = undefined,
 }: Props) {
 	const appliedNavClasses = isMenuOpened
 		? `${css.children} bg_blur`
@@ -22,20 +22,19 @@ export default function Mobile({
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
 
 	if (!open || !close) return null;
-	else {
-		return (
-			<div className={css.container}>
-				<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
-					{isMenuOpened ? close : open}
-				</MenuButton>
 
-				<span
-					className={appliedNavClasses}
-					style={{ display: isMenuOpened ? "flex" : "none" }}
-				>
-					{isMenuOpened && children}
-				</span>
-			</div>
-		);
-	}
+	return (
+		<div className={css.container}>
+			<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
+				{isMenuOpened ? close : open}
+			</MenuButton>
+
+			<span
+				className={appliedNavClasses}
+				style={{ display: isMenuOpened ? "flex" : "none" }}
+			>
+				{isMenuOpened && children}
+			</span>
+		</div>
+	);
 }

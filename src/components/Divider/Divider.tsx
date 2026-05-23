@@ -19,13 +19,13 @@ export default function Divider({
 			? `${css.container_horizontal} ${css.horizontal_padding}`
 			: `${css.container_vertical} ${css.vertical_padding}`;
 
-		classesContainer = `${css.container} ${visibilityClass} ${classes}`;
+		classesContainer = `${visibilityClass} ${classes}`;
 	} else {
 		const classes = isHorizontal
 			? `${css.container_horizontal}`
 			: `${css.container_vertical}`;
 
-		classesContainer = `${css.container} ${visibilityClass} ${classes}`;
+		classesContainer = `${visibilityClass} ${classes}`;
 	}
 
 	const classesLine = `${css.line} ${visibilityClass} ${isHorizontal ? css.line_horizontal : css.line_vertical}`;

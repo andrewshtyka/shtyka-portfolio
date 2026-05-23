@@ -8,7 +8,7 @@ import css from "./MenuLinkPrimary.module.css";
 import { Props } from "./MenuLinkPrimary.types";
 
 export default function MenuLinkPrimary({
-	children,
+	children = "",
 	href,
 	isTransparent = false,
 	scroll = true,
@@ -19,16 +19,15 @@ export default function MenuLinkPrimary({
 
 	const classes = `${css.base} ${transparencyClass}`;
 
-	if (!href || !children) return null;
-	else {
-		return (
-			<Link
-				href={href}
-				className={`f_display_buttons f_semibold ${classes}`}
-				scroll={scroll}
-			>
-				<span className={css.children}>{children}</span>
-			</Link>
-		);
-	}
+	if (!href) return null;
+
+	return (
+		<Link
+			href={href}
+			className={`f_display_buttons f_semibold ${classes}`}
+			scroll={scroll}
+		>
+			<span className={css.children}>{children}</span>
+		</Link>
+	);
 }
