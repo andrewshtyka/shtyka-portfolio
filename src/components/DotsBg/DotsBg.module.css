@@ -7,12 +7,12 @@
 	z-index: -1;
 
 	mask-image: radial-gradient(
-		75% 20% at 50% 15%,
+		75% 40% at 50% 25%,
 		var(--color-gray) 10%,
 		transparent 90%
 	);
 	background-image: radial-gradient(
-		oklch(from var(--color-base) l c h / 40%) 0.5px,
+		oklch(from var(--color-base) l c h / 25%) 0.5px,
 		transparent 0.5px
 	);
 	background-size: var(--space-4) var(--space-4);
