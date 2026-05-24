@@ -1,6 +1,5 @@
 export interface Props {
 	lang: string;
-	buttonHome: string;
 	menu: string[];
 	menuMobile: {
 		open: string;

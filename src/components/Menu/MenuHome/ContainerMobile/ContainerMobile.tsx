@@ -1,14 +1,17 @@
 // #region ============================== Imports
+
+// components
+import MenuButton from "@/components/MenuButton/MenuButton";
+
 // styles
-import css from "./Mobile.module.css";
+import css from "./ContainerMobile.module.css";
 
 // types
-import { Props } from "./Mobile.types";
-import MenuButton from "@/components/MenuButton/MenuButton";
+import { Props } from "./ContainerMobile.types";
 
 // #endregion ===========================
 
-export default function Mobile({
+export default function ContainerMobile({
 	children,
 	open,
 	close,

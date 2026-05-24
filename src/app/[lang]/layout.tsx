@@ -1,7 +1,7 @@
 // #region ============================== Imports
 // components
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
-import Menu from "@/components/Menu/Menu";
+import { Menu, MenuOld } from "@/components/Menu/Menu";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
@@ -26,8 +26,6 @@ import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 import css from "./layout.module.css";
 
-
-
 // #endregion ===========================
 
 export default async function RootLayout({
@@ -44,6 +42,7 @@ export default async function RootLayout({
 		params: { lang },
 		tags: SANITY_UI_TAGS,
 	});
+
 	const contactString = JSON.stringify(ui?.contact);
 
 	return (
@@ -59,16 +58,21 @@ export default async function RootLayout({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 				> */}
-					<DynamicCSS />
-					<TooltipProvider>
-						<Menu lang={lang} menu={ui?.menu} menuMobile={ui?.menuMobile} />
+				<DynamicCSS />
+				<TooltipProvider>
+					<Menu
+						lang={lang}
+						menu={ui?.menu}
+						menuMobile={ui?.menuMobile}
+						buttonHome={ui?.buttonHome}
+					/>
 
-						{children}
-						<div className={css.container}>
-							<ContactSection uiString={contactString} />
-							<Footer obj={ui?.footer} lang={lang} />
-						</div>
-					</TooltipProvider>
+					{children}
+					<div className={css.container}>
+						<ContactSection uiString={contactString} />
+						<Footer obj={ui?.footer} lang={lang} />
+					</div>
+				</TooltipProvider>
 				{/* </LayoutTransition> */}
 			</body>
 		</html>

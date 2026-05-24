@@ -1,0 +1,33 @@
+.header {
+	margin-inline: auto;
+
+	display: flex;
+	align-items: center;
+	column-gap: var(--space-2);
+
+	height: var(--space-14);
+	padding: var(--space-2);
+	width: fit-content;
+
+	background-color: var(--color-background-transparent-dark-xl);
+	border: var(--space-px) solid var(--color-border-light);
+	border-radius: var(--border-radius-main);
+
+	pointer-events: auto;
+
+	position: relative;
+}
+
+.container_logo {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.nav {
+	height: 100%;
+}
+
+.icon {
+	margin-inline-end: var(--space-4);
+}

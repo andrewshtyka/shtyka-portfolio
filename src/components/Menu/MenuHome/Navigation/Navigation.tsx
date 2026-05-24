@@ -1,5 +1,7 @@
-// styles
+// components
 import MenuLinkPrimary from "@/components/MenuLinkPrimary/MenuLinkPrimary";
+
+// styles
 import css from "./Navigation.module.css";
 
 // types

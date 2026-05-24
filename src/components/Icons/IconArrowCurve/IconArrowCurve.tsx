@@ -22,6 +22,8 @@ export default function IconArrowCurve({
 	if (direction === "down") appliedDirection = {};
 	else if (direction === "right")
 		appliedDirection = { transform: "scaleX(-1)", rotate: "-90deg" };
+	else if (direction === "left")
+		appliedDirection = { transform: "scaleX(1)", rotate: "90deg" };
 
 	return (
 		<svg

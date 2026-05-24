@@ -43,9 +43,6 @@ npm install
 ### 3.1 Functional
 
 - Menu:
-  - Menu bar with logo and lang - is a container. Content (navigation items) depend on page:
-    - Home - contains anchor links
-    - Project - contains button "Go to the home page" (retrieve the text from CMS)
   - Highlight link when appropriate section is in viewport
 
 - Menu mob:
@@ -87,14 +84,15 @@ npm install
   - Menu: Hide on scroll down, appear on scroll up.
   - Nav bar: Appear on scroll down, hide on scroll up.
   - Button scroll to top
+
   ```ts
   "use client";
-  
+
   function scrollToTop() {
-		window.scrollTo({
-			top: 0,
-		});
-	}
+  	window.scrollTo({
+  		top: 0,
+  	});
+  }
   <Link ... onClick={scrollToTop} >...</Link>
   ```
 
@@ -131,6 +129,10 @@ npm install
   - Bigger padding for links (currently menu is too small)
   - Logo - unclickable
   - Put back "Index"
+  - REWRITE MENU FROM 0: Menu bar with logo and lang - is a container. Content (navigation items) depend on page:
+    - Home - contains anchor links
+    - Project - contains button "Go to the home page" (retrieve the text from CMS)
+  - Tidy up styles
 
 <br />
 
