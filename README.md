@@ -42,8 +42,6 @@ npm install
 
 ### 3.1 Functional
 
-- Links: add icon to external
-
 - Menu:
   - Highlight link when appropriate section is in viewport
 
@@ -135,6 +133,10 @@ npm install
     - Home - contains anchor links
     - Project - contains button "Go to the home page" (retrieve the text from CMS)
   - Tidy up styles
+
+- Links:
+  - Underline on hover (solid)
+  - Add icon to external
 
 <br />
 

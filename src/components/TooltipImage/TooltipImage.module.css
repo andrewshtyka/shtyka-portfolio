@@ -1,17 +1,18 @@
 .link {
 	color: var(--color-link);
+	cursor: pointer;
 
-	text-decoration-line: underline;
-	text-decoration-color: var(--color-link-underline);
-	text-decoration-style: dotted;
-	text-decoration-thickness: 0.1em;
-	text-underline-offset: var(--space-2);
+	background-image: linear-gradient(var(--color-link), var(--color-link));
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 0 var(--space-px);
+
+	transition-property: background-size;
 }
 
 @media (hover: hover) {
 	.link:hover {
-		color: var(--color-link-hover);
-		text-decoration-color: var(--color-link-underline-hover);
+		background-size: 100% var(--space-px);
 	}
 }
 

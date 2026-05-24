@@ -5,6 +5,9 @@
 import { Tooltip } from "radix-ui";
 import Image from "next/image";
 
+// constants
+import { LINK_ANIMATION } from "@/constants/animation";
+
 // styles
 import css from "./TooltipImage.module.css";
 
@@ -27,6 +30,11 @@ export default function TooltipImage({
 		setOpen((prev) => !prev);
 	}
 
+	const styleTransition = {
+		transitionTimingFunction: LINK_ANIMATION.ease,
+		transitionDuration: LINK_ANIMATION.duration,
+	};
+
 	return (
 		<Tooltip.Root open={open} onOpenChange={setOpen}>
 			<Tooltip.Trigger onClick={handleTooltipClick} asChild>
@@ -37,6 +45,7 @@ export default function TooltipImage({
 							e.preventDefault();
 						}}
 						className={css.link}
+						style={styleTransition}
 					>
 						{children}
 					</a>
@@ -46,7 +55,7 @@ export default function TooltipImage({
 			</Tooltip.Trigger>
 
 			<Tooltip.Portal>
-				<Tooltip.Content>
+				<Tooltip.Content sideOffset={16}>
 					{src && (
 						<span className={css.container_image}>
 							<Image
