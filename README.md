@@ -42,6 +42,8 @@ npm install
 
 ### 3.1 Functional
 
+- Links: add icon to external
+
 - Menu:
   - Highlight link when appropriate section is in viewport
 

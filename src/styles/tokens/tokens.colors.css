@@ -11,6 +11,8 @@
 	--color-gray-500: hsl(var(--hue), 15%, 64%);
 	--color-gray-700: hsl(var(--hue), 15%, 72%);
 	--color-gray-900: hsl(var(--hue), 11%, 85%);
+	--color-blue: hsl(var(--hue), 100%, 65%);
+	--color-blue-alpha-xxl: hsla(var(--hue), 100%, 65%, 0.5);
 
 	/* Transparent - light */
 	--color-base-alpha-xxl: hsla(var(--hue), 33%, 94%, 0.5);
@@ -26,37 +28,43 @@
 	--color-gray-alpha-s: hsla(var(--hue), 0%, 0%, 0.1);
 	--color-gray-alpha-transparent: hsla(var(--hue), 0%, 0%, 0);
 
-	/* Cards / Bars */
-	--color-background-transparent-dark: var(--color-gray-alpha-s);
-	--color-background-transparent-dark-xl: var(--color-gray-alpha-xxl);
-	--color-background-transparent-light: var(--color-base-alpha-s);
-	--color-background-solid: var(--color-gray-100);
+	/* ================================================== */
+	/* */
+	/* COMPONENTS */
 
-	/* Button / Link */
+	/* Blur */
+	--blur: blur(var(--space-11)); /* 24px */
+
+	/* Border */
+	--color-border-light: none;
+	--color-border-dark: none;
+
+	/* Button */
 	--color-button-background: var(--color-base);
 
 	--color-button-background-secondary: var(--color-gray-alpha-s);
 	--color-button-background-secondary-hover: var(--color-base-alpha-l);
 	--color-button-background-secondary-hover-solid: var(--color-base);
 
-	--color-link: var(--color-gray-450);
-	--color-link-hover: var(--color-base);
+	/* Cards & Bars */
+	--color-background-transparent-dark: var(--color-gray-alpha-s);
+	--color-background-transparent-dark-xl: var(--color-gray-alpha-xxl);
+	--color-background-transparent-light: var(--color-base-alpha-s);
+	--color-background-solid: var(--color-gray-100);
 
-	--color-link-underline: var(--color-base-alpha-xl);
-	--color-link-underline-hover: var(--color-gray-450);
-
-	/* Border / Line */
-	--color-border-light: none;
-	--color-border-dark: none;
-
+	/* Line */
 	--color-line-light: var(--color-base-alpha-l);
 	--color-line-dark: var(--color-gray-alpha-s);
 
+	/* Link */
+	--color-link: var(--color-blue);
+	--color-link-hover: var(--color-gray-450);
+
+	--color-link-underline: var(--color-blue-alpha-xxl);
+	--color-link-underline-hover: var(--color-gray-450);
+
 	/* Text */
 	--color-text-secondary: var(--color-gray-450);
-
-	/* Blur */
-	--blur: blur(var(--space-11)); /* 24px */
 }
 
 .invert_colors {
@@ -79,5 +87,10 @@
 	--color-gray-alpha-xl: hsla(var(--hue), 33%, 94%, 0.3);
 	--color-gray-alpha-transparent: hsla(var(--hue), 33%, 94%, 0);
 
+	/* ================================================== */
+	/* */
+	/* COMPONENTS */
+
+	/* Button */
 	--color-button-background-secondary-hover: var(--color-base-alpha-l);
 }
