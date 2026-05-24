@@ -1,7 +1,7 @@
 // #region ============================== Imports
 // components
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
-import { Menu, MenuOld } from "@/components/Menu/Menu";
+import Menu from "@/components/Menu/Menu";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
@@ -66,7 +66,6 @@ export default async function RootLayout({
 						menuMobile={ui?.menuMobile}
 						buttonHome={ui?.buttonHome}
 					/>
-
 					{children}
 					<div className={css.container}>
 						<ContactSection uiString={contactString} />

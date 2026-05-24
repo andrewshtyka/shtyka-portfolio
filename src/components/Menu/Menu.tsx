@@ -17,7 +17,7 @@ import { usePathname } from "next/navigation";
 
 // #endregion ===========================
 
-export function Menu({ lang, menu, buttonHome, menuMobile }: Props) {
+export default function Menu({ lang, menu, buttonHome, menuMobile }: Props) {
 	const pathname = usePathname();
 	const isHomePage = pathname === `/${lang}`;
 
