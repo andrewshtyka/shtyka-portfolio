@@ -35,7 +35,7 @@ export default function ButtonPrimary({
 			</a>
 		);
 	}
-	
+
 	if (!isExternal) {
 		return (
 			<Link href={href} className={classesLink}>

@@ -1,3 +1,5 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
@@ -16,10 +18,14 @@ import { Props } from "./Card.types";
 
 // utils
 import processDetailsData from "./lib/helpers/processDetailsData";
+import { useParams } from "next/navigation";
 
 // #endregion ===========================
 
 export default function Card({ uiString, buttonTitle = "" }: Props) {
+	const params = useParams<{ lang: string }>();
+	const lang = params?.lang ?? "en";
+
 	const ui = JSON.parse(uiString);
 
 	const details_1 = processDetailsData(ui?.details[0]?.content);
@@ -30,7 +36,10 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 		<li className={css.container}>
 			{/* video */}
 			<div className={css.container_video}>
-				<VideoProject video={ui?.heroVideo?.video} poster={ui?.heroVideo?.poster} />
+				<VideoProject
+					video={ui?.heroVideo?.video}
+					poster={ui?.heroVideo?.poster}
+				/>
 			</div>
 
 			{/* details */}
@@ -56,9 +65,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 				<div className={css.bottom}>
 					{/* col 1 */}
 					<div className={`${css.part_1} ${css.grid}`}>
-						<h5 className={`${css.column_title} f_mono`}>
-							{details_1?.title}
-						</h5>
+						<h5 className={`${css.column_title} f_mono`}>{details_1?.title}</h5>
 						<ul className={css.list}>
 							{details_1?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
@@ -68,9 +75,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 
 					{/* col 2 */}
 					<div className={`${css.part_2} ${css.grid}`}>
-						<h5 className={`${css.column_title} f_mono`}>
-							{details_2?.title }
-						</h5>
+						<h5 className={`${css.column_title} f_mono`}>{details_2?.title}</h5>
 						<ul className={css.list}>
 							{details_2?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
@@ -80,9 +85,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 
 					{/* col 3 */}
 					<div className={`${css.part_3} ${css.right} ${css.grid}`}>
-						<h5 className={`${css.column_title} f_mono`}>
-							{details_3?.title}
-						</h5>
+						<h5 className={`${css.column_title} f_mono`}>{details_3?.title}</h5>
 						<ul className={css.list}>
 							{details_3?.items?.map(({ key, item }) => (
 								<ListItem key={key}>{item}</ListItem>
@@ -93,7 +96,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 
 				{/* button */}
 				<ButtonPrimary
-					href={`/projects/${ui?.slug?.current}`}
+					href={`/${lang}/projects/${ui?.slug?.current}`}
 					icon={<IconArrowCurve color="black" direction="right" />}
 					isExternal={false}
 				>

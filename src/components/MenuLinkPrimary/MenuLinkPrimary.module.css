@@ -1,6 +1,6 @@
 .base {
-	padding-inline: var(--offset-button-secondary);
-	padding-block: calc(var(--offset-button-secondary) - var(--space-2));
+	padding-inline: var(--offset-button-secondary-extended);
+	padding-block: calc(var(--offset-button-secondary-extended) - var(--space-3));
 
 	width: 100%;
 	height: revert;
@@ -20,7 +20,7 @@
 
 @media (hover: hover) {
 	.base:hover {
-		background-color: var(--color-button-background-hover);
+		background-color: var(--color-button-background-secondary-hover);
 		color: var(--color-base);
 	}
 }

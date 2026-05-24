@@ -42,8 +42,10 @@
 
 	--offset-base: var(--space-10); /* 20px */
 
-	--offset-button-primary: var(--space-9); /* 18px */
+	/* Buttons */
+	--offset-button-primary: var(--space-11); /* 24px */
 	--offset-button-secondary: var(--space-6); /* 12px */
+	--offset-button-secondary-extended: var(--space-8); /* 16px */
 	--offset-button-tetriary: var(--space-4); /* 8px */
 
 	/* Home (experience, achievements) */

@@ -1,16 +1,11 @@
-.link {
+.logo {
 	display: flex;
 	align-items: center;
 	height: 100%;
-	padding-inline: var(--offset-button-secondary);
+	padding-inline: var(--offset-button-secondary-extended);
 	padding-block-end: var(--space-1);
 
 	border-radius: var(--border-radius-secondary);
 
 	background-color: var(--color-base-alpha-transparent);
-}
-@media (hover: hover) {
-	.link:hover {
-		background-color: var(--color-button-background-hover);
-	}
 }

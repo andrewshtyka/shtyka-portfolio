@@ -85,7 +85,7 @@
 @media (width >= 768px) {
 	.container_secondary {
 		row-gap: var(--space-11);
-		max-width: calc(var(--space-20) + var(--space-15) + var(--space-1));
+		max-width: calc(var(--space-20) + var(--space-16) + var(--space-2));
 		justify-content: space-between;
 
 		padding-block-start: var(--space-4);
@@ -100,16 +100,8 @@
 
 .subtitle {
 	& span {
-		color: var(--color-base-alpha-xxl);
+		color: var(--color-text-secondary);
 		white-space: nowrap;
-	}
-}
-
-@media (width >= 768px) {
-	.subtitle {
-		& span {
-			color: var(--color-text-secondary);
-		}
 	}
 }
 

@@ -40,10 +40,13 @@ npm install
 
 ## 3. TODO
 
-### Functional
+### 3.1 Functional
 
 - Menu:
-  Highlight link when appropriate section is in viewport
+  - Menu bar with logo and lang - is a container. Content (navigation items) depend on page:
+    - Home - contains anchor links
+    - Project - contains button "Go to the home page" (retrieve the text from CMS)
+  - Highlight link when appropriate section is in viewport
 
 - Menu mob:
   - When link clicked - close menu.
@@ -57,7 +60,7 @@ npm install
 
 <br />
 
-### Animation
+### 3.2 Animation
 
 - Add shaders for hero video
 
@@ -78,12 +81,27 @@ npm install
 
 <br />
 
-### BACKLOG
+### 3.3 Backlog
 
 - Project page
+  - Menu: Hide on scroll down, appear on scroll up.
+  - Nav bar: Appear on scroll down, hide on scroll up.
+  - Button scroll to top
+  ```ts
+  "use client";
+  
+  function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+		});
+	}
+  <Link ... onClick={scrollToTop} >...</Link>
+  ```
+
 - 404 page
 - Error page
 - Preloader
+  - Change cursor to loading variant (spinning circle)
 
 - Generate Metadata for Pages:
   title = hero title
@@ -93,7 +111,41 @@ npm install
 
 <br />
 
-### DONE
+### 3.4 Done
 
-- [x] Sanity schema:
+- Sanity schema:
   Add description to limit max amount of characters for subtitile to 40-45
+
+- Link to projects case study must include [lang] in url
+
+- Experiments section:
+  Add dots bg
+
+- Remove border lines from cards, btns, etc.
+
+- Tag: no bg, blurred bg
+
+- Btn secondary: no bg, blurred bg
+
+- Menu:
+  - Bigger padding for links (currently menu is too small)
+  - Logo - unclickable
+  - Put back "Index"
+
+<br />
+
+## 4. INSPIRATION
+
+- text on scroll https://www.structured.money/
+
+- ??? https://lightshiprv.com/
+
+- lines and text on scroll https://destigmatize.ca/
+
+- text quote (gray to white) on scroll https://webisoft.com/
+
+- text on scroll https://sidewave.it/
+
+- text on scroll https://pp-fragment.com/
+
+-

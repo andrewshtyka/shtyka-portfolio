@@ -1,5 +1,6 @@
 .button {
-	padding-inline: var(--offset-button-secondary);
+	padding-inline: var(--offset-button-secondary-extended);
+
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -10,7 +11,7 @@
 }
 @media (hover: hover) {
 	.button:hover {
-		background-color: var(--color-button-background-hover);
+		background-color: var(--color-button-background-secondary-hover);
 		color: var(--color-base);
 	}
 }

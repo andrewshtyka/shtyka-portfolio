@@ -19,7 +19,7 @@
 
 .line {
 	height: var(--space-px);
-	background-color: var(--color-border-dark);
+	background-color: var(--color-line-dark);
 }
 
 .years {

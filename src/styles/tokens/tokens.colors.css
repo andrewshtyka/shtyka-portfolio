@@ -9,13 +9,14 @@
 	--color-gray-400: hwb(var(--hue) 36% 56%);
 	--color-gray-450: hsl(var(--hue), 12%, 56%);
 	--color-gray-500: hsl(var(--hue), 15%, 64%);
+	--color-gray-700: hsl(var(--hue), 15%, 72%);
 	--color-gray-900: hsl(var(--hue), 11%, 85%);
 
 	/* Transparent - light */
 	--color-base-alpha-xxl: hsla(var(--hue), 33%, 94%, 0.5);
 	--color-base-alpha-xl: hsla(var(--hue), 33%, 94%, 0.32);
 	--color-base-alpha-l: hsla(var(--hue), 33%, 94%, 0.2);
-	--color-base-alpha-m: hsla(var(--hue), 33%, 94%, 0.16);
+	--color-base-alpha-m: hsla(var(--hue), 33%, 94%, 0.12);
 	--color-base-alpha-s: hsla(var(--hue), 33%, 94%, 0.06);
 	--color-base-alpha-transparent: hsla(var(--hue), 33%, 94%, 0);
 
@@ -32,14 +33,30 @@
 	--color-background-solid: var(--color-gray-100);
 
 	/* Button / Link */
-	--color-button-background-hover: var(--color-base-alpha-l);
+	--color-button-background: var(--color-base);
 
-	/* Border */
-	--color-border-light: var(--color-base-alpha-l);
-	--color-border-dark: var(--color-gray-alpha-s);
+	--color-button-background-secondary: var(--color-gray-alpha-s);
+	--color-button-background-secondary-hover: var(--color-base-alpha-l);
+	--color-button-background-secondary-hover-solid: var(--color-base);
+
+	--color-link: var(--color-gray-450);
+	--color-link-hover: var(--color-base);
+
+	--color-link-underline: var(--color-base-alpha-xl);
+	--color-link-underline-hover: var(--color-gray-450);
+
+	/* Border / Line */
+	--color-border-light: none;
+	--color-border-dark: none;
+
+	--color-line-light: var(--color-base-alpha-l);
+	--color-line-dark: var(--color-gray-alpha-s);
 
 	/* Text */
 	--color-text-secondary: var(--color-gray-450);
+
+	/* Blur */
+	--blur: blur(var(--space-11)); /* 24px */
 }
 
 .invert_colors {
@@ -62,5 +79,5 @@
 	--color-gray-alpha-xl: hsla(var(--hue), 33%, 94%, 0.3);
 	--color-gray-alpha-transparent: hsla(var(--hue), 33%, 94%, 0);
 
-	--color-button-background-hover: var(--color-base-alpha-l);
+	--color-button-background-secondary-hover: var(--color-base-alpha-l);
 }

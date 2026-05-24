@@ -2,7 +2,7 @@
 
 // #region ============================== Imports
 // components
-import Link from "next/link";
+import Emblem from "../Icons/Emblem/Emblem";
 
 // styles
 import css from "./LogoMenu.module.css";
@@ -10,24 +10,15 @@ import css from "./LogoMenu.module.css";
 // types
 import { Props } from "./LogoMenu.types";
 
-// utils
-import Emblem from "../Icons/Emblem/Emblem";
-
 // #endregion ===========================
 
-export default function LogoMenu({ isMenuOpened, lang = "" }: Props) {
+export default function LogoMenu({ isMenuOpened }: Props) {
 	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
-	const appliedClasses = `${css.link} ${menuOpenedButtonClass}`;
-
-	function scrollToTop() {
-		window.scrollTo({
-			top: 0,
-		});
-	}
+	const appliedClasses = `${css.logo} ${menuOpenedButtonClass}`;
 
 	return (
-		<Link href={`/${lang}`} className={appliedClasses} onClick={scrollToTop}>
+		<span className={appliedClasses}>
 			<Emblem />
-		</Link>
+		</span>
 	);
 }

@@ -73,7 +73,7 @@ export default function AboutSection({ uiString }: Props) {
 				{/* Paragraph 2 */}
 				<p className="f_display_subtitle">
 					{paragraph_2?.text_1}
-					<LinkText href={paragraph_2?.text_2?.href} hasIcon={false}>
+					<LinkText href={paragraph_2?.text_2?.href}>
 						{paragraph_2?.text_2?.text}
 					</LinkText>
 					{paragraph_2?.text_3}
@@ -82,7 +82,7 @@ export default function AboutSection({ uiString }: Props) {
 				{/* Paragraph 3 */}
 				<p className="f_display_subtitle">
 					{paragraph_3?.text_1}
-					<LinkText href={paragraph_3?.text_2?.href} hasIcon={false}>
+					<LinkText href={paragraph_3?.text_2?.href}>
 						{paragraph_3?.text_2?.text}
 					</LinkText>
 					{paragraph_3?.text_3}

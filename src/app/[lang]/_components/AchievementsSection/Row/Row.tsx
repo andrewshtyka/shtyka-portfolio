@@ -38,7 +38,7 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 
 	return (
 		<>
-			<Divider isHorizontal={true} willHide={false} />
+			<Divider isHorizontal={true} willHide={false} style={{ opacity: 0.5 }} />
 
 			<div className={`${css.grid} ${css.distance}`}>
 				{/* number */}
@@ -62,12 +62,7 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 							if (data?.hrefArr?.length > 0) {
 								// link
 								return (
-									<LinkText
-										key={i}
-										href={data?.hrefArr[0]?.href}
-										iconSize={12}
-										hasIcon={false}
-									>
+									<LinkText key={i} href={data?.hrefArr[0]?.href}>
 										{item?.text}
 									</LinkText>
 								);

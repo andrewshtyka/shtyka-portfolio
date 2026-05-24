@@ -1,15 +1,17 @@
 .link {
-	border: var(--space-px) solid var(--color-border-light);
 	border-radius: var(--border-radius-secondary);
 
-	padding-inline: var(--space-3);
-	padding-block: var(--space-1);
+	background-color: var(--color-button-background-secondary);
 
-	backdrop-filter: blur(24px);
+	padding-inline: var(--offset-button-tetriary);
+	padding-block: calc(var(--offset-button-tetriary) - var(--space-2));
+
+	backdrop-filter: var(--blur);
 }
 
 @media (hover: hover) {
 	.link:hover {
-		background-color: var(--color-button-background-hover);
+		background-color: var(--color-button-background-secondary-hover-solid);
+		color: var(--color-gray);
 	}
 }

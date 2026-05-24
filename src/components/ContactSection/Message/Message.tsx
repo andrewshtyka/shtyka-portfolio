@@ -15,7 +15,7 @@ export default function Message({ arr }: { arr: ItemMaster[] | null }) {
 				} else {
 					if (!item?.fileName) {
 						return (
-							<LinkText key={i} href={item?.href} hasIcon={false}>
+							<LinkText key={i} href={item?.href}>
 								{item?.text}
 							</LinkText>
 						);
@@ -23,7 +23,7 @@ export default function Message({ arr }: { arr: ItemMaster[] | null }) {
 						const appliedHref = `${item?.href}/${item?.fileName}`;
 
 						return (
-							<LinkText key={i} href={appliedHref} hasIcon={false}>
+							<LinkText key={i} href={appliedHref}>
 								{item?.text}
 							</LinkText>
 						);

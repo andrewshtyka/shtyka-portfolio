@@ -1,15 +1,23 @@
 .button {
 	display: flex;
 
-	background-color: var(--color-background-transparent-dark);
-	border: var(--space-px) solid var(--color-border-light);
+	background-color: var(--color-button-background-secondary);
 	border-radius: var(--border-radius-secondary);
 
-	padding: var(--offset-button-tetriary);
-	padding-inline-start: var(--offset-button-tetriary);
+	padding: var(--offset-button-secondary);
 	width: fit-content;
 
-	backdrop-filter: blur(24px);
+	backdrop-filter: var(--blur);
+}
+
+@media (hover: hover) {
+	.button:hover {
+		background-color: var(--color-button-background-secondary-hover-solid);
+		color: var(--color-gray);
+		& path {
+			fill: var(--color-gray);
+		}
+	}
 }
 
 .items {
@@ -47,6 +55,6 @@
 	}
 
 	.button:hover {
-		padding-inline-start: calc(var(--offset-button-tetriary) + var(--space-2));
+		padding-inline-start: var(--offset-button-secondary);
 	}
 }

@@ -45,7 +45,7 @@ export default function Menu({ lang, menu, menuMobile }: Props) {
 					backgroundColor: "var(--color-base)",
 					border: "var(--space-px) solid var(--color-border-dark)",
 				}
-			: { backdropFilter: "blur(24px)" },
+			: { backdropFilter: "var(--blur)" },
 		logo: isMenuOpened ? "black" : "white",
 		divider: isMenuOpened
 			? { backgroundColor: "var(--color-gray-alpha-s)" }

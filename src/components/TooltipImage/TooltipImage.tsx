@@ -31,7 +31,15 @@ export default function TooltipImage({
 		<Tooltip.Root open={open} onOpenChange={setOpen}>
 			<Tooltip.Trigger onClick={handleTooltipClick} asChild>
 				{src ? (
-					<span className={css.link}>{children}</span>
+					<a
+						href=""
+						onClick={(e) => {
+							e.preventDefault();
+						}}
+						className={css.link}
+					>
+						{children}
+					</a>
 				) : (
 					<span>{children}</span>
 				)}

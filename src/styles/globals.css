@@ -134,5 +134,5 @@ body {
 /* */
 /* APPEARANCE */
 .bg_blur {
-	backdrop-filter: blur(24px);
+	backdrop-filter: var(--blur);
 }
