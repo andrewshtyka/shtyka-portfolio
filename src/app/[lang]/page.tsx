@@ -19,6 +19,7 @@ import {
 	SANITY_HOME_QUERY,
 	SANITY_HOME_TAGS,
 } from "@/constants/sanity";
+import { HOME_SECTIONS } from "@/constants/sectionNames";
 
 // sanity
 import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
@@ -79,14 +80,15 @@ export default async function HomePage({ params }: Props) {
 			<HeroSection uiString={uiStringHero} />
 
 			<div className={css.container}>
-				<AboutSection uiString={uiStringAbout} />
-				<ExperienceSection uiString={uiStringExperience} />
-				<AchievementsSection uiString={uiStringAchievements} />
-
-				<div className={css.double}>
-					<ClientsSection uiString={uiStringClients} />
-					<ResumeSection uiString={uiStringResume} />
-				</div>
+				<span id={HOME_SECTIONS.bio}>
+					<AboutSection uiString={uiStringAbout} />
+					<ExperienceSection uiString={uiStringExperience} />
+					<AchievementsSection uiString={uiStringAchievements} />
+					<div className={css.double}>
+						<ClientsSection uiString={uiStringClients} />
+						<ResumeSection uiString={uiStringResume} />
+					</div>
+				</span>
 
 				<ProjectsSection
 					uiString={uiStringProjects}

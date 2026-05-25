@@ -37,3 +37,8 @@
 .solid {
 	color: var(--color-base);
 }
+
+.is_active {
+	background-color: var(--color-button-background-secondary-hover);
+	color: var(--color-base);
+}

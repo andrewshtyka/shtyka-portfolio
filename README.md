@@ -42,9 +42,6 @@ npm install
 
 ### 3.1 Functional
 
-- Menu:
-  - Highlight link when appropriate section is in viewport
-
 - Menu mob:
   - When link clicked - close menu.
   - When Logo clicked - close menu.
@@ -133,6 +130,7 @@ npm install
     - Home - contains anchor links
     - Project - contains button "Go to the home page" (retrieve the text from CMS)
   - Tidy up styles
+  - Highlight link when appropriate section is in viewport
 
 - Links:
   - Underline on hover (solid)

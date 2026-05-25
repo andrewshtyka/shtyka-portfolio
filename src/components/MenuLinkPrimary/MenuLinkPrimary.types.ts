@@ -4,4 +4,5 @@ export interface Props {
 	isTransparent?: boolean;
 	isButton?: boolean;
 	scroll?: boolean;
+	isActive?: boolean;
 }
