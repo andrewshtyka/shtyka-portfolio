@@ -6,7 +6,7 @@ import { Tooltip } from "radix-ui";
 import Image from "next/image";
 
 // constants
-import { LINK_ANIMATION } from "@/constants/animation";
+import { LINK_ANIMATION_CSS } from "@/constants/animation";
 
 // styles
 import css from "./TooltipImage.module.css";
@@ -31,8 +31,8 @@ export default function TooltipImage({
 	}
 
 	const styleTransition = {
-		transitionTimingFunction: LINK_ANIMATION.ease,
-		transitionDuration: LINK_ANIMATION.duration,
+		transitionTimingFunction: LINK_ANIMATION_CSS.ease,
+		transitionDuration: LINK_ANIMATION_CSS.duration,
 	};
 
 	return (

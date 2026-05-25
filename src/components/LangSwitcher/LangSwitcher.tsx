@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // components
-import { MenuLinkSecondary } from "../MenuLinkPrimary/MenuLinkPrimary";
+import { MenuLinkSecondary } from "../MenuLink/MenuLink";
 
 // styles
 import css from "./LangSwitcher.module.css";

@@ -4,7 +4,7 @@
 import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 
 // constants
-import { LINK_ANIMATION } from "@/constants/animation";
+import { LINK_ANIMATION_CSS } from "@/constants/animation";
 
 // styles
 import css from "./LinkText.module.css";
@@ -20,8 +20,8 @@ export default function LinkText({
 	hasIcon = true,
 }: Props) {
 	const styleTransition = {
-		transitionTimingFunction: LINK_ANIMATION.ease,
-		transitionDuration: LINK_ANIMATION.duration,
+		transitionTimingFunction: LINK_ANIMATION_CSS.ease,
+		transitionDuration: LINK_ANIMATION_CSS.duration,
 	};
 
 	if (!href) {

@@ -6,14 +6,14 @@
 import MenuHome from "./MenuHome/MenuHome";
 import MenuNotHome from "./MenuNotHome/MenuNotHome";
 
+// hooks
+import { usePathname } from "next/navigation";
+
 // styles
 import css from "./Menu.module.css";
 
 // types
 import { Props } from "./Menu.types";
-
-// utils
-import { usePathname } from "next/navigation";
 
 // #endregion ===========================
 

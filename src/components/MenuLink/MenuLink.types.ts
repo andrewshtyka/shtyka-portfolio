@@ -1,8 +1,9 @@
 export interface PropsPrimary {
 	children: React.ReactNode;
-	isTransparent?: boolean;
+	layoutId?: string;
 	isActive?: boolean;
 	onClick?: React.MouseEventHandler<HTMLElement>;
+	isTransparent?: boolean;
 }
 
 export interface PropsSecondary {
@@ -10,6 +11,5 @@ export interface PropsSecondary {
 	href: string;
 	isTransparent?: boolean;
 	scroll?: boolean;
-	isActive?: boolean;
 	onClick?: React.MouseEventHandler<HTMLElement>;
 }

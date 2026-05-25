@@ -32,7 +32,7 @@
 	/* COMPONENTS */
 
 	/* Accent */
-	--color-accent: var(--color-blue);
+	--color-accent: var(--color-gray-450);
 
 	/* Blur */
 	--blur: blur(var(--space-11)); /* 24px */

@@ -13,8 +13,3 @@
 		height: 100%;
 	}
 }
-
-.list_item {
-	display: flex;
-	align-items: center;
-}

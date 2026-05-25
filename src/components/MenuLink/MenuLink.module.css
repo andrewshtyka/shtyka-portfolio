@@ -3,11 +3,13 @@
 	padding-block: calc(var(--offset-button-secondary-extended) - var(--space-3));
 
 	width: 100%;
-	height: revert;
+	height: 100%;
 	border-radius: var(--border-radius-secondary);
 
 	display: flex;
 	align-items: center;
+
+	position: relative;
 }
 
 @media (width >= 768px) {
@@ -15,13 +17,6 @@
 		width: revert;
 		height: 100%;
 		padding-block: revert;
-	}
-}
-
-@media (hover: hover) {
-	.base:hover {
-		background-color: var(--color-button-background-secondary-hover);
-		color: var(--color-base);
 	}
 }
 
@@ -38,7 +33,19 @@
 	color: var(--color-base);
 }
 
-.is_active {
+.list_item {
+	display: flex;
+	align-items: center;
+
+	position: relative;
+}
+
+.button_hovered {
+	position: absolute;
+	inset: 0;
+	border-radius: var(--border-radius-secondary);
+
 	background-color: var(--color-button-background-secondary-hover);
 	color: var(--color-base);
+	pointer-events: none;
 }

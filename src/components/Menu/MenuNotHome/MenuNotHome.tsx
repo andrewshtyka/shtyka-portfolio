@@ -5,7 +5,7 @@ import Divider from "@/components/Divider/Divider";
 import LogoMenu from "@/components/LogoMenu/LogoMenu";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
-import { MenuLinkSecondary } from "@/components/MenuLinkPrimary/MenuLinkPrimary";
+import { MenuLinkSecondary } from "@/components/MenuLink/MenuLink";
 
 // styles
 import css from "./MenuNotHome.module.css";

@@ -47,9 +47,9 @@ npm install
 ### 3.2 Animation
 
 - Menu:
-  Hide on scroll down, appear on scroll up.
+  - Hover on links (counter by letter)
+  https://pp-fragment.com/
 
-- Add shaders for hero video
 
 - Hovers (find refs):
   - Links
@@ -65,6 +65,8 @@ npm install
 - Animation of transition between pages (fade):
   - Clean up file and set up transition
   - Do for Language change.
+
+- Add shaders for hero video
 
 <br />
 
@@ -133,6 +135,9 @@ npm install
   - When link clicked - close menu.
   - When menu opened and clicked (tapped) outside - close menu.
   - Close opened menu on "Esc
+
+- Menu:
+  - Transition between buttons
 
 <br />
 
