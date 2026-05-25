@@ -22,7 +22,6 @@ import { Props } from "./HeroSection.types";
 
 // utility
 import React from "react";
-import { FlipLink } from "@/components/AnimLinkContainer/AnimLinkContainer";
 
 // #endregion ===========================
 
