@@ -29,7 +29,7 @@ export default function Video({ video, poster }: Props) {
 			<video
 				ref={videoRef}
 				data-src={data?.video}
-				preload="none"
+				preload="eager"
 				muted
 				loop
 				playsInline

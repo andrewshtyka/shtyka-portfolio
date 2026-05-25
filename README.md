@@ -42,8 +42,6 @@ npm install
 
 ### 3.1 Functional
 
-- Add loading state for images and videos
-
 <br />
 
 ### 3.2 Animation
