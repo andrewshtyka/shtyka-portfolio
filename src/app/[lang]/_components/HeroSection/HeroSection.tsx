@@ -1,10 +1,12 @@
 // #region ============================== Imports
 
 // components
-import Video from "./Video/Video";
+// import Video from "./Video/Video";
+import VideoContainer from "./VideoContainer/VideoContainer";
 import Tag from "@/components/Tag/Tag";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
+import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
@@ -18,7 +20,9 @@ import css from "./HeroSection.module.css";
 
 // types
 import { Props } from "./HeroSection.types";
-import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
+// utility
+import React from "react";
 
 // #endregion ===========================
 
@@ -40,7 +44,10 @@ export default function HeroSection({ uiString }: Props) {
 
 	return (
 		<section id={HOME_SECTIONS.index} className={css.container}>
-			<Video video={ui?.video?.video} poster={ui?.video?.poster} />
+			<React.Suspense>
+				{/* <Video video={ui?.video?.video} poster={ui?.video?.poster} /> */}
+				<VideoContainer video={ui?.video?.video} poster={ui?.video?.poster} />
+			</React.Suspense>
 
 			<div className={css.container_content}>
 				<div className={`${css.content} content_padding_limit`}>

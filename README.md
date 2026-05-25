@@ -42,14 +42,14 @@ npm install
 
 ### 3.1 Functional
 
-- Menu:
-  Hide on scroll down, appear on scroll up.
-
 - Add loading state for images and videos
 
 <br />
 
 ### 3.2 Animation
+
+- Menu:
+  Hide on scroll down, appear on scroll up.
 
 - Add shaders for hero video
 
