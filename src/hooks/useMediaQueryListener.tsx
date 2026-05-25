@@ -1,6 +1,11 @@
 import React from "react";
 
-// do something automatically on window resize (when breakpoint is crossed)
+/**
+ * Set size automatically when window is resized (breakpoint is crossed)
+ * @param callback - setter function
+ * @param widthMin - breakpoint
+ */
+
 export default function useMediaQueryListener(
 	callback: (param: boolean) => void,
 	widthMin = 768

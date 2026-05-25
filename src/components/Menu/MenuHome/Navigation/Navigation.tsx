@@ -19,7 +19,11 @@ import { Props } from "./Navigation.types";
 // utility
 import useActiveSection from "@/hooks/useActiveSection";
 
-export default function Navigation({ menuItems, lang }: Props) {
+export default function Navigation({
+	menuItems,
+	lang,
+	onClick = undefined,
+}: Props) {
 	const sections = [...HOME_SECTIONS_ARR];
 	const activeSection = useActiveSection(sections);
 
@@ -34,6 +38,7 @@ export default function Navigation({ menuItems, lang }: Props) {
 							<MenuLinkPrimary
 								href={`/${lang}/#${id}`}
 								isActive={activeSection === id}
+								onClick={onClick}
 							>
 								{item}
 							</MenuLinkPrimary>

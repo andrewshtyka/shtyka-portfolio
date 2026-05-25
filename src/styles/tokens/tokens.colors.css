@@ -12,7 +12,8 @@
 	--color-gray-700: hsl(var(--hue), 15%, 72%);
 	--color-gray-900: hsl(var(--hue), 11%, 85%);
 	--color-blue: hsl(var(--hue), 100%, 65%);
-	--color-blue-alpha-xxl: hsla(var(--hue), 100%, 65%, 0.5);
+	/* --color-blue: hsl(var(--hue), 100%, 65%); */
+	/* --color-blue: hsl(var(--hue), 75%, 75%); */
 
 	/* Transparent - light */
 	--color-base-alpha-xxl: hsla(var(--hue), 33%, 94%, 0.5);
@@ -59,9 +60,6 @@
 	/* Link */
 	--color-link: var(--color-blue);
 	--color-link-hover: var(--color-gray-450);
-
-	--color-link-underline: var(--color-blue-alpha-xxl);
-	--color-link-underline-hover: var(--color-gray-450);
 
 	/* Text */
 	--color-text-secondary: var(--color-gray-450);

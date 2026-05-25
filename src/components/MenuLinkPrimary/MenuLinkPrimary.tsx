@@ -19,6 +19,7 @@ export default function MenuLinkPrimary({
 	isTransparent = false,
 	scroll = true,
 	isActive,
+	onClick = undefined,
 }: Props) {
 	const isActiveSectionClass = isActive ? `${css.is_active}` : " ";
 
@@ -35,6 +36,7 @@ export default function MenuLinkPrimary({
 			href={href}
 			className={`f_display_buttons f_semibold ${classes}`}
 			scroll={scroll}
+			onClick={onClick}
 		>
 			<span className={css.children}>{children}</span>
 		</Link>

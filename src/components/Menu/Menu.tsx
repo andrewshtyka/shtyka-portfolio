@@ -14,6 +14,7 @@ import { Props } from "./Menu.types";
 
 // utils
 import { usePathname } from "next/navigation";
+import useBlurOnEscape from "@/hooks/useBlurOnEscape";
 
 // #endregion ===========================
 

@@ -3,5 +3,7 @@ export interface Props {
 	open: string;
 	close: string;
 	isMenuOpened?: boolean;
-	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+	onClick?: (
+		event?: MouseEvent | TouchEvent | React.MouseEvent<HTMLButtonElement>
+	) => void;
 }

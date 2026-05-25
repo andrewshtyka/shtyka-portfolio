@@ -1,3 +1,5 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
@@ -9,6 +11,10 @@ import css from "./ContainerMobile.module.css";
 // types
 import { Props } from "./ContainerMobile.types";
 
+// utils
+import { FocusOn } from "react-focus-on";
+import React from "react";
+
 // #endregion ===========================
 
 export default function ContainerMobile({
@@ -18,26 +24,37 @@ export default function ContainerMobile({
 	isMenuOpened,
 	onClick = undefined,
 }: Props) {
-	const appliedNavClasses = isMenuOpened
-		? `${css.children} bg_blur`
-		: `${css.children}`;
+	const btnRef = React.useRef<HTMLButtonElement>(null);
 
-	const menuOpenedButtonClass = isMenuOpened ? "invert_colors" : "";
+	// closed
+	if (!isMenuOpened)
+		return (
+			<div className={css.container}>
+				<MenuButton ref={btnRef} onClick={onClick}>
+					{open}
+				</MenuButton>
+			</div>
+		);
 
-	if (!open || !close) return null;
-
+	// opened
 	return (
 		<div className={css.container}>
-			<MenuButton onClick={onClick} customClass={menuOpenedButtonClass}>
-				{isMenuOpened ? close : open}
-			</MenuButton>
-
-			<span
-				className={appliedNavClasses}
-				style={{ display: isMenuOpened ? "flex" : "none" }}
+			<FocusOn
+				returnFocus={true}
+				onClickOutside={onClick}
+				onEscapeKey={onClick ? () => onClick() : undefined}
+				onDeactivation={() => btnRef.current?.focus()}
+				scrollLock={false}
+				className={css.container}
 			>
-				{isMenuOpened && children}
-			</span>
+				<span className={`${css.children} bg_blur`} style={{ display: "flex" }}>
+					{children}
+				</span>
+
+				<MenuButton onClick={onClick} customClass="invert_colors">
+					{close}
+				</MenuButton>
+			</FocusOn>
 		</div>
 	);
 }

@@ -10,6 +10,9 @@ import ContainerMobile from "./ContainerMobile/ContainerMobile";
 import Navigation from "./Navigation/Navigation";
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
 
+// hooks
+import useMediaQueryListener from "@/hooks/useMediaQueryListener";
+
 // styles
 import css from "./MenuHome.module.css";
 
@@ -21,7 +24,6 @@ import { HOME_SECTIONS_ARR } from "@/constants/sectionNames";
 
 // utility
 import React from "react";
-import useMediaQueryListener from "@/hooks/useMediaQueryListener";
 
 // #endregion ===========================
 
@@ -35,7 +37,7 @@ export default function MenuHome({ lang, menu, menuMobile }: Props) {
 	if (!lang || !Array.isArray(menu) || !menuMobile) return null;
 
 	function toggleMenuMobile() {
-		setIsMenuOpened((currentIsMenuOpened) => !currentIsMenuOpened);
+		setIsMenuOpened((value) => !value);
 	}
 
 	const menuOpenedStyles = {
@@ -79,7 +81,11 @@ export default function MenuHome({ lang, menu, menuMobile }: Props) {
 				isMenuOpened={isMenuOpened}
 				onClick={toggleMenuMobile}
 			>
-				<Navigation menuItems={menuItems} lang={lang} />
+				<Navigation
+					menuItems={menuItems}
+					lang={lang}
+					onClick={toggleMenuMobile}
+				/>
 				<Divider isHorizontal={true} />
 				<LangSwitcher currentLang={lang} />
 			</ContainerMobile>

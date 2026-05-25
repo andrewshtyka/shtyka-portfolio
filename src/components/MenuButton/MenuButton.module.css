@@ -1,9 +1,9 @@
 .button {
-	padding-inline: var(--offset-button-secondary-extended);
-
-	height: 100%;
 	display: flex;
 	align-items: center;
+	height: 100%;
+	padding-inline: var(--offset-button-secondary-extended);
+
 	border-radius: var(--border-radius-secondary);
 
 	background-color: var(--color-base-alpha-transparent);

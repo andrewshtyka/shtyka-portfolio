@@ -2,7 +2,9 @@
 
 import React from "react";
 
-// get current window width & height
+/**
+ * Get current window width & height
+ */
 export default function useWindowSize() {
 	const [windowDimensions, setWindowDimensions] = React.useState({
 		width: 0,

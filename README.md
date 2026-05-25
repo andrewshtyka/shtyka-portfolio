@@ -42,11 +42,6 @@ npm install
 
 ### 3.1 Functional
 
-- Menu mob:
-  - When link clicked - close menu.
-  - When Logo clicked - close menu.
-  - When menu opened and clicked (tapped) outside - close menu.
-
 - Menu:
   Hide on scroll down, appear on scroll up.
 
@@ -135,6 +130,11 @@ npm install
 - Links:
   - Underline on hover (solid)
   - Add icon to external
+
+- Menu mob:
+  - When link clicked - close menu.
+  - When menu opened and clicked (tapped) outside - close menu.
+  - Close opened menu on "Esc
 
 <br />
 
