@@ -39,7 +39,7 @@ export default function LinkText({
 			{children}
 			{hasIcon && (
 				<span className={css.icon}>
-					<IconArrowCurve color="blue" direction="right" size="0.7em" />
+					<IconArrowCurve color="accent" direction="right" size="0.7em" />
 				</span>
 			)}
 		</a>

@@ -63,7 +63,6 @@ export default function ResumeSection({ uiString }: Props) {
 					playsInline
 					width="100%"
 					poster="/assets/resume-poster.webp"
-					className={css.video}
 				></video>
 			</div>
 
