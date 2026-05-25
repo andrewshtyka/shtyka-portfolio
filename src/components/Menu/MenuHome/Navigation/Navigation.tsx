@@ -34,9 +34,9 @@ export default function Navigation({ menuItems, onClick = undefined }: Props) {
 						<li key={key} className={css.list_item}>
 							<MenuLinkPrimary
 								isActive={activeSection === id}
-								onClick={() => {
+								onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
 									scrollToSection(id);
-									return () => onClick;
+									onClick?.(e);
 								}}
 							>
 								{item}
