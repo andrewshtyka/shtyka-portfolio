@@ -293,9 +293,7 @@ button {
 	overflow: visible;
 	margin: 0;
 	padding: 0;
-
-	/* outline: 0 -> removes focus state */
-	/* outline: 0; */
+	outline: 0;
 
 	border: 0;
 	background: none;
@@ -310,4 +308,15 @@ button {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+}
+
+/* Remove focus */
+*,
+*::before,
+*::after {
+	outline: 0;
+	box-shadow: none;
+}
+button::-moz-focus-inner {
+	border: 0;
 }

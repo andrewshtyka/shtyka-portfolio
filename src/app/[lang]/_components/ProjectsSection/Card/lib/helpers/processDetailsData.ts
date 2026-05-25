@@ -25,7 +25,8 @@ export default function processDetailsData(arr: DetailInputItem[]) {
 		if (obj.listItem === "bullet") {
 			masterObj.items.push({
 				item: obj.children[0].text,
-				key: crypto.randomUUID(),
+				// key: crypto.randomUUID(),
+				key: Math.random().toString(),
 			});
 		} else {
 			masterObj.title = obj.children[0].text;

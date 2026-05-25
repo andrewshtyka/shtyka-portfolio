@@ -136,3 +136,10 @@ body {
 .bg_blur {
 	backdrop-filter: var(--blur);
 }
+
+a:focus-visible,
+button:focus-visible {
+	outline: var(--space-px) solid var(--color-base);
+	outline-offset: var(--space-2);
+	border-radius: var(--border-radius-main);
+}

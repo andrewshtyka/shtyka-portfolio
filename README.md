@@ -47,9 +47,9 @@ npm install
 ### 3.2 Animation
 
 - Menu:
-  - Hover on links (counter by letter)
-  https://pp-fragment.com/
-
+  - Mouse enter / lease on links (counter by letter)
+    https://pp-fragment.com/
+  - Focus / Blur for links
 
 - Hovers (find refs):
   - Links
