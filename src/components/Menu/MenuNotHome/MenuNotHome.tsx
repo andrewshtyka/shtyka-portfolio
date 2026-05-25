@@ -1,11 +1,19 @@
+// #region ============================== Imports
+
+// components
 import Divider from "@/components/Divider/Divider";
 import LogoMenu from "@/components/LogoMenu/LogoMenu";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
-import MenuLinkPrimary from "@/components/MenuLinkPrimary/MenuLinkPrimary";
+import { MenuLinkSecondary } from "@/components/MenuLinkPrimary/MenuLinkPrimary";
 
+// styles
 import css from "./MenuNotHome.module.css";
+
+// types
 import { Props } from "./MenuNotHome.types";
+
+// #endregion ===========================
 
 export default function MenuNotHome({ lang, buttonHome }: Props) {
 	return (
@@ -17,12 +25,12 @@ export default function MenuNotHome({ lang, buttonHome }: Props) {
 			<Divider />
 
 			<nav className={css.nav}>
-				<MenuLinkPrimary href={`/${lang}`}>
+				<MenuLinkSecondary href={`/${lang}`}>
 					<span className={css.icon}>
 						<IconArrowCurve direction="left" />
 					</span>
 					{buttonHome}
-				</MenuLinkPrimary>
+				</MenuLinkSecondary>
 			</nav>
 
 			<Divider />

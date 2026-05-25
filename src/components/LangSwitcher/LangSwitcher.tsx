@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // components
-import MenuLinkPrimary from "../MenuLinkPrimary/MenuLinkPrimary";
+import { MenuLinkSecondary } from "../MenuLinkPrimary/MenuLinkPrimary";
 
 // styles
 import css from "./LangSwitcher.module.css";
@@ -32,9 +32,9 @@ export default function LangSwitcher({
 
 	return (
 		<span className={classes}>
-			<MenuLinkPrimary href={targetPath} isTransparent={true} scroll={false}>
+			<MenuLinkSecondary href={targetPath} isTransparent={true} scroll={false}>
 				{currentLang === "ua" ? "Eng" : "Укр"}
-			</MenuLinkPrimary>
+			</MenuLinkSecondary>
 		</span>
 	);
 }

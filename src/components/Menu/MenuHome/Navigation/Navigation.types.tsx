@@ -4,6 +4,5 @@ export interface Props {
 		key: string;
 		id: string;
 	}[];
-	lang: string;
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

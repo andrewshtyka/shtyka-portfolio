@@ -70,7 +70,7 @@ export default function MenuHome({ lang, menu, menuMobile }: Props) {
 			<Divider style={menuOpenedStyles?.divider} />
 
 			<ContainerDesktop>
-				<Navigation menuItems={menuItems} lang={lang} />
+				<Navigation menuItems={menuItems} />
 			</ContainerDesktop>
 
 			<Divider isHiddenOnMobile={true} />
@@ -81,11 +81,7 @@ export default function MenuHome({ lang, menu, menuMobile }: Props) {
 				isMenuOpened={isMenuOpened}
 				onClick={toggleMenuMobile}
 			>
-				<Navigation
-					menuItems={menuItems}
-					lang={lang}
-					onClick={toggleMenuMobile}
-				/>
+				<Navigation menuItems={menuItems} onClick={toggleMenuMobile} />
 				<Divider isHorizontal={true} />
 				<LangSwitcher currentLang={lang} />
 			</ContainerMobile>

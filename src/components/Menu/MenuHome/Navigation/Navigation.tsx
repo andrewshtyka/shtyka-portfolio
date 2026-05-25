@@ -3,10 +3,13 @@
 // #region ============================== Imports
 
 // components
-import MenuLinkPrimary from "@/components/MenuLinkPrimary/MenuLinkPrimary";
+import { MenuLinkPrimary } from "@/components/MenuLinkPrimary/MenuLinkPrimary";
 
 // constants
 import { HOME_SECTIONS_ARR } from "@/constants/sectionNames";
+
+// hooks
+import useActiveSection from "@/hooks/useActiveSection";
 
 // styles
 import css from "./Navigation.module.css";
@@ -14,31 +17,27 @@ import css from "./Navigation.module.css";
 // types
 import { Props } from "./Navigation.types";
 
+// utility
+import scrollToSection from "@/lib/util/scrollToSection";
+
 // #endregion ===========================
 
-// utility
-import useActiveSection from "@/hooks/useActiveSection";
-
-export default function Navigation({
-	menuItems,
-	lang,
-	onClick = undefined,
-}: Props) {
+export default function Navigation({ menuItems, onClick = undefined }: Props) {
 	const sections = [...HOME_SECTIONS_ARR];
 	const activeSection = useActiveSection(sections);
-
-	if (!menuItems) return null;
 
 	return (
 		<nav className={css.nav}>
 			<ul className={css.list_container}>
-				{menuItems.map(({ item, key, id }) => {
+				{menuItems?.map(({ item, key, id }) => {
 					return (
 						<li key={key} className={css.list_item}>
 							<MenuLinkPrimary
-								href={`/${lang}/#${id}`}
 								isActive={activeSection === id}
-								onClick={onClick}
+								onClick={() => {
+									scrollToSection(id);
+									return () => onClick;
+								}}
 							>
 								{item}
 							</MenuLinkPrimary>

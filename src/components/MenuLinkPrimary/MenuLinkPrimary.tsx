@@ -2,25 +2,48 @@
 
 // components
 import Link from "next/link";
-import IconArrowShortCut from "../Icons/IconArrowShortCut/IconArrowShortCut";
 
 // styles
 import css from "./MenuLinkPrimary.module.css";
 
 // types
-import { Props } from "./MenuLinkPrimary.types";
-import IconAsterisk from "../Icons/IconAsterisk/IconAsterisk";
+import { PropsPrimary, PropsSecondary } from "./MenuLinkPrimary.types";
 
 // #endregion ===========================
 
-export default function MenuLinkPrimary({
+export function MenuLinkPrimary({
+	children = "",
+	isTransparent = false,
+	isActive,
+	onClick = undefined,
+}: PropsPrimary) {
+	const isActiveSectionClass = isActive ? `${css.is_active}` : " ";
+
+	const transparencyClass = isTransparent
+		? `${css.transparent}`
+		: `${css.solid}`;
+
+	const classes = `${css.base} ${transparencyClass} ${isActiveSectionClass}`;
+
+	return (
+		<button
+			type="button"
+			className={`f_display_buttons f_semibold ${classes}`}
+			onClick={onClick}
+		>
+			<span className={css.children}>{children}</span>
+		</button>
+	);
+}
+
+export function MenuLinkSecondary({
 	children = "",
 	href,
 	isTransparent = false,
 	scroll = true,
 	isActive,
 	onClick = undefined,
-}: Props) {
+}: PropsSecondary) {
 	const isActiveSectionClass = isActive ? `${css.is_active}` : " ";
 
 	const transparencyClass = isTransparent
