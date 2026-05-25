@@ -13,7 +13,18 @@ import React from "react";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
-export function useLinkHover(ref: React.RefObject<HTMLElement | null>) {
+/**
+ * Hover text - scramble effect
+ *
+ * @param ref - ref for element with text
+ * @param isFull - configures if text scrambles from 1 symbol to full length (false),
+ * or if all symbols are visible from the start (true)
+ */
+
+export function useLinkHover(
+	ref: React.RefObject<HTMLElement | null>,
+	isFull = false
+) {
 	const tlRef = React.useRef<gsap.core.Timeline | null>(null);
 	const originalTextRef = React.useRef<string>("");
 
@@ -43,7 +54,8 @@ export function useLinkHover(ref: React.RefObject<HTMLElement | null>) {
 
 		const originalText = originalTextRef.current;
 
-		el.textContent = originalText[0] ?? "";
+		const finalText = isFull ? originalText : (originalText[0] ?? "");
+		el.textContent = finalText;
 
 		tlRef.current = gsap.timeline();
 		tlRef.current.to(el, {

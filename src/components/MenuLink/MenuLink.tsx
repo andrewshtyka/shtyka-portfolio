@@ -38,7 +38,7 @@ export function MenuLinkPrimary({
 
 	const classes = `${css.base} ${transparencyClass}  f_display_buttons f_semibold `;
 
-	const ref = React.useRef<HTMLAnchorElement>(null);
+	const ref = React.useRef<HTMLButtonElement>(null);
 	const { play } = useLinkHover(ref);
 
 	return (

@@ -24,15 +24,11 @@ export default function ContainerMobile({
 	isMenuOpened,
 	onClick = undefined,
 }: Props) {
-	const btnRef = React.useRef<HTMLButtonElement>(null);
-
 	// closed
 	if (!isMenuOpened)
 		return (
 			<div className={css.container}>
-				<MenuButton ref={btnRef} onClick={onClick}>
-					{open}
-				</MenuButton>
+				<MenuButton onClick={onClick}>{open}</MenuButton>
 			</div>
 		);
 
@@ -40,11 +36,10 @@ export default function ContainerMobile({
 	return (
 		<div className={css.container}>
 			<FocusOn
-				returnFocus={true}
 				onClickOutside={onClick}
 				onEscapeKey={onClick ? () => onClick() : undefined}
-				onDeactivation={() => btnRef.current?.focus()}
 				scrollLock={false}
+				autoFocus={false}
 				className={css.container}
 			>
 				<span className={`${css.children} bg_blur`} style={{ display: "flex" }}>
