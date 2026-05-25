@@ -5,5 +5,5 @@ export interface Props {
 	isButton?: boolean;
 	scroll?: boolean;
 	isActive?: boolean;
-	onClick?: React.MouseEventHandler<HTMLButtonElement>;
+	onClick?: React.MouseEventHandler<HTMLElement>;
 }
