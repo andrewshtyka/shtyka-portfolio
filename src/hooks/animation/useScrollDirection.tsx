@@ -1,22 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScroll, useMotionValueEvent } from "motion/react";
 
 /**
  * Returns:
  * - scroll down: true
  * - scroll up: false
- * 
+ *
  * @param threshold - amount of px, when passed - returns true
  */
 
 export function useScrollDirection(threshold = 200) {
 	const { scrollY } = useScroll();
-    const [isHidden, setIsHidden] = useState(() => {
-        if (typeof window === "undefined") return false;
-				return window.scrollY > threshold;
-    });
+	const [isHidden, setIsHidden] = useState(() => {
+		if (typeof window === "undefined") return false;
+		return window.scrollY > threshold;
+	});
 
 	useMotionValueEvent(scrollY, "change", (latest) => {
 		const previous = scrollY.getPrevious() ?? 0;

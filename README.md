@@ -47,6 +47,7 @@ npm install
 ### 3.2 Animation
 
 - Menu:
+  Split with GSAP, animate with Motion
   - Mouse enter / lease on links (counter by letter)
     https://pp-fragment.com/
   - Focus / Blur for links

@@ -6,5 +6,13 @@ export const LINK_ANIMATION_CSS = {
 };
 
 export const MENU_ANIMATION = {
-	duration: 0.3,
+	transition: {
+		duration: 0.3,
+	},
+};
+
+export const LINK_HOVER_ANIMATION = {
+	duration: 0.75,
+	speed: 0.1,
+	ease: "power1.inOut",
 };

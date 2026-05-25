@@ -2,8 +2,7 @@
 
 // #region ============================== Imports
 
-// animation
-import { motion } from "framer-motion";
+
 
 // components
 import { MenuLinkPrimary } from "@/components/MenuLink/MenuLink";

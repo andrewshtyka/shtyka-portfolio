@@ -23,6 +23,8 @@
 .children {
 	display: inline-block;
 	margin-block-end: var(--space-px);
+
+	position: relative;
 }
 
 .transparent {

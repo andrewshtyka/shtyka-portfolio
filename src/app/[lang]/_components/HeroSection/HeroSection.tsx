@@ -22,6 +22,7 @@ import { Props } from "./HeroSection.types";
 
 // utility
 import React from "react";
+import { FlipLink } from "@/components/AnimLinkContainer/AnimLinkContainer";
 
 // #endregion ===========================
 
@@ -90,6 +91,7 @@ export default function HeroSection({ uiString }: Props) {
 								)
 							)}
 						</ul>
+
 						<ButtonPrimary
 							href={buttonResumeData?.href}
 							icon={<IconArrowCurve color="black" direction="right" />}

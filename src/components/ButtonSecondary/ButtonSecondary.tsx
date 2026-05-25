@@ -1,8 +1,15 @@
+"use client";
+
+// hooks
+
 // styles
 import css from "./ButtonSecondary.module.css";
 
 // types
 import { Props } from "./ButtonSecondary.types";
+
+// utility
+import React from "react";
 
 export default function ButtonSecondary({ children = "", href, icon }: Props) {
 	const classesLink = `f_display_buttons ${css.button} `;

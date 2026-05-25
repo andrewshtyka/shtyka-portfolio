@@ -1,3 +1,5 @@
+"use client";
+
 // #region ============================== Imports
 
 // components
@@ -6,11 +8,16 @@ import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 // constants
 import { LINK_ANIMATION_CSS } from "@/constants/animation";
 
+// hooks
+
 // styles
 import css from "./LinkText.module.css";
 
 // types
 import { Props } from "./LinkText.types";
+
+// utility
+import React from "react";
 
 // #endregion ===========================
 
@@ -36,7 +43,7 @@ export default function LinkText({
 			rel="noopener noreferrer"
 			style={styleTransition}
 		>
-			{children}
+			<span>{children}</span>
 			{hasIcon && (
 				<span className={css.icon}>
 					<IconArrowCurve color="accent" direction="right" size="0.7em" />

@@ -1,5 +1,5 @@
 export interface PropsPrimary {
-	children: React.ReactNode;
+	children: string;
 	layoutId?: string;
 	isActive?: boolean;
 	onClick?: React.MouseEventHandler<HTMLElement>;
