@@ -43,7 +43,7 @@ export default function HeroSection({ uiString }: Props) {
 	const { play: playTitle_2 } = useLinkHover(refTitle_2);
 
 	// TODO 1 - REPLACE WITH BETTER SOLUTION
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		const idTitle_1 = setTimeout(() => {
 			playTitle_1?.();
 		}, 1000);
