@@ -1,4 +1,9 @@
+"use client";
+
 // #region ============================== Imports
+
+// animation
+import { motion } from "motion/react";
 
 // components
 import Video from "./Video/Video";
@@ -9,6 +14,9 @@ import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
+
+// hover
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
@@ -22,12 +30,34 @@ import { Props } from "./HeroSection.types";
 
 // utility
 import React from "react";
+import { SECTION_HERO_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
+	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
+	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
+	const { play: playTitle_1 } = useLinkHover(refTitle_1);
+	const { play: playTitle_2 } = useLinkHover(refTitle_2);
+
+	// TODO 1 - REPLACE WITH BETTER SOLUTION
+	React.useEffect(() => {
+		const idTitle_1 = setTimeout(() => {
+			playTitle_1?.();
+		}, 1000);
+
+		const idTitle_2 = setTimeout(() => {
+			playTitle_2?.();
+		}, 1000 * 1.3);
+
+		return () => {
+			clearTimeout(idTitle_1);
+			clearTimeout(idTitle_2);
+		};
+	}, []);
+
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
 
@@ -50,12 +80,24 @@ export default function HeroSection({ uiString }: Props) {
 					{/* Left part */}
 					<div className={css.container_primary}>
 						<div className={css.container_title}>
-							<h1 className="f_serif_primary">
+							<motion.h1
+								initial={SECTION_HERO_ANIMATION.title_1.initial}
+								animate={SECTION_HERO_ANIMATION.title_1.animate}
+								transition={SECTION_HERO_ANIMATION.title_1.transition}
+								ref={refTitle_1}
+								className="f_serif_primary"
+							>
 								{ui?.heroTitle[0]?.children[0]?.text}
-							</h1>
-							<h2 className="f_serif_primary f_italic">
+							</motion.h1>
+							<motion.h2
+								initial={SECTION_HERO_ANIMATION.title_2.initial}
+								animate={SECTION_HERO_ANIMATION.title_2.animate}
+								transition={SECTION_HERO_ANIMATION.title_2.transition}
+								ref={refTitle_2}
+								className="f_serif_primary f_italic"
+							>
 								{ui?.heroTitle[1]?.children[0]?.text}
-							</h2>
+							</motion.h2>
 						</div>
 						<p className={`${css.subtitle} f_display_body`}>
 							{ui?.subtitle[0]?.children[0]?.text}

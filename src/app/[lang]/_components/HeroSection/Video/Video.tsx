@@ -2,6 +2,12 @@
 
 // #region ============================== Imports
 
+// animation
+import { motion } from "motion/react";
+
+// constants
+import { SECTION_HERO_ANIMATION } from "@/constants/animation";
+
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
 
@@ -26,7 +32,7 @@ export default function Video({ video, poster }: Props) {
 
 	return (
 		<div className={css.container}>
-			<video
+			<motion.video
 				ref={videoRef}
 				data-src={data?.video}
 				preload="eager"
@@ -35,7 +41,10 @@ export default function Video({ video, poster }: Props) {
 				playsInline
 				width="100%"
 				poster={data?.poster}
-			></video>
+				initial={SECTION_HERO_ANIMATION.video.initial}
+				animate={SECTION_HERO_ANIMATION.video.animate}
+				transition={SECTION_HERO_ANIMATION.video.transition}
+			></motion.video>
 			<div className={css.overlay_top}></div>
 			<div className={css.overlay_bottom}></div>
 		</div>
