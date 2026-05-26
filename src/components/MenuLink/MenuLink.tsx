@@ -13,6 +13,7 @@ import { MENU_ANIMATION } from "@/constants/animation";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
+import { useBlur } from "@/hooks/useBlur";
 
 // styles
 import css from "./MenuLink.module.css";
@@ -25,6 +26,10 @@ import React from "react";
 
 // #endregion ===========================
 
+/**
+ * Used for:
+ * - Links in menu, scroll to section (only on home page)
+ */
 export function MenuLinkPrimary({
 	children = "",
 	layoutId,
@@ -40,6 +45,8 @@ export function MenuLinkPrimary({
 
 	const ref = React.useRef<HTMLButtonElement>(null);
 	const { play } = useLinkHover(ref);
+
+	useBlur();
 
 	return (
 		<li className={css.list_item} style={{ zIndex: isActive ? 1 : 2 }}>
@@ -57,8 +64,8 @@ export function MenuLinkPrimary({
 				type="button"
 				className={classes}
 				onClick={onClick}
-				onMouseEnter={play}
-				onFocus={play}
+				onMouseEnter={isActive ? undefined : play}
+				onFocus={isActive ? undefined : play}
 			>
 				<span ref={ref} className={css.children}>
 					{children}
@@ -68,6 +75,11 @@ export function MenuLinkPrimary({
 	);
 }
 
+/**
+ * Used for:
+ * - Langswitcher
+ * - "Go home" link in menu (on NOT home page)
+ */
 export function MenuLinkSecondary({
 	children = "",
 	href,
@@ -101,7 +113,3 @@ export function MenuLinkSecondary({
 		</Link>
 	);
 }
-
-/**
- * ======================
- */

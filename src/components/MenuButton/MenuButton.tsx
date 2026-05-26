@@ -1,3 +1,6 @@
+// hooks
+import { useBlur } from "@/hooks/useBlur";
+
 // styles
 import css from "./MenuButton.module.css";
 
@@ -10,6 +13,8 @@ export default function MenuButton({
 	customClass = "",
 }: Props) {
 	const classes = `${css.button} ${customClass}`;
+
+	useBlur();
 
 	return (
 		<button

@@ -17,10 +17,17 @@
 	}
 }
 
+.container_icon {
+	position: relative;
+	overflow: clip;
+	display: inline-block;
+
+	bottom: 0.05em;
+}
+
 .icon {
+	display: inline-block;
+
 	padding-inline-start: 0.3em;
 	padding-inline-end: 0.15em;
-
-	position: relative;
-	bottom: 0.05em;
 }

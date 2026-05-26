@@ -1,10 +1,15 @@
 "use client";
 
+// #region ============================== Imports
+
 // components
 import Link from "next/link";
+import Magnetic from "../Magnetic/Magnetic";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
+import { useIconHover } from "@/hooks/animation/useIconHover";
+import { useBlur } from "@/hooks/useBlur";
 
 // styles
 import css from "./ButtonPrimary.module.css";
@@ -14,6 +19,8 @@ import { Props } from "./ButtonPrimary.types";
 
 // utility
 import React from "react";
+
+// #endregion ===========================
 
 export default function ButtonPrimary({
 	href,
@@ -25,43 +32,75 @@ export default function ButtonPrimary({
 	const classesLink = `f_display_buttons ${css.button} `;
 	const classesChildren = `${css.children} ${css.space_between}`;
 
+	// text animation
 	const ref = React.useRef<HTMLAnchorElement>(null);
 	const { play } = useLinkHover(ref);
+
+	// icon animation
+	const refIcon = React.useRef<HTMLAnchorElement>(null);
+	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
+	const { play: playIcon } = useIconHover(refIcon, refIconContainer);
+
+	useBlur();
 
 	if (!href) return null;
 
 	if (isExternal) {
 		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;
 		return (
-			<a
-				href={appliedHref}
-				className={classesLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				onMouseEnter={play}
-				onFocus={play}
-			>
-				<span className={classesChildren}>
-					<span ref={ref}>{children}</span>
-					{icon && icon}
-				</span>
-			</a>
+			<Magnetic>
+				<a
+					href={appliedHref}
+					className={classesLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					onMouseEnter={() => {
+						play?.();
+						playIcon?.();
+					}}
+					onFocus={() => {
+						play?.();
+						playIcon?.();
+					}}
+				>
+					<span className={classesChildren}>
+						<span ref={ref}>{children}</span>
+						<span ref={refIconContainer} className={css.container_icon}>
+							<span ref={refIcon} className={css.icon}>
+								{icon && icon}
+							</span>
+						</span>
+					</span>
+				</a>
+			</Magnetic>
 		);
 	}
 
 	if (!isExternal) {
 		return (
-			<Link
-				href={href}
-				className={classesLink}
-				onMouseEnter={play}
-				onFocus={play}
-			>
-				<span className={classesChildren}>
-					<span ref={ref}>{children}</span>
-					{icon && icon}
-				</span>
-			</Link>
+			<Magnetic>
+				<Link
+					href={href}
+					className={classesLink}
+					onMouseEnter={() => {
+						play?.();
+						playIcon?.();
+					}}
+					onFocus={() => {
+						play?.();
+						playIcon?.();
+					}}
+				>
+					<span className={classesChildren}>
+						<span ref={ref}>{children}</span>
+						<span ref={refIconContainer} className={css.container_icon}>
+							<span ref={refIcon} className={css.icon}>
+								{icon && icon}
+							</span>
+						</span>
+					</span>
+				</Link>
+			</Magnetic>
 		);
 	}
 }

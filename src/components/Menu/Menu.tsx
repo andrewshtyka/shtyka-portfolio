@@ -14,12 +14,15 @@ import css from "./Menu.module.css";
 
 // types
 import { Props } from "./Menu.types";
+import { useBlur } from "@/hooks/useBlur";
 
 // #endregion ===========================
 
 export default function Menu({ lang, menu, buttonHome, menuMobile }: Props) {
 	const pathname = usePathname();
 	const isHomePage = pathname === `/${lang}`;
+
+	useBlur();
 
 	return (
 		<header className={css.container}>

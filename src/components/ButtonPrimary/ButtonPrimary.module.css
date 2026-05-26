@@ -20,3 +20,12 @@
 .space_between {
 	justify-content: space-between;
 }
+
+.container_icon {
+	position: relative;
+	overflow: hidden;
+}
+
+.icon {
+	display: inline-block;
+}

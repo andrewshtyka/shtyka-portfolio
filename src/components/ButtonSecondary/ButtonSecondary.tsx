@@ -1,6 +1,12 @@
 "use client";
 
+// animation
+import { motion } from "motion/react";
+
 // hooks
+import { useIconHover } from "@/hooks/animation/useIconHover";
+import { useBlur } from "@/hooks/useBlur";
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // styles
 import css from "./ButtonSecondary.module.css";
@@ -10,32 +16,60 @@ import { Props } from "./ButtonSecondary.types";
 
 // utility
 import React from "react";
+import Magnetic from "../Magnetic/Magnetic";
 
 export default function ButtonSecondary({ children = "", href, icon }: Props) {
-	const classesLink = `f_display_buttons ${css.button} `;
-	const classesItems = `${css.items} ${css.space_between}`;
+	const refIcon = React.useRef<HTMLAnchorElement>(null);
+	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
+	const { play: playIcon } = useIconHover(refIcon, refIconContainer);
+
+	useBlur();
+
+	/**
+	 * animation
+	 */
+
+	const refText = React.useRef<HTMLAnchorElement>(null);
+	const { play } = useLinkHover(refText);
 
 	if (!href) return null;
 
-	const hiddenLetter = children && children[0];
-
 	return (
-		<a
-			href={href}
-			className={classesLink}
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			<span className={classesItems}>
-				<span className={css.text}>{children}</span>
+		<Magnetic>
+			<motion.a
+				href={href}
+				className={`f_display_buttons ${css.button}`}
+				target="_blank"
+				rel="noopener noreferrer"
+				onMouseEnter={() => {
+					play?.();
+					playIcon?.();
+				}}
+				onFocus={() => {
+					play?.();
+					playIcon?.();
+				}}
+				whileHover={{
+					width: "fit-content",
+				}}
+				whileFocus={{
+					width: "fit-content",
+				}}
+			>
+				<motion.span ref={refText} className={css.text}>
+					{children}
+				</motion.span>
 
 				{icon && (
-					<span>
-						<span className={css.icon}>{icon}</span>
-						<span className={css.hidden_letter}>{hiddenLetter}</span>
-					</span>
+					<motion.span className={css.master_container_icon}>
+						<motion.span ref={refIconContainer} className={css.container_icon}>
+							<motion.span ref={refIcon} className={css.icon}>
+								{icon}
+							</motion.span>
+						</motion.span>
+					</motion.span>
 				)}
-			</span>
-		</a>
+			</motion.a>
+		</Magnetic>
 	);
 }

@@ -12,8 +12,19 @@
 		transparent 90%
 	);
 	background-image: radial-gradient(
-		oklch(from var(--color-base) l c h / 30%) 0.5px,
+		oklch(from var(--color-base) l c h / 40%) 0.5px,
 		transparent 0.5px
 	);
 	background-size: var(--space-4) var(--space-4);
+
+	animation: blink 2s infinite alternate ease-in-out;
+}
+
+@keyframes blink {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.3;
+	}
 }

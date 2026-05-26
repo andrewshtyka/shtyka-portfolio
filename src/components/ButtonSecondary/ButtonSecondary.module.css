@@ -1,60 +1,37 @@
 .button {
 	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	column-gap: var(--space-10);
+
+	border-radius: var(--border-radius-secondary);
+	padding: var(--offset-button-secondary);
 
 	background-color: var(--color-button-background-secondary);
-	border-radius: var(--border-radius-secondary);
-
-	padding: var(--offset-button-secondary);
-	width: fit-content;
-
 	backdrop-filter: var(--blur);
-}
 
-@media (hover: hover) {
-	.button:hover {
-		background-color: var(--color-button-background-secondary-hover-solid);
-		color: var(--color-gray);
-		& path {
-			fill: var(--color-gray);
-		}
-	}
-}
+	height: var(--space-13);
+	width: var(--space-13);
 
-.items {
-	display: flex;
-	align-items: center;
-	gap: var(--space-6);
-
-	width: 100%;
-}
-
-.space_between {
-	justify-content: space-between;
-}
-
-.hidden_letter {
-	position: relative;
-	left: 50%;
-	visibility: hidden;
-	cursor: none;
-}
-
-.icon {
-	position: relative;
-	bottom: var(--space-px);
-	left: calc(var(--space-2) + var(--space-px));
+	overflow: hidden;
 }
 
 .text {
-	display: none;
+	display: inline-block;
+	text-wrap: nowrap;
 }
 
-@media (hover: hover) {
-	.button:hover .text {
-		display: initial;
-	}
+.master_container_icon {
+	display: flex;
+}
 
-	.button:hover {
-		padding-inline-start: var(--offset-button-secondary);
-	}
+.container_icon {
+	position: relative;
+	bottom: var(--space-px);
+	right: var(--space-1);
+	overflow: clip;
+}
+
+.icon {
+	display: inline-block;
 }

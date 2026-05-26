@@ -7,6 +7,7 @@ import { useScroll, useMotionValueEvent } from "motion/react";
  * Returns:
  * - scroll down: true
  * - scroll up: false
+ * To be used - to hide / show menu on scroll
  *
  * @param threshold - amount of px, when passed - returns true
  */

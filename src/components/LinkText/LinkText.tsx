@@ -9,6 +9,9 @@ import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 import { LINK_ANIMATION_CSS } from "@/constants/animation";
 
 // hooks
+import { useIconHover } from "@/hooks/animation/useIconHover";
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
+import { useBlur } from "@/hooks/useBlur";
 
 // styles
 import css from "./LinkText.module.css";
@@ -31,6 +34,15 @@ export default function LinkText({
 		transitionDuration: LINK_ANIMATION_CSS.duration,
 	};
 
+	const refIcon = React.useRef<HTMLAnchorElement>(null);
+	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
+	const { play: playIcon } = useIconHover(refIcon, refIconContainer);
+
+	const refText = React.useRef<HTMLButtonElement>(null);
+	const { play } = useLinkHover(refText, false);
+
+	useBlur();
+
 	if (!href) {
 		return <span>{children}</span>;
 	}
@@ -42,11 +54,21 @@ export default function LinkText({
 			target="_blank"
 			rel="noopener noreferrer"
 			style={styleTransition}
+			onMouseEnter={() => {
+				play();
+				playIcon();
+			}}
+			onFocus={() => {
+				play();
+				playIcon();
+			}}
 		>
-			<span>{children}</span>
+			<span ref={refText}>{children}</span>
 			{hasIcon && (
-				<span className={css.icon}>
-					<IconArrowCurve color="accent" direction="right" size="0.7em" />
+				<span ref={refIconContainer} className={css.container_icon}>
+					<span ref={refIcon} className={css.icon}>
+						<IconArrowCurve color="accent" direction="right" size="0.7em" />
+					</span>
 				</span>
 			)}
 		</a>

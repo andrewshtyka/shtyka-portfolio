@@ -16,3 +16,8 @@ export const LINK_HOVER_ANIMATION = {
 	speed: 0.1,
 	ease: "power1.inOut",
 };
+
+export const ICON_HOVER_ANIMATION = {
+	duration: 0.75,
+	ease: "power2.out",
+};
