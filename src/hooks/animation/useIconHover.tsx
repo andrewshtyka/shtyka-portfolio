@@ -9,8 +9,6 @@ gsap.registerPlugin(useGSAP);
 
 /**
  * Hover icon - counter effect
- *
- *
  */
 
 const DIRECTION_CONFIGS = {

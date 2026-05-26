@@ -10,7 +10,7 @@ export default function Divider({
 	style = {},
 	willHide = true,
 }: Props) {
-	const visibilityClass = isHiddenOnMobile ? "mob_hidden_768" : "";
+	const visibilityClass = isHiddenOnMobile ? `${css.mob_hidden}` : " ";
 
 	let classesContainer;
 

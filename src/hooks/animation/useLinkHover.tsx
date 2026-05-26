@@ -35,7 +35,7 @@ export function useLinkHover(
 		originalTextRef.current = el.textContent ?? "";
 
 		gsap.set(el, {
-			display: "inline-block",
+			display: "inline-flex",
 			width: el.offsetWidth,
 			textAlign: "left",
 			whiteSpace: "nowrap",

@@ -51,8 +51,8 @@
 	/* Home (experience, achievements) */
 	--table-col-1-width: calc(var(--space-19) - var(--space-4)); /* 120px */
 
-	--offset-title-serif-primary: var(--space-1);
-	--offset-title-serif-secondary: var(--space-2);
+	--offset-title-serif-primary: var(--space-1); /* 2px */
+	--offset-title-serif-secondary: var(--space-2); /* 4px */
 
 	/* Sizes */
 	--width-card-experiment: calc(

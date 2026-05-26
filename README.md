@@ -46,16 +46,6 @@ npm install
 
 ### 3.2 Animation
 
-- Menu:
-  Split with GSAP, animate with Motion
-  - Mouse enter / lease on links (counter by letter)
-    https://pp-fragment.com/
-  - Focus / Blur for links
-
-- Hovers (find refs):
-  - Links
-  - Buttons
-
 - Appearance animation (find refs)
   ON LOAD and ON SCROLL:
   - Menu
@@ -139,6 +129,13 @@ npm install
 
 - Menu:
   - Transition between buttons
+    Split with GSAP, animate with Motion
+  - Mouse enter / lease on links (counter by letter)
+  - Focus / Blur for links
+
+- Hovers:
+  - Links
+  - Buttons
 
 <br />
 

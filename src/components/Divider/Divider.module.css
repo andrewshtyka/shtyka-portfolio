@@ -3,7 +3,7 @@
 }
 
 .vertical_padding {
-	padding-block: var(--space-2);
+	padding-block: var(--space-2) !important;
 }
 
 .container_horizontal {
@@ -11,7 +11,7 @@
 }
 
 .horizontal_padding {
-	padding-inline: var(--space-5);
+	padding-inline: var(--space-5) !important;
 }
 
 .line {
@@ -20,10 +20,36 @@
 
 .line_vertical {
 	height: 100%;
-	width: var(--space-px);
+	width: var(--space-px) !important;
 }
 
 .line_horizontal {
-	height: var(--space-px);
+	height: var(--space-px) !important;
 	width: 100%;
+}
+
+.mob_hidden {
+	display: inline-block;
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1;
+	width: 1;
+	margin: -1;
+	padding: 0;
+	border: 0;
+}
+
+@media (width >= 768px) {
+	.mob_hidden {
+		display: flex;
+
+		position: initial;
+		overflow: visible;
+		clip: auto;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		border: none;
+	}
 }

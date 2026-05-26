@@ -28,6 +28,10 @@
 	overflow: hidden;
 }
 
+.h2 {
+	max-width: 30ch;
+}
+
 .title_1 {
 	display: block;
 	margin-block-end: var(--offset-title-serif-secondary);
