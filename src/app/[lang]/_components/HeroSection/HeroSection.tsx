@@ -42,22 +42,6 @@ export default function HeroSection({ uiString }: Props) {
 	const { play: playTitle_1 } = useLinkHover(refTitle_1);
 	const { play: playTitle_2 } = useLinkHover(refTitle_2);
 
-	// TODO 1 - REPLACE WITH BETTER SOLUTION
-	React.useLayoutEffect(() => {
-		const idTitle_1 = setTimeout(() => {
-			playTitle_1?.();
-		}, 1000);
-
-		const idTitle_2 = setTimeout(() => {
-			playTitle_2?.();
-		}, 1000 * 1.3);
-
-		return () => {
-			clearTimeout(idTitle_1);
-			clearTimeout(idTitle_2);
-		};
-	}, []);
-
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
 
@@ -84,6 +68,7 @@ export default function HeroSection({ uiString }: Props) {
 								initial={SECTION_HERO_ANIMATION.title_1.initial}
 								animate={SECTION_HERO_ANIMATION.title_1.animate}
 								transition={SECTION_HERO_ANIMATION.title_1.transition}
+								onAnimationComplete={playTitle_1}
 								ref={refTitle_1}
 								className="f_serif_primary"
 							>
@@ -93,29 +78,45 @@ export default function HeroSection({ uiString }: Props) {
 								initial={SECTION_HERO_ANIMATION.title_2.initial}
 								animate={SECTION_HERO_ANIMATION.title_2.animate}
 								transition={SECTION_HERO_ANIMATION.title_2.transition}
+								onAnimationComplete={playTitle_2}
 								ref={refTitle_2}
 								className="f_serif_primary f_italic"
 							>
 								{ui?.heroTitle[1]?.children[0]?.text}
 							</motion.h2>
 						</div>
-						<p className={`${css.subtitle} f_display_body`}>
+						<motion.p
+							className={`${css.subtitle} f_display_body`}
+							initial={SECTION_HERO_ANIMATION.subtitle.initial}
+							animate={SECTION_HERO_ANIMATION.subtitle.animate}
+							transition={SECTION_HERO_ANIMATION.subtitle.transition}
+						>
 							{ui?.subtitle[0]?.children[0]?.text}
 							<span>{ui?.subtitle[0]?.children[1]?.text}</span>
 							<br className={css.br} />
 							{ui?.subtitle[0]?.children[2]?.text}
-						</p>
+						</motion.p>
 					</div>
 
 					{/* Icons (mobile only) */}
-					<div className={`${css.container_icons}`}>
+					<motion.div
+						className={`${css.container_icons}`}
+						initial={SECTION_HERO_ANIMATION.dots.initial}
+						animate={SECTION_HERO_ANIMATION.dots.animate}
+						transition={SECTION_HERO_ANIMATION.dots.transition}
+					>
 						<IconAsterisk color="white" size={10} />
 						<IconAsterisk color="white" size={10} />
-					</div>
+					</motion.div>
 
 					{/* Right part */}
 					<div className={css.container_secondary}>
-						<ul className={css.list}>
+						<motion.ul
+							className={css.list}
+							variants={SECTION_HERO_ANIMATION.list}
+							initial="hidden"
+							animate="visible"
+						>
 							{ui?.tags?.map(
 								({
 									_key,
@@ -126,20 +127,30 @@ export default function HeroSection({ uiString }: Props) {
 									link: string;
 									title: string;
 								}) => (
-									<li key={_key} className={css.list_item}>
+									<motion.li
+										key={_key}
+										className={css.list_item}
+										variants={SECTION_HERO_ANIMATION.listItem}
+									>
 										<Tag href={link}>{title}</Tag>
-									</li>
+									</motion.li>
 								)
 							)}
-						</ul>
+						</motion.ul>
 
-						<ButtonPrimary
-							href={buttonResumeData?.href}
-							icon={<IconArrowCurve color="black" direction="right" />}
-							fileName={buttonResumeData?.name}
+						<motion.span
+							initial={SECTION_HERO_ANIMATION.button.initial}
+							animate={SECTION_HERO_ANIMATION.button.animate}
+							transition={SECTION_HERO_ANIMATION.button.transition}
 						>
-							{buttonResumeData?.text}
-						</ButtonPrimary>
+							<ButtonPrimary
+								href={buttonResumeData?.href}
+								icon={<IconArrowCurve color="black" direction="right" />}
+								fileName={buttonResumeData?.name}
+							>
+								{buttonResumeData?.text}
+							</ButtonPrimary>
+						</motion.span>
 					</div>
 				</div>
 			</div>

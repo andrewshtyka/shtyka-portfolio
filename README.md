@@ -46,6 +46,12 @@ npm install
 
 ### 3.2 Animation
 
+- Resume section:
+  - Update animation (the same as in hero, instead of settimeout)
+
+- Mob menu:
+  - Show / hide panel with anchor links
+
 - Appearance animation (find refs)
   ON LOAD and ON SCROLL:
   - Menu

@@ -1,4 +1,15 @@
+"use client";
+
 // #region ============================== Imports
+
+// animation
+import {
+	motion,
+	useInView,
+	useMotionValueEvent,
+	useScroll,
+	useTransform,
+} from "motion/react";
 
 // styles
 import css from "./AboutSection.module.css";
@@ -11,10 +22,30 @@ import { Props } from "./AboutSection.types";
 import LinkText from "@/components/LinkText/LinkText";
 import IconSign from "@/components/Icons/IconSign/IconSign";
 import TooltipImage from "@/components/TooltipImage/TooltipImage";
+import React from "react";
 
 // #endregion ===========================
 
 export default function AboutSection({ uiString }: Props) {
+	const refContainer = React.useRef<HTMLDivElement | null>(null);
+	const { scrollYProgress } = useScroll({
+		target: refContainer,
+		offset: ["start end", "end start"],
+	});
+
+	const scaleValue = useTransform(
+		scrollYProgress,
+		[0, 0.5, 0.7, 1],
+		[1.1, 1, 0.9, 0.7]
+	);
+	const yValue = useTransform(scrollYProgress, [0, 1], ["100px", "-100px"]);
+	const opacityValue = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
+	const filterBlurValue = useTransform(
+		scrollYProgress,
+		[0.6, 1],
+		["blur(0px)", "blur(16px)"]
+	);
+
 	if (!uiString || typeof uiString !== "string") return;
 
 	// #region ============================== CMS Data processing
@@ -54,8 +85,19 @@ export default function AboutSection({ uiString }: Props) {
 	// #endregion ===========================
 
 	return (
-		<section className={`${css.container} content_padding_limit`}>
-			<div className={css.content}>
+		<section
+			ref={refContainer}
+			className={`${css.container} content_padding_limit`}
+		>
+			<motion.div
+				style={{
+					scale: scaleValue,
+					y: yValue,
+					opacity: opacityValue,
+					filter: filterBlurValue,
+				}}
+				className={css.content}
+			>
 				{/* Paragraph 1 */}
 				<p className="f_display_subtitle">
 					{paragraph_1?.text_1}
@@ -96,7 +138,7 @@ export default function AboutSection({ uiString }: Props) {
 						{ui?.details[1]?.children[0]?.text}
 					</p>
 				</div>
-			</div>
+			</motion.div>
 		</section>
 	);
 }

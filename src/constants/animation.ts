@@ -3,6 +3,7 @@
  */
 
 import { opacity } from "@/components/LayoutTransition/anim";
+import { transform } from "next/dist/build/swc";
 import { transaction } from "sanity/migrate";
 
 export const TOOLTIP_DELAY = 100;
@@ -36,7 +37,7 @@ export const MENU_ANIMATION = {
 		animate: { transform: "translateY(0%)" },
 		transition: {
 			duration: 1,
-			delay: 1,
+			delay: 2,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -52,7 +53,6 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 3,
-			// delay: 0,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -79,5 +79,82 @@ export const SECTION_HERO_ANIMATION = {
 			duration: 0.001,
 			delay: 1.3,
 		},
+	},
+	subtitle: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 1.5,
+			delay: 1.5,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+	dots: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 1,
+			delay: 1.7,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+	list: {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				delayChildren: 1.5,
+				staggerChildren: 0.05,
+			},
+		},
+	},
+	listItem: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+	},
+	button: {
+		initial: {
+			opacity: 0,
+			y: 16,
+		},
+		animate: {
+			opacity: 1,
+			y: 0,
+		},
+		transition: {
+			duration: 1,
+			delay: 2,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+};
+
+export const SECTION_ABOUT_ANIMATION = {
+	container: {
+		initial: {
+			transform: "scale(1.25)",
+		},
+		animate: {
+			transform: "scale(1)",
+		},
+		transition: {},
 	},
 };
