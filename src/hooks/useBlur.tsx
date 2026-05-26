@@ -2,7 +2,7 @@ import React from "react";
 
 export function useBlur() {
 	React.useEffect(() => {
-		function handleEscape(e) {
+		function handleEscape(e: KeyboardEvent) {
 			if (e.code === "Escape") {
 				if (!document.activeElement) return;
 
