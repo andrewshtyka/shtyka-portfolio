@@ -2,6 +2,9 @@
 
 // #region ============================== Imports
 
+// animation
+import { motion } from "motion/react";
+
 // components
 import VideoProject from "@/components/VideoProject/VideoProject";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";

@@ -1,4 +1,9 @@
+"use client";
+
 // #region ============================== Imports
+
+// animation
+import { motion, useScroll, useTransform } from "motion/react";
 
 // components
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
@@ -13,9 +18,24 @@ import css from "./ProjectsSection.module.css";
 // types
 import { ProjectHome, Props } from "./ProjectsSection.types";
 
+// utility
+import React from "react";
+
 // #endregion ===========================
 
 export default function ProjectsSection({ uiString, projectsString }: Props) {
+	const refContainer = React.useRef<HTMLElement | null>(null);
+	const { scrollYProgress } = useScroll({
+		target: refContainer,
+		offset: ["start end", "10% 90%"],
+	});
+
+	const xValue = useTransform(scrollYProgress, [0, 1], ["24px", "0px"]);
+	const negativeX = useTransform(xValue, (val: string) => {
+		const num = parseFloat(val);
+		return `${-num}px`;
+	});
+
 	if (!projectsString || typeof projectsString !== "string") return;
 	if (!uiString || typeof uiString !== "string") return;
 
@@ -36,14 +56,32 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 	});
 
 	return (
-		<section id={HOME_SECTIONS.projects} className={css.container}>
+		<section
+			ref={refContainer}
+			id={HOME_SECTIONS.projects}
+			className={css.container}
+		>
 			{/* title */}
 			<div className={css.container_title}>
+				{/* icons */}
 				<span className={css.icons}>
-					<IconArrowShortCut direction="up" />
-					<IconArrowShortCut direction="up" />
+					<motion.span
+						style={{
+							x: negativeX,
+						}}
+					>
+						<IconArrowShortCut direction="up" />
+					</motion.span>
+					<motion.span
+						style={{
+							x: xValue,
+						}}
+					>
+						<IconArrowShortCut direction="up" />
+					</motion.span>
 				</span>
 
+				{/* text */}
 				<h2>
 					<span className={`${css.title_1} f_serif_primary`}>
 						{dataTitle?.title_1}
@@ -65,3 +103,6 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 		</section>
 	);
 }
+
+
+// ЗРОБИ ЗАГОЛОВКИ ПОЯВУ
