@@ -9,12 +9,6 @@
 	background-color: var(--color-base-alpha-transparent);
 	color: var(--color-base);
 }
-@media (hover: hover) {
-	.button:hover {
-		background-color: var(--color-button-background-secondary-hover);
-		color: var(--color-base);
-	}
-}
 
 .children {
 	display: inline-block;

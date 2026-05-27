@@ -2,6 +2,9 @@
 
 // #region ============================== Imports
 
+// animation
+import { AnimatePresence, motion } from "motion/react";
+
 // components
 import MenuButton from "@/components/MenuButton/MenuButton";
 
@@ -12,8 +15,8 @@ import css from "./ContainerMobile.module.css";
 import { Props } from "./ContainerMobile.types";
 
 // utils
-import { FocusOn } from "react-focus-on";
 import React from "react";
+import { MENU_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 
@@ -24,32 +27,27 @@ export default function ContainerMobile({
 	isMenuOpened,
 	onClick = undefined,
 }: Props) {
-	// closed
-	if (!isMenuOpened)
-		return (
-			<div className={css.container}>
-				<MenuButton onClick={onClick}>{open}</MenuButton>
-			</div>
-		);
+	const customClass = isMenuOpened ? "invert_colors" : " ";
 
-	// opened
 	return (
 		<div className={css.container}>
-			<FocusOn
-				onClickOutside={onClick}
-				onEscapeKey={onClick ? () => onClick() : undefined}
-				scrollLock={false}
-				autoFocus={false}
-				className={css.container}
-			>
-				<span className={`${css.children} bg_blur`} style={{ display: "flex" }}>
-					{children}
-				</span>
+			<MenuButton onClick={onClick} customClass={customClass}>
+				{isMenuOpened ? close : open}
+			</MenuButton>
 
-				<MenuButton onClick={onClick} customClass="invert_colors">
-					{close}
-				</MenuButton>
-			</FocusOn>
+			<AnimatePresence mode="wait">
+				{isMenuOpened && (
+					<motion.span
+						initial={MENU_ANIMATION.mobile.initial}
+						animate={MENU_ANIMATION.mobile.animate}
+						exit={MENU_ANIMATION.mobile.exit}
+						transition={MENU_ANIMATION.mobile.transition}
+						className={`${css.children} bg_blur`}
+					>
+						{children}
+					</motion.span>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 }

@@ -18,6 +18,7 @@ npm install
 - React 19
 - TypeScript
 - Motion (ex Framer Motion)
+- GSAP
 
 <br />
 
@@ -45,12 +46,6 @@ npm install
 <br />
 
 ### 3.2 Animation
-
-- Resume section:
-  - Update animation (the same as in hero, instead of settimeout)
-
-- Mob menu:
-  - Show / hide panel with anchor links
 
 - Appearance animation (find refs)
   ON LOAD and ON SCROLL:
@@ -132,6 +127,7 @@ npm install
   - When link clicked - close menu.
   - When menu opened and clicked (tapped) outside - close menu.
   - Close opened menu on "Esc
+  - Show / hide panel with anchor links
 
 - Menu:
   - Transition between buttons

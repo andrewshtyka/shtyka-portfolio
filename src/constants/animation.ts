@@ -2,10 +2,6 @@
  * ================================================== Components
  */
 
-import { opacity } from "@/components/LayoutTransition/anim";
-import { transform } from "next/dist/build/swc";
-import { transaction } from "sanity/migrate";
-
 export const TOOLTIP_DELAY = 100;
 
 export const LINK_ANIMATION_CSS = {
@@ -41,6 +37,15 @@ export const MENU_ANIMATION = {
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
+	mobile: {
+		initial: { height: 0 },
+		animate: { height: "fit-content" },
+		exit: { height: 0 },
+		transition: {
+			duration: 0.5,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
 };
 
 export const SECTION_HERO_ANIMATION = {
@@ -64,7 +69,7 @@ export const SECTION_HERO_ANIMATION = {
 			opacity: 1,
 		},
 		transition: {
-			duration: 0.001,
+			duration: 0.0000001,
 			delay: 1,
 		},
 	},
@@ -76,7 +81,7 @@ export const SECTION_HERO_ANIMATION = {
 			opacity: 1,
 		},
 		transition: {
-			duration: 0.001,
+			duration: 0.0000001,
 			delay: 1.3,
 		},
 	},
@@ -156,5 +161,16 @@ export const SECTION_ABOUT_ANIMATION = {
 			transform: "scale(1)",
 		},
 		transition: {},
+	},
+	details: {
+		hide: {
+			opacity: 0,
+		},
+		show: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 1,
+		},
 	},
 };

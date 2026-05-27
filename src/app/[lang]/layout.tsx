@@ -59,6 +59,7 @@ export default async function RootLayout({
 					exit={{ opacity: 0 }}
 				> */}
 				<DynamicCSS />
+
 				<TooltipProvider>
 					<Menu
 						lang={lang}
@@ -72,6 +73,7 @@ export default async function RootLayout({
 						<Footer obj={ui?.footer} lang={lang} />
 					</div>
 				</TooltipProvider>
+
 				{/* </LayoutTransition> */}
 			</body>
 		</html>

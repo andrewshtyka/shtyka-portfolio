@@ -5,11 +5,14 @@
 // animation
 import {
 	motion,
-	useInView,
 	useMotionValueEvent,
 	useScroll,
 	useTransform,
+	useInView,
 } from "motion/react";
+
+// components
+import { SECTION_ABOUT_ANIMATION } from "@/constants/animation";
 
 // styles
 import css from "./AboutSection.module.css";
@@ -27,6 +30,7 @@ import React from "react";
 // #endregion ===========================
 
 export default function AboutSection({ uiString }: Props) {
+	// container animation
 	const refContainer = React.useRef<HTMLDivElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: refContainer,
@@ -38,13 +42,22 @@ export default function AboutSection({ uiString }: Props) {
 		[0, 0.5, 0.7, 1],
 		[1.1, 1, 0.9, 0.7]
 	);
-	const yValue = useTransform(scrollYProgress, [0, 1], ["100px", "-100px"]);
+	const yValue = useTransform(
+		scrollYProgress,
+		[0, 0.6, 1],
+		["50px", "0px", "-50px"]
+	);
 	const opacityValue = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
 	const filterBlurValue = useTransform(
 		scrollYProgress,
-		[0.6, 1],
+		[0.7, 1],
 		["blur(0px)", "blur(16px)"]
 	);
+
+	// signa animation
+	const refSign = React.useRef<HTMLDivElement | null>(null);
+	const refDetails = React.useRef<HTMLSpanElement | null>(null);
+	const isInView = useInView(refSign, { once: true });
 
 	if (!uiString || typeof uiString !== "string") return;
 
@@ -126,17 +139,25 @@ export default function AboutSection({ uiString }: Props) {
 				</p>
 
 				{/* Sign */}
-				<div className={css.container_details}>
+				<div ref={refSign} className={css.container_details}>
 					<span className={css.container_image}>
-						<IconSign />
+						<IconSign isInView={isInView} />
 					</span>
 
-					<p className={`${css.details} f_mono`}>
-						{ui?.details[0]?.children[0]?.text}
-					</p>
-					<p className={`${css.details} f_mono`}>
-						{ui?.details[1]?.children[0]?.text}
-					</p>
+					<motion.span
+						ref={refDetails}
+						variants={SECTION_ABOUT_ANIMATION.details}
+						initial="hide"
+						animate={isInView ? "show" : "hide"}
+						transition={SECTION_ABOUT_ANIMATION.details.transition}
+					>
+						<p className={`${css.details} f_mono`}>
+							{ui?.details[0]?.children[0]?.text}
+						</p>
+						<p className={`${css.details} f_mono`}>
+							{ui?.details[1]?.children[0]?.text}
+						</p>
+					</motion.span>
 				</div>
 			</motion.div>
 		</section>

@@ -40,9 +40,9 @@ export default function ResumeSection({ uiString }: Props) {
 	const refText_1 = React.useRef<HTMLAnchorElement>(null);
 	const refText_2 = React.useRef<HTMLAnchorElement>(null);
 	const refText_3 = React.useRef<HTMLAnchorElement>(null);
-	const { play: play_1 } = useLinkHover(refText_1);
-	const { play: play_2 } = useLinkHover(refText_2);
-	const { play: play_3 } = useLinkHover(refText_3);
+	const { play: play_1 } = useLinkHover(refText_1, true);
+	const { play: play_2 } = useLinkHover(refText_2, true, 1);
+	const { play: play_3 } = useLinkHover(refText_3, true, 2);
 
 	// animate icon
 	const refIcon = React.useRef<HTMLAnchorElement>(null);
@@ -74,14 +74,14 @@ export default function ResumeSection({ uiString }: Props) {
 				onMouseEnter={() => {
 					playIcon?.();
 					play_1?.();
-					setTimeout(() => play_2?.(), 50);
-					setTimeout(() => play_3?.(), 50 * 2);
+					play_2?.();
+					play_3?.();
 				}}
 				onFocus={() => {
 					playIcon?.();
 					play_1?.();
-					setTimeout(() => play_2?.(), 50);
-					setTimeout(() => play_3?.(), 50 * 2);
+					play_2?.();
+					play_3?.();
 				}}
 			>
 				{/* video */}

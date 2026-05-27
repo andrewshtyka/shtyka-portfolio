@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 
 // components
 import Video from "./Video/Video";
@@ -37,10 +37,19 @@ import { SECTION_HERO_ANIMATION } from "@/constants/animation";
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
+	// texts animation
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
+	const refSubtitle = React.useRef<HTMLSpanElement>(null);
 	const { play: playTitle_1 } = useLinkHover(refTitle_1);
 	const { play: playTitle_2 } = useLinkHover(refTitle_2);
+	const { play: playSubtitle } = useLinkHover(refSubtitle);
+	React.useEffect(() => {
+		const id = setInterval(() => {
+			playSubtitle?.();
+		}, 4000);
+		return () => clearInterval(id);
+	}, [playSubtitle]);
 
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
@@ -92,7 +101,9 @@ export default function HeroSection({ uiString }: Props) {
 							transition={SECTION_HERO_ANIMATION.subtitle.transition}
 						>
 							{ui?.subtitle[0]?.children[0]?.text}
-							<span>{ui?.subtitle[0]?.children[1]?.text}</span>
+							<span ref={refSubtitle}>
+								{ui?.subtitle[0]?.children[1]?.text}
+							</span>
 							<br className={css.br} />
 							{ui?.subtitle[0]?.children[2]?.text}
 						</motion.p>

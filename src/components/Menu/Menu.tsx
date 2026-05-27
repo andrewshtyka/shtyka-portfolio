@@ -14,13 +14,16 @@ import { MENU_ANIMATION } from "@/constants/animation";
 
 // hooks
 import { usePathname } from "next/navigation";
+import { useBlur } from "@/hooks/useBlur";
 
 // styles
 import css from "./Menu.module.css";
 
 // types
 import { Props } from "./Menu.types";
-import { useBlur } from "@/hooks/useBlur";
+
+// utility
+import React from "react";
 
 // #endregion ===========================
 

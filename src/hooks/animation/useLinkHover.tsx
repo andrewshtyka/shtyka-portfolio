@@ -17,13 +17,15 @@ import React from "react";
  * @param ref - ref for element with text
  * @param isFull - configures if text scrambles from 1 symbol to full length (false),
  * or if all symbols are visible from the start (true)
+ * @param delayNum - sets delay for performing the function (use 1, 2, 3, etc)
  */
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrambleTextPlugin);
 
 export function useLinkHover(
 	ref: React.RefObject<HTMLElement | null>,
-	startFromFirstLetter = true
+	startFromFirstLetter = true,
+	delayNum = 0
 ) {
 	const timelineRef = React.useRef<gsap.core.Timeline | null>(null);
 	const originalTextRef = React.useRef<string>("");
@@ -57,7 +59,7 @@ export function useLinkHover(
 			: originalText;
 		el.textContent = finalText;
 
-		timelineRef.current = gsap.timeline();
+		timelineRef.current = gsap.timeline({ delay: delayNum / 10 });
 		timelineRef.current.to(el, {
 			duration: LINK_HOVER_ANIMATION.duration,
 			scrambleText: {
