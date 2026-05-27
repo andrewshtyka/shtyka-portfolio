@@ -31,7 +31,7 @@ import React from "react";
 
 export default function AboutSection({ uiString }: Props) {
 	// container animation
-	const refContainer = React.useRef<HTMLDivElement | null>(null);
+	const refContainer = React.useRef<HTMLElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: refContainer,
 		offset: ["start end", "end start"],
@@ -101,70 +101,73 @@ export default function AboutSection({ uiString }: Props) {
 	// #endregion ===========================
 
 	return (
-		<section
+		<motion.section
 			ref={refContainer}
 			className={`${css.container} content_padding_limit`}
 		>
 			<motion.div
-				style={{
-					scale: scaleValue,
-					y: yValue,
-					opacity: opacityValue,
-					filter: filterBlurValue,
-				}}
-				className={css.content}
+				variants={SECTION_ABOUT_ANIMATION.section}
+				initial="initial"
+				whileInView="show"
+				transition={SECTION_ABOUT_ANIMATION.section.transition}
 			>
-				{/* Paragraph 1 */}
-				<p className="f_display_subtitle">
-					{paragraph_1?.text_1}
-					<TooltipImage src={imgSrc} alt={imgAlt}>
-						{paragraph_1?.text_2?.text}
-					</TooltipImage>
-					{paragraph_1?.text_3}
-				</p>
-
-				{/* Paragraph 2 */}
-				<p className="f_display_subtitle">
-					{paragraph_2?.text_1}
-					<LinkText href={paragraph_2?.text_2?.href}>
-						{paragraph_2?.text_2?.text}
-					</LinkText>
-					{paragraph_2?.text_3}
-				</p>
-
-				{/* Paragraph 3 */}
-				<p className="f_display_subtitle">
-					{paragraph_3?.text_1}
-					<LinkText href={paragraph_3?.text_2?.href}>
-						{paragraph_3?.text_2?.text}
-					</LinkText>
-					{paragraph_3?.text_3}
-				</p>
-
-				{/* Sign */}
 				<motion.div
-					ref={refSign}
-					className={css.container_details}
-					variants={SECTION_ABOUT_ANIMATION.details}
-					initial="hide"
-					whileInView="show"
-					transition={SECTION_ABOUT_ANIMATION.details.transition}
-					viewport={SECTION_ABOUT_ANIMATION.details.viewport}
+					style={{
+						scale: scaleValue,
+						y: yValue,
+						opacity: opacityValue,
+						filter: filterBlurValue,
+					}}
+					className={css.content}
 				>
-					<span className={css.container_image}>
-						<IconSign isInView={isInView} />
-					</span>
-
-					<span ref={refDetails}>
-						<p className={`${css.details} f_mono`}>
-							{ui?.details[0]?.children[0]?.text}
-						</p>
-						<p className={`${css.details} f_mono`}>
-							{ui?.details[1]?.children[0]?.text}
-						</p>
-					</span>
+					{/* Paragraph 1 */}
+					<p className="f_display_subtitle">
+						{paragraph_1?.text_1}
+						<TooltipImage src={imgSrc} alt={imgAlt}>
+							{paragraph_1?.text_2?.text}
+						</TooltipImage>
+						{paragraph_1?.text_3}
+					</p>
+					{/* Paragraph 2 */}
+					<p className="f_display_subtitle">
+						{paragraph_2?.text_1}
+						<LinkText href={paragraph_2?.text_2?.href}>
+							{paragraph_2?.text_2?.text}
+						</LinkText>
+						{paragraph_2?.text_3}
+					</p>
+					{/* Paragraph 3 */}
+					<p className="f_display_subtitle">
+						{paragraph_3?.text_1}
+						<LinkText href={paragraph_3?.text_2?.href}>
+							{paragraph_3?.text_2?.text}
+						</LinkText>
+						{paragraph_3?.text_3}
+					</p>
+					{/* Sign */}
+					<motion.div
+						ref={refSign}
+						className={css.container_details}
+						variants={SECTION_ABOUT_ANIMATION.details}
+						initial="hide"
+						whileInView="show"
+						transition={SECTION_ABOUT_ANIMATION.details.transition}
+						viewport={SECTION_ABOUT_ANIMATION.details.viewport}
+					>
+						<span className={css.container_image}>
+							<IconSign isInView={isInView} />
+						</span>
+						<span ref={refDetails}>
+							<p className={`${css.details} f_mono`}>
+								{ui?.details[0]?.children[0]?.text}
+							</p>
+							<p className={`${css.details} f_mono`}>
+								{ui?.details[1]?.children[0]?.text}
+							</p>
+						</span>
+					</motion.div>
 				</motion.div>
 			</motion.div>
-		</section>
+		</motion.section>
 	);
 }

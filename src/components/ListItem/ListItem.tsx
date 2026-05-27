@@ -20,6 +20,7 @@ export default function ListItem({ children, hasIcon = true }: Props) {
 		<motion.li
 			className={css.item}
 			variants={SECTION_CLIENTS_ANIMATION.listItem}
+			viewport={SECTION_CLIENTS_ANIMATION.listItem.viewport}
 		>
 			{hasIcon && (
 				<span className={css.container_icon}>

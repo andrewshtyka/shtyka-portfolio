@@ -158,6 +158,21 @@ export const SECTION_HERO_ANIMATION = {
 };
 
 export const SECTION_ABOUT_ANIMATION = {
+	section: {
+		initial: {
+			opacity: 0,
+		},
+		show: {
+			opacity: 1,
+		},
+		hide: {
+			opacity: 0,
+		},
+		transition: {
+			duration: 1,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
 	container: {
 		initial: {
 			transform: "scale(1.25)",
@@ -344,6 +359,9 @@ export const SECTION_CLIENTS_ANIMATION = {
 				staggerChildren: 0.05,
 			},
 		},
+		viewport: {
+			once: true,
+		},
 	},
 	listItem: {
 		hidden: {
@@ -357,6 +375,9 @@ export const SECTION_CLIENTS_ANIMATION = {
 				duration: 1,
 				ease: [0.25, 0, 0, 1] as const,
 			},
+		},
+		viewport: {
+			once: true,
 		},
 	},
 };

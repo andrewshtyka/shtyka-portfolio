@@ -86,6 +86,7 @@ export default function ClientsSection({ uiString }: Props) {
 				variants={SECTION_CLIENTS_ANIMATION.list}
 				initial="hidden"
 				whileInView="visible"
+				viewport={SECTION_CLIENTS_ANIMATION.list.viewport}
 			>
 				{dataClients?.map(({ key, text }: { key: string; text: string }) => (
 					<ListItem key={key}>{text}</ListItem>
