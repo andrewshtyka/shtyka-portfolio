@@ -8,6 +8,9 @@ import { AnimatePresence, motion } from "motion/react";
 // components
 import MenuButton from "@/components/MenuButton/MenuButton";
 
+// constants
+import { MENU_ANIMATION } from "@/constants/animation";
+
 // styles
 import css from "./ContainerMobile.module.css";
 
@@ -16,7 +19,6 @@ import { Props } from "./ContainerMobile.types";
 
 // utils
 import React from "react";
-import { MENU_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 

@@ -39,7 +39,7 @@ export const MENU_ANIMATION = {
 	},
 	mobile: {
 		initial: { height: 0 },
-		animate: { height: "fit-content" },
+		animate: { height: "auto" },
 		exit: { height: 0 },
 		transition: {
 			duration: 0.5,

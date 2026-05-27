@@ -47,6 +47,8 @@ npm install
 
 ### 3.2 Animation
 
+- When in view - section fases from 0 to 1 (always)
+
 - Appearance animation (find refs)
   ON LOAD and ON SCROLL:
   - Menu
