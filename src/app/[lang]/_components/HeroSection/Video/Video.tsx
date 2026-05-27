@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 
 // constants
 import { SECTION_HERO_ANIMATION } from "@/constants/animation";
@@ -25,6 +25,7 @@ import React from "react";
 
 export default function Video({ video, poster }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
+	const isInView = useInView(videoRef, { amount: 0.25 });
 	useVideoObserver(videoRef);
 
 	const data = getUrlForVideo(video, poster) ?? "";
@@ -41,8 +42,9 @@ export default function Video({ video, poster }: Props) {
 				playsInline
 				width="100%"
 				poster={data?.poster}
-				initial={SECTION_HERO_ANIMATION.video.initial}
-				animate={SECTION_HERO_ANIMATION.video.animate}
+				variants={SECTION_HERO_ANIMATION.video}
+				initial="initial"
+				animate={isInView ? "show" : "hide"}
 				transition={SECTION_HERO_ANIMATION.video.transition}
 			></motion.video>
 			<div className={css.overlay_top}></div>

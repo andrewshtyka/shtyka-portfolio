@@ -2,8 +2,12 @@
 
 // #region ============================== Imports
 
+// animation
+import { motion, useInView } from "motion/react";
+
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
@@ -25,6 +29,7 @@ import React from "react";
 
 export default function ContactSection({ uiString }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
+	const isInView = useInView(videoRef, { amount: 0.25 });
 	useVideoObserver(videoRef);
 
 	if (!uiString || typeof uiString !== "string") return;
@@ -63,7 +68,7 @@ export default function ContactSection({ uiString }: Props) {
 			{/* video */}
 			{dataVideo && (
 				<div className={css.container_video}>
-					<video
+					<motion.video
 						ref={videoRef}
 						data-src={dataVideo?.video ?? ""}
 						preload="none"
@@ -74,7 +79,13 @@ export default function ContactSection({ uiString }: Props) {
 						height="100%"
 						poster={dataVideo?.poster ?? ""}
 						className={css.video}
-					></video>
+						//
+						// motion
+						variants={SECTION_PROJECTS_ANIMATION.project.video}
+						initial="initial"
+						animate={isInView ? "show" : "hide"}
+						transition={SECTION_PROJECTS_ANIMATION.project.video.transition}
+					></motion.video>
 				</div>
 			)}
 

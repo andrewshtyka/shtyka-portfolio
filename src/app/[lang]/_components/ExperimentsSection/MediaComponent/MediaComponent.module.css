@@ -14,7 +14,6 @@
 		var(--color-gray),
 		var(--color-gray-alpha-transparent)
 	);
-	/* background: linear-gradient(red, blue); */
 }
 
 .overlay_bottom {
@@ -27,5 +26,4 @@
 		var(--color-gray-alpha-transparent),
 		var(--color-gray)
 	);
-	/* background: linear-gradient(red, blue); */
 }

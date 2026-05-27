@@ -1,5 +1,10 @@
-// styles
+// animation
+import { motion } from "motion/react";
 
+// constants
+import { SECTION_EXPERIENCE_ANIMATION } from "@/constants/animation";
+
+// styles
 import css from "./Row.module.css";
 
 // types
@@ -10,26 +15,92 @@ export default function Row({
 	years = "",
 	role = "",
 	company = "",
+	num = 0,
 }: RowProps) {
 	return (
 		<>
-			<div className={css.line}></div>
+			{/* divider */}
+			<motion.div
+				className={css.line}
+				variants={SECTION_EXPERIENCE_ANIMATION.divider}
+				initial="initial"
+				whileInView="animate"
+				transition={{
+					...SECTION_EXPERIENCE_ANIMATION.divider.transition,
+					delay: SECTION_EXPERIENCE_ANIMATION.divider.transition.delay(num - 1),
+				}}
+				viewport={SECTION_EXPERIENCE_ANIMATION.divider.viewport}
+			></motion.div>
 
 			<div className={`${css.grid} ${css.distance}`}>
 				{/* col 1 */}
 				<div className={css.col_left}>
-					<span className={`${css.years} f_mono`}>
+					<motion.span
+						className={`${css.years} f_mono`}
+						variants={SECTION_EXPERIENCE_ANIMATION.line}
+						initial="initial"
+						whileInView="animate"
+						transition={{
+							...SECTION_EXPERIENCE_ANIMATION.line.transition,
+							delay: SECTION_EXPERIENCE_ANIMATION.line.transition.delay(
+								num - 1
+							),
+						}}
+						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
+					>
 						<span>{years}</span>
-					</span>
-					<span className={`${css.duration} f_mono`}>
+					</motion.span>
+					<motion.span
+						className={`${css.duration} f_mono`}
+						variants={SECTION_EXPERIENCE_ANIMATION.line}
+						initial="initial"
+						whileInView="animate"
+						transition={{
+							...SECTION_EXPERIENCE_ANIMATION.line.transition,
+							delay: SECTION_EXPERIENCE_ANIMATION.line.transition.delay(
+								num - 1
+							),
+						}}
+						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
+					>
 						<span>{duration}</span>
-					</span>
+					</motion.span>
 				</div>
 
 				{/* col 2 */}
 				<div className={css.col_right}>
-					<span className={`${css.role} f_display_body`}>{role}</span>
-					<span className={`${css.company} f_display_body`}>{company}</span>
+					<motion.span
+						// ref={refRole}
+						className={`${css.role} f_display_body`}
+						variants={SECTION_EXPERIENCE_ANIMATION.line}
+						initial="initial"
+						whileInView="animate"
+						transition={{
+							...SECTION_EXPERIENCE_ANIMATION.line.transition,
+							delay: SECTION_EXPERIENCE_ANIMATION.line.transition.delay(
+								num - 1
+							),
+						}}
+						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
+					>
+						{role}
+					</motion.span>
+					<motion.span
+						// ref={refCompany}
+						className={`${css.company} f_display_body`}
+						variants={SECTION_EXPERIENCE_ANIMATION.line}
+						initial="initial"
+						whileInView="animate"
+						transition={{
+							...SECTION_EXPERIENCE_ANIMATION.line.transition,
+							delay: SECTION_EXPERIENCE_ANIMATION.line.transition.delay(
+								num - 1
+							),
+						}}
+						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
+					>
+						{company}
+					</motion.span>
 				</div>
 			</div>
 		</>

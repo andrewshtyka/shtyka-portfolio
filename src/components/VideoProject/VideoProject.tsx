@@ -2,11 +2,17 @@
 
 // #region ============================== imports
 
-// styles
-import css from "./VideoProject.module.css";
+// animation
+import { motion, useInView } from "motion/react";
+
+// constants
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
+
+// styles
+import css from "./VideoProject.module.css";
 
 // types
 import { Props } from "./VideoProject.types";
@@ -19,6 +25,7 @@ import React from "react";
 
 export default function VideoProject({ video, poster }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
+	const isInView = useInView(videoRef, { amount: 0.25 });
 	useVideoObserver(videoRef);
 
 	if (
@@ -33,7 +40,7 @@ export default function VideoProject({ video, poster }: Props) {
 	if (!data || typeof data !== "object") return null;
 
 	return (
-		<video
+		<motion.video
 			ref={videoRef}
 			data-src={data?.video}
 			preload="none"
@@ -44,6 +51,12 @@ export default function VideoProject({ video, poster }: Props) {
 			height="100%"
 			poster={data?.poster}
 			className={css.video}
-		></video>
+			//
+			// motion
+			variants={SECTION_PROJECTS_ANIMATION.project.video}
+			initial="initial"
+			animate={isInView ? "show" : "hide"}
+			transition={SECTION_PROJECTS_ANIMATION.project.video.transition}
+		></motion.video>
 	);
 }

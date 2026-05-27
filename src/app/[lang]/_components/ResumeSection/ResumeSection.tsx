@@ -2,9 +2,15 @@
 
 // #region ============================== Imports
 
+// animation
+import { motion, useInView } from "motion/react";
+
 // components
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
+// constants
+import { SECTION_RESUME_ANIMATION } from "@/constants/animation";
 
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
@@ -44,6 +50,31 @@ export default function ResumeSection({ uiString }: Props) {
 	const { play: play_2 } = useLinkHover(refText_2, true, 1);
 	const { play: play_3 } = useLinkHover(refText_3, true, 2);
 
+	const isText_1_InView = useInView(refText_1, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isText_2_InView = useInView(refText_2, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isText_3_InView = useInView(refText_3, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+
+	React.useEffect(() => {
+		if (isText_1_InView) play_1?.();
+	}, [isText_1_InView, play_1]);
+
+	React.useEffect(() => {
+		if (isText_2_InView) play_2?.();
+	}, [isText_2_InView, play_2]);
+
+	React.useEffect(() => {
+		if (isText_3_InView) play_3?.();
+	}, [isText_3_InView, play_3]);
+
 	// animate icon
 	const refIcon = React.useRef<HTMLAnchorElement>(null);
 	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
@@ -66,7 +97,7 @@ export default function ResumeSection({ uiString }: Props) {
 
 	return (
 		<Magnetic>
-			<a
+			<motion.a
 				href={`${data?.href}/${data?.fileName}`}
 				target="_blank"
 				rel="noopener noreferrer"
@@ -83,6 +114,11 @@ export default function ResumeSection({ uiString }: Props) {
 					play_2?.();
 					play_3?.();
 				}}
+				variants={SECTION_RESUME_ANIMATION.card}
+				initial="initial"
+				whileInView="animate"
+				transition={SECTION_RESUME_ANIMATION.card.transition}
+				viewport={SECTION_RESUME_ANIMATION.card.viewport}
 			>
 				{/* video */}
 				<div className={css.container_video}>
@@ -101,18 +137,28 @@ export default function ResumeSection({ uiString }: Props) {
 				{/* top */}
 				<span className={css.top}>
 					<h2 className={css.h2}>
-						<span
+						<motion.span
 							ref={refText_1}
 							className={`${css.title_1} f_serif_secondary`}
+							variants={SECTION_RESUME_ANIMATION.text}
+							initial="initial"
+							whileInView="animate"
+							transition={SECTION_RESUME_ANIMATION.text.transition}
+							viewport={SECTION_RESUME_ANIMATION.text.viewport}
 						>
 							{data?.title_1}
-						</span>
-						<span
+						</motion.span>
+						<motion.span
 							ref={refText_2}
 							className={`${css.title_2} f_serif_secondary f_italic`}
+							variants={SECTION_RESUME_ANIMATION.text}
+							initial="initial"
+							whileInView="animate"
+							transition={SECTION_RESUME_ANIMATION.text.transition}
+							viewport={SECTION_RESUME_ANIMATION.text.viewport}
 						>
 							{data?.title_2}
-						</span>
+						</motion.span>
 					</h2>
 					<span className={css.container_icon_top}>
 						<IconAsterisk size={8} />
@@ -121,16 +167,24 @@ export default function ResumeSection({ uiString }: Props) {
 
 				{/* bottom */}
 				<span className={css.bottom}>
-					<span ref={refText_3} className={`f_mono`}>
+					<motion.span
+						ref={refText_3}
+						className={`f_mono`}
+						variants={SECTION_RESUME_ANIMATION.text}
+						initial="initial"
+						whileInView="animate"
+						transition={SECTION_RESUME_ANIMATION.text.transition}
+						viewport={SECTION_RESUME_ANIMATION.text.viewport}
+					>
 						{data?.label}
-					</span>
+					</motion.span>
 					<span ref={refIconContainer} className={css.container_icon}>
 						<span ref={refIcon} className={css.icon}>
 							<IconArrowCurve size={10} direction="right" />
 						</span>
 					</span>
 				</span>
-			</a>
+			</motion.a>
 		</Magnetic>
 	);
 }

@@ -5,4 +5,5 @@ export interface RowProps {
 	role?: string;
 
 	_key?: string;
+	num?: number;
 }

@@ -1,3 +1,11 @@
+"use client";
+
+// animation
+import { motion } from "motion/react";
+
+// constants
+import { SECTION_CLIENTS_ANIMATION } from "@/constants/animation";
+
 // components
 import IconAsterisk from "../Icons/IconAsterisk/IconAsterisk";
 
@@ -9,13 +17,16 @@ import { Props } from "./ListItem.types";
 
 export default function ListItem({ children, hasIcon = true }: Props) {
 	return (
-		<li className={css.item}>
+		<motion.li
+			className={css.item}
+			variants={SECTION_CLIENTS_ANIMATION.listItem}
+		>
 			{hasIcon && (
 				<span className={css.container_icon}>
 					<IconAsterisk color="gray" size={8} />
 				</span>
 			)}
 			<span className="f_mono">{children}</span>
-		</li>
+		</motion.li>
 	);
 }

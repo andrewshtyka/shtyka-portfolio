@@ -57,7 +57,10 @@ export default function AboutSection({ uiString }: Props) {
 	// signa animation
 	const refSign = React.useRef<HTMLDivElement | null>(null);
 	const refDetails = React.useRef<HTMLSpanElement | null>(null);
-	const isInView = useInView(refSign, { once: true });
+	const isInView = useInView(refSign, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
 
 	if (!uiString || typeof uiString !== "string") return;
 
@@ -139,26 +142,28 @@ export default function AboutSection({ uiString }: Props) {
 				</p>
 
 				{/* Sign */}
-				<div ref={refSign} className={css.container_details}>
+				<motion.div
+					ref={refSign}
+					className={css.container_details}
+					variants={SECTION_ABOUT_ANIMATION.details}
+					initial="hide"
+					whileInView="show"
+					transition={SECTION_ABOUT_ANIMATION.details.transition}
+					viewport={SECTION_ABOUT_ANIMATION.details.viewport}
+				>
 					<span className={css.container_image}>
 						<IconSign isInView={isInView} />
 					</span>
 
-					<motion.span
-						ref={refDetails}
-						variants={SECTION_ABOUT_ANIMATION.details}
-						initial="hide"
-						animate={isInView ? "show" : "hide"}
-						transition={SECTION_ABOUT_ANIMATION.details.transition}
-					>
+					<span ref={refDetails}>
 						<p className={`${css.details} f_mono`}>
 							{ui?.details[0]?.children[0]?.text}
 						</p>
 						<p className={`${css.details} f_mono`}>
 							{ui?.details[1]?.children[0]?.text}
 						</p>
-					</motion.span>
-				</div>
+					</span>
+				</motion.div>
 			</motion.div>
 		</section>
 	);

@@ -16,6 +16,12 @@
 	padding-block-end: var(--space-6);
 }
 
+.line {
+	height: var(--space-px);
+	background-color: var(--color-line-light);
+	opacity: 0.5;
+}
+
 .num {
 	color: var(--color-text-secondary);
 

@@ -2,8 +2,14 @@
 
 // #region ============================== Imports
 
+// animation
+import { motion, useInView } from "motion/react";
+
 // components
 import Image from "next/image";
+
+// constants
+import { SECTION_EXPERIMENTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
@@ -29,6 +35,7 @@ export default function MediaComponent({
 	bottomHeight = 30,
 }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
+	const isInView = useInView(videoRef, { amount: 0.25 });
 	useVideoObserver(videoRef);
 
 	if (!uiString || typeof uiString !== "string") return null;
@@ -47,7 +54,7 @@ export default function MediaComponent({
 
 		return (
 			<>
-				<video
+				<motion.video
 					ref={videoRef}
 					data-src={data?.video}
 					preload="none"
@@ -58,8 +65,13 @@ export default function MediaComponent({
 					height="100%"
 					poster={data.poster}
 					className={css.video}
-				></video>
-				{/* <div className={css.test}></div> */}
+					//
+					// motion
+					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.video}
+					initial="initial"
+					animate={isInView ? "show" : "hide"}
+					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.video.transition}
+				></motion.video>
 				<div className={css.overlay_top} style={styleTop}></div>
 				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
@@ -77,7 +89,7 @@ export default function MediaComponent({
 					preload={true}
 					className={css.image}
 				/>
-				{/* <div className={css.test}></div> */}
+
 				<div className={css.overlay_top} style={styleTop}></div>
 				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
