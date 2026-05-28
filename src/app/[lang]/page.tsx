@@ -84,6 +84,7 @@ export default async function HomePage({ params }: Props) {
 					<AboutSection uiString={uiStringAbout} />
 					<ExperienceSection uiString={uiStringExperience} />
 					<AchievementsSection uiString={uiStringAchievements} />
+
 					<div className={css.double}>
 						<ClientsSection uiString={uiStringClients} />
 						<ResumeSection uiString={uiStringResume} />

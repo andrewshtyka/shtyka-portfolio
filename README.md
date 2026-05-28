@@ -43,27 +43,6 @@ npm install
 
 ### 3.1 Functional
 
-<br />
-
-### 3.2 Animation
-
-- Appearance animation (find refs)
-  ON LOAD and ON SCROLL:
-  - Menu
-  - Texts
-  - Videos and images
-  - Sections
-
-- Animation of transition between pages (fade):
-  - Clean up file and set up transition
-  - Do for Language change.
-
-- Add shaders for hero video
-
-<br />
-
-### 3.3 Backlog
-
 - Project page
   - Menu: Hide on scroll down, appear on scroll up.
   - Nav bar: Appear on scroll down, hide on scroll up.
@@ -79,6 +58,18 @@ npm install
   }
   <Link ... onClick={scrollToTop} >...</Link>
   ```
+
+<br />
+
+### 3.2 Animation
+
+- Animation of transition between pages (fade):
+  - Clean up file and set up transition
+  - Do for Language change.
+
+<br />
+
+### 3.3 Backlog
 
 - 404 page
 - Error page
@@ -140,6 +131,13 @@ npm install
   - Buttons
 
 - When in view - videos fades from 0 to 1 (always)
+
+- Appearance animation (find refs)
+  ON LOAD and ON SCROLL:
+  - Menu
+  - Texts
+  - Videos and images
+  - Sections
 
 <br />
 

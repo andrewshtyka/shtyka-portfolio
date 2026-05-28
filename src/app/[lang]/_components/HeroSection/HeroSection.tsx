@@ -15,8 +15,9 @@ import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
 
-// hover
+// hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
+import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
@@ -37,6 +38,8 @@ import { SECTION_HERO_ANIMATION } from "@/constants/animation";
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
+	useRefreshOnResize();
+
 	// texts animation
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
