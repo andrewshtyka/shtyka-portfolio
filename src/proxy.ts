@@ -10,22 +10,48 @@ function getLocale(request: NextRequest) {
 		: defaultLocale;
 }
 
-// code snippet from Next.js docs
-// https://nextjs.org/docs/app/guides/internationalization
+function getBrowserName(request: NextRequest) {
+	const { browser } = userAgent(request);
+	return browser.name ?? "N/A";
+}
+
+function redirectFromProjects(request: NextRequest) {
+	const { pathname } = request.nextUrl;
+	const isProjectsRoot = locales.some(
+		(locale) => pathname === `/${locale}/projects`
+	);
+	if (!isProjectsRoot) return null;
+
+	const matchedLocale = locales.find((locale) =>
+		pathname.startsWith(`/${locale}`)
+	);
+	request.nextUrl.pathname = `/${matchedLocale}`;
+	return NextResponse.redirect(request.nextUrl);
+}
+
+function redirectToLocale(request: NextRequest) {
+	const locale = getLocale(request);
+	request.nextUrl.pathname = `/${locale}${request.nextUrl.pathname}`;
+	return NextResponse.redirect(request.nextUrl);
+}
+
 export function proxy(request: NextRequest) {
 	//
 	// Get user browser
-	const { browser } = userAgent(request);
-	const browserName = browser.name ?? "N/A";
+	const browserName = getBrowserName(request);
 
 	//
-	// Redirect
+	// Redirect from "/projects"
 	const { pathname } = request.nextUrl;
 	const pathnameHasLocale = locales.some(
 		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
 	);
 
 	if (pathnameHasLocale) {
+		const projectsRedirect = redirectFromProjects(request);
+
+		if (projectsRedirect) return projectsRedirect;
+
 		const response = NextResponse.next();
 		response.headers.set("x-browser-name", browserName);
 
@@ -33,15 +59,12 @@ export function proxy(request: NextRequest) {
 	}
 
 	// Redirect if there is no locale
-	const locale = getLocale(request);
-	request.nextUrl.pathname = `/${locale}${pathname}`;
-	const response = NextResponse.redirect(request.nextUrl);
+	const response = redirectToLocale(request);
 
+	// Add browser name to response
 	response.headers.set("x-browser-name", browserName);
-	// e.g. incoming request is /products
-	// The new URL is now /en-US/products
+
 	return response;
-	// #endregion ===========================
 }
 
 export const config = {
