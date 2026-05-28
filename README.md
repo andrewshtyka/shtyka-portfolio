@@ -17,7 +17,7 @@ npm install
 - Next.js 16 (App Router)
 - React 19
 - TypeScript
-- Motion (ex Framer Motion)
+- Motion (motion.dev)
 - GSAP
 
 <br />
@@ -138,6 +138,8 @@ npm install
   - Texts
   - Videos and images
   - Sections
+
+- DotsBG - add parallax
 
 <br />
 

@@ -45,7 +45,7 @@
 
 .container_message {
 	margin-inline: auto;
-
 	text-align: center;
-	/* max-width: 33ch; */
+
+	padding-inline: var(--offset-base);
 }
