@@ -12,4 +12,5 @@ export interface PropsSecondary {
 	isTransparent?: boolean;
 	scroll?: boolean;
 	onClick?: React.MouseEventHandler<HTMLElement>;
+	icon?: React.ReactNode;
 }

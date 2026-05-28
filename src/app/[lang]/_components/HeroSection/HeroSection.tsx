@@ -17,7 +17,6 @@ import { HOME_SECTIONS } from "@/constants/sectionNames";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
-import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
@@ -38,8 +37,6 @@ import { SECTION_HERO_ANIMATION } from "@/constants/animation";
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
-	useRefreshOnResize();
-
 	// texts animation
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
@@ -77,8 +74,9 @@ export default function HeroSection({ uiString }: Props) {
 					<div className={css.container_primary}>
 						<div className={css.container_title}>
 							<motion.h1
-								initial={SECTION_HERO_ANIMATION.title_1.initial}
-								animate={SECTION_HERO_ANIMATION.title_1.animate}
+								variants={SECTION_HERO_ANIMATION.title_1}
+								initial="initial"
+								animate="animate"
 								transition={SECTION_HERO_ANIMATION.title_1.transition}
 								onAnimationComplete={playTitle_1}
 								ref={refTitle_1}
@@ -87,8 +85,9 @@ export default function HeroSection({ uiString }: Props) {
 								{ui?.heroTitle[0]?.children[0]?.text}
 							</motion.h1>
 							<motion.h2
-								initial={SECTION_HERO_ANIMATION.title_2.initial}
-								animate={SECTION_HERO_ANIMATION.title_2.animate}
+								variants={SECTION_HERO_ANIMATION.title_2}
+								initial="initial"
+								animate="animate"
 								transition={SECTION_HERO_ANIMATION.title_2.transition}
 								onAnimationComplete={playTitle_2}
 								ref={refTitle_2}

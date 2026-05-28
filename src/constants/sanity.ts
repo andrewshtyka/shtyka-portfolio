@@ -29,7 +29,7 @@ export const SANITY_HOME_TAGS = [sanityPageTypes.home];
  * change "asc" to "desc" to show newest on top
  */
 export const SANITY_HOME_PROJECTS_QUERY = `
-*[_type == "${sanityPageTypes.project}" && language == $lang]| order(releaseDate asc)
+*[_type == "${sanityPageTypes.project}" && language == $lang] | order(releaseDate asc)
 {
 	"title": title,
 	"about": about,
@@ -46,3 +46,10 @@ export const SANITY_HOME_PROJECTS_TAGS = [sanityPageTypes.project];
  */
 export const SANITY_HOME_EXPERIMENTS_QUERY = `*[_type == "${sanityPageTypes.experiment}" && language == $lang][0]{"data": experiments}`;
 export const SANITY_HOME_EXPERIMENTS_TAGS = [sanityPageTypes.experiment];
+
+/**
+ * Fetch project (on a dedicated project page)
+ */
+export const SANITY_PROJECT_QUERY = `
+*[_type == "${sanityPageTypes.project}" && slug.current == $slug && language == $lang][0]`;
+export const SANITY_PROJECT_TAGS = [sanityPageTypes.project];

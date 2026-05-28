@@ -41,7 +41,7 @@ export function MenuLinkPrimary({
 		? `${css.transparent}`
 		: `${css.solid}`;
 
-	const classes = `${css.base} ${transparencyClass}  f_display_buttons f_semibold `;
+	const classes = `${css.base} ${transparencyClass} f_display_buttons f_semibold `;
 
 	const ref = React.useRef<HTMLButtonElement>(null);
 	const { play } = useLinkHover(ref);
@@ -86,6 +86,7 @@ export function MenuLinkSecondary({
 	isTransparent = false,
 	scroll = true,
 	onClick = undefined,
+	icon,
 }: PropsSecondary) {
 	const transparencyClass = isTransparent
 		? `${css.transparent}`
@@ -107,6 +108,7 @@ export function MenuLinkSecondary({
 			onMouseEnter={play}
 			onFocus={play}
 		>
+			{icon && <span className={css.icon}>{icon}</span>}
 			<span ref={ref} className={css.children}>
 				{children}
 			</span>

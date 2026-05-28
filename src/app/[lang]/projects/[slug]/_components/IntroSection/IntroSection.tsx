@@ -6,34 +6,38 @@
 import { motion, useInView } from "motion/react";
 
 // components
-import VideoProject from "@/components/VideoProject/VideoProject";
 import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import Divider from "@/components/Divider/Divider";
 import ListItem from "@/components/ListItem/ListItem";
+import VideoProject from "@/components/VideoProject/VideoProject";
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
+import DotsBg from "@/components/DotsBg/DotsBg";
 
 // constants
-import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
+import {
+	PROJECT_INTRO_ANIMATION,
+	SECTION_PROJECTS_ANIMATION,
+} from "@/constants/animation";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // styles
-import css from "./Card.module.css";
+import css from "./IntroSection.module.css";
 
 // types
-import { Props } from "./Card.types";
+import { Props } from "./IntroSection.types";
 
-// utils
-import processDetailsData from "./lib/helpers/processDetailsData";
-import { useParams } from "next/navigation";
+// utility
 import React from "react";
+import processDetailsData from "@/app/[lang]/_components/ProjectsSection/Card/lib/helpers/processDetailsData";
 
 // #endregion ===========================
 
-export default function Card({ uiString, buttonTitle = "" }: Props) {
-	// animation - titles
+export default function IntroSection({ uiString }: Props) {
+	// #region ============================== Animation titles
+	const refHeading = React.useRef<HTMLHeadingElement>(null);
 	const refTitle = React.useRef<HTMLHeadingElement>(null);
 	const refTitleCol_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitleCol_2 = React.useRef<HTMLHeadingElement>(null);
@@ -55,6 +59,8 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 		once: true,
 		margin: "-24px 0px -24px 0px",
 	});
+
+	const { play: playHeading } = useLinkHover(refHeading);
 	const { play: playTitle } = useLinkHover(refTitle);
 	const { play: playTitleCol_1 } = useLinkHover(refTitleCol_1);
 	const { play: playTitleCol_2 } = useLinkHover(refTitleCol_2);
@@ -76,9 +82,9 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 		if (isTitleCol_3_InView) playTitleCol_3?.();
 	}, [isTitleCol_3_InView, playTitleCol_3]);
 
-	const params = useParams<{ lang: string }>();
-	const lang = params?.lang ?? "en";
+	// #endregion ===========================
 
+	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
 
 	const details_1 = processDetailsData(ui?.details[0]?.content);
@@ -86,65 +92,67 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 	const details_3 = processDetailsData(ui?.details[2]?.content);
 
 	return (
-		<li className={css.container}>
-			{/* video */}
-			<div className={css.container_video}>
-				<VideoProject
-					video={ui?.heroVideo?.video}
-					poster={ui?.heroVideo?.poster}
-				/>
-			</div>
+		<section className={css.container}>
+			{/* dots */}
+			<DotsBg />
 
-			{/* info */}
-			<div className={css.container_details}>
-				{/* title */}
-				<div className={css.top}>
-					<motion.h3
-						ref={refTitle}
-						className={`${css.title} f_serif_primary`}
-						variants={SECTION_PROJECTS_ANIMATION.title}
-						initial="initial"
-						whileInView="animate"
-						viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
-					>
-						{ui?.title}
-					</motion.h3>
+			{/* text */}
+			<div className={css.content}>
+				<motion.h1
+					variants={PROJECT_INTRO_ANIMATION.heading}
+					initial="initial"
+					animate="animate"
+					onAnimationComplete={playHeading}
+					ref={refHeading}
+					className={`f_serif_primary ${css.h1}`}
+				>
+					{ui?.title}
+				</motion.h1>
 
-					<span className={css.grid}>
-						{/* icons */}
+				{/* top */}
+				<div className={css.container_description}>
+					{/* description & icons */}
+					<div className={css.grid}>
 						<span className={css.container_icon}>
 							<IconArrowShortCut size={5} direction="up" color="gray" />
 							<IconArrowShortCut size={5} direction="up" color="gray" />
 						</span>
-
-						{/* description */}
-						<motion.h4
-							className={`${css.subtitle} f_display_buttons`}
-							variants={SECTION_PROJECTS_ANIMATION.project.description}
+						<motion.p
+							className={`${css.description} f_display_buttons`}
+							variants={PROJECT_INTRO_ANIMATION.description}
 							initial="initial"
-							whileInView="animate"
-							transition={
-								SECTION_PROJECTS_ANIMATION.project.description.transition
-							}
-							viewport={SECTION_PROJECTS_ANIMATION.project.description.viewport}
+							animate="animate"
 						>
-							{ui?.about?.description}
-						</motion.h4>
-					</span>
+							{ui?.description}
+						</motion.p>
+					</div>
+
+					{/* button */}
+					<motion.div
+						className={css.container_button}
+						variants={PROJECT_INTRO_ANIMATION.description}
+						initial="initial"
+						animate="animate"
+					>
+						<ButtonPrimary
+							href={ui?.link?.href}
+							icon={<IconArrowCurve color="black" direction="right" />}
+						>
+							{ui?.link?.label}
+						</ButtonPrimary>
+					</motion.div>
 				</div>
 
 				{/* divider */}
 				<motion.div
-					variants={SECTION_PROJECTS_ANIMATION.project.divider}
+					variants={PROJECT_INTRO_ANIMATION.divider}
 					initial="initial"
-					whileInView="animate"
-					transition={SECTION_PROJECTS_ANIMATION.project.divider.transition}
-					viewport={SECTION_PROJECTS_ANIMATION.project.divider.viewport}
+					animate="animate"
 				>
 					<Divider isHorizontal={true} willHide={false} />
 				</motion.div>
 
-				{/* details */}
+				{/* bottom */}
 				<div className={css.bottom}>
 					{/* col 1 */}
 					<motion.div className={`${css.part_1} ${css.grid}`}>
@@ -246,23 +254,18 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 						</motion.ul>
 					</motion.div>
 				</div>
-
-				{/* button */}
-				<motion.div
-					variants={SECTION_PROJECTS_ANIMATION.project.button}
-					initial="hidden"
-					whileInView="visible"
-					viewport={SECTION_PROJECTS_ANIMATION.project.button.viewport}
-				>
-					<ButtonPrimary
-						href={`/${lang}/projects/${ui?.slug?.current}`}
-						icon={<IconArrowCurve color="black" direction="right" />}
-						isExternal={false}
-					>
-						{buttonTitle}
-					</ButtonPrimary>
-				</motion.div>
 			</div>
-		</li>
+
+			{/* video */}
+			<motion.div
+				className={css.container_video}
+				variants={PROJECT_INTRO_ANIMATION.video}
+				initial="hide"
+				whileInView="show"
+				transition={PROJECT_INTRO_ANIMATION.video.transition}
+			>
+				<VideoProject video={ui?.video?.video} poster={ui?.video?.poster} />
+			</motion.div>
+		</section>
 	);
 }

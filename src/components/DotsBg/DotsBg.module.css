@@ -17,14 +17,14 @@
 	);
 	background-size: var(--space-4) var(--space-4);
 
-	animation: blink 2s infinite alternate ease-in-out;
+	/* animation: blink 2s infinite alternate ease-in-out; */
 }
 
-@keyframes blink {
+/* @keyframes blink {
 	from {
 		opacity: 1;
 	}
 	to {
 		opacity: 0.3;
 	}
-}
+} */

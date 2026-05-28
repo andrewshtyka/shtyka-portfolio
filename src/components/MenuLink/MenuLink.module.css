@@ -20,6 +20,12 @@
 	}
 }
 
+@media (hover: hover) {
+	.base:hover {
+		color: var(--color-base);
+	}
+}
+
 .children {
 	display: inline-block;
 	margin-block-end: var(--space-px);
@@ -50,4 +56,8 @@
 	background-color: var(--color-button-background-secondary-hover);
 	color: var(--color-base);
 	pointer-events: none;
+}
+
+.icon {
+	margin-inline-end: var(--space-4);
 }

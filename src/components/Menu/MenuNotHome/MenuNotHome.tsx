@@ -25,10 +25,10 @@ export default function MenuNotHome({ lang, buttonHome }: Props) {
 			<Divider />
 
 			<nav className={css.nav}>
-				<MenuLinkSecondary href={`/${lang}`}>
-					<span className={css.icon}>
-						<IconArrowCurve direction="left" />
-					</span>
+				<MenuLinkSecondary
+					href={`/${lang}`}
+					icon={<IconArrowCurve direction="left" />}
+				>
 					{buttonHome}
 				</MenuLinkSecondary>
 			</nav>

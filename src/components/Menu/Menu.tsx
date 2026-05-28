@@ -15,6 +15,7 @@ import { MENU_ANIMATION } from "@/constants/animation";
 // hooks
 import { usePathname } from "next/navigation";
 import { useBlur } from "@/hooks/useBlur";
+import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // styles
 import css from "./Menu.module.css";
@@ -32,6 +33,7 @@ export default function Menu({ lang, menu, buttonHome, menuMobile }: Props) {
 	const isHomePage = pathname === `/${lang}`;
 
 	useBlur();
+	useRefreshOnResize();
 
 	return (
 		<motion.header
