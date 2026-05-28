@@ -5,12 +5,16 @@
 // animation
 import { motion, useInView } from "motion/react";
 
+// components
+import Message from "./Message/Message";
+
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
-import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
+import { SECTION_CONTACT_ANIMATION } from "@/constants/animation";
 
 // hooks
 import useVideoObserver from "@/hooks/useVideoObserver";
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // styles
 import getUrlForVideo from "@/lib/util/getUrlForVideo";
@@ -22,12 +26,36 @@ import { ItemMaster } from "./Message/Message.types";
 
 // utils
 import getLabelsWithLinks from "./lib/helpers/getLabelsWithLinks";
-import Message from "./Message/Message";
 import React from "react";
 
 // #endregion ===========================
 
 export default function ContactSection({ uiString }: Props) {
+	// animation - titles
+	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
+	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
+
+	const isTitle_1_InView = useInView(refTitle_1, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isTitle_2_InView = useInView(refTitle_2, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+
+	const { play: playTitle_1 } = useLinkHover(refTitle_1);
+	const { play: playTitle_2 } = useLinkHover(refTitle_2, true, 2);
+
+	React.useEffect(() => {
+		if (isTitle_1_InView) playTitle_1?.();
+	}, [isTitle_1_InView, playTitle_1]);
+
+	React.useEffect(() => {
+		if (isTitle_2_InView) playTitle_2?.();
+	}, [isTitle_2_InView, playTitle_2]);
+
+	// animation - video
 	const videoRef = React.useRef<HTMLVideoElement>(null);
 	const isInView = useInView(videoRef, { amount: 0.25 });
 	useVideoObserver(videoRef);
@@ -56,13 +84,27 @@ export default function ContactSection({ uiString }: Props) {
 	return (
 		<section id={HOME_SECTIONS.contact} className={css.container}>
 			{/* title */}
-			<h2>
-				<span className={`${css.title_1} f_serif_primary`}>
+			<h2 className={css.h2}>
+				<motion.span
+					ref={refTitle_1}
+					className={`${css.title_1} f_serif_primary`}
+					variants={SECTION_CONTACT_ANIMATION.title}
+					initial="initial"
+					whileInView="animate"
+					viewport={SECTION_CONTACT_ANIMATION.title.viewport}
+				>
 					{dataTitle?.title_1}
-				</span>
-				<span className={`${css.title_2} f_serif_primary f_italic`}>
+				</motion.span>
+				<motion.span
+					ref={refTitle_2}
+					className={`${css.title_2} f_serif_primary f_italic`}
+					variants={SECTION_CONTACT_ANIMATION.title}
+					initial="initial"
+					whileInView="animate"
+					viewport={SECTION_CONTACT_ANIMATION.title.viewport}
+				>
 					{dataTitle?.title_2}
-				</span>
+				</motion.span>
 			</h2>
 
 			{/* video */}
@@ -81,20 +123,26 @@ export default function ContactSection({ uiString }: Props) {
 						className={css.video}
 						//
 						// motion
-						variants={SECTION_PROJECTS_ANIMATION.project.video}
+						variants={SECTION_CONTACT_ANIMATION.video}
 						initial="initial"
 						animate={isInView ? "show" : "hide"}
-						transition={SECTION_PROJECTS_ANIMATION.project.video.transition}
+						transition={SECTION_CONTACT_ANIMATION.video.transition}
 					></motion.video>
 				</div>
 			)}
 
 			{/* message */}
-			<div className={`${css.container_message} f_display_subtitle`}>
+			<motion.div
+				className={`${css.container_message} f_display_subtitle`}
+				variants={SECTION_CONTACT_ANIMATION.message}
+				initial="hidden"
+				whileInView="visible"
+				viewport={SECTION_CONTACT_ANIMATION.message.viewport}
+			>
 				{/* top */}
 				<Message arr={dataMessage_1} />
 				<Message arr={dataMessage_2} />
-			</div>
+			</motion.div>
 		</section>
 	);
 }

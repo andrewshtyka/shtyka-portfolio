@@ -89,7 +89,13 @@ export default function ClientsSection({ uiString }: Props) {
 				viewport={SECTION_CLIENTS_ANIMATION.list.viewport}
 			>
 				{dataClients?.map(({ key, text }: { key: string; text: string }) => (
-					<ListItem key={key}>{text}</ListItem>
+					<ListItem
+						key={key}
+						variants={SECTION_CLIENTS_ANIMATION.listItem}
+						viewport={SECTION_CLIENTS_ANIMATION.listItem.viewport}
+					>
+						{text}
+					</ListItem>
 				))}
 			</motion.ul>
 		</section>

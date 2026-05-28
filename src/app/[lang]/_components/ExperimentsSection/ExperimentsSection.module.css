@@ -36,3 +36,29 @@
 	flex-wrap: wrap;
 	gap: var(--offset-base);
 }
+
+.title_letter {
+	display: inline-flex;
+	animation: blink 2s infinite steps(1);
+}
+
+@keyframes blink {
+	0%,
+	24% {
+		opacity: 1;
+		transform: rotateX(0deg);
+	}
+	25%,
+	49% {
+		opacity: 0;
+	}
+	50%,
+	74% {
+		opacity: 1;
+		transform: rotateX(180deg) translateY(calc(0.15em * -1));
+	}
+	75%,
+	100% {
+		opacity: 0;
+	}
+}

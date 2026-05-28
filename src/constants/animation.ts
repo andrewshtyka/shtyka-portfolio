@@ -3,6 +3,7 @@
  */
 
 import { opacity } from "@/components/LayoutTransition/anim";
+import { delay } from "motion/react";
 
 export const TOOLTIP_DELAY = 100;
 
@@ -198,26 +199,6 @@ export const SECTION_ABOUT_ANIMATION = {
 	},
 };
 
-export const SECTION_PROJECTS_ANIMATION = {
-	project: {
-		video: {
-			initial: {
-				opacity: 0,
-			},
-			show: {
-				opacity: 1,
-			},
-			hide: {
-				opacity: 0,
-			},
-			transition: {
-				duration: 1,
-				ease: [0.25, 0, 0, 1] as const,
-			},
-		},
-	},
-};
-
 export const SECTION_EXPERIENCE_ANIMATION = {
 	title: {
 		initial: {
@@ -314,26 +295,6 @@ export const SECTION_ACHIEVEMENTS_ANIMATION = {
 	},
 };
 
-export const SECTION_EXPERIMENTS_ANIMATION = {
-	experiment: {
-		video: {
-			initial: {
-				opacity: 0,
-			},
-			show: {
-				opacity: 1,
-			},
-			hide: {
-				opacity: 0,
-			},
-			transition: {
-				duration: 1,
-				ease: [0.25, 0, 0, 1] as const,
-			},
-		},
-	},
-};
-
 export const SECTION_CLIENTS_ANIMATION = {
 	title: {
 		initial: {
@@ -378,6 +339,8 @@ export const SECTION_CLIENTS_ANIMATION = {
 		},
 		viewport: {
 			once: true,
+			amount: 0,
+			margin: "0px",
 		},
 	},
 };
@@ -413,6 +376,344 @@ export const SECTION_RESUME_ANIMATION = {
 		viewport: {
 			once: true,
 			margin: "-24px 0px -24px 0px",
+		},
+	},
+};
+
+export const SECTION_PROJECTS_ANIMATION = {
+	title: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 0.5,
+		},
+		viewport: {
+			once: true,
+			margin: "-24px 0px -24px 0px",
+		},
+	},
+	project: {
+		video: {
+			initial: {
+				opacity: 0,
+			},
+			show: {
+				opacity: 1,
+			},
+			hide: {
+				opacity: 0,
+			},
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		description: {
+			initial: {
+				opacity: 0,
+			},
+			animate: {
+				opacity: 1,
+			},
+			transition: {
+				duration: 1.5,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+			viewport: {
+				once: true,
+			},
+		},
+		divider: {
+			initial: {
+				width: "0%",
+			},
+			animate: { width: "100%" },
+			transition: {
+				duration: 0.5,
+				delay: 0.5,
+			},
+			viewport: {
+				once: true,
+			},
+		},
+		list: {
+			hidden: { opacity: 0 },
+			visible: {
+				opacity: 1,
+				transition: {
+					delayChildren: 0.25,
+					staggerChildren: 0.05,
+				},
+			},
+			viewport: {
+				once: true,
+			},
+		},
+		listItem: {
+			hidden: {
+				opacity: 0,
+				y: 16,
+			},
+			visible: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 1,
+					ease: [0.25, 0, 0, 1] as const,
+				},
+			},
+			viewport: {
+				once: true,
+				amount: 0.5,
+			},
+		},
+		button: {
+			hidden: {
+				opacity: 0,
+				y: 16,
+			},
+			visible: {
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 1.5,
+					ease: [0.25, 0, 0, 1] as const,
+				},
+			},
+			viewport: {
+				once: true,
+				amount: 0.5,
+			},
+		},
+	},
+};
+
+export const SECTION_EXPERIMENTS_ANIMATION = {
+	title: {
+		initial: {
+			opacity: 0,
+			y: 16,
+		},
+		animate: {
+			opacity: 1,
+			y: 0,
+		},
+		transition: {
+			duration: 1,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+		viewport: {
+			once: true,
+			margin: "-24px 0px -24px 0px",
+		},
+	},
+	experiment: {
+		video: {
+			initial: {
+				opacity: 0,
+			},
+			show: {
+				opacity: 1,
+			},
+			hide: {
+				opacity: 0,
+			},
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		title: {
+			initial: {
+				opacity: 0,
+			},
+			animate: {
+				opacity: 1,
+			},
+			transition: {
+				duration: 0.5,
+			},
+			viewport: {
+				once: true,
+				margin: "-24px 0px -24px 0px",
+			},
+		},
+	},
+	list: {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				delayChildren: 0.25,
+				staggerChildren: 0.05,
+			},
+		},
+		viewport: {
+			once: true,
+		},
+	},
+	listItem: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		viewport: {
+			once: true,
+		},
+	},
+};
+
+export const SECTION_CONTACT_ANIMATION = {
+	title: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 0.5,
+		},
+		viewport: {
+			once: true,
+			margin: "-24px 0px -24px 0px",
+		},
+	},
+	video: {
+		initial: {
+			opacity: 0,
+		},
+		show: {
+			opacity: 1,
+		},
+		hide: {
+			opacity: 0,
+		},
+		transition: {
+			duration: 1,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+	message: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		viewport: {
+			once: true,
+		},
+	},
+	divider: {
+		initial: {
+			width: "0%",
+		},
+		animate: { width: "100%" },
+		transition: {
+			duration: 0.5,
+			delay: 0.5,
+		},
+		viewport: {
+			once: true,
+		},
+	},
+	list: {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				delayChildren: 0.25,
+				staggerChildren: 0.05,
+			},
+		},
+		viewport: {
+			once: true,
+		},
+	},
+	listItem: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		viewport: {
+			once: true,
+			amount: 0.5,
+		},
+	},
+};
+
+export const SECTION_FOOTER_ANIMATION = {
+	title: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+		},
+		transition: {
+			duration: 0.5,
+		},
+		viewport: {
+			once: true,
+			margin: "-24px 0px -24px 0px",
+		},
+	},
+	divider: {
+		initial: {
+			width: "0%",
+		},
+		animate: { width: "100%" },
+		transition: {
+			duration: 0.5,
+			delay: 0.5,
+		},
+		viewport: {
+			once: true,
+		},
+	},
+	listItem: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		viewport: {
+			once: true,
+			amount: 0.5,
 		},
 	},
 };

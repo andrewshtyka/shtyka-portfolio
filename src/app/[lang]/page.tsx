@@ -80,7 +80,7 @@ export default async function HomePage({ params }: Props) {
 			<HeroSection uiString={uiStringHero} />
 
 			<div className={css.container}>
-				<span id={HOME_SECTIONS.bio}>
+				<div id={HOME_SECTIONS.bio}>
 					<AboutSection uiString={uiStringAbout} />
 					<ExperienceSection uiString={uiStringExperience} />
 					<AchievementsSection uiString={uiStringAchievements} />
@@ -88,7 +88,7 @@ export default async function HomePage({ params }: Props) {
 						<ClientsSection uiString={uiStringClients} />
 						<ResumeSection uiString={uiStringResume} />
 					</div>
-				</span>
+				</div>
 
 				<ProjectsSection
 					uiString={uiStringProjects}

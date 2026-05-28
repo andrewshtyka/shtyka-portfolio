@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 // components
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
@@ -11,6 +11,10 @@ import Card from "./Card/Card";
 
 // constants
 import { HOME_SECTIONS } from "@/constants/sectionNames";
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
+
+// hooks
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // styles
 import css from "./ProjectsSection.module.css";
@@ -24,6 +28,7 @@ import React from "react";
 // #endregion ===========================
 
 export default function ProjectsSection({ uiString, projectsString }: Props) {
+	// animation - icons
 	const refContainer = React.useRef<HTMLElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: refContainer,
@@ -35,6 +40,28 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 		const num = parseFloat(val);
 		return `${-num}px`;
 	});
+
+	// animation - title
+	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
+	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
+	const isTitle_1_InView = useInView(refTitle_1, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isTitle_2_InView = useInView(refTitle_2, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const { play: playTitle_1 } = useLinkHover(refTitle_1);
+	const { play: playTitle_2 } = useLinkHover(refTitle_2, true, 2);
+
+	React.useEffect(() => {
+		if (isTitle_1_InView) playTitle_1?.();
+	}, [isTitle_1_InView, playTitle_1]);
+
+	React.useEffect(() => {
+		if (isTitle_2_InView) playTitle_2?.();
+	}, [isTitle_2_InView, playTitle_2]);
 
 	if (!projectsString || typeof projectsString !== "string") return;
 	if (!uiString || typeof uiString !== "string") return;
@@ -82,11 +109,27 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 				</span>
 
 				{/* text */}
-				<h2>
-					<span className={`${css.title_1} f_serif_primary`}>
+				<h2 className={css.h2}>
+					<motion.span
+						ref={refTitle_1}
+						className={`${css.title_1} f_serif_primary`}
+						variants={SECTION_PROJECTS_ANIMATION.title}
+						initial="initial"
+						whileInView="animate"
+						viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
+					>
 						{dataTitle?.title_1}
-					</span>
-					<span className="f_serif_primary f_italic">{dataTitle?.title_2}</span>
+					</motion.span>
+					<motion.span
+						ref={refTitle_2}
+						className="f_serif_primary f_italic"
+						variants={SECTION_PROJECTS_ANIMATION.title}
+						initial="initial"
+						whileInView="animate"
+						viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
+					>
+						{dataTitle?.title_2}
+					</motion.span>
 				</h2>
 			</div>
 
@@ -103,6 +146,3 @@ export default function ProjectsSection({ uiString, projectsString }: Props) {
 		</section>
 	);
 }
-
-
-// ЗРОБИ ЗАГОЛОВКИ ПОЯВУ

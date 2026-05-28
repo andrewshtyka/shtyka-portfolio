@@ -12,6 +12,13 @@
 	margin-block-end: var(--space-13);
 }
 
+.h2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
 .icons {
 	display: flex;
 	column-gap: var(--space-1);

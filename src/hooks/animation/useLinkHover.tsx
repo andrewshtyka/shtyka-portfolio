@@ -41,7 +41,7 @@ export function useLinkHover(
 			width: el.offsetWidth,
 			textAlign: "left",
 			whiteSpace: "nowrap",
-			overflow: "clip",
+			overflowX: "clip",
 		});
 	});
 

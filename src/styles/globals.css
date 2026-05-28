@@ -2,7 +2,7 @@
 /* */
 /* BASE */
 body {
-	height: 200svh;
+	min-height: 100svh;
 	background-color: var(--color-gray);
 	color: var(--color-base);
 }
