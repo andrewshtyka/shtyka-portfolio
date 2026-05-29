@@ -60,4 +60,5 @@
 
 .icon {
 	margin-inline-end: var(--space-4);
+	margin-block-end: var(--space-1);
 }

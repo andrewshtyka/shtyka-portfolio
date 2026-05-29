@@ -25,7 +25,7 @@ import React from "react";
 
 export default function Video({ video, poster }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
-	const isInView = useInView(videoRef, { amount: 0.25 });
+	const isInView = useInView(videoRef, { amount: 0.1 });
 	useVideoObserver(videoRef);
 
 	const data = getUrlForVideo(video, poster) ?? "";

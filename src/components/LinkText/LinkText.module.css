@@ -1,20 +1,26 @@
 .link {
 	color: var(--color-link);
+	white-space: nowrap;
 	cursor: pointer;
 
+	/* underline - hidden */
 	background-image: linear-gradient(var(--color-link), var(--color-link));
 	background-repeat: no-repeat;
 	background-position: 0 100%;
 	background-size: 0 var(--space-px);
-
 	transition-property: background-size;
-	white-space: nowrap;
 }
 
 @media (hover: hover) {
 	.link:hover {
+		/* underline - visible */
 		background-size: 100% var(--space-px);
 	}
+}
+
+.link:active {
+	color: var(--color-base);
+	opacity: 0.8;
 }
 
 .container_icon {

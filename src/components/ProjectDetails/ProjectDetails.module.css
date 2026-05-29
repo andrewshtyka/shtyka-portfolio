@@ -1,7 +1,7 @@
 .grid {
 	flex: 2;
 
-	grid-template-columns: var(--space-17) 1fr;
+	grid-template-columns: var(--col-1-width) 1fr;
 	column-gap: var(--offset-base);
 
 	display: grid;
@@ -46,7 +46,7 @@
 	flex-direction: column;
 
 	padding-block: var(--space-10);
-	padding-block-end: var(--space-13);
+	padding-block-end: var(--offset-sections-mini);
 }
 
 @media (width >= 600px) {

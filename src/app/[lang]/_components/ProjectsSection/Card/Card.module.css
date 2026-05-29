@@ -35,7 +35,7 @@
 }
 
 .title {
-	margin-block-end: var(--space-13);
+	margin-block-end: var(--offset-sections-mini);
 }
 
 @media (width >= 600px) {
@@ -48,7 +48,7 @@
 	width: 100%;
 	display: grid;
 
-	grid-template-columns: var(--space-17) 1fr;
+	grid-template-columns: var(--col-1-width) 1fr;
 	column-gap: var(--offset-base);
 }
 

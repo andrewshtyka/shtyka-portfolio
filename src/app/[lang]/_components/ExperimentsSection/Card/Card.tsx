@@ -8,7 +8,7 @@ import { motion, useInView } from "motion/react";
 // components
 import ButtonSecondary from "@/components/ButtonSecondary/ButtonSecondary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
-import MediaComponent from "../MediaComponent/MediaComponent";
+import MediaComponent from "../../../../../components/MediaComponent/MediaComponent";
 
 // constants
 import { SECTION_EXPERIMENTS_ANIMATION } from "@/constants/animation";
@@ -20,7 +20,7 @@ import css from "./Card.module.css";
 import { Props } from "./Card.types";
 
 // utility
-import { getStyles } from "./lib/helpers/getStyles";
+import { getStyles } from "../../../../../lib/util/getStyles";
 
 // utility
 import React from "react";

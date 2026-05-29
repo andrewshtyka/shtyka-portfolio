@@ -16,6 +16,10 @@
 	overflow: hidden;
 }
 
+.button:active {
+	opacity: 0.6;
+}
+
 .text {
 	display: inline-block;
 	text-wrap: nowrap;

@@ -35,7 +35,7 @@ export default function MediaComponent({
 	bottomHeight = 30,
 }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
-	const isInView = useInView(videoRef, { amount: 0.25 });
+	const isInView = useInView(videoRef, { amount: 0.1 });
 	useVideoObserver(videoRef);
 
 	if (!uiString || typeof uiString !== "string") return null;
@@ -76,7 +76,7 @@ export default function MediaComponent({
 				<div className={css.overlay_bottom} style={styleBottom}></div>
 			</>
 		);
-	} else if (ui?._type === "imageExperiment") {
+	} else if (ui?._type === "imageExperiment" || ui?._type === "imageDetails") {
 		const src = getUrlForImage(ui?.image)?.url() ?? "";
 
 		return (

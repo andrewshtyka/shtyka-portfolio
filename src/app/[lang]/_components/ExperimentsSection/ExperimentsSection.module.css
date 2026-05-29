@@ -28,7 +28,7 @@
 	column-gap: var(--space-1);
 	width: fit-content;
 	margin-inline: auto;
-	margin-block-end: var(--space-13);
+	margin-block-end: var(--offset-sections-mini);
 }
 
 .grid {

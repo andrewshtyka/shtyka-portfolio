@@ -57,7 +57,7 @@ export default function ContactSection({ uiString }: Props) {
 
 	// animation - video
 	const videoRef = React.useRef<HTMLVideoElement>(null);
-	const isInView = useInView(videoRef, { amount: 0.25 });
+	const isInView = useInView(videoRef, { amount: 0.1 });
 	useVideoObserver(videoRef);
 
 	if (!uiString || typeof uiString !== "string") return;

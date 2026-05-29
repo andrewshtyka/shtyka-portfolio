@@ -9,7 +9,7 @@
 	align-items: center;
 	row-gap: var(--space-11);
 
-	margin-block-end: var(--space-13);
+	margin-block-end: var(--offset-sections-mini);
 }
 
 .h2 {
