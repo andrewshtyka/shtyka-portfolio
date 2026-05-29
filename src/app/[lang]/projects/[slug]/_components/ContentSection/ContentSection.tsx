@@ -3,11 +3,20 @@
 // #region ============================== Imports
 
 // animation
-import { useInView } from "motion/react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 // components
 import ItemContent from "./ItemContent/ItemContent";
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
+
+// constants
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
+
+// hooks
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
+
+// providers / context
+import { ProjectInViewContext } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
 
 // styles
 import css from "./ContentSection.module.css";
@@ -18,7 +27,6 @@ import { PropsContent } from "./ContentSection.types";
 
 // utility
 import React from "react";
-import { ProjectInViewContext } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
 
 // #endregion ===========================
 
@@ -34,6 +42,51 @@ export default function ContentSection({
 		setIsInView(isContainerInView);
 	}, [setIsInView, isContainerInView]);
 
+	// animation - icons move on scroll
+	const refContainer = React.useRef<HTMLDivElement | null>(null);
+	const { scrollYProgress } = useScroll({
+		target: refContainer,
+		offset: ["start end", "end 60%"],
+	});
+	const xValue = useTransform(scrollYProgress, [0, 1], ["64px", "0px"]);
+	const negativeX = useTransform(xValue, (val: string) => {
+		const num = parseFloat(val);
+		return `${-num}px`;
+	});
+
+	// #region ============================== animation - title
+	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
+	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
+	const refTitle_3 = React.useRef<HTMLHeadingElement>(null);
+	const isTitle_1_InView = useInView(refTitle_1, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isTitle_2_InView = useInView(refTitle_2, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const isTitle_3_InView = useInView(refTitle_3, {
+		once: true,
+		margin: "-24px 0px -24px 0px",
+	});
+	const { play: playTitle_1 } = useLinkHover(refTitle_1);
+	const { play: playTitle_2 } = useLinkHover(refTitle_2, false, 1);
+	const { play: playTitle_3 } = useLinkHover(refTitle_3, true, 2);
+
+	React.useEffect(() => {
+		if (isTitle_1_InView) playTitle_1?.();
+	}, [isTitle_1_InView, playTitle_1]);
+
+	React.useEffect(() => {
+		if (isTitle_2_InView) playTitle_2?.();
+	}, [isTitle_2_InView, playTitle_2]);
+
+	React.useEffect(() => {
+		if (isTitle_3_InView) playTitle_3?.();
+	}, [isTitle_3_InView, playTitle_3]);
+	// #endregion ===========================
+
 	if (!uiContentString || typeof uiContentString !== "string") return;
 	if (!uiEndString || typeof uiEndString !== "string") return;
 	const ui = JSON.parse(uiContentString);
@@ -47,14 +100,37 @@ export default function ContentSection({
 		<section ref={containerRef} className={css.container}>
 			{/* title */}
 			<h2 className={css.h2}>
-				<span className={`${css.title_1} f_serif_primary`}>{titleArr[0]}</span>
+				<motion.span
+					ref={refTitle_1}
+					className={`${css.title_1} f_serif_primary`}
+					variants={SECTION_PROJECTS_ANIMATION.title}
+					initial="initial"
+					whileInView="animate"
+					viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
+				>
+					{titleArr[0]}
+				</motion.span>
 				<div className={css.container_title}>
-					<span className={`${css.title_2} f_serif_secondary`}>
+					<motion.span
+						ref={refTitle_2}
+						className={`${css.title_2} f_serif_secondary`}
+						variants={SECTION_PROJECTS_ANIMATION.title}
+						initial="initial"
+						whileInView="animate"
+						viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
+					>
 						{titleArr[1]}
-					</span>
-					<span className={`${css.title_3} f_serif_primary f_italic`}>
+					</motion.span>
+					<motion.span
+						ref={refTitle_3}
+						className={`${css.title_3} f_serif_primary f_italic`}
+						variants={SECTION_PROJECTS_ANIMATION.title}
+						initial="initial"
+						whileInView="animate"
+						viewport={SECTION_PROJECTS_ANIMATION.title.viewport}
+					>
 						{titleArr[2]}
-					</span>
+					</motion.span>
 				</div>
 			</h2>
 
@@ -72,11 +148,32 @@ export default function ContentSection({
 			</ul>
 
 			{/* end */}
-			<div className={css.end_container}>
-				<IconAsterisk size={8} />
+			<motion.div
+				ref={refContainer}
+				className={css.end_container}
+				variants={SECTION_PROJECTS_ANIMATION.end}
+				initial="hidden"
+				whileInView="visible"
+				viewport={SECTION_PROJECTS_ANIMATION.end.viewport}
+			>
+				<motion.span
+					className={css.icon}
+					style={{
+						x: negativeX,
+					}}
+				>
+					<IconAsterisk size={8} />
+				</motion.span>
 				<span className={`${css.end_title} f_mono`}>{uiEnd?.title}</span>
-				<IconAsterisk size={8} />
-			</div>
+				<motion.span
+					className={css.icon}
+					style={{
+						x: xValue,
+					}}
+				>
+					<IconAsterisk size={8} />
+				</motion.span>
+			</motion.div>
 		</section>
 	);
 }

@@ -3,10 +3,12 @@
 // #region ============================== Imports
 
 // animation
+import { motion } from "motion/react";
 
 // components
 
 // constants
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 
@@ -23,8 +25,14 @@ import React from "react";
 
 export default function Solution({ text = "" }: Props) {
 	return (
-		<li className={css.container}>
+		<motion.li
+			className={css.container}
+			variants={SECTION_PROJECTS_ANIMATION.project.listItem}
+			initial="hidden"
+			whileInView="visible"
+			viewport={SECTION_PROJECTS_ANIMATION.project.listItem.viewport}
+		>
 			<p className="f_display_body">{text}</p>
-		</li>
+		</motion.li>
 	);
 }

@@ -3,11 +3,13 @@
 // #region ============================== Imports
 
 // animation
+import { motion } from "motion/react";
 
 // components
 import MediaComponent from "@/components/MediaComponent/MediaComponent";
 
 // constants
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 
@@ -32,10 +34,17 @@ export default function Media({ items }: Props) {
 				{items?.map((item) => {
 					const uiString = JSON.stringify(item);
 					return (
-						<li
+						<motion.li
 							style={getStylesProjects(item?.cardWidth)}
 							key={item._key}
 							className={css.list}
+							variants={SECTION_PROJECTS_ANIMATION.project.listItem}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{
+								...SECTION_PROJECTS_ANIMATION.project.listItem.viewport,
+								amount: 0.15,
+							}}
 						>
 							<div className={css.container_media}>
 								<MediaComponent
@@ -44,7 +53,7 @@ export default function Media({ items }: Props) {
 									hasBottom={false}
 								/>
 							</div>
-						</li>
+						</motion.li>
 					);
 				})}
 			</ul>

@@ -14,6 +14,12 @@
 	column-gap: var(--offset-base);
 }
 
+.container_icon {
+	display: flex;
+	column-gap: var(--space-1);
+	padding-block-start: var(--space-3);
+}
+
 .top {
 	color: var(--color-text-secondary);
 	padding-block-end: var(--offset-sections-small);

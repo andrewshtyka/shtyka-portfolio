@@ -500,6 +500,24 @@ export const SECTION_PROJECTS_ANIMATION = {
 			},
 		},
 	},
+	end: {
+		hidden: {
+			opacity: 0,
+			y: 16,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+		viewport: {
+			once: true,
+			amount: 0.5,
+		},
+	},
 };
 
 export const SECTION_EXPERIMENTS_ANIMATION = {

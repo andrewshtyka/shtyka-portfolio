@@ -4,10 +4,14 @@ import Challenge from "./Challenge/Challenge";
 // #region ============================== Imports
 
 // animation
+import { motion } from "motion/react";
 
 // components
+import Solution from "./Solution/Solution";
+import Media from "./Media/Media";
 
 // constants
+import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 
@@ -19,8 +23,6 @@ import { Props } from "./ItemContent.types";
 
 // utility
 import React from "react";
-import Solution from "./Solution/Solution";
-import Media from "./Media/Media";
 
 // #endregion ===========================
 

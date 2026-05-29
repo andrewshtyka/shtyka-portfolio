@@ -20,14 +20,22 @@ import React from "react";
  * Put component inside parent (parent must have "position: relative")
  */
 
-export default function DotsBg({ yPosition = 25, saturation = 40 }: Props) {
+export default function DotsBg({
+	yPosition = 25,
+	saturation = 40,
+	offset = 400,
+}: Props) {
 	// parallax scroll
 	const ref = React.useRef<HTMLDivElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		offset: ["start end", "end start"],
 	});
-	const yValue = useTransform(scrollYProgress, [0, 1], ["-400px", "400px"]);
+	const yValue = useTransform(
+		scrollYProgress,
+		[0, 1],
+		[`-${offset}px`, `${offset}px`]
+	);
 
 	// custom position of dots
 	const maskImage = `radial-gradient(75% 40% at 50% ${yPosition}%, var(--color-gray) 10%, transparent 90%)`;

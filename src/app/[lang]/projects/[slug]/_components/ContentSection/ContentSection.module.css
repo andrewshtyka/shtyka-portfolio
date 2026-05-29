@@ -27,16 +27,19 @@
 	row-gap: var(--offset-sections-small);
 }
 
+.icon {
+	position: relative;
+	bottom: var(--space-px);
+}
+
 .end_container {
 	width: fit-content;
 	margin-inline: auto;
 	padding-block: var(--offset-sections-small);
 
 	display: flex;
-	align-items: center;
 }
 
 .end_title {
 	padding-inline: var(--space-12);
-	padding-block-end: var(--space-1);
 }

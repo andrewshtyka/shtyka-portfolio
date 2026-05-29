@@ -69,7 +69,8 @@ export default function MediaComponent({
 					// motion
 					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.video}
 					initial="initial"
-					animate={isInView ? "show" : "hide"}
+					// animate={isInView ? "show" : "hide"}
+					animate="show"
 					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.video.transition}
 				></motion.video>
 				<div className={css.overlay_top} style={styleTop}></div>

@@ -43,23 +43,11 @@ npm install
 
 ### 3.1 Functional
 
-Project page:
-
-- Sanity: cardWidth must be set in object (after "alt")
-
-- Experiments:
-  - CMS: put width for cards afte alt
-  - UI: take data for experiments card width from updated object
-
 <br />
 
 ### 3.2 Animation
 
-- Animation of transition between pages (fade):
-  - Clean up file and set up transition
-  - Do for Language change.
-
-<br />
+  <br />
 
 ### 3.3 Backlog
 
@@ -73,6 +61,10 @@ Project page:
   description = hero subtitle
   next js docs - (Memoizing data requests) - https://nextjs.org/docs/app/getting-started/metadata-and-og-images
   base url - https://www.w3.org/TR/2011/WD-html5-author-20110809/the-base-element.html
+
+- Animation of transition between pages (fade):
+  - Clean up file and set up transition
+  - Do for Language change.
 
 - Nav bar:
   - Connect with sections (anchor links)
@@ -138,8 +130,13 @@ Project page:
 - DotsBG - add parallax
 
 Project page:
-
 - Button scroll to top
+- Sanity: cardWidth must be set in object (after "alt")
+- Add on scroll animations
+
+- Experiments:
+  - CMS: put width for cards afte alt
+  - UI: take data for experiments card width from updated object
 
 <br />
 
