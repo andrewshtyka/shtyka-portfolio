@@ -41,7 +41,7 @@ export default function IntroSection({ uiString }: Props) {
 	return (
 		<section className={css.container}>
 			{/* dots */}
-			<DotsBg saturation={60} yPosition={15} offset={600} />
+			<DotsBg saturation={60} />
 
 			{/* text */}
 			<div className={css.content}>
