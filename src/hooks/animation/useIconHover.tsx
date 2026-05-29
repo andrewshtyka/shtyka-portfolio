@@ -12,6 +12,13 @@ gsap.registerPlugin(useGSAP);
  */
 
 const DIRECTION_CONFIGS = {
+	top: {
+		orig: { to: { yPercent: -120 } },
+		clone: {
+			from: { bottom: "-120%", left: "0" },
+			to: { yPercent: -120 },
+		},
+	},
 	right: {
 		orig: { to: { xPercent: 150 } },
 		clone: {
@@ -19,11 +26,11 @@ const DIRECTION_CONFIGS = {
 			to: { xPercent: 150 },
 		},
 	},
-	top: {
-		orig: { to: { yPercent: -100 } },
+	left: {
+		orig: { to: { xPercent: -150 } },
 		clone: {
-			from: { bottom: "-100%", left: "0" },
-			to: { yPercent: -100 },
+			from: { top: "0", left: "150%" },
+			to: { xPercent: -150 },
 		},
 	},
 } as const;
@@ -31,7 +38,7 @@ const DIRECTION_CONFIGS = {
 export function useIconHover(
 	refIcon: React.RefObject<HTMLElement | null>,
 	refIconContainer: React.RefObject<HTMLElement | null>,
-	direction: "right" | "top" = "right"
+	direction: "top" | "right" | "left" = "right"
 ) {
 	const timelineRef = React.useRef<gsap.core.Timeline | null>(null);
 	const cloneRef = React.useRef<HTMLElement | null>(null);

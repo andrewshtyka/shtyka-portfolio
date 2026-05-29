@@ -43,21 +43,13 @@ npm install
 
 ### 3.1 Functional
 
-- Project page
-  - Menu: Hide on scroll down, appear on scroll up.
-  - Nav bar: Appear on scroll down, hide on scroll up.
-  - Button scroll to top
+Project page:
 
-  ```ts
-  "use client";
+- Sanity: cardWidth must be set in object (after "alt")
 
-  function scrollToTop() {
-  	window.scrollTo({
-  		top: 0,
-  	});
-  }
-  <Link ... onClick={scrollToTop} >...</Link>
-  ```
+- Experiments:
+  - CMS: put width for cards afte alt
+  - UI: take data for experiments card width from updated object
 
 <br />
 
@@ -81,6 +73,10 @@ npm install
   description = hero subtitle
   next js docs - (Memoizing data requests) - https://nextjs.org/docs/app/getting-started/metadata-and-og-images
   base url - https://www.w3.org/TR/2011/WD-html5-author-20110809/the-base-element.html
+
+- Nav bar:
+  - Connect with sections (anchor links)
+  - Appear when enter section with content (hide when on top of page)
 
 <br />
 
@@ -140,6 +136,10 @@ npm install
   - Sections
 
 - DotsBG - add parallax
+
+Project page:
+
+- Button scroll to top
 
 <br />
 

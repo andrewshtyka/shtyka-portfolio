@@ -58,7 +58,18 @@
 	pointer-events: none;
 }
 
-.icon {
+.master_container_icon {
+	display: flex;
+
 	margin-inline-end: var(--space-4);
 	margin-block-end: var(--space-1);
+}
+
+.container_icon {
+	position: relative;
+	overflow: clip;
+}
+
+.icon {
+	display: inline-block;
 }

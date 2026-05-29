@@ -18,7 +18,11 @@ import { Props } from "./ButtonSecondary.types";
 import React from "react";
 import Magnetic from "../Magnetic/Magnetic";
 
-export default function ButtonSecondary({ children = "", href, icon }: Props) {
+export default function ButtonSecondary({
+	children = "",
+	href,
+	icon,
+}: Props) {
 	const refIcon = React.useRef<HTMLAnchorElement>(null);
 	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
 	const { play: playIcon } = useIconHover(refIcon, refIconContainer);

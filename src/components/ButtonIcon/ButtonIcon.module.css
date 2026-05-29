@@ -1,0 +1,28 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: var(--border-radius-secondary);
+	padding: var(--offset-button-secondary);
+
+	background-color: var(--color-background-transparent-dark-xl);
+	backdrop-filter: var(--blur);
+}
+
+.button:active {
+	opacity: 0.6;
+}
+
+.master_container_icon {
+	display: flex;
+}
+
+.container_icon {
+	position: relative;
+	overflow: clip;
+}
+
+.icon {
+	display: inline-block;
+}

@@ -4,6 +4,7 @@
 import IntroSection from "./_components/IntroSection/IntroSection";
 import ContentSection from "./_components/ContentSection/ContentSection";
 import Nav from "./_components/Nav/Nav";
+import PageContainer from "./_components/PageContainer/PageContainer";
 
 // constants
 import {
@@ -33,9 +34,7 @@ export const metadata: Metadata = {
 interface Props {
 	params: Promise<{ slug: string; lang: string }>;
 }
-export default async function HomePage({ params }: Props) {
-	// const { slug, lang } = await params;
-
+export default async function ProjectPage({ params }: Props) {
 	// #region ============================== Fetch & process data
 
 	//
@@ -105,7 +104,7 @@ export default async function HomePage({ params }: Props) {
 
 	return (
 		<main className={css.container}>
-			<Nav uiString={UI_NAV_STRING} />
+			{/* <Nav uiString={UI_NAV_STRING} /> */}
 			<IntroSection uiString={UI_INTRO_STRING} />
 			<ContentSection
 				uiContentString={UI_CONTENT_STRING}

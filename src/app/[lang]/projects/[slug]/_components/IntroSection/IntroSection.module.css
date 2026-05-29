@@ -4,13 +4,11 @@
 
 	padding-block-start: var(--offset-sections);
 	padding-block-end: var(--offset-sections-mid);
-
 }
 
 .content {
 	max-width: var(--content-main-width-max);
 	margin-inline: auto;
-	padding-inline: var(--offset-base);
 }
 
 .h1 {

@@ -19,7 +19,7 @@ import { Props } from "./Media.types";
 
 // utility
 import React from "react";
-import { getStylesProjects } from "@/lib/util/getStylesProjects";
+import { getStylesProjects } from "@/lib/util/getStyles";
 
 // #endregion ===========================
 

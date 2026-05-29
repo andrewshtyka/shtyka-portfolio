@@ -1,5 +1,10 @@
 "use client";
 
+// #region ============================== Imports
+
+// animation
+import { useInView } from "motion/react";
+
 // components
 import ItemContent from "./ItemContent/ItemContent";
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
@@ -13,11 +18,22 @@ import { PropsContent } from "./ContentSection.types";
 
 // utility
 import React from "react";
+import { ProjectInViewContext } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
+
+// #endregion ===========================
 
 export default function ContentSection({
 	uiContentString,
 	uiEndString,
 }: Props) {
+	// show / hide button "up"
+	const { setIsInView } = React.useContext(ProjectInViewContext);
+	const containerRef = React.useRef(null);
+	const isContainerInView = useInView(containerRef);
+	React.useEffect(() => {
+		setIsInView(isContainerInView);
+	}, [setIsInView, isContainerInView]);
+
 	if (!uiContentString || typeof uiContentString !== "string") return;
 	if (!uiEndString || typeof uiEndString !== "string") return;
 	const ui = JSON.parse(uiContentString);
@@ -28,7 +44,7 @@ export default function ContentSection({
 	const titleArr = ui?.title?.split(" ") ?? "";
 
 	return (
-		<section className={css.container}>
+		<section ref={containerRef} className={css.container}>
 			{/* title */}
 			<h2 className={css.h2}>
 				<span className={`${css.title_1} f_serif_primary`}>{titleArr[0]}</span>

@@ -24,6 +24,7 @@
 	/* Transparent - dark */
 	--color-gray-alpha-xxl: hsla(var(--hue), 0%, 0%, 0.5);
 	--color-gray-alpha-xl: hsla(var(--hue), 0%, 0%, 0.3);
+	--color-gray-alpha-m: hsla(var(--hue), 0%, 0%, 0.2);
 	--color-gray-alpha-s: hsla(var(--hue), 0%, 0%, 0.1);
 	--color-gray-alpha-transparent: hsla(var(--hue), 0%, 0%, 0);
 
@@ -47,6 +48,9 @@
 	--color-button-background-secondary: var(--color-gray-alpha-s);
 	--color-button-background-secondary-hover: var(--color-base-alpha-l);
 	--color-button-background-secondary-hover-solid: var(--color-base);
+
+	--color-button-background-tetriary: var(--color-base-alpha-m);
+
 
 	/* Cards & Bars */
 	--color-background-transparent-dark: var(--color-gray-alpha-s);

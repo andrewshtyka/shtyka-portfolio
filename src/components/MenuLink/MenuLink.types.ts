@@ -13,4 +13,5 @@ export interface PropsSecondary {
 	scroll?: boolean;
 	onClick?: React.MouseEventHandler<HTMLElement>;
 	icon?: React.ReactNode;
+	direction?: "top" | "right" | "left";
 }

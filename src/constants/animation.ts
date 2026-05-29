@@ -2,9 +2,6 @@
  * ================================================== Components
  */
 
-import { opacity } from "@/components/LayoutTransition/anim";
-import { delay } from "motion/react";
-
 export const TOOLTIP_DELAY = 100;
 
 export const LINK_ANIMATION_CSS = {
@@ -21,6 +18,19 @@ export const LINK_HOVER_ANIMATION = {
 export const ICON_HOVER_ANIMATION = {
 	duration: 0.75,
 	ease: "power2.out",
+};
+
+export const BUTTON_UP = {
+	hidden: {
+		y: "120%",
+	},
+	visible: {
+		y: 0,
+		transition: {
+			duration: 0.5,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
 };
 
 /**

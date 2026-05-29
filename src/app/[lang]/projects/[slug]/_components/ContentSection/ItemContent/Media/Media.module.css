@@ -11,6 +11,7 @@
 
 .list {
 	flex: 1;
+
 	height: var(--height-card-project);
 
 	padding: var(--space-8);

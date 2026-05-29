@@ -14,6 +14,7 @@ import { MENU_ANIMATION } from "@/constants/animation";
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
 import { useBlur } from "@/hooks/useBlur";
+import { useIconHover } from "@/hooks/animation/useIconHover";
 
 // styles
 import css from "./MenuLink.module.css";
@@ -87,6 +88,7 @@ export function MenuLinkSecondary({
 	scroll = true,
 	onClick = undefined,
 	icon,
+	direction = "left",
 }: PropsSecondary) {
 	const transparencyClass = isTransparent
 		? `${css.transparent}`
@@ -97,6 +99,10 @@ export function MenuLinkSecondary({
 	const ref = React.useRef<HTMLAnchorElement>(null);
 	const { play } = useLinkHover(ref);
 
+	const refIcon = React.useRef<HTMLAnchorElement>(null);
+	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
+	const { play: playIcon } = useIconHover(refIcon, refIconContainer, direction);
+
 	if (!href) return null;
 
 	return (
@@ -105,10 +111,25 @@ export function MenuLinkSecondary({
 			className={`f_display_buttons f_semibold ${classes}`}
 			scroll={scroll}
 			onClick={onClick}
-			onMouseEnter={play}
-			onFocus={play}
+			onMouseEnter={() => {
+				play?.();
+				playIcon?.();
+			}}
+			onFocus={() => {
+				play?.();
+				playIcon?.();
+			}}
 		>
-			{icon && <span className={css.icon}>{icon}</span>}
+			{icon && (
+				<motion.span className={css.master_container_icon}>
+					<motion.span ref={refIconContainer} className={css.container_icon}>
+						<motion.span ref={refIcon} className={css.icon}>
+							{icon}
+						</motion.span>
+					</motion.span>
+				</motion.span>
+			)}
+
 			<span ref={ref} className={css.children}>
 				{children}
 			</span>

@@ -20,7 +20,7 @@ import css from "./Card.module.css";
 import { Props } from "./Card.types";
 
 // utility
-import { getStyles } from "../../../../../lib/util/getStyles";
+import { getStylesExperiments } from "@/lib/util/getStyles";
 
 // utility
 import React from "react";
@@ -58,7 +58,7 @@ export default function Card({ data }: Props) {
 	return (
 		<motion.li
 			className={css.article}
-			style={getStyles(data?.cardWidth)}
+			style={getStylesExperiments(data?.media[0]?.cardWidth)}
 			variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
 			viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
 		>

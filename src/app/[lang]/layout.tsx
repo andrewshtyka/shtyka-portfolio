@@ -1,10 +1,12 @@
 // #region ============================== Imports
+
 // components
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
 import Menu from "@/components/Menu/Menu";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
+import LayoutContainer from "./_components/LayoutContainer/LayoutContainer";
 
 // constants
 import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
@@ -14,6 +16,7 @@ import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 
 // providers
 import { TooltipProvider } from "@/providers/TooltipProvider/TooltipProvider";
+import { ProjectInViewProvider } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
 
 // sanity
 import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
@@ -61,17 +64,21 @@ export default async function RootLayout({
 				<DynamicCSS />
 
 				<TooltipProvider>
-					<Menu
-						lang={lang}
-						menu={ui?.menu}
-						menuMobile={ui?.menuMobile}
-						buttonHome={ui?.buttonHome}
-					/>
-					{children}
-					<div className={css.container}>
-						<ContactSection uiString={contactString} />
-						<Footer obj={ui?.footer} lang={lang} />
-					</div>
+					<ProjectInViewProvider>
+						<LayoutContainer>
+							<Menu
+								lang={lang}
+								menu={ui?.menu}
+								menuMobile={ui?.menuMobile}
+								buttonHome={ui?.buttonHome}
+							/>
+							{children}
+							<div className={css.container}>
+								<ContactSection uiString={contactString} />
+								<Footer obj={ui?.footer} lang={lang} />
+							</div>
+						</LayoutContainer>
+					</ProjectInViewProvider>
 				</TooltipProvider>
 
 				{/* </LayoutTransition> */}
