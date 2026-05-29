@@ -31,6 +31,7 @@ import { Props } from "./HeroSection.types";
 // utility
 import React from "react";
 import { SECTION_HERO_ANIMATION } from "@/constants/animation";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -72,6 +73,7 @@ export default function HeroSection({ uiString }: Props) {
 				<div className={`${css.content} content_padding_limit`}>
 					{/* Left part */}
 					<div className={css.container_primary}>
+						{/* title */}
 						<div className={css.container_title}>
 							<motion.h1
 								variants={SECTION_HERO_ANIMATION.title_1}
@@ -96,6 +98,8 @@ export default function HeroSection({ uiString }: Props) {
 								{ui?.heroTitle[1]?.children[0]?.text}
 							</motion.h2>
 						</div>
+
+						{/* description */}
 						<motion.p
 							className={`${css.subtitle} f_display_body`}
 							initial={SECTION_HERO_ANIMATION.subtitle.initial}
@@ -107,7 +111,7 @@ export default function HeroSection({ uiString }: Props) {
 								{ui?.subtitle[0]?.children[1]?.text}
 							</span>
 							<br className={css.br} />
-							{ui?.subtitle[0]?.children[2]?.text}
+							{fixTypography(ui?.subtitle[0]?.children[2]?.text)}
 						</motion.p>
 					</div>
 

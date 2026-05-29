@@ -9,6 +9,7 @@ import css from "./Row.module.css";
 
 // types
 import { RowProps } from "./Row.types";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 export default function Row({
 	duration = "",
@@ -83,7 +84,7 @@ export default function Row({
 						}}
 						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
 					>
-						{role}
+						{fixTypography(role)}
 					</motion.span>
 					<motion.span
 						// ref={refCompany}

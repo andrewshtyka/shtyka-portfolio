@@ -22,6 +22,7 @@ import { Props } from "./Challenge.types";
 
 // utility
 import React from "react";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -93,7 +94,7 @@ export default function Challenge({
 					<IconAsterisk size={8} color="gray" />
 				</div>
 
-				<p className={`${css.text} f_display_body`}>{text}</p>
+				<p className={`${css.text} f_display_body`}>{fixTypography(text)}</p>
 			</motion.div>
 		</article>
 	);

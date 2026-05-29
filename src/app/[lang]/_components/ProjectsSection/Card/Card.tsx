@@ -11,6 +11,7 @@ import ButtonPrimary from "@/components/ButtonPrimary/ButtonPrimary";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import Divider from "@/components/Divider/Divider";
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
+import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 
 // constants
 import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
@@ -27,7 +28,7 @@ import { Props } from "./Card.types";
 // utils
 import { useParams } from "next/navigation";
 import React from "react";
-import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -90,7 +91,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 							}
 							viewport={SECTION_PROJECTS_ANIMATION.project.description.viewport}
 						>
-							{ui?.about?.description}
+							{fixTypography(ui?.about?.description)}
 						</motion.h4>
 					</span>
 				</div>

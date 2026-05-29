@@ -14,7 +14,7 @@ import { HOME_SECTIONS } from "@/constants/sectionNames";
 import { SECTION_EXPERIMENTS_ANIMATION } from "@/constants/animation";
 
 // hooks
-import { useLinkHover } from "@/hooks/animation/useLinkHover";
+
 
 // styles
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
@@ -25,6 +25,7 @@ import { Element, Props } from "./ExperimentsSection.types";
 
 // utility
 import React from "react";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -101,7 +102,7 @@ export default function ExperimentsSection({
 						transition={SECTION_EXPERIMENTS_ANIMATION.title.transition}
 						viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 					>
-						{ui[1]?.children[0]?.text ?? ""}
+						{fixTypography(ui[1]?.children[0]?.text)}
 					</motion.p>
 
 					{/* icons */}

@@ -5,27 +5,29 @@
 // animation
 import {
 	motion,
-	useMotionValueEvent,
 	useScroll,
 	useTransform,
 	useInView,
 } from "motion/react";
 
 // components
+import LinkText from "@/components/LinkText/LinkText";
+import IconSign from "@/components/Icons/IconSign/IconSign";
+import TooltipImage from "@/components/TooltipImage/TooltipImage";
+
+// constants
 import { SECTION_ABOUT_ANIMATION } from "@/constants/animation";
 
 // styles
 import css from "./AboutSection.module.css";
 
 // types
-import getUrlForImage from "@/lib/util/getUrlForImage";
 import { Props } from "./AboutSection.types";
 
 // utils
-import LinkText from "@/components/LinkText/LinkText";
-import IconSign from "@/components/Icons/IconSign/IconSign";
-import TooltipImage from "@/components/TooltipImage/TooltipImage";
+import getUrlForImage from "@/lib/util/getUrlForImage";
 import React from "react";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -122,28 +124,31 @@ export default function AboutSection({ uiString }: Props) {
 				>
 					{/* Paragraph 1 */}
 					<p className="f_display_subtitle">
-						{paragraph_1?.text_1}
+						{fixTypography(paragraph_1?.text_1)}
 						<TooltipImage src={imgSrc} alt={imgAlt}>
-							{paragraph_1?.text_2?.text}
+							{fixTypography(paragraph_1?.text_2?.text)}
 						</TooltipImage>
-						{paragraph_1?.text_3}
+						{fixTypography(paragraph_1?.text_3)}
 					</p>
+
 					{/* Paragraph 2 */}
 					<p className="f_display_subtitle">
-						{paragraph_2?.text_1}
+						{fixTypography(paragraph_2?.text_1)}
 						<LinkText href={paragraph_2?.text_2?.href}>
-							{paragraph_2?.text_2?.text}
+							{fixTypography(paragraph_2?.text_2?.text)}
 						</LinkText>
-						{paragraph_2?.text_3}
+						{fixTypography(paragraph_2?.text_3)}
 					</p>
+
 					{/* Paragraph 3 */}
 					<p className="f_display_subtitle">
-						{paragraph_3?.text_1}
+						{fixTypography(paragraph_3?.text_1)}
 						<LinkText href={paragraph_3?.text_2?.href}>
-							{paragraph_3?.text_2?.text}
+							{fixTypography(paragraph_3?.text_2?.text)}
 						</LinkText>
-						{paragraph_3?.text_3}
+						{fixTypography(paragraph_3?.text_3)}
 					</p>
+
 					{/* Sign */}
 					<motion.div
 						ref={refSign}
@@ -157,6 +162,7 @@ export default function AboutSection({ uiString }: Props) {
 						<span className={css.container_image}>
 							<IconSign isInView={isInView} />
 						</span>
+
 						<span ref={refDetails}>
 							<p className={`${css.details} f_mono`}>
 								{ui?.details[0]?.children[0]?.text}

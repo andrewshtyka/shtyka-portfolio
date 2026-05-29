@@ -18,6 +18,7 @@ import { RowProps, Title } from "./Row.types";
 
 // utility
 import getUrlForImage from "@/lib/util/getUrlForImage";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -96,7 +97,7 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 								}}
 								viewport={SECTION_ACHIEVEMENTS_ANIMATION.line.viewport}
 							>
-								{item.text}
+								{fixTypography(item.text)}
 							</motion.span>
 						);
 					})}
@@ -120,7 +121,7 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 								// link
 								return (
 									<LinkText key={i} href={data?.hrefArr[0]?.href}>
-										{item?.text}
+										{fixTypography(item?.text)}
 									</LinkText>
 								);
 							} else if (item?.marks[0] === "code") {
@@ -128,13 +129,13 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 								if (i === 1) {
 									return (
 										<TooltipImage key={i} src={imgUrl_1} alt={imgAlt_1}>
-											{item?.text}
+											{fixTypography(item?.text)}
 										</TooltipImage>
 									);
 								} else if (i === 3) {
 									return (
 										<TooltipImage key={i} src={imgUrl_2} alt={imgAlt_2}>
-											{item?.text}
+											{fixTypography(item?.text)}
 										</TooltipImage>
 									);
 								}
@@ -142,7 +143,7 @@ export default function Row({ achievement, num = 0 }: RowProps) {
 								// plain text
 								return (
 									<span key={i} className={`${css.subtitle} f_display_body`}>
-										{item?.text}
+										{fixTypography(item?.text)}
 									</span>
 								);
 							}

@@ -20,6 +20,7 @@ import { Props } from "./Solution.types";
 
 // utility
 import React from "react";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -32,7 +33,7 @@ export default function Solution({ text = "" }: Props) {
 			whileInView="visible"
 			viewport={SECTION_PROJECTS_ANIMATION.project.listItem.viewport}
 		>
-			<p className="f_display_body">{text}</p>
+			<p className="f_display_body">{fixTypography(text)}</p>
 		</motion.li>
 	);
 }

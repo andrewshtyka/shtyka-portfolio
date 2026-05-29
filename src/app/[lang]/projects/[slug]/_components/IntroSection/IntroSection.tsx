@@ -12,6 +12,7 @@ import Divider from "@/components/Divider/Divider";
 import VideoProject from "@/components/VideoProject/VideoProject";
 import IconArrowShortCut from "@/components/Icons/IconArrowShortCut/IconArrowShortCut";
 import DotsBg from "@/components/DotsBg/DotsBg";
+import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 
 // constants
 import { PROJECT_INTRO_ANIMATION } from "@/constants/animation";
@@ -27,7 +28,7 @@ import { Props } from "./IntroSection.types";
 
 // utility
 import React from "react";
-import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
+import { fixTypography } from "@/lib/util/fixTypography";
 
 // #endregion ===========================
 
@@ -70,7 +71,7 @@ export default function IntroSection({ uiString }: Props) {
 							initial="initial"
 							animate="animate"
 						>
-							{ui?.description}
+							{fixTypography(ui?.description)}
 						</motion.p>
 					</div>
 
