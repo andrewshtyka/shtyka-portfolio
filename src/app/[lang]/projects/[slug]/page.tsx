@@ -3,8 +3,7 @@
 // components
 import IntroSection from "./_components/IntroSection/IntroSection";
 import ContentSection from "./_components/ContentSection/ContentSection";
-import Nav from "./_components/Nav/Nav";
-import PageContainer from "./_components/PageContainer/PageContainer";
+// import Nav from "./_components/Nav/Nav";
 
 // constants
 import {
