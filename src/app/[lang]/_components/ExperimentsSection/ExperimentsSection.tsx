@@ -36,7 +36,7 @@ export default function ExperimentsSection({
 	const refContainer = React.useRef<HTMLDivElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: refContainer,
-		offset: ["start end", "25% 90%"],
+		offset: ["start end", "25% 70%"],
 	});
 
 	const xValue = useTransform(scrollYProgress, [0, 1], ["24px", "0px"]);
@@ -63,8 +63,8 @@ export default function ExperimentsSection({
 			<DotsBg />
 
 			<div ref={refContainer} className={css.content}>
-				{/* title */}
 				<>
+					{/* title */}
 					<motion.h2
 						className={`${css.title} f_serif_primary`}
 						variants={SECTION_EXPERIMENTS_ANIMATION.title}
@@ -103,6 +103,8 @@ export default function ExperimentsSection({
 					>
 						{ui[1]?.children[0]?.text ?? ""}
 					</motion.p>
+
+					{/* icons */}
 					<motion.div className={css.icons}>
 						<motion.span
 							style={{
