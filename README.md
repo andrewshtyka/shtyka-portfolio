@@ -47,12 +47,10 @@ npm install
 
 ### 3.2 Animation
 
-  <br />
+<br />
 
 ### 3.3 Backlog
 
-- 404 page
-- Error page
 - Preloader
   - Change cursor to loading variant (spinning circle)
 
@@ -130,6 +128,7 @@ npm install
 - DotsBG - add parallax
 
 Project page:
+
 - Button scroll to top
 - Sanity: cardWidth must be set in object (after "alt")
 - Add on scroll animations
@@ -137,6 +136,10 @@ Project page:
 - Experiments:
   - CMS: put width for cards afte alt
   - UI: take data for experiments card width from updated object
+
+- Write user language to cookies
+
+- Error page
 
 <br />
 

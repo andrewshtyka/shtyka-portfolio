@@ -2,3 +2,7 @@
 	padding-inline: var(--offset-base);
 	overflow: hidden;
 }
+
+.container_footer {
+	padding-inline: var(--offset-base);
+}

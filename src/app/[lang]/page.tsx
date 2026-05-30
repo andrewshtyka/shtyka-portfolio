@@ -9,6 +9,7 @@ import ClientsSection from "@/app/[lang]/_components/ClientsSection/ClientsSecti
 import ResumeSection from "@/app/[lang]/_components/ResumeSection/ResumeSection";
 import ProjectsSection from "@/app/[lang]/_components/ProjectsSection/ProjectsSection";
 import ExperimentsSection from "@/app/[lang]/_components/ExperimentsSection/ExperimentsSection";
+import Menu from "@/components/Menu/Menu";
 
 // constants
 import {
@@ -18,6 +19,8 @@ import {
 	SANITY_HOME_PROJECTS_TAGS,
 	SANITY_HOME_QUERY,
 	SANITY_HOME_TAGS,
+	SANITY_UI_QUERY,
+	SANITY_UI_TAGS,
 } from "@/constants/sanity";
 import { HOME_SECTIONS } from "@/constants/sectionNames";
 
@@ -29,6 +32,10 @@ import css from "./page.module.css";
 
 // types
 import type { Metadata } from "next";
+import ContactSection from "@/components/ContactSection/ContactSection";
+import Footer from "@/components/Footer/Footer";
+
+// utility
 
 // #endregion ===========================
 
@@ -43,7 +50,15 @@ interface Props {
 export default async function HomePage({ params }: Props) {
 	const { lang } = await params;
 
-	// fetch UI elements
+	// fetch global UI elements
+	const uiGlobal = await sanityFetchData({
+		query: SANITY_UI_QUERY,
+		params: { lang },
+		tags: SANITY_UI_TAGS,
+	});
+	const uiStringContact = JSON.stringify(uiGlobal?.contact);
+
+	// fetch home UI elements
 	const ui = await sanityFetchData({
 		query: SANITY_HOME_QUERY,
 		params: { lang },
@@ -77,6 +92,13 @@ export default async function HomePage({ params }: Props) {
 
 	return (
 		<main>
+			<Menu
+				lang={lang}
+				menu={uiGlobal?.menu}
+				menuMobile={uiGlobal?.menuMobile}
+				buttonHome={uiGlobal?.buttonHome}
+			/>
+
 			<HeroSection uiString={uiStringHero} />
 
 			<div className={css.container}>
@@ -99,6 +121,11 @@ export default async function HomePage({ params }: Props) {
 					uiString={uiStringExperiments}
 					experimentsString={homeExperimentsString}
 				/>
+			</div>
+
+			<div className={css.container_footer}>
+				<ContactSection uiString={uiStringContact} />
+				<Footer obj={uiGlobal?.footer} lang={lang} />
 			</div>
 		</main>
 	);

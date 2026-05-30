@@ -6,10 +6,11 @@ import Menu from "@/components/Menu/Menu";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
-import LayoutContainer from "./_components/LayoutContainer/LayoutContainer";
+import LayoutContainer from "../../components/LayoutContainer/LayoutContainer";
 
 // constants
 import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
+import { VALID_LOCALES } from "@/constants/routing";
 
 // fonts
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
@@ -18,16 +19,14 @@ import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 import { TooltipProvider } from "@/providers/TooltipProvider/TooltipProvider";
 import { ProjectInViewProvider } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
 
-// sanity
-import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
-
 // styles
 import "@/styles/globals.css";
 import "@/styles/reset.css";
 import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
-import css from "./layout.module.css";
+
+// utility
 
 // #endregion ===========================
 
@@ -39,14 +38,6 @@ export default async function RootLayout({
 	params: Promise<{ lang: string }>;
 }>) {
 	const { lang } = await params;
-
-	const ui = await sanityFetchData({
-		query: SANITY_UI_QUERY,
-		params: { lang },
-		tags: SANITY_UI_TAGS,
-	});
-
-	const contactString = JSON.stringify(ui?.contact);
 
 	return (
 		<html
@@ -65,19 +56,7 @@ export default async function RootLayout({
 
 				<TooltipProvider>
 					<ProjectInViewProvider>
-						<LayoutContainer>
-							<Menu
-								lang={lang}
-								menu={ui?.menu}
-								menuMobile={ui?.menuMobile}
-								buttonHome={ui?.buttonHome}
-							/>
-							{children}
-							<div className={css.container}>
-								<ContactSection uiString={contactString} />
-								<Footer obj={ui?.footer} lang={lang} />
-							</div>
-						</LayoutContainer>
+						<LayoutContainer>{children}</LayoutContainer>
 					</ProjectInViewProvider>
 				</TooltipProvider>
 

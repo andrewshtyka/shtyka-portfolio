@@ -28,6 +28,7 @@ export default function ButtonPrimary({
 	icon,
 	fileName = "",
 	isExternal = true,
+	isErrorPage = false,
 }: Props) {
 	const classesLink = `f_display_buttons ${css.button} `;
 	const classesChildren = `${css.children} ${css.space_between}`;
@@ -44,6 +45,35 @@ export default function ButtonPrimary({
 	useBlur();
 
 	if (!href) return null;
+
+	if (isErrorPage) {
+		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;
+		return (
+			<Magnetic>
+				<a
+					href={appliedHref}
+					className={classesLink}
+					onMouseEnter={() => {
+						play?.();
+						playIcon?.();
+					}}
+					onFocus={() => {
+						play?.();
+						playIcon?.();
+					}}
+				>
+					<span className={classesChildren}>
+						<span ref={ref}>{children}</span>
+						<span ref={refIconContainer} className={css.container_icon}>
+							<span ref={refIcon} className={css.icon}>
+								{icon && icon}
+							</span>
+						</span>
+					</span>
+				</a>
+			</Magnetic>
+		);
+	}
 
 	if (isExternal) {
 		const appliedHref = fileName ? `${href}/${fileName}` : `${href}`;

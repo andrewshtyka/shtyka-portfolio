@@ -4,7 +4,7 @@
 
 // components
 import Divider from "@/components/Divider/Divider";
-import LogoMenu from "@/components/LogoMenu/LogoMenu";
+import LogoMenu from "@/components/Menu/LogoMenu/LogoMenu";
 import ContainerDesktop from "./ContainerDesktop/ContainerDesktop";
 import ContainerMobile from "./ContainerMobile/ContainerMobile";
 import Navigation from "./Navigation/Navigation";

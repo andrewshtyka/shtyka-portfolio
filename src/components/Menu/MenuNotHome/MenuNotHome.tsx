@@ -2,7 +2,7 @@
 
 // components
 import Divider from "@/components/Divider/Divider";
-import LogoMenu from "@/components/LogoMenu/LogoMenu";
+import LogoMenu from "@/components/Menu/LogoMenu/LogoMenu";
 import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import LangSwitcher from "@/components/LangSwitcher/LangSwitcher";
 import { MenuLinkSecondary } from "@/components/MenuLink/MenuLink";

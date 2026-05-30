@@ -53,3 +53,9 @@ export const SANITY_HOME_EXPERIMENTS_TAGS = [sanityPageTypes.experiment];
 export const SANITY_PROJECT_QUERY = `
 *[_type == "${sanityPageTypes.project}" && slug.current == $slug && language == $lang][0]`;
 export const SANITY_PROJECT_TAGS = [sanityPageTypes.project];
+
+/**
+ * Fetch error UI elements
+ */
+export const SANITY_ERROR_QUERY = `*[_type == "${sanityPageTypes.error}" && language == $lang][0]`;
+export const SANITY_ERROR_TAGS = [sanityPageTypes.error];

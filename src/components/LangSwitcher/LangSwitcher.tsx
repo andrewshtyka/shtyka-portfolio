@@ -27,12 +27,23 @@ export default function LangSwitcher({
 
 	const targetPath = getTargetPath(currentLang, pathname);
 
+	// write language to cookies when button is clicked
+	const nextLang = currentLang === "ua" ? "en" : "ua";
+	const setLocaleCookie = () => {
+		document.cookie = `NEXT_LOCALE=${nextLang}; path=/; max-age=${60 * 60 * 24 * 365}`;
+	};
+
 	const visibilityClass = isHiddenOnMobile ? `${css.mob_hidden}` : "";
 	const classes = `${visibilityClass} ${css.container}`;
 
 	return (
 		<span className={classes}>
-			<MenuLinkSecondary href={targetPath} isTransparent={true} scroll={false}>
+			<MenuLinkSecondary
+				href={targetPath}
+				isTransparent={true}
+				scroll={false}
+				onClick={setLocaleCookie}
+			>
 				{currentLang === "ua" ? "Eng" : "Укр"}
 			</MenuLinkSecondary>
 		</span>

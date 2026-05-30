@@ -23,6 +23,11 @@ import css from "./page.module.css";
 import type { Metadata } from "next";
 import { NavLabel } from "./page.types";
 
+// utility
+import { notFound } from "next/navigation";
+import ContactSection from "@/components/ContactSection/ContactSection";
+import Footer from "@/components/Footer/Footer";
+
 // #endregion ===========================
 
 export const metadata: Metadata = {
@@ -34,23 +39,30 @@ interface Props {
 	params: Promise<{ slug: string; lang: string }>;
 }
 export default async function ProjectPage({ params }: Props) {
+	const { lang, slug } = await params;
+
 	// #region ============================== Fetch & process data
 
 	//
 	// fetch project UI elements
 	const ui = await sanityFetchData({
 		query: SANITY_PROJECT_QUERY,
-		params: await params,
+		params: { lang, slug },
 		tags: SANITY_PROJECT_TAGS,
 	});
+
+	if (!ui) {
+		notFound();
+	}
 
 	//
 	// fetch global UI elements
 	const uiGlobal = await sanityFetchData({
 		query: SANITY_UI_QUERY,
-		params: await params,
+		params: { lang, slug },
 		tags: SANITY_UI_TAGS,
 	});
+	const uiStringContact = JSON.stringify(uiGlobal?.contact);
 
 	//
 	// project intro
@@ -93,11 +105,11 @@ export default async function ProjectPage({ params }: Props) {
 			key: item?.content[0]?.children[0]?._key ?? "",
 		};
 	});
-	const UI_NAV = {
-		title: uiGlobal?.projectPage?.navTitle ?? "",
-		labels: navLabels ?? [],
-	};
-	const UI_NAV_STRING = JSON.stringify(UI_NAV);
+	// const UI_NAV = {
+	// 	title: uiGlobal?.projectPage?.navTitle ?? "",
+	// 	labels: navLabels ?? [],
+	// };
+	// const UI_NAV_STRING = JSON.stringify(UI_NAV);
 
 	// #endregion ===========================
 
@@ -109,6 +121,11 @@ export default async function ProjectPage({ params }: Props) {
 				uiContentString={UI_CONTENT_STRING}
 				uiEndString={UI_END_STRING}
 			/>
+
+			<div className={css.container_footer}>
+				<ContactSection uiString={uiStringContact} />
+				<Footer obj={uiGlobal?.footer} lang={lang} />
+			</div>
 		</main>
 	);
 }

@@ -49,6 +49,7 @@
 	--offset-button-secondary: var(--space-6); /* 12px */
 	--offset-button-secondary-extended: var(--space-8); /* 16px */
 	--offset-button-tetriary: var(--space-4); /* 8px */
+	--button-max-width: calc(var(--space-20) + var(--space-19)); /* 384px */
 
 	/* Grid */
 	--table-col-1-width: calc(var(--space-19) - var(--space-4)); /* 120px */

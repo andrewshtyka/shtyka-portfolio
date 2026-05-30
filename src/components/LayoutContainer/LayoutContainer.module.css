@@ -2,5 +2,5 @@
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	margin: var(--offset-base);
+	margin: calc(var(--offset-base) + var(--space-2));
 }

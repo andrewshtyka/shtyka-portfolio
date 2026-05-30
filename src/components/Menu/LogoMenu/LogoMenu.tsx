@@ -2,7 +2,7 @@
 
 // #region ============================== Imports
 // components
-import Emblem from "../Icons/Emblem/Emblem";
+import Emblem from "../../Icons/Emblem/Emblem";
 
 // styles
 import css from "./LogoMenu.module.css";

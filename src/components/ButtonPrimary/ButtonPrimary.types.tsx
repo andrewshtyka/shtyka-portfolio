@@ -4,4 +4,5 @@ export interface Props {
 	icon?: React.ReactNode;
 	fileName?: string;
 	isExternal?: boolean;
+	isErrorPage?: boolean;
 }

@@ -1,13 +1,26 @@
-import { NextResponse, userAgent } from "next/server";
+// constants
+import { DEFAULT_LOCALE, VALID_LOCALES } from "./constants/routing";
+
+// types
 import type { NextRequest } from "next/server";
 
-const locales = ["en", "ua"];
-const defaultLocale = "en";
+// utility
+import { NextResponse, userAgent } from "next/server";
 
 function getLocale(request: NextRequest) {
-	return request.headers.get("accept-language")?.includes("uk")
-		? "ua"
-		: defaultLocale;
+	// 1. cookies = true? use lang from it
+	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
+	if (cookieLocale && VALID_LOCALES.includes(cookieLocale)) {
+		return cookieLocale;
+	}
+
+	// 2. cookies = false? use lang from browser default settings
+	const acceptLanguage = request.headers.get("accept-language") ?? "";
+	const hasUkrainian = acceptLanguage
+		.split(",")
+		.some((lang) => lang.trim().toLowerCase().startsWith("uk"));
+
+	return hasUkrainian ? "ua" : DEFAULT_LOCALE;
 }
 
 function getBrowserName(request: NextRequest) {
@@ -17,12 +30,12 @@ function getBrowserName(request: NextRequest) {
 
 function redirectFromProjects(request: NextRequest) {
 	const { pathname } = request.nextUrl;
-	const isProjectsRoot = locales.some(
+	const isProjectsRoot = VALID_LOCALES.some(
 		(locale) => pathname === `/${locale}/projects`
 	);
 	if (!isProjectsRoot) return null;
 
-	const matchedLocale = locales.find((locale) =>
+	const matchedLocale = VALID_LOCALES.find((locale) =>
 		pathname.startsWith(`/${locale}`)
 	);
 	request.nextUrl.pathname = `/${matchedLocale}`;
@@ -35,7 +48,15 @@ function redirectToLocale(request: NextRequest) {
 	return NextResponse.redirect(request.nextUrl);
 }
 
+function setLocaleCookie(response: NextResponse, locale: string) {
+	response.cookies.set("NEXT_LOCALE", locale, {
+		path: "/",
+		maxAge: 60 * 60 * 24 * 365,
+	});
+}
+
 export function proxy(request: NextRequest) {
+	console.log("MIDDLEWARE:", request.nextUrl.pathname);
 	//
 	// Get user browser
 	const browserName = getBrowserName(request);
@@ -43,7 +64,7 @@ export function proxy(request: NextRequest) {
 	//
 	// Redirect from "/projects"
 	const { pathname } = request.nextUrl;
-	const pathnameHasLocale = locales.some(
+	const pathnameHasLocale = VALID_LOCALES.some(
 		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
 	);
 
@@ -54,6 +75,12 @@ export function proxy(request: NextRequest) {
 
 		const response = NextResponse.next();
 		response.headers.set("x-browser-name", browserName);
+
+		// write language to cookies
+		const currentLocale = VALID_LOCALES.find((locale) =>
+			pathname.startsWith(`/${locale}`)
+		);
+		if (currentLocale) setLocaleCookie(response, currentLocale);
 
 		return response;
 	}
