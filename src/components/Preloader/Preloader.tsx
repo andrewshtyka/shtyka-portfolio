@@ -35,9 +35,7 @@ export default function Preloader() {
 			{visible && (
 				<motion.div
 					className={css.container}
-					initial={{
-						opacity: 0,
-					}}
+					initial={{ opacity: 0 }}
 					animate={{
 						opacity: 1,
 						transition: {
@@ -49,19 +47,26 @@ export default function Preloader() {
 						transition: {
 							duration: 0.5,
 							ease: "easeOut",
+							delay: 0.3,
 						},
 					}}
 				>
 					<motion.div
 						className={css.icon}
-						initial={{
-							scale: 0.9,
-						}}
+						initial={{ scale: 0.9 }}
 						animate={{
 							scale: 1,
 							transition: {
 								duration: 1,
 								ease: "easeOut",
+							},
+						}}
+						exit={{
+							opacity: 0,
+							transition: {
+								duration: 0.75,
+								ease: "easeOut",
+								delay: 0,
 							},
 						}}
 					>
