@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Emblem from "../Icons/Emblem/Emblem";
 import css from "./Preloader.module.css";
 
-const MIN_TIME = 1000;
+const MIN_TIME = 500;
 
 export default function Preloader() {
 	const [visible, setVisible] = useState(true);
