@@ -3,6 +3,9 @@
 // components
 import IntroSection from "./_components/IntroSection/IntroSection";
 import ContentSection from "./_components/ContentSection/ContentSection";
+import ContactSection from "@/components/ContactSection/ContactSection";
+import Footer from "@/components/Footer/Footer";
+import Menu from "@/components/Menu/Menu";
 // import Nav from "./_components/Nav/Nav";
 
 // constants
@@ -21,12 +24,10 @@ import css from "./page.module.css";
 
 // types
 import type { Metadata } from "next";
-import { NavLabel } from "./page.types";
+// import { NavLabel } from "./page.types";
 
 // utility
 import { notFound } from "next/navigation";
-import ContactSection from "@/components/ContactSection/ContactSection";
-import Footer from "@/components/Footer/Footer";
 
 // #endregion ===========================
 
@@ -99,12 +100,12 @@ export default async function ProjectPage({ params }: Props) {
 
 	//
 	// floating nav
-	const navLabels = ui?.section?.map((item: NavLabel) => {
-		return {
-			label: item?.content[0]?.children[0]?.text ?? "",
-			key: item?.content[0]?.children[0]?._key ?? "",
-		};
-	});
+	// const navLabels = ui?.section?.map((item: NavLabel) => {
+	// 	return {
+	// 		label: item?.content[0]?.children[0]?.text ?? "",
+	// 		key: item?.content[0]?.children[0]?._key ?? "",
+	// 	};
+	// });
 	// const UI_NAV = {
 	// 	title: uiGlobal?.projectPage?.navTitle ?? "",
 	// 	labels: navLabels ?? [],
@@ -115,6 +116,12 @@ export default async function ProjectPage({ params }: Props) {
 
 	return (
 		<main className={css.container}>
+			<Menu
+				lang={lang}
+				menu={uiGlobal?.menu}
+				menuMobile={uiGlobal?.menuMobile}
+				buttonHome={uiGlobal?.buttonHome}
+			/>
 			{/* <Nav uiString={UI_NAV_STRING} /> */}
 			<IntroSection uiString={UI_INTRO_STRING} />
 			<ContentSection

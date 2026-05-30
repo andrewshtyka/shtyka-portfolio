@@ -103,7 +103,6 @@ export default function ErrorClient({ uiString, lang }: Props) {
 				>
 					<ButtonPrimary
 						href={`/${lang}`}
-						// isErrorPage={true}
 						isExternal={false}
 						icon={<IconArrowCurve color="black" direction="right" />}
 					>
