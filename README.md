@@ -51,10 +51,6 @@ npm install
 
 ### 3.3 ToDo
 
-- Preloader:
-  - Add preloader
-  - Change cursor to loading variant (spinning circle)
-
 - Generate Metadata for Pages:
   title = hero title
   description = hero subtitle
@@ -144,20 +140,6 @@ Project page:
   - Clean up file and set up transition
   - Do for Language change.
 
-<br />
-
-## 4. INSPIRATION
-
-- text on scroll https://www.structured.money/
-
-- ??? https://lightshiprv.com/
-
-- lines and text on scroll https://destigmatize.ca/
-
-- text quote (gray to white) on scroll https://webisoft.com/
-
-- text on scroll https://sidewave.it/
-
-- text on scroll https://pp-fragment.com/
-
--
+- Preloader:
+  - Add preloader
+  - Change cursor to loading variant (spinning circle)

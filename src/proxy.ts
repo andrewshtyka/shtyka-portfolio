@@ -56,7 +56,6 @@ function setLocaleCookie(response: NextResponse, locale: string) {
 }
 
 export function proxy(request: NextRequest) {
-	console.log("MIDDLEWARE:", request.nextUrl.pathname);
 	//
 	// Get user browser
 	const browserName = getBrowserName(request);

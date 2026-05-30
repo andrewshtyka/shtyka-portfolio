@@ -12,11 +12,13 @@ import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import DotsBg from "../DotsBg/DotsBg";
 
 // constants
+import { ERROR_ANIMATION } from "@/constants/animation";
 
 // fonts
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 
 // hooks
+import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // providers / context
 
@@ -30,17 +32,32 @@ import { Props } from "./ErrorClient.types";
 import React from "react";
 import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 import { fixTypography } from "@/lib/util/fixTypography";
-import { useLinkHover } from "@/hooks/animation/useLinkHover";
-import { ERROR_ANIMATION } from "@/constants/animation";
-import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // #endregion ===========================
 
 export default function ErrorClient({ uiString, lang }: Props) {
 	useRefreshOnResize();
 
-	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString)?.error404 ?? {};
+
+	React.useEffect(() => {
+		const title = ui?.title ?? "";
+		const description = ui?.description ?? "";
+
+		if (title) window.document.title = title;
+
+		if (description) {
+			const meta = window.document.querySelector('meta[name="description"]');
+			if (meta) {
+				meta.setAttribute("content", description);
+			} else {
+				const newMeta = window.document.createElement("meta");
+				newMeta.name = "description";
+				newMeta.content = description;
+				window.document.head.appendChild(newMeta);
+			}
+		}
+	}, [ui?.title, ui?.description]);
 
 	const classesMain = `${css.container} ${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`;
 

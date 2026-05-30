@@ -1,3 +1,5 @@
+// #region ============================== Imports
+
 // components
 import ErrorClient from "@/components/ErrorClient/ErrorClient";
 
@@ -9,6 +11,24 @@ import { sanityFetchData } from "./_services/sanityFetchData";
 
 // utility
 import { cookies } from "next/headers";
+
+// #endregion ===========================
+
+// export async function generateMetadata() {
+// 	const cookieStore = await cookies();
+// 	const lang = cookieStore.get("NEXT_LOCALE")?.value ?? "ua";
+
+// 	const ui = await sanityFetchData({
+// 		query: SANITY_ERROR_QUERY,
+// 		params: { lang },
+// 		tags: SANITY_ERROR_TAGS,
+// 	});
+
+// 	return {
+// 		title: ui?.error404?.title ?? "",
+// 		description: ui?.error404?.description ?? "",
+// 	};
+// }
 
 export default async function NotFound() {
 	const cookieStore = await cookies();
