@@ -103,6 +103,8 @@ export function MenuLinkSecondary({
 	const refIconContainer = React.useRef<HTMLAnchorElement>(null);
 	const { play: playIcon } = useIconHover(refIcon, refIconContainer, direction);
 
+	useBlur();
+
 	if (!href) return null;
 
 	return (
