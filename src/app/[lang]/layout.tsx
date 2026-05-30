@@ -4,6 +4,7 @@
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
 import LayoutContainer from "../../components/LayoutContainer/LayoutContainer";
+import Preloader from "@/components/Preloader/Preloader";
 
 // fonts
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
@@ -35,6 +36,7 @@ export default async function RootLayout({
 			<body
 				className={`${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`}
 			>
+				<Preloader />
 				<LayoutTransition
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}

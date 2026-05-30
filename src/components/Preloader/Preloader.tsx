@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Emblem from "../Icons/Emblem/Emblem";
 import css from "./Preloader.module.css";
 
-const MIN_TIME = 500;
+const MIN_TIME = 750;
 
 export default function Preloader() {
 	const [visible, setVisible] = useState(true);
@@ -23,7 +23,6 @@ export default function Preloader() {
 		const fontsReady = document.fonts.ready;
 
 		Promise.all([minDelay, resourcesReady, fontsReady]).then(() => {
-			// hidden - is set in LayoutTransition
 			document.body.style.overflow = "visible";
 			document.body.style.cursor = "default";
 			window.scrollTo(0, 0);
@@ -42,7 +41,7 @@ export default function Preloader() {
 					animate={{
 						opacity: 1,
 						transition: {
-							duration: 0.000001,
+							duration: 0.25,
 						},
 					}}
 					exit={{
