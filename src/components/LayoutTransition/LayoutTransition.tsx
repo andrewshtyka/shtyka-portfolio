@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
+import Preloader from "../Preloader/Preloader";
 
 function usePreviousValue<T>(value: T): T | undefined {
 	const prevValue = useRef<T | undefined>(undefined);
@@ -76,7 +77,10 @@ export function LayoutTransition({
 				animate={animate}
 				exit={exit}
 			>
-				<FrozenRouter>{children}</FrozenRouter>
+				<FrozenRouter>
+					{children}
+					<Preloader />
+				</FrozenRouter>
 			</motion.div>
 		</AnimatePresence>
 	);

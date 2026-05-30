@@ -12,7 +12,6 @@ import ExperimentsSection from "@/app/[lang]/_components/ExperimentsSection/Expe
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import MenuHome from "@/components/Menu/MenuHome/MenuHome";
-import Preloader from "@/components/Preloader/Preloader";
 
 // constants
 import {
@@ -93,8 +92,6 @@ export default async function HomePage({ params }: Props) {
 
 	return (
 		<main>
-			<Preloader />
-
 			<MenuHome
 				lang={lang}
 				menu={uiGlobal?.menu}

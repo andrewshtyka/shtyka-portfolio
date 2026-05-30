@@ -6,7 +6,7 @@ import css from "./Preloader.module.css";
 
 const MIN_TIME = 1000;
 
-export default function Preloader({ name }: { name?: string }) {
+export default function Preloader() {
 	const [visible, setVisible] = useState(true);
 
 	useEffect(() => {
@@ -66,11 +66,7 @@ export default function Preloader({ name }: { name?: string }) {
 							},
 						}}
 					>
-						{name ? (
-							<span className="f_serif_primary">{name}</span>
-						) : (
-							<Emblem size={48} />
-						)}
+						<Emblem size={48} />
 					</motion.div>
 				</motion.div>
 			)}

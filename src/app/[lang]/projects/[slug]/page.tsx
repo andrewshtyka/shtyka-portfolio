@@ -6,7 +6,6 @@ import ContentSection from "./_components/ContentSection/ContentSection";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import MenuNotHome from "@/components/Menu/MenuNotHome/MenuNotHome";
-import Preloader from "@/components/Preloader/Preloader";
 // import Nav from "./_components/Nav/Nav";
 
 // constants
@@ -117,7 +116,6 @@ export default async function ProjectPage({ params }: Props) {
 
 	return (
 		<main className={css.container}>
-			<Preloader name={ui?.title} />
 
 			<MenuNotHome lang={lang} buttonHome={uiGlobal?.buttonHome} />
 
