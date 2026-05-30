@@ -49,9 +49,10 @@ npm install
 
 <br />
 
-### 3.3 Backlog
+### 3.3 ToDo
 
-- Preloader
+- Preloader:
+  - Add preloader
   - Change cursor to loading variant (spinning circle)
 
 - Generate Metadata for Pages:
@@ -60,13 +61,15 @@ npm install
   next js docs - (Memoizing data requests) - https://nextjs.org/docs/app/getting-started/metadata-and-og-images
   base url - https://www.w3.org/TR/2011/WD-html5-author-20110809/the-base-element.html
 
+### 3.4 Backlog
+
 - Nav bar:
   - Connect with sections (anchor links)
   - Appear when enter section with content (hide when on top of page)
 
 <br />
 
-### 3.4 Done
+### 3.5 Done
 
 - Sanity schema:
   Add description to limit max amount of characters for subtitile to 40-45

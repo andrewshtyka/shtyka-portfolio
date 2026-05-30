@@ -47,14 +47,21 @@ interface LayoutTransitionProps {
 }
 
 export function LayoutTransition({
+	children,
 	className,
 	style,
 	initial,
 	animate,
 	exit,
-	children,
 }: LayoutTransitionProps) {
 	const segment = useSelectedLayoutSegment();
+
+	useEffect(() => {
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = "visible";
+		};
+	}, [segment]);
 
 	return (
 		<AnimatePresence
@@ -62,8 +69,8 @@ export function LayoutTransition({
 			// initial={false}
 		>
 			<motion.div
-				key={segment}
 				className={className}
+				key={segment}
 				style={style}
 				initial={initial}
 				animate={animate}

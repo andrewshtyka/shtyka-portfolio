@@ -41,7 +41,6 @@ export default async function RootLayout({
 					exit={{ opacity: 0 }}
 				>
 					<DynamicCSS />
-
 					<TooltipProvider>
 						<ProjectInViewProvider>
 							<LayoutContainer>{children}</LayoutContainer>
