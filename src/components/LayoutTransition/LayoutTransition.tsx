@@ -1,16 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion, type Variants } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useEffect, useRef } from "react";
-
-import {
-	slide,
-	perspective,
-	opacity,
-} from "@/components/LayoutTransition/anim";
-import styles from "./LayoutTransition.module.css";
 
 function usePreviousValue<T>(value: T): T | undefined {
 	const prevValue = useRef<T | undefined>(undefined);
@@ -54,46 +47,30 @@ interface LayoutTransitionProps {
 }
 
 export function LayoutTransition({
-	children,
 	className,
 	style,
 	initial,
 	animate,
 	exit,
+	children,
 }: LayoutTransitionProps) {
 	const segment = useSelectedLayoutSegment();
 
 	return (
-		<AnimatePresence mode="wait" initial={false}>
-			<div key={segment} className={styles.inner}>
-				<motion.div className={styles.slide} {...anim(slide)} />
-
-				<motion.div className={styles.page} {...anim(perspective)}>
-					<motion.div {...anim(opacity)}>
-						<FrozenRouter>{children}</FrozenRouter>
-					</motion.div>
-				</motion.div>
-			</div>
-
-			{/* <motion.div
+		<AnimatePresence
+			mode="wait"
+			// initial={false}
+		>
+			<motion.div
+				key={segment}
 				className={className}
 				style={style}
-				key={segment}
 				initial={initial}
 				animate={animate}
 				exit={exit}
 			>
 				<FrozenRouter>{children}</FrozenRouter>
-			</motion.div> */}
+			</motion.div>
 		</AnimatePresence>
 	);
 }
-
-const anim = (variants: Variants) => {
-	return {
-		initial: "initial",
-		animate: "enter",
-		exit: "exit",
-		variants,
-	};
-};

@@ -2,15 +2,8 @@
 
 // components
 import { LayoutTransition } from "@/components/LayoutTransition/LayoutTransition";
-import Menu from "@/components/Menu/Menu";
-import ContactSection from "@/components/ContactSection/ContactSection";
-import Footer from "@/components/Footer/Footer";
 import DynamicCSS from "@/components/DynamicCSS/DynamicCSS";
 import LayoutContainer from "../../components/LayoutContainer/LayoutContainer";
-
-// constants
-import { SANITY_UI_QUERY, SANITY_UI_TAGS } from "@/constants/sanity";
-import { VALID_LOCALES } from "@/constants/routing";
 
 // fonts
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
@@ -26,8 +19,6 @@ import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 
-// utility
-
 // #endregion ===========================
 
 export default async function RootLayout({
@@ -40,27 +31,23 @@ export default async function RootLayout({
 	const { lang } = await params;
 
 	return (
-		<html
-			lang={lang}
-			// data-scroll-behavior="smooth"
-		>
+		<html lang={lang}>
 			<body
 				className={`${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`}
 			>
-				{/* <LayoutTransition
+				<LayoutTransition
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-				> */}
-				<DynamicCSS />
+				>
+					<DynamicCSS />
 
-				<TooltipProvider>
-					<ProjectInViewProvider>
-						<LayoutContainer>{children}</LayoutContainer>
-					</ProjectInViewProvider>
-				</TooltipProvider>
-
-				{/* </LayoutTransition> */}
+					<TooltipProvider>
+						<ProjectInViewProvider>
+							<LayoutContainer>{children}</LayoutContainer>
+						</ProjectInViewProvider>
+					</TooltipProvider>
+				</LayoutTransition>
 			</body>
 		</html>
 	);

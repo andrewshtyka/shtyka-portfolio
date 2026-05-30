@@ -56,7 +56,7 @@
 	--color-background-transparent-dark: var(--color-gray-alpha-s);
 	--color-background-transparent-dark-xl: var(--color-gray-alpha-xxl);
 	--color-background-transparent-light: var(--color-base-alpha-s);
-	--color-background-solid: var(--color-gray-100);
+	--color-background-solid: var(--color-gray);
 
 	/* Line */
 	--color-line-light: var(--color-base-alpha-l);

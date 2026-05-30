@@ -1,3 +1,15 @@
+.container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	width: 100%;
+	padding-block-start: var(--offset-base);
+
+	pointer-events: none;
+}
+
 .header {
 	margin-inline: auto;
 

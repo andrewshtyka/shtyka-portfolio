@@ -55,8 +55,8 @@ export default function VideoProject({ video, poster }: Props) {
 			// motion
 			variants={SECTION_PROJECTS_ANIMATION.project.video}
 			initial="initial"
-			// animate={isInView ? "show" : "hide"}
-			animate="show"
+			animate={isInView ? "show" : "hide"}
+			// animate="show"
 			transition={SECTION_PROJECTS_ANIMATION.project.video.transition}
 		></motion.video>
 	);

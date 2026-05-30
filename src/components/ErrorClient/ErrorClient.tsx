@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { motion } from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
 
 // components
 import Emblem from "../Icons/Emblem/Emblem";
@@ -37,9 +37,6 @@ import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 // #endregion ===========================
 
 export default function ErrorClient({ uiString, lang }: Props) {
-	const refTitle = React.useRef<HTMLHeadingElement>(null);
-	const { play: playTitle } = useLinkHover(refTitle);
-
 	useRefreshOnResize();
 
 	if (!uiString || typeof uiString !== "string") return;
@@ -49,8 +46,15 @@ export default function ErrorClient({ uiString, lang }: Props) {
 
 	return (
 		<main className={classesMain}>
-			<DotsBg saturation={60} yPosition={10} />
-			<DotsBg saturation={60} yPosition={90} />
+			{/* dots */}
+			<motion.div
+				variants={ERROR_ANIMATION.dots}
+				initial="initial"
+				animate="animate"
+			>
+				<DotsBg saturation={60} yPosition={10} zIndex={0} />
+				<DotsBg saturation={60} yPosition={90} zIndex={0} />
+			</motion.div>
 
 			<div className={css.content}>
 				{/* emblem */}
@@ -74,16 +78,16 @@ export default function ErrorClient({ uiString, lang }: Props) {
 						<IconArrowShortCut direction="up" size={8} />
 						<IconArrowShortCut direction="up" size={8} />
 					</motion.div>
+
 					<motion.h1
-						ref={refTitle}
 						className={`${css.title} f_serif_primary f_capital`}
 						variants={ERROR_ANIMATION.title}
 						initial="initial"
 						animate="animate"
-						onAnimationComplete={playTitle}
 					>
 						{ui?.title}
 					</motion.h1>
+
 					<motion.p
 						className={`${css.description} f_display_body`}
 						variants={ERROR_ANIMATION.subtitle}

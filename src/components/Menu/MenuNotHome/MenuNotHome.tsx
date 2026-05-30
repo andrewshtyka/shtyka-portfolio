@@ -1,4 +1,9 @@
+"use client";
+
 // #region ============================== Imports
+
+// animation
+import { motion } from "motion/react";
 
 // components
 import Divider from "@/components/Divider/Divider";
@@ -12,30 +17,34 @@ import css from "./MenuNotHome.module.css";
 
 // types
 import { Props } from "./MenuNotHome.types";
+import { MENU_NO_HOME_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 
 export default function MenuNotHome({ lang, buttonHome }: Props) {
 	return (
-		<div className={css.header}>
-			<span className={css.container_logo}>
-				<LogoMenu />
-			</span>
-
-			<Divider />
-
-			<nav className={css.nav}>
-				<MenuLinkSecondary
-					href={`/${lang}`}
-					icon={<IconArrowCurve direction="left" />}
-				>
-					{buttonHome}
-				</MenuLinkSecondary>
-			</nav>
-
-			<Divider />
-
-			<LangSwitcher currentLang={lang} />
-		</div>
+		<motion.header
+			className={css.container}
+			initial={MENU_NO_HOME_ANIMATION.onLoadMenu.initial}
+			animate={MENU_NO_HOME_ANIMATION.onLoadMenu.animate}
+			transition={MENU_NO_HOME_ANIMATION.onLoadMenu.transition}
+		>
+			<div className={css.header}>
+				<span className={css.container_logo}>
+					<LogoMenu />
+				</span>
+				<Divider />
+				<nav className={css.nav}>
+					<MenuLinkSecondary
+						href={`/${lang}`}
+						icon={<IconArrowCurve direction="left" />}
+					>
+						{buttonHome}
+					</MenuLinkSecondary>
+				</nav>
+				<Divider />
+				<LangSwitcher currentLang={lang} />
+			</div>
+		</motion.header>
 	);
 }

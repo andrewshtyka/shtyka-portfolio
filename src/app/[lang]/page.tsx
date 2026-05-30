@@ -9,7 +9,9 @@ import ClientsSection from "@/app/[lang]/_components/ClientsSection/ClientsSecti
 import ResumeSection from "@/app/[lang]/_components/ResumeSection/ResumeSection";
 import ProjectsSection from "@/app/[lang]/_components/ProjectsSection/ProjectsSection";
 import ExperimentsSection from "@/app/[lang]/_components/ExperimentsSection/ExperimentsSection";
-import Menu from "@/components/Menu/Menu";
+import ContactSection from "@/components/ContactSection/ContactSection";
+import Footer from "@/components/Footer/Footer";
+import MenuHome from "@/components/Menu/MenuHome/MenuHome";
 
 // constants
 import {
@@ -32,8 +34,6 @@ import css from "./page.module.css";
 
 // types
 import type { Metadata } from "next";
-import ContactSection from "@/components/ContactSection/ContactSection";
-import Footer from "@/components/Footer/Footer";
 
 // utility
 
@@ -92,11 +92,10 @@ export default async function HomePage({ params }: Props) {
 
 	return (
 		<main>
-			<Menu
+			<MenuHome
 				lang={lang}
 				menu={uiGlobal?.menu}
 				menuMobile={uiGlobal?.menuMobile}
-				buttonHome={uiGlobal?.buttonHome}
 			/>
 
 			<HeroSection uiString={uiStringHero} />

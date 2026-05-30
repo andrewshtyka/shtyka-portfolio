@@ -6,25 +6,6 @@
 	height: 100%;
 	z-index: -1;
 
-	/* mask-image: radial-gradient(
-		75% 40% at 50% 25%,
-		var(--color-gray) 10%,
-		transparent 90%
-	); */
-	/* background-image: radial-gradient(
-		oklch(from var(--color-base) l c h / 40%) 0.5px,
-		transparent 0.5px
-	); */
 	background-size: var(--space-4) var(--space-4);
-
-	/* animation: blink 2s infinite alternate ease-in-out; */
+	pointer-events: none;
 }
-
-/* @keyframes blink {
-	from {
-		opacity: 1;
-	}
-	to {
-		opacity: 0.3;
-	}
-} */

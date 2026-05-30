@@ -38,8 +38,8 @@ export default function MediaComponent({
 }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
 	const imageRef = React.useRef<HTMLImageElement>(null);
-	// const isInViewVideo = useInView(videoRef, { amount: 0.1 });
-	// const isInViewImage = useInView(imageRef, { amount: 0.1 });
+	const isInViewVideo = useInView(videoRef, { amount: 0.1 });
+	const isInViewImage = useInView(imageRef, { amount: 0.1 });
 	useVideoObserver(videoRef);
 
 	if (!uiString || typeof uiString !== "string") return null;
@@ -73,8 +73,8 @@ export default function MediaComponent({
 					// motion
 					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.video}
 					initial="initial"
-					// animate={isInViewVideo ? "show" : "hide"}
-					animate="show"
+					animate={isInViewVideo ? "show" : "hide"}
+					// animate="show"
 					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.video.transition}
 				></motion.video>
 				<div className={css.overlay_top} style={styleTop}></div>
@@ -98,8 +98,8 @@ export default function MediaComponent({
 					// motion
 					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.video}
 					initial="initial"
-					// animate={isInViewImage ? "show" : "hide"}
-					animate="show"
+					animate={isInViewImage ? "show" : "hide"}
+					// animate="show"
 					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.video.transition}
 				/>
 

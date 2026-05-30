@@ -42,7 +42,13 @@ export default function IntroSection({ uiString }: Props) {
 	return (
 		<section className={css.container}>
 			{/* dots */}
-			<DotsBg saturation={60} yPosition={10} />
+			<motion.div
+				variants={PROJECT_INTRO_ANIMATION.dots}
+				initial="initial"
+				animate="animate"
+			>
+				<DotsBg saturation={60} yPosition={10} />
+			</motion.div>
 
 			{/* text */}
 			<div className={css.content}>

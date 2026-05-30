@@ -1,6 +1,7 @@
 .container {
 	padding: var(--offset-base);
 	height: 100svh;
+	background-color: var(--color-gray);
 }
 
 .content {

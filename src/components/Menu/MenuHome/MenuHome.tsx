@@ -2,6 +2,9 @@
 
 // #region ============================== Imports
 
+// animation
+import { AnimatePresence, motion } from "motion/react";
+
 // components
 import Divider from "@/components/Divider/Divider";
 import LogoMenu from "@/components/Menu/LogoMenu/LogoMenu";
@@ -24,6 +27,7 @@ import { HOME_SECTIONS_ARR } from "@/constants/sectionNames";
 
 // utility
 import React from "react";
+import { MENU_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 
@@ -62,31 +66,33 @@ export default function MenuHome({ lang, menu, menuMobile }: Props) {
 	});
 
 	return (
-		<div className={css.header} style={menuOpenedStyles.header}>
-			<span className={css.container_logo}>
-				<LogoMenu isMenuOpened={isMenuOpened} />
-			</span>
-
-			<Divider style={menuOpenedStyles?.divider} />
-
-			<ContainerDesktop>
-				<Navigation menuItems={menuItems} />
-			</ContainerDesktop>
-
-			<Divider isHiddenOnMobile={true} />
-
-			<ContainerMobile
-				open={menuMobile?.open}
-				close={menuMobile?.close}
-				isMenuOpened={isMenuOpened}
-				onClick={toggleMenuMobile}
-			>
-				<Navigation menuItems={menuItems} onClick={toggleMenuMobile} />
-				<Divider isHorizontal={true} />
-				<LangSwitcher currentLang={lang} />
-			</ContainerMobile>
-
-			<LangSwitcher currentLang={lang} isHiddenOnMobile={true} />
-		</div>
+		<motion.header
+			className={css.container}
+			initial={MENU_ANIMATION.onLoadMenu.initial}
+			animate={MENU_ANIMATION.onLoadMenu.animate}
+			transition={MENU_ANIMATION.onLoadMenu.transition}
+		>
+			<div className={css.header} style={menuOpenedStyles.header}>
+				<span className={css.container_logo}>
+					<LogoMenu isMenuOpened={isMenuOpened} />
+				</span>
+				<Divider style={menuOpenedStyles?.divider} />
+				<ContainerDesktop>
+					<Navigation menuItems={menuItems} />
+				</ContainerDesktop>
+				<Divider isHiddenOnMobile={true} />
+				<ContainerMobile
+					open={menuMobile?.open}
+					close={menuMobile?.close}
+					isMenuOpened={isMenuOpened}
+					onClick={toggleMenuMobile}
+				>
+					<Navigation menuItems={menuItems} onClick={toggleMenuMobile} />
+					<Divider isHorizontal={true} />
+					<LangSwitcher currentLang={lang} />
+				</ContainerMobile>
+				<LangSwitcher currentLang={lang} isHiddenOnMobile={true} />
+			</div>
+		</motion.header>
 	);
 }

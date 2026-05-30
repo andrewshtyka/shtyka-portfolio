@@ -5,7 +5,6 @@ import IntroSection from "./_components/IntroSection/IntroSection";
 import ContentSection from "./_components/ContentSection/ContentSection";
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
-import Menu from "@/components/Menu/Menu";
 // import Nav from "./_components/Nav/Nav";
 
 // constants
@@ -28,6 +27,7 @@ import type { Metadata } from "next";
 
 // utility
 import { notFound } from "next/navigation";
+import MenuNotHome from "@/components/Menu/MenuNotHome/MenuNotHome";
 
 // #endregion ===========================
 
@@ -116,12 +116,8 @@ export default async function ProjectPage({ params }: Props) {
 
 	return (
 		<main className={css.container}>
-			<Menu
-				lang={lang}
-				menu={uiGlobal?.menu}
-				menuMobile={uiGlobal?.menuMobile}
-				buttonHome={uiGlobal?.buttonHome}
-			/>
+			<MenuNotHome lang={lang} buttonHome={uiGlobal?.buttonHome} />
+
 			{/* <Nav uiString={UI_NAV_STRING} /> */}
 			<IntroSection uiString={UI_INTRO_STRING} />
 			<ContentSection

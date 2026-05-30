@@ -60,10 +60,6 @@ npm install
   next js docs - (Memoizing data requests) - https://nextjs.org/docs/app/getting-started/metadata-and-og-images
   base url - https://www.w3.org/TR/2011/WD-html5-author-20110809/the-base-element.html
 
-- Animation of transition between pages (fade):
-  - Clean up file and set up transition
-  - Do for Language change.
-
 - Nav bar:
   - Connect with sections (anchor links)
   - Appear when enter section with content (hide when on top of page)
@@ -140,6 +136,10 @@ Project page:
 - Write user language to cookies
 
 - Error page
+
+- Animation of transition between pages (fade):
+  - Clean up file and set up transition
+  - Do for Language change.
 
 <br />
 

@@ -24,6 +24,7 @@ export default function DotsBg({
 	yPosition = 25,
 	saturation = 40,
 	offset = 400,
+	zIndex = -1,
 }: Props) {
 	// parallax scroll
 	const ref = React.useRef<HTMLDivElement | null>(null);
@@ -49,6 +50,7 @@ export default function DotsBg({
 				y: yValue,
 				maskImage,
 				backgroundImage,
+				zIndex,
 			}}
 		></motion.div>
 	);

@@ -61,6 +61,30 @@ export const MENU_ANIMATION = {
 	},
 };
 
+export const MENU_NO_HOME_ANIMATION = {
+	transition: {
+		duration: 0.3,
+	},
+	onLoadMenu: {
+		initial: { transform: "translateY(-150%)" },
+		animate: { transform: "translateY(0%)" },
+		transition: {
+			duration: 1,
+			delay: 0.5,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+	mobile: {
+		initial: { height: 0 },
+		animate: { height: "auto" },
+		exit: { height: 0 },
+		transition: {
+			duration: 0.5,
+			ease: [0.25, 0, 0, 1] as const,
+		},
+	},
+};
+
 export const SECTION_HERO_ANIMATION = {
 	video: {
 		initial: {
@@ -806,76 +830,22 @@ export const PROJECT_INTRO_ANIMATION = {
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
-
-	// ???
-	title_2: {
-		initial: {
-			opacity: 0,
-		},
-		animate: {
-			opacity: 1,
-		},
-		transition: {
-			duration: 0.0000001,
-			delay: 1.3,
-		},
-	},
 	dots: {
 		initial: {
 			opacity: 0,
 		},
 		animate: {
 			opacity: 1,
-		},
-		transition: {
-			duration: 1,
-			delay: 1.7,
-			ease: [0.25, 0, 0, 1] as const,
-		},
-	},
-	list: {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
 			transition: {
-				delayChildren: 1.5,
-				staggerChildren: 0.05,
-			},
-		},
-	},
-	listItem: {
-		hidden: {
-			opacity: 0,
-			y: 16,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 1,
+				duration: 4,
 				ease: [0.25, 0, 0, 1] as const,
 			},
-		},
-	},
-	button: {
-		initial: {
-			opacity: 0,
-			y: 16,
-		},
-		animate: {
-			opacity: 1,
-			y: 0,
-		},
-		transition: {
-			duration: 1,
-			delay: 2,
-			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
 };
 
 /**
- * Error page
+ * ================================================== Error page
  */
 
 export const ERROR_ANIMATION = {
@@ -908,11 +878,15 @@ export const ERROR_ANIMATION = {
 	title: {
 		initial: {
 			opacity: 0,
+			y: 16,
 		},
 		animate: {
 			opacity: 1,
+			y: 0,
 			transition: {
-				duration: 0.0000001,
+				duration: 1,
+				delay: 0.1,
+				ease: [0.25, 0, 0, 1] as const,
 			},
 		},
 	},
@@ -939,6 +913,19 @@ export const ERROR_ANIMATION = {
 			y: 0,
 			transition: {
 				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
+		},
+	},
+	dots: {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+			transition: {
+				duration: 2,
+				delay: 0.5,
 				ease: [0.25, 0, 0, 1] as const,
 			},
 		},
