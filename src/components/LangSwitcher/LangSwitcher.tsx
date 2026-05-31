@@ -4,6 +4,7 @@
 
 // components
 import { MenuLinkSecondary } from "../MenuLink/MenuLink";
+import IconGlobe from "../Icons/IconGlobe/IconGlobe";
 
 // styles
 import css from "./LangSwitcher.module.css";
@@ -40,9 +41,9 @@ export default function LangSwitcher({
 		<span className={classes}>
 			<MenuLinkSecondary
 				href={targetPath}
-				isTransparent={true}
 				scroll={false}
 				onClick={setLocaleCookie}
+				icon={<IconGlobe/>}
 			>
 				{currentLang === "ua" ? "Eng" : "Укр"}
 			</MenuLinkSecondary>

@@ -33,14 +33,6 @@
 	position: relative;
 }
 
-.transparent {
-	color: var(--color-base-alpha-xxl);
-}
-
-.solid {
-	color: var(--color-base);
-}
-
 .list_item {
 	display: flex;
 	align-items: center;

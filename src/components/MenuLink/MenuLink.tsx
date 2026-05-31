@@ -36,13 +36,8 @@ export function MenuLinkPrimary({
 	layoutId,
 	isActive,
 	onClick = undefined,
-	isTransparent = false,
 }: PropsPrimary) {
-	const transparencyClass = isTransparent
-		? `${css.transparent}`
-		: `${css.solid}`;
-
-	const classes = `${css.base} ${transparencyClass} f_display_buttons f_semibold `;
+	const classes = `${css.base} f_display_buttons f_semibold `;
 
 	const ref = React.useRef<HTMLButtonElement>(null);
 	const { play } = useLinkHover(ref);
@@ -84,18 +79,11 @@ export function MenuLinkPrimary({
 export function MenuLinkSecondary({
 	children = "",
 	href,
-	isTransparent = false,
 	scroll = true,
 	onClick = undefined,
 	icon,
 	direction = "left",
 }: PropsSecondary) {
-	const transparencyClass = isTransparent
-		? `${css.transparent}`
-		: `${css.solid}`;
-
-	const classes = `${css.base} ${transparencyClass} `;
-
 	const ref = React.useRef<HTMLAnchorElement>(null);
 	const { play } = useLinkHover(ref);
 
@@ -110,7 +98,7 @@ export function MenuLinkSecondary({
 	return (
 		<Link
 			href={href}
-			className={`f_display_buttons f_semibold ${classes}`}
+			className={`f_display_buttons f_semibold ${css.base}`}
 			scroll={scroll}
 			onClick={onClick}
 			onMouseEnter={() => {
