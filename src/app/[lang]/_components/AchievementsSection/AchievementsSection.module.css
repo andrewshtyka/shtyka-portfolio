@@ -1,7 +1,7 @@
 .container {
 	border: var(--space-px) solid var(--color-border-light);
 	border-radius: var(--border-radius-main);
-	background-color: var(--color-background-solid);
+	background-color: var(--color-background-transparent-light);
 
 	padding: var(--offset-base);
 	margin-block-end: var(--offset-base);
