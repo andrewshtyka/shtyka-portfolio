@@ -34,7 +34,7 @@ export default function HoverBar({
 }: Props) {
 	// 1. config
 	const [isVisibleHover, setIsVisibleHover] = React.useState(false);
-	const refHoverBar = React.useRef<HTMLDivElement>(null);
+	const ref = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {
 		if (!refTarget) return;
@@ -43,7 +43,7 @@ export default function HoverBar({
 			return () => setIsVisibleHover(false);
 		});
 	}, [refTarget]);
-	useFollowCursor(refHoverBar, refTarget, shape);
+	useFollowCursor(ref, refTarget, shape);
 
 	// 2. animate from (direction)
 	type PathConfig = {
@@ -85,7 +85,7 @@ export default function HoverBar({
 	return (
 		<span className={css.is_mob_hidden}>
 			<motion.div
-				ref={refHoverBar}
+				ref={ref}
 				className={classesApplied}
 				initial={{
 					clipPath: `inset(${pathConfig.end} round ${pathConfig.radius})`,

@@ -7,6 +7,8 @@ import Magnetic from "../Magnetic/Magnetic";
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
 import { useBlur } from "@/hooks/useBlur";
 
+// providers / context
+
 // styles
 import css from "./Tag.module.css";
 

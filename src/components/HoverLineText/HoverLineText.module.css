@@ -1,0 +1,29 @@
+.container {
+	position: absolute;
+	color: var(--color-gray);
+	pointer-events: none;
+
+	background-color: var(--color-base);
+
+	display: flex;
+	width: var(--space-18);
+	border-radius: var(--border-radius-tetriary);
+
+	z-index: 0;
+	overflow: clip;
+}
+
+.container_text {
+	text-wrap: nowrap;
+	padding-inline-end: var(--space-3);
+}
+
+.is_mob_hidden {
+	display: none;
+}
+
+@media (width >= 768px) {
+	.is_mob_hidden {
+		display: initial;
+	}
+}

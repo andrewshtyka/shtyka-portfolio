@@ -27,14 +27,6 @@
 	text-align: center;
 }
 
-.isLink {
-	cursor: pointer;
-}
-
-.isNotLink {
-	pointer-events: none;
-}
-
 .container_hover_icon {
 	display: flex;
 	justify-content: flex-end;

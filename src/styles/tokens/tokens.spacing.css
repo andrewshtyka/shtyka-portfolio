@@ -27,6 +27,7 @@
 	/* Border-radius */
 	--border-radius-main: var(--space-6);
 	--border-radius-secondary: var(--space-4);
+	--border-radius-tetriary: var(--space-2);
 
 	/* Content width */
 	--content-wide-width-max: calc(var(--space-18) * 10); /* 960px */

@@ -12,6 +12,7 @@ import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 // providers
 import { TooltipProvider } from "@/providers/TooltipProvider/TooltipProvider";
 import { ProjectInViewProvider } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
+import { HoverLineProvider } from "@/providers/HoverLineProvider/HoverLineProvider";
 
 // styles
 import "@/styles/globals.css";
@@ -45,7 +46,9 @@ export default async function RootLayout({
 					<DynamicCSS />
 					<TooltipProvider>
 						<ProjectInViewProvider>
-							<LayoutContainer>{children}</LayoutContainer>
+							<HoverLineProvider>
+								<LayoutContainer>{children}</LayoutContainer>
+							</HoverLineProvider>
 						</ProjectInViewProvider>
 					</TooltipProvider>
 				</LayoutTransition>

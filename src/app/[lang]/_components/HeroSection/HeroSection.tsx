@@ -18,6 +18,9 @@ import { HOME_SECTIONS } from "@/constants/sectionNames";
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
+// providers / context
+import { HoverLineContext } from "@/providers/HoverLineProvider/HoverLineProvider";
+
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
 import { client } from "@/sanity/lib/client";
@@ -32,12 +35,15 @@ import { Props } from "./HeroSection.types";
 import React from "react";
 import { SECTION_HERO_ANIMATION } from "@/constants/animation";
 import { fixTypography } from "@/lib/util/fixTypography";
+import HoverLineText from "@/components/HoverLineText/HoverLineText";
 
 // #endregion ===========================
 
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
+	const { setIsVisibleHover } = React.useContext(HoverLineContext);
+
 	// texts animation
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
@@ -51,6 +57,9 @@ export default function HeroSection({ uiString }: Props) {
 		}, 3000);
 		return () => clearInterval(id);
 	}, [playSubtitle]);
+
+	// animation - line on hover
+	const refTarget = React.useRef<HTMLDivElement>(null);
 
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
@@ -69,10 +78,14 @@ export default function HeroSection({ uiString }: Props) {
 		<section id={HOME_SECTIONS.index} className={css.container}>
 			<Video video={ui?.video?.video} poster={ui?.video?.poster} />
 
-			<div className={css.container_content}>
+			<div ref={refTarget} className={css.container_content}>
 				<div className={`${css.content} content_padding_limit`}>
 					{/* Left part */}
-					<div className={css.container_primary}>
+					<div
+						className={css.container_primary}
+						onMouseEnter={() => setIsVisibleHover(false)}
+						onMouseLeave={() => setIsVisibleHover(true)}
+					>
 						{/* title */}
 						<div className={css.container_title}>
 							<motion.h1
@@ -127,7 +140,11 @@ export default function HeroSection({ uiString }: Props) {
 					</motion.div>
 
 					{/* Right part */}
-					<div className={css.container_secondary}>
+					<div
+						className={css.container_secondary}
+						onMouseEnter={() => setIsVisibleHover(false)}
+						onMouseLeave={() => setIsVisibleHover(true)}
+					>
 						<motion.ul
 							className={css.list}
 							variants={SECTION_HERO_ANIMATION.list}
@@ -171,6 +188,12 @@ export default function HeroSection({ uiString }: Props) {
 					</div>
 				</div>
 			</div>
+
+			<HoverLineText
+				refTarget={refTarget}
+				shape="line"
+				title={ui?.scrollLabel}
+			/>
 		</section>
 	);
 }

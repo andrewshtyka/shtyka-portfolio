@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 
-type Shape = "rectangle" | "circle";
+type Shape = "rectangle" | "circle" | "line";
 type ShapeConfig = {
 	x: number;
 	y: number;
@@ -10,6 +10,7 @@ type ShapeConfig = {
 const SHAPE_CONFIGS: Record<Shape, ShapeConfig> = {
 	rectangle: { x: 3.5, y: 1.5 },
 	circle: { x: 1.7, y: 1.4 },
+	line: { x: 100, y: 0.75 },
 };
 
 export default function useFollowCursor(
