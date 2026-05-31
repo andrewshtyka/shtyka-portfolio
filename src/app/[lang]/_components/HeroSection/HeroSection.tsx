@@ -51,7 +51,7 @@ export default function HeroSection({ uiString }: Props) {
 	React.useEffect(() => {
 		const id = setInterval(() => {
 			playSubtitle?.();
-		}, 3000);
+		}, 4000);
 		return () => clearInterval(id);
 	}, [playSubtitle]);
 
