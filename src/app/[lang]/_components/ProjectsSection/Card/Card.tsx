@@ -59,16 +59,12 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 
 	return (
 		<Magnetic yPower={0.1}>
-			<li className={css.container}>
-				<HoverBar
-					refTarget={refTarget}
-					title={buttonTitle}
-					from="left"
-				/>
+			<Link href={`/${lang}/projects/${ui?.slug?.current}`}>
+				<li className={css.container}>
+					<HoverBar refTarget={refTarget} title={buttonTitle} from="left" />
 
-				{/* link - card content */}
-				<span ref={refTarget}>
-					<Link href={`/${lang}/projects/${ui?.slug?.current}`}>
+					{/* link - card content */}
+					<span ref={refTarget}>
 						{/* video */}
 						<div className={css.container_video}>
 							<VideoProject
@@ -76,6 +72,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 								poster={ui?.heroVideo?.poster}
 							/>
 						</div>
+
 						{/* info */}
 						<div className={css.container_details}>
 							{/* title */}
@@ -143,9 +140,9 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 							</ButtonPrimary>
 						</motion.div> */}
 						</div>
-					</Link>
-				</span>
-			</li>
+					</span>
+				</li>
+			</Link>
 		</Magnetic>
 	);
 }

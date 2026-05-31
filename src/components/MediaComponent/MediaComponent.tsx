@@ -32,9 +32,9 @@ export const MotionImage = motion.create(Image);
 export default function MediaComponent({
 	uiString,
 	hasTop = true,
-	topHeight = 20,
+	topHeight = 30,
 	hasBottom = true,
-	bottomHeight = 30,
+	bottomHeight = 20,
 }: Props) {
 	const videoRef = React.useRef<HTMLVideoElement>(null);
 	const imageRef = React.useRef<HTMLImageElement>(null);

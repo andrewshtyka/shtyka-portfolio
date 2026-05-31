@@ -56,10 +56,60 @@ export default function Card({ data }: Props) {
 	}, [isSubtitleInView, playSubtitle]);
 
 	// animation - button on hover
-	const refTarget = React.useRef<HTMLDivElement>(null);
+	const refTarget = React.useRef<HTMLAnchorElement>(null);
 
 	if (!data) return null;
 
+	// image
+	if (!data?.link) {
+		return (
+			<Magnetic>
+				<motion.li
+					className={css.article}
+					style={getStylesExperiments(data?.media[0]?.cardWidth)}
+					variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
+					viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
+				>
+					<span>
+						<div ref={refTarget} className={css.container_media}>
+							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+						</div>
+					</span>
+
+					<div>
+						<motion.h3
+							ref={refTitle}
+							className={`${css.title} f_display_body`}
+							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							initial="initial"
+							whileInView="animate"
+							transition={
+								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+							}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+						>
+							{data?.content?.title ?? ""}
+						</motion.h3>
+						<motion.p
+							ref={refSubtitle}
+							className={`${css.subtitle} f_mono`}
+							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							initial="initial"
+							whileInView="animate"
+							transition={
+								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+							}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+						>
+							{data?.content?.description ?? ""}
+						</motion.p>
+					</div>
+				</motion.li>
+			</Magnetic>
+		);
+	}
+
+	// video
 	return (
 		<Magnetic>
 			<motion.li
@@ -68,56 +118,49 @@ export default function Card({ data }: Props) {
 				variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
 				viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
 			>
-				{/* media */}
+				<a ref={refTarget} href={data?.link?.link} className={css.link}>
 
-				{data?.link ? (
-					<a href={data?.link?.link}>
-						<div ref={refTarget} className={css.container_media}>
+						<div className={css.container_media}>
 							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
 						</div>
-						<HoverBar
-							refTarget={refTarget}
-							title={data?.link?.title}
-							from="left"
-							shape="circle"
-						/>
-					</a>
-				) : (
-					<span>
-						<div ref={refTarget} className={css.container_media}>
-							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
-						</div>
-					</span>
-				)}
 
-				<div>
-					<motion.h3
-						ref={refTitle}
-						className={`${css.title} f_display_body`}
-						variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
-						initial="initial"
-						whileInView="animate"
-						transition={
-							SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-						}
-						viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
-					>
-						{data?.content?.title ?? ""}
-					</motion.h3>
-					<motion.p
-						ref={refSubtitle}
-						className={`${css.subtitle} f_mono`}
-						variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
-						initial="initial"
-						whileInView="animate"
-						transition={
-							SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-						}
-						viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
-					>
-						{data?.content?.description ?? ""}
-					</motion.p>
-				</div>
+					<HoverBar
+						refTarget={refTarget}
+						title={data?.link?.title}
+						from="left"
+						shape="circle"
+					/>
+
+					<div></div>
+					<div>
+						<motion.h3
+							ref={refTitle}
+							className={`${css.title} f_display_body`}
+							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							initial="initial"
+							whileInView="animate"
+							transition={
+								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+							}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+						>
+							{data?.content?.title ?? ""}
+						</motion.h3>
+						<motion.p
+							ref={refSubtitle}
+							className={`${css.subtitle} f_mono`}
+							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							initial="initial"
+							whileInView="animate"
+							transition={
+								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+							}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+						>
+							{data?.content?.description ?? ""}
+						</motion.p>
+					</div>
+				</a>
 			</motion.li>
 		</Magnetic>
 	);

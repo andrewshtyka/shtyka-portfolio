@@ -1,8 +1,8 @@
 .article {
 	flex: 1;
 	height: var(--height-card-experiment);
+	padding: var(--space-4);
 
-	padding: var(--space-8);
 
 	border: var(--space-px) solid var(--color-border-light);
 	border-radius: var(--border-radius-main);
@@ -13,6 +13,15 @@
 
 	position: relative;
 	overflow: hidden;
+}
+
+.link {
+	flex: 1;
+	padding: var(--space-4);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .container_media {
