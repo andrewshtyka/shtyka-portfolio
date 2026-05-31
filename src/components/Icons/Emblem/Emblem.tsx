@@ -1,7 +1,14 @@
+"use client";
+
+// hooks
+import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
+
 // types
 import { Props } from "./Emblem.types";
 
 export default function Emblem({ color = "white", size = 20 }: Props) {
+	useRefreshOnResize();
+
 	let appliedColor;
 	if (color === "white") appliedColor = "var(--color-base)";
 	else if (color === "black") appliedColor = "var(--color-gray)";

@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { AnimatePresence, motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 
 // components
 import Emblem from "../Icons/Emblem/Emblem";
@@ -18,7 +18,6 @@ import { ERROR_ANIMATION } from "@/constants/animation";
 import { fontDisplay, fontMono, fontSerif } from "@/lib/util/importFonts";
 
 // hooks
-import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 
 // providers / context
 
@@ -36,8 +35,6 @@ import { fixTypography } from "@/lib/util/fixTypography";
 // #endregion ===========================
 
 export default function ErrorClient({ uiString, lang }: Props) {
-	useRefreshOnResize();
-
 	const ui = JSON.parse(uiString)?.error404 ?? {};
 
 	React.useEffect(() => {
