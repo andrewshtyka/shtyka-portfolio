@@ -1,4 +1,4 @@
 export interface Props {
 	uiString: string;
-	buttonTitle: string;
+	buttonTitle?: string;
 }

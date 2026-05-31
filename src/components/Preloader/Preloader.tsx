@@ -23,9 +23,9 @@ export default function Preloader() {
 		const fontsReady = document.fonts.ready;
 
 		Promise.all([minDelay, resourcesReady, fontsReady]).then(() => {
-			document.body.style.overflow = "visible";
+			// document.body.style.overflow = "visible";
 			document.body.style.cursor = "default";
-			window.scrollTo(0, 0);
+			// window.scrollTo(0, 0);
 			setVisible(false);
 		});
 	}, []);

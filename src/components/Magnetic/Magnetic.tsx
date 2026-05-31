@@ -10,7 +10,11 @@ import { Props } from "./Magnetic.types";
 // utility
 import React from "react";
 
-export default function Magnetic({ children }: Props) {
+export default function Magnetic({
+	children,
+	yPower = 0.5,
+	xPower = 0.1,
+}: Props) {
 	const magnetic = React.useRef<HTMLElement>(null);
 
 	useGSAP(
@@ -34,8 +38,8 @@ export default function Magnetic({ children }: Props) {
 				const x = clientX - (left + width / 2);
 				const y = clientY - (top + height / 2);
 
-				xTo(x * 0.1);
-				yTo(y * 0.5);
+				xTo(x * xPower);
+				yTo(y * yPower);
 			};
 
 			const handleMouseLeave = () => {

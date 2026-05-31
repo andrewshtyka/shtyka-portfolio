@@ -31,6 +31,12 @@
 	justify-content: flex-end;
 }
 
+.container_bottom {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
 .title {
 	margin-block-end: var(--space-2);
 }

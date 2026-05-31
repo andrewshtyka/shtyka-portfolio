@@ -6,12 +6,15 @@
 import { motion, useInView } from "motion/react";
 
 // components
-import ButtonSecondary from "@/components/ButtonSecondary/ButtonSecondary";
-import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 import MediaComponent from "../../../../../components/MediaComponent/MediaComponent";
+import Magnetic from "@/components/Magnetic/Magnetic";
+import HoverBar from "@/components/HoverBar/HoverBar";
 
 // constants
 import { SECTION_EXPERIMENTS_ANIMATION } from "@/constants/animation";
+
+// hooks
+import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // styles
 import css from "./Card.module.css";
@@ -24,7 +27,6 @@ import { getStylesExperiments } from "@/lib/util/getStyles";
 
 // utility
 import React from "react";
-import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // #endregion ===========================
 
@@ -53,57 +55,70 @@ export default function Card({ data }: Props) {
 		if (isSubtitleInView) playSubtitle?.();
 	}, [isSubtitleInView, playSubtitle]);
 
+	// animation - button on hover
+	const refTarget = React.useRef<HTMLDivElement>(null);
+
 	if (!data) return null;
 
 	return (
-		<motion.li
-			className={css.article}
-			style={getStylesExperiments(data?.media[0]?.cardWidth)}
-			variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
-			viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
-		>
-			{/* media */}
-			<div className={css.container_media}>
-				<MediaComponent uiString={JSON.stringify(data?.media[0])} />
-			</div>
+		<Magnetic>
+			<motion.li
+				className={css.article}
+				style={getStylesExperiments(data?.media[0]?.cardWidth)}
+				variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
+				viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
+			>
+				{/* media */}
 
-			{/* top */}
-			<div className={css.top}>
-				{data?.link && (
-					<ButtonSecondary
-						href={data?.link?.link}
-						icon={<IconArrowCurve direction="right" size={10} />}
-					>
-						{data?.link?.title}
-					</ButtonSecondary>
+				{data?.link ? (
+					<a href={data?.link?.link}>
+						<div ref={refTarget} className={css.container_media}>
+							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+						</div>
+						<HoverBar
+							refTarget={refTarget}
+							title={data?.link?.title}
+							from="left"
+							shape="circle"
+						/>
+					</a>
+				) : (
+					<span>
+						<div ref={refTarget} className={css.container_media}>
+							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+						</div>
+					</span>
 				)}
-			</div>
 
-			{/* bottom */}
-			<div>
-				<motion.h3
-					ref={refTitle}
-					className={`${css.title} f_display_body`}
-					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
-					initial="initial"
-					whileInView="animate"
-					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition}
-					viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
-				>
-					{data?.content?.title ?? ""}
-				</motion.h3>
-				<motion.p
-					ref={refSubtitle}
-					className={`${css.subtitle} f_mono`}
-					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
-					initial="initial"
-					whileInView="animate"
-					transition={SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition}
-					viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
-				>
-					{data?.content?.description ?? ""}
-				</motion.p>
-			</div>
-		</motion.li>
+				<div>
+					<motion.h3
+						ref={refTitle}
+						className={`${css.title} f_display_body`}
+						variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+						initial="initial"
+						whileInView="animate"
+						transition={
+							SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+						}
+						viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+					>
+						{data?.content?.title ?? ""}
+					</motion.h3>
+					<motion.p
+						ref={refSubtitle}
+						className={`${css.subtitle} f_mono`}
+						variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+						initial="initial"
+						whileInView="animate"
+						transition={
+							SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
+						}
+						viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+					>
+						{data?.content?.description ?? ""}
+					</motion.p>
+				</div>
+			</motion.li>
+		</Magnetic>
 	);
 }
