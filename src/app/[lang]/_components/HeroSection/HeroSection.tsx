@@ -19,7 +19,6 @@ import { HOME_SECTIONS } from "@/constants/sectionNames";
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
 
 // providers / context
-import { HoverLineContext } from "@/providers/HoverLineProvider/HoverLineProvider";
 
 // sanity
 import { getFileAsset } from "@sanity/asset-utils";
@@ -42,9 +41,6 @@ import HoverLineText from "@/components/HoverLineText/HoverLineText";
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
-	// infinite line
-	const { setIsVisibleHover } = React.useContext(HoverLineContext);
-
 	// texts animation
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
@@ -82,11 +78,7 @@ export default function HeroSection({ uiString }: Props) {
 			<div ref={refTarget} className={css.container_content}>
 				<div className={`${css.content} content_padding_limit`}>
 					{/* Left part */}
-					<div
-						className={css.container_primary}
-						onMouseEnter={() => setIsVisibleHover(false)}
-						onMouseLeave={() => setIsVisibleHover(true)}
-					>
+					<div className={css.container_primary}>
 						{/* title */}
 						<div className={css.container_title}>
 							<motion.h1
@@ -141,11 +133,7 @@ export default function HeroSection({ uiString }: Props) {
 					</motion.div>
 
 					{/* Right part */}
-					<div
-						className={css.container_secondary}
-						onMouseEnter={() => setIsVisibleHover(false)}
-						onMouseLeave={() => setIsVisibleHover(true)}
-					>
+					<div className={css.container_secondary}>
 						<motion.ul
 							className={css.list}
 							variants={SECTION_HERO_ANIMATION.list}

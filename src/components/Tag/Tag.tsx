@@ -8,6 +8,7 @@ import { useLinkHover } from "@/hooks/animation/useLinkHover";
 import { useBlur } from "@/hooks/useBlur";
 
 // providers / context
+import { HoverLineContext } from "@/providers/HoverLineProvider/HoverLineProvider";
 
 // styles
 import css from "./Tag.module.css";
@@ -33,7 +34,9 @@ export default function Tag({ children = "", href }: Props) {
 				className={`${css.link} f_mono`}
 				target="_blank"
 				rel="noopener noreferrer"
-				onMouseEnter={play}
+				onMouseEnter={() => {
+					play?.();
+				}}
 				onFocus={play}
 			>
 				<span ref={ref}>{children}</span>

@@ -12,7 +12,6 @@ import ExperimentsSection from "@/app/[lang]/_components/ExperimentsSection/Expe
 import ContactSection from "@/components/ContactSection/ContactSection";
 import Footer from "@/components/Footer/Footer";
 import MenuHome from "@/components/Menu/MenuHome/MenuHome";
-import HomeClient from "./_components/HomeClient/HomeClient";
 
 // constants
 import {
@@ -109,34 +108,32 @@ export default async function HomePage({ params }: Props) {
 
 			<HeroSection uiString={uiStringHero} />
 
-			<HomeClient>
-				<div className={css.container}>
-					<div id={HOME_SECTIONS.bio}>
-						<AboutSection uiString={uiStringAbout} />
-						<ExperienceSection uiString={uiStringExperience} />
-						<AchievementsSection uiString={uiStringAchievements} />
+			<div className={css.container}>
+				<div id={HOME_SECTIONS.bio}>
+					<AboutSection uiString={uiStringAbout} />
+					<ExperienceSection uiString={uiStringExperience} />
+					<AchievementsSection uiString={uiStringAchievements} />
 
-						<div className={css.double}>
-							<ClientsSection uiString={uiStringClients} />
-							<ResumeSection uiString={uiStringResume} />
-						</div>
+					<div className={css.double}>
+						<ClientsSection uiString={uiStringClients} />
+						<ResumeSection uiString={uiStringResume} />
 					</div>
-
-					<ProjectsSection
-						uiString={uiStringProjects}
-						projectsString={homeProjectsString}
-					/>
-					<ExperimentsSection
-						uiString={uiStringExperiments}
-						experimentsString={homeExperimentsString}
-					/>
 				</div>
 
-				<div className={css.container_footer}>
-					<ContactSection uiString={uiStringContact} />
-					<Footer obj={uiGlobal?.footer} lang={lang} />
-				</div>
-			</HomeClient>
+				<ProjectsSection
+					uiString={uiStringProjects}
+					projectsString={homeProjectsString}
+				/>
+				<ExperimentsSection
+					uiString={uiStringExperiments}
+					experimentsString={homeExperimentsString}
+				/>
+			</div>
+
+			<div className={css.container_footer}>
+				<ContactSection uiString={uiStringContact} />
+				<Footer obj={uiGlobal?.footer} lang={lang} />
+			</div>
 		</main>
 	);
 }

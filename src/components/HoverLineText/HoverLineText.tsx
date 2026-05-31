@@ -40,13 +40,28 @@ export default function HoverLineText({
 
 	// 2. config
 	const ref = React.useRef<HTMLDivElement>(null);
+
 	React.useEffect(() => {
-		if (!refTarget) return;
-		return hover(refTarget.current, () => {
-			setIsVisibleHover(true);
-			return () => setIsVisibleHover(false);
-		});
+		if (!refTarget?.current) return;
+		const el = refTarget.current;
+
+		const handleMouseMove = (e: MouseEvent) => {
+			const target = e.target as HTMLElement;
+			const isInteractive = !!target.closest("a, button");
+			setIsVisibleHover(!isInteractive);
+		};
+
+		const handleMouseLeave = () => setIsVisibleHover(false);
+
+		el.addEventListener("mousemove", handleMouseMove as EventListener);
+		el.addEventListener("mouseleave", handleMouseLeave);
+
+		return () => {
+			el.removeEventListener("mousemove", handleMouseMove as EventListener);
+			el.removeEventListener("mouseleave", handleMouseLeave);
+		};
 	}, [refTarget, setIsVisibleHover]);
+
 	useFollowCursor(ref, refTarget, shape);
 
 	// 3. infinite scroll
