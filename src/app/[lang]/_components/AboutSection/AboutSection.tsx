@@ -3,12 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import {
-	motion,
-	useScroll,
-	useTransform,
-	useInView,
-} from "motion/react";
+import { motion, useScroll, useTransform, useInView } from "motion/react";
 
 // components
 import LinkText from "@/components/LinkText/LinkText";
@@ -17,6 +12,8 @@ import TooltipImage from "@/components/TooltipImage/TooltipImage";
 
 // constants
 import { SECTION_ABOUT_ANIMATION } from "@/constants/animation";
+
+// providers / context
 
 // styles
 import css from "./AboutSection.module.css";

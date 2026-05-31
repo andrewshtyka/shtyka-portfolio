@@ -54,11 +54,13 @@ export default function HoverLineText({
 	useGSAP(
 		() => {
 			const el = refText.current;
+			if (!el) return;
 
-			const clone = el?.cloneNode(true) as HTMLElement;
-			el?.parentElement!.appendChild(clone);
+			const parent = el.parentElement!;
+			const clone = el.cloneNode(true) as HTMLElement;
+			parent.appendChild(clone);
 
-			gsap.fromTo(
+			const tween = gsap.fromTo(
 				[el, clone],
 				{ x: 0 },
 				{
@@ -68,8 +70,15 @@ export default function HoverLineText({
 					repeat: -1,
 				}
 			);
+
+			return () => {
+				tween.kill();
+				if (clone.parentNode === parent) {
+					parent.removeChild(clone);
+				}
+			};
 		},
-		{ scope: refText }
+		{ scope: refText, dependencies: [speed] }
 	);
 
 	const classesApplied = `${css.container}`;

@@ -42,6 +42,7 @@ import HoverLineText from "@/components/HoverLineText/HoverLineText";
 const { projectId, dataset } = client.config();
 
 export default function HeroSection({ uiString }: Props) {
+	// infinite line
 	const { setIsVisibleHover } = React.useContext(HoverLineContext);
 
 	// texts animation
