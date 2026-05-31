@@ -46,9 +46,29 @@ export default function HoverBar({
 	useFollowCursor(refHoverBar, refTarget, shape);
 
 	// 2. animate from (direction)
-	let pathConfig;
-	if (from === "left") pathConfig = "0% 100% 0% 0%";
-	else if (from === "left top") pathConfig = "0% 100% 100% 0%";
+	type PathConfig = {
+		start: string;
+		end: string;
+		radius: string;
+	};
+	const pathConfig: PathConfig = {
+		start: "0% 0% 0% 0%",
+		end: "0% 0% 0% 0%",
+		radius: "var(--border-radius-main)",
+	};
+	if (from === "left") {
+		pathConfig.start = "0% 0% 0% 0%";
+		pathConfig.end = "0% 100% 0% 0%";
+		pathConfig.radius = "var(--border-radius-main)";
+	} else if (from === "left top") {
+		pathConfig.start = "0% 0% 0% 0%";
+		pathConfig.end = "0% 100% 100% 0%";
+		pathConfig.radius = "var(--border-radius-main)";
+	} else if (from === "center") {
+		pathConfig.start = "0% 0% 0% 0%";
+		pathConfig.end = "50% 50% 50% 50%";
+		pathConfig.radius = "50%";
+	}
 
 	// 3. shape
 	let shapeClass;
@@ -68,14 +88,14 @@ export default function HoverBar({
 				ref={refHoverBar}
 				className={classesApplied}
 				initial={{
-					clipPath: `inset(${pathConfig} round var(--border-radius-main))`,
+					clipPath: `inset(${pathConfig.end} round ${pathConfig.radius})`,
 				}}
 				animate={{
 					clipPath: isVisibleHover
-						? "inset(0% 0% 0% 0% round var(--border-radius-main)"
-						: `inset(${pathConfig} round var(--border-radius-main)`,
+						? `inset(${pathConfig.start} round ${pathConfig.radius})`
+						: `inset(${pathConfig.end} round ${pathConfig.radius})`,
 				}}
-				transition={{ duration: 0.3, ease: "easeOut" }}
+				transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
 			>
 				{title}
 				{isIconVisible && (

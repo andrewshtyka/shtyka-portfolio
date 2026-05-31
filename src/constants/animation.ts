@@ -2,6 +2,8 @@
  * ================================================== Components
  */
 
+import { Variants } from "motion/react";
+
 export const TOOLTIP_DELAY = 100;
 
 export const LINK_ANIMATION_CSS = {
@@ -931,3 +933,45 @@ export const ERROR_ANIMATION = {
 		},
 	},
 };
+
+/**
+ * ================================================== Preloader
+ */
+
+export const PRELOADER_ANIMATION = {
+	bg: {
+		initial: { opacity: 0 },
+		animate: {
+			opacity: 1,
+			transition: {
+				duration: 0.25,
+			},
+		},
+		exit: {
+			opacity: 0,
+			transition: {
+				duration: 0.5,
+				ease: "easeOut",
+				delay: 0.3,
+			},
+		},
+	},
+	icon: {
+		initial: { scale: 0.9 },
+		animate: {
+			scale: 1,
+			transition: {
+				duration: 1,
+				ease: "easeOut",
+			},
+		},
+		exit: {
+			opacity: 0,
+			transition: {
+				duration: 0.75,
+				ease: "easeOut",
+				delay: 0,
+			},
+		},
+	},
+} as const;

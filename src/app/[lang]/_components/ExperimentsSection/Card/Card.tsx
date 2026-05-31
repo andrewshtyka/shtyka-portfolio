@@ -6,7 +6,7 @@
 import { motion, useInView } from "motion/react";
 
 // components
-import MediaComponent from "../../../../../components/MediaComponent/MediaComponent";
+import MediaComponent from "@/components/MediaComponent/MediaComponent";
 import Magnetic from "@/components/Magnetic/Magnetic";
 import HoverBar from "@/components/HoverBar/HoverBar";
 
@@ -56,14 +56,14 @@ export default function Card({ data }: Props) {
 	}, [isSubtitleInView, playSubtitle]);
 
 	// animation - button on hover
-	const refTarget = React.useRef<HTMLAnchorElement>(null);
+	const refTarget = React.useRef<HTMLAnchorElement | null>(null);
 
 	if (!data) return null;
 
 	// image
 	if (!data?.link) {
 		return (
-			<Magnetic>
+			<Magnetic yPower={0.1}>
 				<motion.li
 					className={css.article}
 					style={getStylesExperiments(data?.media[0]?.cardWidth)}
@@ -71,7 +71,7 @@ export default function Card({ data }: Props) {
 					viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
 				>
 					<span>
-						<div ref={refTarget} className={css.container_media}>
+						<div className={css.container_media}>
 							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
 						</div>
 					</span>
@@ -111,7 +111,7 @@ export default function Card({ data }: Props) {
 
 	// video
 	return (
-		<Magnetic>
+		<Magnetic yPower={0.1}>
 			<motion.li
 				className={css.article}
 				style={getStylesExperiments(data?.media[0]?.cardWidth)}
@@ -119,15 +119,14 @@ export default function Card({ data }: Props) {
 				viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
 			>
 				<a ref={refTarget} href={data?.link?.link} className={css.link}>
-
-						<div className={css.container_media}>
-							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
-						</div>
+					<div className={css.container_media}>
+						<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+					</div>
 
 					<HoverBar
 						refTarget={refTarget}
 						title={data?.link?.title}
-						from="left"
+						from="center"
 						shape="circle"
 					/>
 

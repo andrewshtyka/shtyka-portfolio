@@ -5,6 +5,6 @@ export interface Props {
 		HTMLDivElement | HTMLElement | HTMLLIElement | null
 	>;
 	title?: string;
-	from?: "left" | "left top";
+	from?: "left" | "left top" | "center";
 	shape?: "rectangle" | "circle";
 }

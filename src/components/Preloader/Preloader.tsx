@@ -1,8 +1,21 @@
 "use client";
+
+// #region ============================== Imports
+
+// animate
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+
+// components
 import Emblem from "../Icons/Emblem/Emblem";
+
+// styles
 import css from "./Preloader.module.css";
+
+// utility
+import { useEffect, useState } from "react";
+import { PRELOADER_ANIMATION } from "@/constants/animation";
+
+// #endregion ===========================
 
 const MIN_TIME = 750;
 
@@ -23,9 +36,8 @@ export default function Preloader() {
 		const fontsReady = document.fonts.ready;
 
 		Promise.all([minDelay, resourcesReady, fontsReady]).then(() => {
-			// document.body.style.overflow = "visible";
 			document.body.style.cursor = "default";
-			// window.scrollTo(0, 0);
+			window.scrollTo(0, 0);
 			setVisible(false);
 		});
 	}, []);
@@ -35,40 +47,17 @@ export default function Preloader() {
 			{visible && (
 				<motion.div
 					className={css.container}
-					initial={{ opacity: 0 }}
-					animate={{
-						opacity: 1,
-						transition: {
-							duration: 0.25,
-						},
-					}}
-					exit={{
-						opacity: 0,
-						transition: {
-							duration: 0.5,
-							ease: "easeOut",
-							delay: 0.3,
-						},
-					}}
+					variants={PRELOADER_ANIMATION.bg}
+					initial="initial"
+					animate="animate"
+					exit="exit"
 				>
 					<motion.div
 						className={css.icon}
-						initial={{ scale: 0.9 }}
-						animate={{
-							scale: 1,
-							transition: {
-								duration: 1,
-								ease: "easeOut",
-							},
-						}}
-						exit={{
-							opacity: 0,
-							transition: {
-								duration: 0.75,
-								ease: "easeOut",
-								delay: 0,
-							},
-						}}
+						variants={PRELOADER_ANIMATION.icon}
+						initial="initial"
+						animate="animate"
+						exit="exit"
 					>
 						<Emblem size={48} />
 					</motion.div>
