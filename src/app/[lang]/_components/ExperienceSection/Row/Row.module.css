@@ -56,10 +56,6 @@
 	}
 }
 
-.role {
-	text-transform: capitalize;
-}
-
 .company {
 	color: var(--color-text-secondary);
 }

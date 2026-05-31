@@ -71,7 +71,6 @@ export default function Row({
 				{/* col 2 */}
 				<div className={css.col_right}>
 					<motion.span
-						// ref={refRole}
 						className={`${css.role} f_display_body`}
 						variants={SECTION_EXPERIENCE_ANIMATION.line}
 						initial="initial"
@@ -86,8 +85,8 @@ export default function Row({
 					>
 						{fixTypography(role)}
 					</motion.span>
+
 					<motion.span
-						// ref={refCompany}
 						className={`${css.company} f_display_body`}
 						variants={SECTION_EXPERIENCE_ANIMATION.line}
 						initial="initial"

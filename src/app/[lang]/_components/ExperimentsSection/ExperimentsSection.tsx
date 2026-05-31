@@ -15,7 +15,6 @@ import { SECTION_EXPERIMENTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 
-
 // styles
 import IconAsterisk from "@/components/Icons/IconAsterisk/IconAsterisk";
 import css from "./ExperimentsSection.module.css";
