@@ -41,7 +41,7 @@ export default function ExperienceSection({ uiString }: Props) {
 	const ui = JSON.parse(uiString);
 
 	return (
-		<section className={css.container}>
+		<section className={`${css.container} white_selection`}>
 			<motion.h2
 				ref={refTitle}
 				className={`${css.title} f_serif_secondary`}

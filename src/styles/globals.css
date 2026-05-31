@@ -148,3 +148,13 @@ button:focus-visible {
 	outline-offset: var(--space-2);
 	border-radius: var(--border-radius-main);
 }
+
+::selection {
+	background-color: var(--select-bg);
+	color: var(--select-text);
+}
+
+.white_selection {
+	--select-bg: var(--color-gray);
+	--select-text: var(--color-base);
+}
