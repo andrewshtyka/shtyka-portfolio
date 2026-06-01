@@ -12,8 +12,6 @@
 .list {
 	flex: 1;
 
-	height: var(--height-card-project);
-
 	padding: var(--space-8);
 
 	border: var(--space-px) solid var(--color-border-light);
@@ -25,6 +23,16 @@
 
 	position: relative;
 	overflow: hidden;
+
+	height: auto;
+	aspect-ratio: 4 / 3;
+}
+
+@media (width >= 768px) {
+	.list {
+		height: var(--height-card-project);
+		aspect-ratio: none;
+	}
 }
 
 .container_media {

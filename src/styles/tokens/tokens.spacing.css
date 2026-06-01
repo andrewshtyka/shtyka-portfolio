@@ -69,6 +69,8 @@
 		(var(--content-wide-width-max) - var(--offset-base) * 2) / 2
 	);
 	--height-card-project: calc(var(--space-20) * 2); /* 512px */
+
+	--aspect-card-media: 16 / 9;
 }
 
 @media (width < 600px) {
@@ -88,6 +90,7 @@
 		--height-card-project: calc(
 			var(--space-20) * 2 - var(--space-19)
 		); /* 384px */
+		--aspect-card-media: 4 / 3;
 
 		/* Grid */
 		--col-1-width: calc((100% - var(--offset-base) * 3) / 4);

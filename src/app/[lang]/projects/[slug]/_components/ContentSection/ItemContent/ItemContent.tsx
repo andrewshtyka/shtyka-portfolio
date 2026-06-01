@@ -1,22 +1,19 @@
 "use client";
 
-import Challenge from "./Challenge/Challenge";
 // #region ============================== Imports
 
 // animation
-import { motion } from "motion/react";
 
 // components
+import Challenge from "./Challenge/Challenge";
 import Solution from "./Solution/Solution";
 import Media from "./Media/Media";
 
 // constants
-import { SECTION_PROJECTS_ANIMATION } from "@/constants/animation";
 
 // hooks
 
 // styles
-import css from "./ItemContent.module.css";
 
 // types
 import { Props } from "./ItemContent.types";

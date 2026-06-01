@@ -134,6 +134,8 @@ export default function HeroSection({ uiString }: Props) {
 
 					{/* Right part */}
 					<div className={css.container_secondary}>
+
+						{/* tags */}
 						<motion.ul
 							className={css.list}
 							variants={SECTION_HERO_ANIMATION.list}
@@ -161,6 +163,7 @@ export default function HeroSection({ uiString }: Props) {
 							)}
 						</motion.ul>
 
+						{/* button */}
 						<motion.span
 							initial={SECTION_HERO_ANIMATION.button.initial}
 							animate={SECTION_HERO_ANIMATION.button.animate}
