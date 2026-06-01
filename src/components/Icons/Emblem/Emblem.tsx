@@ -7,7 +7,7 @@ import { useRefreshOnResize } from "@/hooks/useRefreshOnResize";
 import { Props } from "./Emblem.types";
 
 export default function Emblem({ color = "white", size = 20 }: Props) {
-	// useRefreshOnResize();
+	useRefreshOnResize();
 
 	let appliedColor;
 	if (color === "white") appliedColor = "var(--color-base)";
