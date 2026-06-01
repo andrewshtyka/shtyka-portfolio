@@ -134,7 +134,6 @@ export default function HeroSection({ uiString }: Props) {
 
 					{/* Right part */}
 					<div className={css.container_secondary}>
-
 						{/* tags */}
 						<motion.ul
 							className={css.list}

@@ -5,6 +5,7 @@ body {
 	min-height: 100svh;
 	background-color: var(--color-gray);
 	color: var(--color-base);
+	overflow-x: hidden;
 }
 
 .content_padding_limit {

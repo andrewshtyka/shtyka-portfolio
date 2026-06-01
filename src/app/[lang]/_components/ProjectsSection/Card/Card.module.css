@@ -1,3 +1,8 @@
+.container {
+	border-radius: var(--border-radius-main);
+	overflow: hidden;
+}
+
 .container_video {
 	margin-block-end: var(--space-11);
 
@@ -8,7 +13,18 @@
 	overflow: hidden;
 
 	/* height: var(--height-card-experiment); */
-	aspect-ratio: var(--aspect-card-media);
+	/* aspect-ratio: var(--aspect-card-media); */
+
+	height: auto;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+}
+
+@media (width >= 768px) {
+	.container_video {
+		height: var(--height-card-project);
+		aspect-ratio: none;
+	}
 }
 
 .container_details {
@@ -138,9 +154,4 @@
 
 .list > :not(:last-child) {
 	margin-block-end: var(--space-1);
-}
-
-.container {
-	border-radius: var(--border-radius-main);
-	overflow: hidden;
 }
