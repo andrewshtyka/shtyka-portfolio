@@ -8,22 +8,22 @@ import { AnimatePresence, motion } from "motion/react";
 // components
 import Emblem from "../Icons/Emblem/Emblem";
 
+// constants
+import { MIN_PRELOADER_TIME, PRELOADER_ANIMATION } from "@/constants/animation";
+
 // styles
 import css from "./Preloader.module.css";
 
 // utility
 import { useEffect, useState } from "react";
-import { PRELOADER_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
-
-const MIN_TIME = 750;
 
 export default function Preloader() {
 	const [visible, setVisible] = useState(true);
 
 	useEffect(() => {
-		const minDelay = new Promise((res) => setTimeout(res, MIN_TIME));
+		const minDelay = new Promise((res) => setTimeout(res, MIN_PRELOADER_TIME));
 
 		const resourcesReady = new Promise<void>((res) => {
 			if (document.readyState === "complete") {

@@ -2,8 +2,6 @@
  * ================================================== Components
  */
 
-import { Variants } from "motion/react";
-
 export const TOOLTIP_DELAY = 100;
 
 export const LINK_ANIMATION_CSS = {
@@ -35,6 +33,9 @@ export const BUTTON_UP = {
 	},
 };
 
+export const MIN_PRELOADER_TIME = 750;
+export const DELAY_FROM_PRELOADER = MIN_PRELOADER_TIME / 1000;
+
 /**
  * ================================================== Home Sections
  */
@@ -48,7 +49,7 @@ export const MENU_ANIMATION = {
 		animate: { transform: "translateY(0%)" },
 		transition: {
 			duration: 1,
-			delay: 2,
+			delay: 2 + DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -58,12 +59,13 @@ export const MENU_ANIMATION = {
 		exit: { height: 0 },
 		transition: {
 			duration: 0.5,
+			delay: DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
 };
 
-export const MENU_NO_HOME_ANIMATION = {
+export const MENU_NOT_HOME_ANIMATION = {
 	transition: {
 		duration: 0.3,
 	},
@@ -100,6 +102,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 1,
+			dealy: DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -112,7 +115,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 0.0000001,
-			delay: 1,
+			delay: 1 + DELAY_FROM_PRELOADER,
 		},
 	},
 	title_2: {
@@ -124,7 +127,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 0.0000001,
-			delay: 1.3,
+			delay: 1.3 + DELAY_FROM_PRELOADER,
 		},
 	},
 	subtitle: {
@@ -136,7 +139,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 1.5,
-			delay: 1.5,
+			delay: 1.5 + DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -149,7 +152,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 1,
-			delay: 1.7,
+			delay: 1.7 + DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -158,7 +161,7 @@ export const SECTION_HERO_ANIMATION = {
 		visible: {
 			opacity: 1,
 			transition: {
-				delayChildren: 1.5,
+				delayChildren: 1.5 + DELAY_FROM_PRELOADER,
 				staggerChildren: 0.05,
 			},
 		},
@@ -188,7 +191,7 @@ export const SECTION_HERO_ANIMATION = {
 		},
 		transition: {
 			duration: 1,
-			delay: 2,
+			delay: 2 + DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},
@@ -485,6 +488,9 @@ export const SECTION_PROJECTS_ANIMATION = {
 					staggerChildren: 0.05,
 				},
 			},
+			transition: {
+				delay: 0,
+			},
 			viewport: {
 				once: true,
 			},
@@ -542,6 +548,20 @@ export const SECTION_PROJECTS_ANIMATION = {
 		viewport: {
 			once: true,
 			amount: 0.5,
+		},
+	},
+	divider: {
+		initial: {
+			width: "0%",
+		},
+		animate: {
+			width: "100%",
+			transition: {
+				duration: 0.5,
+			},
+		},
+		viewport: {
+			once: true,
 		},
 	},
 };

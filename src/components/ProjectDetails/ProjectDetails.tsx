@@ -24,17 +24,17 @@ import processDetailsData from "@/app/[lang]/_components/ProjectsSection/Card/li
 
 // #endregion ===========================
 
-export default function ProjectDetails({ uiString, offset = "small" }: Props) {
+export default function ProjectDetails({
+	uiString,
+	offset = "small",
+	delay = 0,
+}: Props) {
 	// #region ============================== Animation titles
-	const refTitle = React.useRef<HTMLHeadingElement>(null);
+
 	const refTitleCol_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitleCol_2 = React.useRef<HTMLHeadingElement>(null);
 	const refTitleCol_3 = React.useRef<HTMLHeadingElement>(null);
 
-	const isTitleInView = useInView(refTitle, {
-		once: true,
-		margin: "-24px 0px -24px 0px",
-	});
 	const isTitleCol_1_InView = useInView(refTitleCol_1, {
 		once: true,
 		margin: "-24px 0px -24px 0px",
@@ -48,14 +48,9 @@ export default function ProjectDetails({ uiString, offset = "small" }: Props) {
 		margin: "-24px 0px -24px 0px",
 	});
 
-	const { play: playTitle } = useLinkHover(refTitle);
 	const { play: playTitleCol_1 } = useLinkHover(refTitleCol_1);
 	const { play: playTitleCol_2 } = useLinkHover(refTitleCol_2);
 	const { play: playTitleCol_3 } = useLinkHover(refTitleCol_3);
-
-	React.useEffect(() => {
-		if (isTitleInView) playTitle?.();
-	}, [isTitleInView, playTitle]);
 
 	React.useEffect(() => {
 		if (isTitleCol_1_InView) playTitleCol_1?.();

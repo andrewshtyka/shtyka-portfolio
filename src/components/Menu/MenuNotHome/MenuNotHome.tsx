@@ -17,7 +17,7 @@ import css from "./MenuNotHome.module.css";
 
 // types
 import { Props } from "./MenuNotHome.types";
-import { MENU_NO_HOME_ANIMATION } from "@/constants/animation";
+import { MENU_NOT_HOME_ANIMATION } from "@/constants/animation";
 
 // #endregion ===========================
 
@@ -25,9 +25,9 @@ export default function MenuNotHome({ lang, buttonHome }: Props) {
 	return (
 		<motion.header
 			className={css.container}
-			initial={MENU_NO_HOME_ANIMATION.onLoadMenu.initial}
-			animate={MENU_NO_HOME_ANIMATION.onLoadMenu.animate}
-			transition={MENU_NO_HOME_ANIMATION.onLoadMenu.transition}
+			initial={MENU_NOT_HOME_ANIMATION.onLoadMenu.initial}
+			animate={MENU_NOT_HOME_ANIMATION.onLoadMenu.animate}
+			transition={MENU_NOT_HOME_ANIMATION.onLoadMenu.transition}
 		>
 			<div className={css.header}>
 				<span className={css.container_logo}>

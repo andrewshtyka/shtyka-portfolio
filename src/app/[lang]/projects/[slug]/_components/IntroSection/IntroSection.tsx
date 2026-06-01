@@ -15,7 +15,7 @@ import DotsBg from "@/components/DotsBg/DotsBg";
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 
 // constants
-import { PROJECT_INTRO_ANIMATION } from "@/constants/animation";
+import { DELAY_FROM_PRELOADER, PROJECT_INTRO_ANIMATION } from "@/constants/animation";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
@@ -72,7 +72,7 @@ export default function IntroSection({ uiString }: Props) {
 							<IconArrowShortCut size={5} direction="up" color="gray" />
 						</span>
 						<motion.p
-							className={`${css.description} f_display_buttons`}
+							className={`${css.description} f_display_body`}
 							variants={PROJECT_INTRO_ANIMATION.description}
 							initial="initial"
 							animate="animate"
@@ -107,7 +107,11 @@ export default function IntroSection({ uiString }: Props) {
 				</motion.div>
 
 				{/* bottom */}
-				<ProjectDetails uiString={uiString} offset="large" />
+				<ProjectDetails
+					uiString={uiString}
+					offset="large"
+					delay={DELAY_FROM_PRELOADER}
+				/>
 			</div>
 
 			{/* video */}

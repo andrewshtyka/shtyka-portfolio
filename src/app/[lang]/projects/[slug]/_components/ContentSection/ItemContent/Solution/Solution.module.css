@@ -4,4 +4,6 @@
 	padding-inline: var(--offset-base);
 
 	padding-block-end: var(--offset-sections-mini-extra);
+
+	color: var(--color-gray-700);
 }

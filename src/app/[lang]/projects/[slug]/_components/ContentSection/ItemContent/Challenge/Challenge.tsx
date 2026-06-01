@@ -23,6 +23,7 @@ import { Props } from "./Challenge.types";
 // utility
 import React from "react";
 import { fixTypography } from "@/lib/util/fixTypography";
+import Divider from "@/components/Divider/Divider";
 
 // #endregion ===========================
 
@@ -58,7 +59,7 @@ export default function Challenge({
 	return (
 		<article className={`${css.container} white_selection`}>
 			{/* top */}
-			<div className={`${css.grid} ${css.top}`}>
+			<div className={css.top}>
 				<motion.span
 					ref={refTitle_1}
 					className={`f_mono`}
@@ -69,6 +70,18 @@ export default function Challenge({
 				>
 					{label}
 				</motion.span>
+
+				<motion.div
+					className={css.container_icon}
+					variants={SECTION_PROJECTS_ANIMATION.project.listItem}
+					initial="hidden"
+					whileInView="visible"
+					viewport={SECTION_PROJECTS_ANIMATION.project.listItem.viewport}
+				>
+					<IconAsterisk size={8} color="gray" />
+					<IconAsterisk size={8} color="gray" />
+				</motion.div>
+
 				<motion.span
 					ref={refTitle_2}
 					className={`${css.nums} f_mono`}
@@ -81,21 +94,26 @@ export default function Challenge({
 				</motion.span>
 			</div>
 
-			{/* bottom */}
+			{/* divider */}
 			<motion.div
-				className={`${css.grid}`}
+				variants={SECTION_PROJECTS_ANIMATION.divider}
+				initial="initial"
+				whileInView="animate"
+				viewport={SECTION_PROJECTS_ANIMATION.divider.viewport}
+			>
+				<Divider isHorizontal={true} willHide={false} />
+			</motion.div>
+
+			{/* bottom */}
+			<motion.h3
+				className={`${css.text} f_display_subtitle`}
 				variants={SECTION_PROJECTS_ANIMATION.project.listItem}
 				initial="hidden"
 				whileInView="visible"
 				viewport={SECTION_PROJECTS_ANIMATION.project.listItem.viewport}
 			>
-				<div className={css.container_icon}>
-					<IconAsterisk size={8} color="gray" />
-					<IconAsterisk size={8} color="gray" />
-				</div>
-
-				<p className={`${css.text} f_display_body`}>{fixTypography(text)}</p>
-			</motion.div>
+				{fixTypography(text)}
+			</motion.h3>
 		</article>
 	);
 }

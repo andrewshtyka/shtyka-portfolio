@@ -9,7 +9,7 @@
 	--font-size-1: var(--space-6); /* 12px */
 	--font-size-2: calc(var(--space-6) + var(--space-px)); /* 13px */
 	--font-size-3: var(--space-7); /* 14px */
-	--font-size-4: var(--space-8); /* 16px */
+	--font-size-4: var(--space-9); /* 18px */
 	--font-size-5: var(--space-10); /* 20px */
 	--font-size-6: var(--space-11); /* 24px */
 	--font-size-7: calc(var(--space-11) + var(--space-2)); /* 28px */

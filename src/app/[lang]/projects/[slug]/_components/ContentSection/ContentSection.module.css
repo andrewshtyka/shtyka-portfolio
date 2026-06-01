@@ -7,7 +7,14 @@
 	max-width: var(--content-main-width-max);
 	margin-inline: auto;
 	padding-inline: var(--offset-base);
+
 	padding-block-end: var(--offset-sections-mini);
+}
+
+@media (width >= 600px) {
+	.h2 {
+		padding-block-end: calc(var(--offset-sections-mini) + var(--space-11));
+	}
 }
 
 .container_title {
