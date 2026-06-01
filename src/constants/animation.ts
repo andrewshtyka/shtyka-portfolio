@@ -575,10 +575,10 @@ export const SECTION_EXPERIMENTS_ANIMATION = {
 		animate: {
 			opacity: 1,
 			y: 0,
-		},
-		transition: {
-			duration: 1,
-			ease: [0.25, 0, 0, 1] as const,
+			transition: {
+				duration: 1,
+				ease: [0.25, 0, 0, 1] as const,
+			},
 		},
 		viewport: {
 			once: true,

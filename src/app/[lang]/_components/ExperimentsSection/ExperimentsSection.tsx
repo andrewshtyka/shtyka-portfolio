@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 // components
 import Card from "./Card/Card";
@@ -70,7 +70,6 @@ export default function ExperimentsSection({
 						variants={SECTION_EXPERIMENTS_ANIMATION.title}
 						initial="initial"
 						whileInView="animate"
-						transition={SECTION_EXPERIMENTS_ANIMATION.title.transition}
 						viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 					>
 						{ui[0]?.children?.map(
@@ -93,6 +92,8 @@ export default function ExperimentsSection({
 							}
 						)}
 					</motion.h2>
+
+					{/* description */}
 					<motion.p
 						className={`${css.subtitle} f_mono`}
 						variants={SECTION_EXPERIMENTS_ANIMATION.title}
