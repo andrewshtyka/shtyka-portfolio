@@ -36,15 +36,11 @@ export default function AboutSection({ uiString }: Props) {
 		offset: ["start end", "end start"],
 	});
 
-	const scaleValue = useTransform(
-		scrollYProgress,
-		[0, 0.5, 0.7, 1],
-		[1.1, 1, 0.9, 0.7]
-	);
+	const scaleValue = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0.8]);
 	const yValue = useTransform(
 		scrollYProgress,
 		[0, 0.6, 1],
-		["50px", "0px", "-50px"]
+		["100px", "0px", "-100px"]
 	);
 	const opacityValue = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0]);
 	const filterBlurValue = useTransform(
