@@ -99,7 +99,6 @@ export default function ExperimentsSection({
 						variants={SECTION_EXPERIMENTS_ANIMATION.title}
 						initial="initial"
 						whileInView="animate"
-						transition={SECTION_EXPERIMENTS_ANIMATION.title.transition}
 						viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 					>
 						{fixTypography(ui[1]?.children[0]?.text)}
