@@ -12,8 +12,14 @@
 }
 
 .h1 {
-	font-size: var(--font-size-11);
+	font-size: var(--font-size-10);
 	margin-block-end: var(--offset-sections-mini);
+}
+
+@media (width >= 600px) {
+	.h1 {
+		font-size: var(--font-size-11);
+	}
 }
 
 .container_description {
