@@ -46,7 +46,7 @@
 }
 
 .title {
-	margin-block-end: var(--space-2);
+	/* margin-block-end: var(--space-2); */
 }
 
 .subtitle {
