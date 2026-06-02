@@ -23,7 +23,6 @@ import { sanityFetchData } from "@/app/[lang]/_services/sanityFetchData";
 import css from "./page.module.css";
 
 // types
-import type { Metadata } from "next";
 // import { NavLabel } from "./page.types";
 
 // utility

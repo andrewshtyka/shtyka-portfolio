@@ -53,12 +53,12 @@ export default function IntroSection({ uiString }: Props) {
 			{/* text */}
 			<div className={css.content}>
 				<motion.h1
+					className={`f_serif_primary ${css.h1}`}
 					variants={PROJECT_INTRO_ANIMATION.heading}
 					initial="initial"
 					animate="animate"
 					onAnimationComplete={playHeading}
 					ref={refHeading}
-					className={`f_serif_primary ${css.h1}`}
 				>
 					{ui?.title}
 				</motion.h1>

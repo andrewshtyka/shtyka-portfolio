@@ -16,6 +16,7 @@
 	--font-size-8: var(--space-12); /* 32px */
 	--font-size-9: calc(var(--space-12) + var(--space-2)); /* 36px */
 	--font-size-10: var(--space-14); /* 48px */
+	--font-size-11: var(--space-16); /* 64px */
 
 	/* Line-height */
 	--line-height-serif: 0.95;

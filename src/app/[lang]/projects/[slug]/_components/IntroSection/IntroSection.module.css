@@ -12,6 +12,7 @@
 }
 
 .h1 {
+	font-size: var(--font-size-11);
 	margin-block-end: var(--offset-sections-mini);
 }
 
