@@ -59,7 +59,6 @@ export const MENU_ANIMATION = {
 		exit: { height: 0 },
 		transition: {
 			duration: 0.5,
-			delay: DELAY_FROM_PRELOADER,
 			ease: [0.25, 0, 0, 1] as const,
 		},
 	},

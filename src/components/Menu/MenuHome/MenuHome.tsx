@@ -3,7 +3,7 @@
 // #region ============================== Imports
 
 // animation
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 // components
 import Divider from "@/components/Divider/Divider";

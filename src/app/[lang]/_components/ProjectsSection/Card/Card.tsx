@@ -65,7 +65,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 						from="left"
 						shape="rectangle"
 					/>
-					{/* link - card content */}
+
 					{/* video */}
 					<div className={css.container_video}>
 						<VideoProject
