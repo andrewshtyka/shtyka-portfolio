@@ -15,7 +15,10 @@ import DotsBg from "@/components/DotsBg/DotsBg";
 import ProjectDetails from "@/components/ProjectDetails/ProjectDetails";
 
 // constants
-import { DELAY_FROM_PRELOADER, PROJECT_INTRO_ANIMATION } from "@/constants/animation";
+import {
+	DELAY_FROM_PRELOADER,
+	PROJECT_INTRO_ANIMATION,
+} from "@/constants/animation";
 
 // hooks
 import { useLinkHover } from "@/hooks/animation/useLinkHover";
@@ -38,6 +41,15 @@ export default function IntroSection({ uiString }: Props) {
 
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
+
+	// show / hide button - link to website
+	const classesContainer = ui?.isButtonVisible
+		? `${css.container_description} ${css.isButtonVisible_container}`
+		: `${css.container_description} ${css.isNotButtonVisible_container}`;
+	
+	const classesDescription = ui?.isButtonVisible
+		? `${css.grid} ${css.isButtonVisible_text}`
+		: `${css.grid} ${css.isNotButtonVisible_text}`;
 
 	return (
 		<section className={css.container}>
@@ -64,9 +76,9 @@ export default function IntroSection({ uiString }: Props) {
 				</motion.h1>
 
 				{/* top */}
-				<div className={css.container_description}>
+				<div className={classesContainer}>
 					{/* description & icons */}
-					<div className={css.grid}>
+					<div className={classesDescription}>
 						<span className={css.container_icon}>
 							<IconArrowShortCut size={5} direction="up" color="gray" />
 							<IconArrowShortCut size={5} direction="up" color="gray" />
@@ -82,19 +94,21 @@ export default function IntroSection({ uiString }: Props) {
 					</div>
 
 					{/* button */}
-					<motion.div
-						className={css.container_button}
-						variants={PROJECT_INTRO_ANIMATION.description}
-						initial="initial"
-						animate="animate"
-					>
-						<ButtonPrimary
-							href={ui?.link?.href}
-							icon={<IconArrowCurve color="black" direction="right" />}
+					{ui?.isButtonVisible && (
+						<motion.div
+							className={css.container_button}
+							variants={PROJECT_INTRO_ANIMATION.description}
+							initial="initial"
+							animate="animate"
 						>
-							{ui?.link?.label}
-						</ButtonPrimary>
-					</motion.div>
+							<ButtonPrimary
+								href={ui?.link?.href}
+								icon={<IconArrowCurve color="black" direction="right" />}
+							>
+								{ui?.link?.label}
+							</ButtonPrimary>
+						</motion.div>
+					)}
 				</div>
 
 				{/* divider */}

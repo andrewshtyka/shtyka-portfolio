@@ -29,7 +29,6 @@
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: initial;
-	padding-block-end: var(--space-11);
 }
 
 @media (width >= 600px) {
@@ -37,8 +36,21 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+	}
+}
+
+.isButtonVisible_container {
+	padding-block-end: var(--space-11);
+}
+
+@media (width >= 600px) {
+	.isButtonVisible_container {
 		padding-block-end: var(--offset-base);
 	}
+}
+
+.isNotButtonVisible_container {
+	padding-block-end: var(--offset-base);
 }
 
 .grid {
@@ -49,14 +61,26 @@
 	column-gap: var(--offset-base);
 
 	display: grid;
-	padding-block-end: var(--offset-base);
 }
 
 @media (width >= 600px) {
 	.grid {
 		display: initial;
+	}
+}
+
+.isButtonVisible_text {
+	padding-block-end: var(--offset-base);
+}
+
+@media (width >= 600px) {
+	.isButtonVisible_text {
 		padding-block-end: var(--space-0);
 	}
+}
+
+.isNotButtonVisible_text {
+	padding-block-end: var(--space-0);
 }
 
 .container_icon {

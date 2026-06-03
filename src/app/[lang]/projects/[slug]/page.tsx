@@ -80,6 +80,7 @@ export default async function ProjectPage({ params }: Props) {
 	const UI_INTRO = {
 		title: ui?.title ?? "",
 		description: ui?.about?.description ?? "",
+		isButtonVisible: ui?.about?.isButtonVisible,
 		link: {
 			label: ui?.about?.buttonTitle ?? "",
 			href: ui?.about?.link ?? "",
