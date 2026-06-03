@@ -8,7 +8,6 @@ import { useLinkHover } from "@/hooks/animation/useLinkHover";
 import { useBlur } from "@/hooks/useBlur";
 
 // providers / context
-import { HoverLineContext } from "@/providers/HoverLineProvider/HoverLineProvider";
 
 // styles
 import css from "./Tag.module.css";

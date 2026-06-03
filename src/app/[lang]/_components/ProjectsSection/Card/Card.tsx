@@ -88,15 +88,17 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 							>
 								{ui?.title}
 							</motion.h3>
+
 							<span className={css.grid}>
 								{/* icons */}
 								<span className={css.container_icon}>
 									<IconArrowShortCut size={5} direction="up" color="gray" />
 									<IconArrowShortCut size={5} direction="up" color="gray" />
 								</span>
+
 								{/* description */}
 								<motion.h4
-									className={`${css.subtitle} f_display_buttons`}
+									className={`${css.description} f_display_buttons`}
 									variants={SECTION_PROJECTS_ANIMATION.project.description}
 									initial="initial"
 									whileInView="animate"
@@ -111,6 +113,7 @@ export default function Card({ uiString, buttonTitle = "" }: Props) {
 								</motion.h4>
 							</span>
 						</div>
+
 						{/* divider */}
 						<motion.div
 							variants={SECTION_PROJECTS_ANIMATION.project.divider}

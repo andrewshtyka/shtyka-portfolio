@@ -6,7 +6,7 @@
 .h2 {
 	max-width: var(--content-main-width-max);
 	margin-inline: auto;
-	padding-inline: var(--offset-base);
+	/* padding-inline: var(--offset-base); */
 
 	padding-block-end: var(--offset-sections-mini);
 }
