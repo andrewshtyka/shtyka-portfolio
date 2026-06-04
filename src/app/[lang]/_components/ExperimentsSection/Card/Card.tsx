@@ -62,7 +62,7 @@ export default function Card({ data }: Props) {
 
 	if (!data) return null;
 
-	// image
+	// Link = FALSE
 	if (!data?.link) {
 		return (
 			<Magnetic yPower={0.1}>
@@ -74,7 +74,10 @@ export default function Card({ data }: Props) {
 				>
 					<span>
 						<div className={css.container_media}>
-							<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+							<MediaComponent
+								hasTop={false}
+								uiString={JSON.stringify(data?.media[0])}
+							/>
 						</div>
 					</span>
 
@@ -111,7 +114,7 @@ export default function Card({ data }: Props) {
 		);
 	}
 
-	// video
+	// Link = TRUE
 	return (
 		<Magnetic yPower={0.1}>
 			<motion.li
@@ -122,7 +125,10 @@ export default function Card({ data }: Props) {
 			>
 				<a ref={refTarget} href={data?.link?.link} className={css.link}>
 					<div className={css.container_media}>
-						<MediaComponent uiString={JSON.stringify(data?.media[0])} />
+						<MediaComponent
+							hasTop={false}
+							uiString={JSON.stringify(data?.media[0])}
+						/>
 					</div>
 
 					<HoverBar

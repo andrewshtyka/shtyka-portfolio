@@ -60,7 +60,7 @@ export default function ExperimentsSection({
 
 	return (
 		<section id={HOME_SECTIONS.experiments} className={css.container}>
-			<DotsBg height={10} yPosition={12} />
+			<DotsBg />
 
 			<div ref={refContainer} className={css.content}>
 				<>
