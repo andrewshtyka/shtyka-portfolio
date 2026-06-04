@@ -36,7 +36,7 @@ export default function ExperimentsSection({
 	const refContainer = React.useRef<HTMLDivElement | null>(null);
 	const { scrollYProgress } = useScroll({
 		target: refContainer,
-		offset: ["start end", "25% 70%"],
+		offset: ["start end", "10% 70%"],
 	});
 
 	const xValue = useTransform(scrollYProgress, [0, 1], ["24px", "0px"]);
@@ -60,7 +60,7 @@ export default function ExperimentsSection({
 
 	return (
 		<section id={HOME_SECTIONS.experiments} className={css.container}>
-			<DotsBg />
+			<DotsBg height={10} yPosition={12} />
 
 			<div ref={refContainer} className={css.content}>
 				<>

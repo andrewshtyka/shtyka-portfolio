@@ -25,6 +25,7 @@ export default function DotsBg({
 	saturation = 40,
 	offset = 400,
 	zIndex = -1,
+	height = 40,
 }: Props) {
 	// parallax scroll
 	const ref = React.useRef<HTMLDivElement | null>(null);
@@ -39,7 +40,7 @@ export default function DotsBg({
 	);
 
 	// custom position of dots
-	const maskImage = `radial-gradient(75% 40% at 50% ${yPosition}%, var(--color-gray) 10%, transparent 90%)`;
+	const maskImage = `radial-gradient(75% ${height}% at 50% ${yPosition}%, var(--color-gray) 10%, transparent 90%)`;
 	const backgroundImage = `radial-gradient(oklch(from var(--color-base) l c h / ${saturation}%) 0.5px, transparent 0.5px)`;
 
 	return (

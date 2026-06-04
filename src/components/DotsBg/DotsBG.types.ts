@@ -3,4 +3,5 @@ export interface Props {
 	saturation?: number;
 	offset?: number;
 	zIndex?: number;
+	height?: number;
 }
