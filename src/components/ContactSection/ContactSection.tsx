@@ -70,6 +70,7 @@ export default function ContactSection({ uiString }: Props) {
 	};
 
 	const dataVideo = getUrlForVideo(ui?.video?.video, ui?.video?.poster) ?? "";
+	const isVideoVisible = ui?.video.isVideoVisible && dataVideo;
 
 	const dataMessage_1 =
 		getLabelsWithLinks(ui?.message[0], ui?.fileName)?.filter(
@@ -108,7 +109,7 @@ export default function ContactSection({ uiString }: Props) {
 			</h2>
 
 			{/* video */}
-			{dataVideo && (
+			{isVideoVisible && (
 				<div className={css.container_video}>
 					<motion.video
 						ref={videoRef}
