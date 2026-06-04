@@ -6,8 +6,8 @@
 	border-radius: var(--border-radius-secondary);
 	padding: var(--offset-button-secondary);
 
-	background-color: var(--color-background-transparent-dark-xl);
-	backdrop-filter: var(--blur);
+	/* background-color: var(--color-background-transparent-dark-xl);
+	backdrop-filter: var(--blur); */
 }
 
 .button:active {

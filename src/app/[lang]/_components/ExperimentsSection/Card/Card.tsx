@@ -27,6 +27,8 @@ import { getStylesExperiments } from "@/lib/util/getStyles";
 
 // utility
 import React from "react";
+import ButtonIcon from "@/components/ButtonIcon/ButtonIcon";
+import IconArrowCurve from "@/components/Icons/IconArrowCurve/IconArrowCurve";
 
 // #endregion ===========================
 
@@ -158,6 +160,10 @@ export default function Card({ data }: Props) {
 						>
 							{data?.content?.description ?? ""}
 						</motion.p>
+					</div>
+
+					<div className={css.mobile_icon}>
+						<IconArrowCurve direction="right" />
 					</div>
 				</a>
 			</motion.li>

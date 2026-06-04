@@ -57,3 +57,18 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.mobile_icon {
+	display: flex;
+	position: absolute;
+	height: fit-content;
+	width: fit-content;
+	top: var(--space-10);
+	right: var(--space-10);
+}
+
+@media (width >= 768px) {
+	.mobile_icon {
+		display: none;
+	}
+}
