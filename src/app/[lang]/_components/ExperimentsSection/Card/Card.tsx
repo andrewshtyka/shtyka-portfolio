@@ -76,35 +76,31 @@ export default function Card({ data }: Props) {
 						<div className={css.container_media}>
 							<MediaComponent
 								hasTop={false}
+								bottomHeight={40}
 								uiString={JSON.stringify(data?.media[0])}
 							/>
 						</div>
 					</span>
 
-					<div>
+					<div className={css.container_text}>
 						<motion.h3
-							ref={refTitle}
+							// ref={refTitle}
 							className={`${css.title} f_display_body`}
-							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							variants={SECTION_EXPERIMENTS_ANIMATION.title}
 							initial="initial"
 							whileInView="animate"
-							transition={
-								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-							}
-							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 						>
 							{data?.content?.title ?? ""}
 						</motion.h3>
+
 						<motion.p
-							ref={refSubtitle}
+							// ref={refSubtitle}
 							className={`${css.subtitle} f_mono`}
-							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							variants={SECTION_EXPERIMENTS_ANIMATION.title}
 							initial="initial"
 							whileInView="animate"
-							transition={
-								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-							}
-							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 						>
 							{data?.content?.description ?? ""}
 						</motion.p>
@@ -127,6 +123,7 @@ export default function Card({ data }: Props) {
 					<div className={css.container_media}>
 						<MediaComponent
 							hasTop={false}
+							bottomHeight={50}
 							uiString={JSON.stringify(data?.media[0])}
 						/>
 					</div>
@@ -141,28 +138,23 @@ export default function Card({ data }: Props) {
 					<div></div>
 					<div className={css.container_text}>
 						<motion.h3
-							ref={refTitle}
+							// ref={refTitle}
 							className={`${css.title} f_display_body`}
-							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							variants={SECTION_EXPERIMENTS_ANIMATION.title}
 							initial="initial"
 							whileInView="animate"
-							transition={
-								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-							}
-							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 						>
 							{data?.content?.title ?? ""}
 						</motion.h3>
+
 						<motion.p
-							ref={refSubtitle}
+							// ref={refSubtitle}
 							className={`${css.subtitle} f_mono`}
-							variants={SECTION_EXPERIMENTS_ANIMATION.experiment.title}
+							variants={SECTION_EXPERIMENTS_ANIMATION.title}
 							initial="initial"
 							whileInView="animate"
-							transition={
-								SECTION_EXPERIMENTS_ANIMATION.experiment.title.transition
-							}
-							viewport={SECTION_EXPERIMENTS_ANIMATION.experiment.title.viewport}
+							viewport={SECTION_EXPERIMENTS_ANIMATION.title.viewport}
 						>
 							{data?.content?.description ?? ""}
 						</motion.p>

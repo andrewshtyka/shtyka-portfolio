@@ -16,7 +16,6 @@
 
 .link {
 	flex: 1;
-	/* padding: var(--space-4); */
 
 	display: flex;
 	flex-direction: column;
@@ -39,23 +38,30 @@
 	justify-content: flex-end;
 }
 
-.container_bottom {
+.container_text {
 	display: flex;
 	flex-direction: column;
-	flex: 1;
+	justify-content: initial;
+	align-items: flex-start;
+
+	column-gap: var(--offset-sections-mini);
+}
+
+@media (width >= 600px) {
+	.container_text {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
 }
 
 .title {
-	/* margin-block-end: var(--space-2); */
+	/* display: inline-flex; */
 }
 
 .subtitle {
 	color: var(--color-text-secondary);
-}
-
-.container_text {
-	display: flex;
-	flex-direction: column;
+	text-align: end;
 }
 
 .mobile_icon {
