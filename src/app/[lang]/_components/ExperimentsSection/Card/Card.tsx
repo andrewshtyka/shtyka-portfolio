@@ -131,7 +131,7 @@ export default function Card({ data }: Props) {
 					/>
 
 					<div></div>
-					<div>
+					<div className={css.container_text}>
 						<motion.h3
 							ref={refTitle}
 							className={`${css.title} f_display_body`}

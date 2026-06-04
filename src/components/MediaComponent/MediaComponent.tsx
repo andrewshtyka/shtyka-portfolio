@@ -94,7 +94,7 @@ export default function MediaComponent({
 					fill={true}
 					preload={true}
 					className={css.image}
-					// 
+					//
 					// motion
 					variants={SECTION_EXPERIMENTS_ANIMATION.experiment.video}
 					initial="initial"
