@@ -6,6 +6,7 @@ export interface Props {
 export type Element = {
 	_key: string;
 	_type: string;
+	isExperimentVisible: boolean;
 	cardWidth: number;
 	content: {
 		description: string;

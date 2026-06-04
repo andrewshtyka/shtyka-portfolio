@@ -10,7 +10,7 @@ import { useEffect, RefObject } from "react";
  */
 export default function useVideoObserver(
 	ref: RefObject<HTMLVideoElement | null>,
-	threshold: number = 0.1,
+	threshold: number = 0.6,
 	preloadMargin: number = 300
 ) {
 	useEffect(() => {

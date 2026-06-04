@@ -4,6 +4,10 @@
 	background-color: var(--color-background-solid);
 }
 
+.video {
+	/* transform: translateZ(0px); */
+}
+
 .overlay_top {
 	position: absolute;
 	top: 0;

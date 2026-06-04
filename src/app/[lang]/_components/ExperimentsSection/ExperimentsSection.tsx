@@ -55,6 +55,7 @@ export default function ExperimentsSection({
 		return {
 			data: { ...item },
 			key: item._key,
+			isVisible: item?.isExperimentVisible,
 		};
 	});
 
@@ -131,10 +132,18 @@ export default function ExperimentsSection({
 					whileInView="visible"
 					viewport={SECTION_EXPERIMENTS_ANIMATION.list.viewport}
 				>
-					{processedExperiments.map(
-						({ key, data }: { key: string; data: unknown }) => (
-							<Card key={key} data={data} />
-						)
+					{processedExperiments?.map(
+						({
+							key,
+							data,
+							isVisible,
+						}: {
+							key: string;
+							data: unknown;
+							isVisible: boolean;
+						}) => {
+							if (isVisible) return <Card key={key} data={data} />;
+						}
 					)}
 				</motion.ul>
 			</div>

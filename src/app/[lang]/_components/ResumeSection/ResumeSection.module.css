@@ -26,6 +26,10 @@
 	z-index: -1;
 	border-radius: var(--border-radius-main);
 	overflow: hidden;
+
+	& video {
+		/* transform: translateZ(0px); */
+	}
 }
 
 .h2 {

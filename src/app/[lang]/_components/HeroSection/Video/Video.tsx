@@ -47,6 +47,7 @@ export default function Video({ video, poster }: Props) {
 				animate={isInView ? "show" : "hide"}
 				// animate="show"
 				transition={SECTION_HERO_ANIMATION.video.transition}
+				className={css.video}
 			></motion.video>
 			<div className={css.overlay_top}></div>
 			<div className={css.overlay_bottom}></div>
