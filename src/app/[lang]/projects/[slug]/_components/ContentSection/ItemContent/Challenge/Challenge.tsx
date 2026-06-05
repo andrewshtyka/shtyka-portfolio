@@ -57,7 +57,7 @@ export default function Challenge({
 	}, [isTitle_2_InView, playTitle_2]);
 
 	return (
-		<article className={`${css.container} white_selection`}>
+		<article className={css.container}>
 			{/* top */}
 			<div className={css.top}>
 				<motion.span
