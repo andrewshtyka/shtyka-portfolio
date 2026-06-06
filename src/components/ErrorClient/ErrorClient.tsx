@@ -31,11 +31,13 @@ import { Props } from "./ErrorClient.types";
 import React from "react";
 import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 import { fixTypography } from "@/lib/util/fixTypography";
+import { usePathname } from "next/navigation";
 
 // #endregion ===========================
 
 export default function ErrorClient({ uiString, lang }: Props) {
 	const ui = JSON.parse(uiString)?.error404 ?? {};
+	const pathname = usePathname();
 
 	React.useEffect(() => {
 		const title = ui?.title ?? "";
@@ -54,7 +56,7 @@ export default function ErrorClient({ uiString, lang }: Props) {
 				window.document.head.appendChild(newMeta);
 			}
 		}
-	}, [ui?.title, ui?.description]);
+	}, [ui?.title, ui?.description, pathname]);
 
 	const classesMain = `${css.container} ${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`;
 

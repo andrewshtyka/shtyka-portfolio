@@ -14,6 +14,10 @@ import { TooltipProvider } from "@/providers/TooltipProvider/TooltipProvider";
 import { ProjectInViewProvider } from "@/providers/ProjectInViewProvider/ProjectInViewProvider";
 import { HoverLineProvider } from "@/providers/HoverLineProvider/HoverLineProvider";
 
+// sanity
+import { sanityFetchData } from "./_services/sanityFetchData";
+import { SANITY_ERROR_QUERY, SANITY_ERROR_TAGS } from "@/constants/sanity";
+
 // styles
 import "@/styles/globals.css";
 import "@/styles/reset.css";
@@ -21,7 +25,26 @@ import "@/styles/tokens/tokens.colors.css";
 import "@/styles/tokens/tokens.fonts.css";
 import "@/styles/tokens/tokens.spacing.css";
 
+// utility
+import { cookies } from "next/headers";
+
 // #endregion ===========================
+
+// export async function generateMetadata() {
+// 	const cookieStore = await cookies();
+// 	const lang = cookieStore.get("NEXT_LOCALE")?.value ?? "ua";
+
+// 	const ui = await sanityFetchData({
+// 		query: SANITY_ERROR_QUERY,
+// 		params: { lang },
+// 		tags: SANITY_ERROR_TAGS,
+// 	});
+
+// 	return {
+// 		title: ui?.error404?.title ?? "",
+// 		description: ui?.error404?.description ?? "",
+// 	};
+// }
 
 export default async function RootLayout({
 	children,
