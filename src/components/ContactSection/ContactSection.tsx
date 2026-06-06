@@ -27,10 +27,14 @@ import { ItemMaster } from "./Message/Message.types";
 // utils
 import getLabelsWithLinks from "./lib/helpers/getLabelsWithLinks";
 import React from "react";
+import getUrlForImage from "@/lib/util/getUrlForImage";
+import { MotionImage } from "../MediaComponent/MediaComponent";
 
 // #endregion ===========================
 
 export default function ContactSection({ uiString }: Props) {
+	// #region ============================== Animation
+
 	// animation - titles
 	const refTitle_1 = React.useRef<HTMLHeadingElement>(null);
 	const refTitle_2 = React.useRef<HTMLHeadingElement>(null);
@@ -60,23 +64,31 @@ export default function ContactSection({ uiString }: Props) {
 	const isInView = useInView(videoRef, { amount: 0.1 });
 	useVideoObserver(videoRef);
 
+	// #endregion ===========================
+
 	if (!uiString || typeof uiString !== "string") return;
 	const ui = JSON.parse(uiString);
 	if (!ui || typeof ui !== "object") return;
 
+	// title
 	const dataTitle = {
 		title_1: ui?.title[0]?.children[0]?.text ?? "",
 		title_2: ui?.title[1]?.children[0]?.text ?? "",
 	};
 
+	// video
 	const dataVideo = getUrlForVideo(ui?.video?.video, ui?.video?.poster) ?? "";
 	const isVideoVisible = ui?.video.isVideoVisible && dataVideo;
 
+	// image
+	const dataImage = getUrlForImage(ui?.image?.image)?.url() ?? "";
+	const isImageVisible = ui?.image.isImageVisible && dataImage;
+
+	// message
 	const dataMessage_1 =
 		getLabelsWithLinks(ui?.message[0], ui?.fileName)?.filter(
 			(item): item is ItemMaster => !!item && typeof item !== "string"
 		) ?? null;
-
 	const dataMessage_2 =
 		getLabelsWithLinks(ui?.message[1], ui?.fileName)?.filter(
 			(item): item is ItemMaster => !!item && typeof item !== "string"
@@ -110,7 +122,7 @@ export default function ContactSection({ uiString }: Props) {
 
 			{/* video */}
 			{isVideoVisible && (
-				<div className={css.container_video}>
+				<div className={css.container_media}>
 					<motion.video
 						ref={videoRef}
 						data-src={dataVideo?.video ?? ""}
@@ -121,7 +133,7 @@ export default function ContactSection({ uiString }: Props) {
 						width="100%"
 						height="100%"
 						poster={dataVideo?.poster ?? ""}
-						className={css.video}
+						className={css.media}
 						//
 						// motion
 						variants={SECTION_CONTACT_ANIMATION.video}
@@ -129,6 +141,26 @@ export default function ContactSection({ uiString }: Props) {
 						animate={isInView ? "show" : "hide"}
 						transition={SECTION_CONTACT_ANIMATION.video.transition}
 					></motion.video>
+				</div>
+			)}
+
+			{/* image */}
+			{isImageVisible && (
+				<div className={css.container_media}>
+					<MotionImage
+						src={dataImage}
+						alt={ui?.image?.alt}
+						sizes="100%"
+						fill={true}
+						preload={true}
+						className={css.media}
+						//
+						// motion
+						variants={SECTION_CONTACT_ANIMATION.video}
+						initial="initial"
+						whileInView="show"
+						transition={SECTION_CONTACT_ANIMATION.video.transition}
+					/>
 				</div>
 			)}
 

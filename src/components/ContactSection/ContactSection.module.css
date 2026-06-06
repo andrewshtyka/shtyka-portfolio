@@ -27,8 +27,8 @@
 	padding-inline: 0.1em;
 }
 
-.container_video {
-	max-width: var(--space-20);
+.container_media {
+	max-width: calc(var(--space-20) + var(--space-13));
 	aspect-ratio: 4 / 5;
 
 	border-radius: var(--border-radius-main);
@@ -37,9 +37,11 @@
 
 	margin-inline: auto;
 	margin-block-end: var(--offset-sections-mini);
+
+	position: relative;
 }
 
-.video {
+.media {
 	object-fit: cover;
 }
 

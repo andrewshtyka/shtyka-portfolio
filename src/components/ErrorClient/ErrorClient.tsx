@@ -28,7 +28,6 @@ import css from "./ErrorClient.module.css";
 import { Props } from "./ErrorClient.types";
 
 // utility
-import React from "react";
 import IconArrowCurve from "../Icons/IconArrowCurve/IconArrowCurve";
 import { fixTypography } from "@/lib/util/fixTypography";
 
@@ -36,25 +35,6 @@ import { fixTypography } from "@/lib/util/fixTypography";
 
 export default function ErrorClient({ uiString, lang }: Props) {
 	const ui = JSON.parse(uiString)?.error404 ?? {};
-
-	// React.useEffect(() => {
-	// 	const title = ui?.title ?? "";
-	// 	const description = ui?.description ?? "";
-
-	// 	if (title) window.document.title = title;
-
-	// 	if (description) {
-	// 		const meta = window.document.querySelector('meta[name="description"]');
-	// 		if (meta) {
-	// 			meta.setAttribute("content", description);
-	// 		} else {
-	// 			const newMeta = window.document.createElement("meta");
-	// 			newMeta.name = "description";
-	// 			newMeta.content = description;
-	// 			window.document.head.appendChild(newMeta);
-	// 		}
-	// 	}
-	// }, [ui?.title, ui?.description]);
 
 	const classesMain = `${css.container} ${fontSerif.variable} ${fontMono.variable} ${fontDisplay.variable}`;
 
