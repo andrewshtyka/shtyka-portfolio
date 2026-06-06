@@ -27,7 +27,6 @@ import { ItemMaster } from "./Message/Message.types";
 // utils
 import getLabelsWithLinks from "./lib/helpers/getLabelsWithLinks";
 import React from "react";
-import Divider from "../Divider/Divider";
 
 // #endregion ===========================
 
