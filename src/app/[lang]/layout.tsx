@@ -27,6 +27,7 @@ import "@/styles/tokens/tokens.spacing.css";
 
 // utility
 import { cookies } from "next/headers";
+import { logCredentials } from "@/lib/util/logCredentials";
 
 // #endregion ===========================
 
@@ -55,6 +56,7 @@ export default async function RootLayout({
 	params: Promise<{ lang: string }>;
 }>) {
 	const { lang } = await params;
+	logCredentials();
 
 	return (
 		<html lang={lang}>
