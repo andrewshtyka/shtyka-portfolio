@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props) {
 	});
 	const title = `${ui?.hero?.heroTitle[0]?.children[0]?.text ?? ""}, ${ui?.hero?.heroTitle[1]?.children[0]?.text ?? ""}`;
 	const description = `
-		${ui?.hero?.subtitle[0]?.children[0]?.text ?? ""}${ui?.hero?.subtitle[0]?.children[1]?.text ?? ""}${ui?.hero?.subtitle[0]?.children[2]?.text ?? ""}
+	${title}. ${ui?.hero?.subtitle[0]?.children[0]?.text ?? ""}${ui?.hero?.subtitle[0]?.children[1]?.text ?? ""}${ui?.hero?.subtitle[0]?.children[2]?.text ?? ""}.
 	`;
 
 	return {
