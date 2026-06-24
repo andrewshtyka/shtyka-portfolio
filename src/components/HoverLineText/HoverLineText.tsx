@@ -5,7 +5,7 @@
 // animation
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { motion, hover } from "motion/react";
+import { motion } from "motion/react";
 
 // components
 

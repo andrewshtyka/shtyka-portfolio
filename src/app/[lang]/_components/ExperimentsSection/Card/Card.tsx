@@ -119,7 +119,13 @@ export default function Card({ data }: Props) {
 				variants={SECTION_EXPERIMENTS_ANIMATION.listItem}
 				viewport={SECTION_EXPERIMENTS_ANIMATION.listItem.viewport}
 			>
-				<a ref={refTarget} href={data?.link?.link} className={css.link}>
+				<a
+					ref={refTarget}
+					href={data?.link?.link}
+					className={css.link}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<div className={css.container_media}>
 						<MediaComponent
 							hasTop={false}

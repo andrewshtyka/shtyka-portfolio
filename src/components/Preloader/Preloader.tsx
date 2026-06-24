@@ -24,7 +24,6 @@ export default function Preloader() {
 
 	useEffect(() => {
 		const minDelay = new Promise((res) => setTimeout(res, MIN_PRELOADER_TIME));
-
 		const resourcesReady = new Promise<void>((res) => {
 			if (document.readyState === "complete") {
 				res();
@@ -32,9 +31,8 @@ export default function Preloader() {
 			}
 			window.addEventListener("load", () => res(), { once: true });
 		});
-
 		const fontsReady = document.fonts.ready;
-
+		
 		Promise.all([minDelay, resourcesReady, fontsReady]).then(() => {
 			document.body.style.cursor = "default";
 			window.scrollTo(0, 0);
