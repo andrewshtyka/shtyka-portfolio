@@ -21,7 +21,7 @@ body {
 /* */
 /* FONTS */
 .f_serif_primary {
-	font-family: var(--font-serif);
+	font-family: var(--font-serif), var(--font-fallback);
 	font-size: var(--font-size-8);
 	font-weight: 400;
 	font-variation-settings: "opsz" 40;
@@ -37,7 +37,7 @@ body {
 }
 
 .f_serif_secondary {
-	font-family: var(--font-serif);
+	font-family: var(--font-serif), var(--font-fallback);
 	font-size: var(--font-size-7);
 	font-weight: 400;
 	font-variation-settings: "opsz" 40;
@@ -53,7 +53,7 @@ body {
 }
 
 .f_display_subtitle {
-	font-family: var(--font-display);
+	font-family: var(--font-display), var(--font-fallback);
 	font-size: var(--font-size-5);
 	font-weight: 500;
 	line-height: var(--line-height-display);
@@ -67,7 +67,7 @@ body {
 }
 
 .f_display_body {
-	font-family: var(--font-display);
+	font-family: var(--font-display), var(--font-fallback);
 	font-size: var(--font-size-4);
 	font-weight: 500;
 	line-height: var(--line-height-display);
@@ -75,7 +75,7 @@ body {
 }
 
 .f_display_buttons {
-	font-family: var(--font-display);
+	font-family: var(--font-display), var(--font-fallback);
 	font-size: var(--font-size-3);
 	font-weight: 600;
 	line-height: var(--line-height-display);
@@ -83,7 +83,7 @@ body {
 }
 
 .f_display_caption {
-	font-family: var(--font-display);
+	font-family: var(--font-display), var(--font-fallback);
 	font-size: var(--font-size-2);
 	font-weight: 500;
 	line-height: var(--line-height-display);
@@ -91,7 +91,7 @@ body {
 }
 
 .f_mono {
-	font-family: var(--font-mono);
+	font-family: var(--font-mono), var(--font-fallback);
 	font-size: var(--font-size-1);
 	font-weight: 500;
 	line-height: var(--line-height-mono);
