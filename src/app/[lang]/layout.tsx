@@ -16,7 +16,12 @@ import { HoverLineProvider } from "@/providers/HoverLineProvider/HoverLineProvid
 
 // sanity
 import { sanityFetchData } from "./_services/sanityFetchData";
-import { SANITY_ERROR_QUERY, SANITY_ERROR_TAGS } from "@/constants/sanity";
+import {
+	SANITY_ERROR_QUERY,
+	SANITY_ERROR_TAGS,
+	SANITY_HOME_QUERY,
+	SANITY_HOME_TAGS,
+} from "@/constants/sanity";
 
 // styles
 import "@/styles/globals.css";
@@ -28,8 +33,17 @@ import "@/styles/tokens/tokens.spacing.css";
 // utility
 import { cookies } from "next/headers";
 import { logCredentials } from "@/lib/util/logCredentials";
+import type { Viewport } from "next";
 
 // #endregion ===========================
+
+const SITE_URL = "https://andrewshtyka.pp.ua";
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	themeColor: "#000000",
+};
 
 // error - meta info
 export async function generateMetadata() {
@@ -42,9 +56,47 @@ export async function generateMetadata() {
 		tags: SANITY_ERROR_TAGS,
 	});
 
+	const uiProfile = await sanityFetchData({
+		query: SANITY_HOME_QUERY,
+		params: { lang },
+		tags: SANITY_HOME_TAGS,
+	});
+
+	const isUa = lang === "ua";
+	const titleProfile = `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}, ${uiProfile?.hero?.heroTitle[1]?.children[0]?.text ?? ""}`;
+
 	return {
 		title: ui?.error404?.title ?? "",
 		description: ui?.error404?.description ?? "",
+
+		metadataBase: new URL(SITE_URL),
+
+		authors: [
+			{
+				name: `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`,
+				url: SITE_URL,
+			},
+		],
+		creator: `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`,
+
+		openGraph: {
+			siteName: titleProfile,
+			images: [{ url: "/opengraph.webp", width: 1200, height: 630 }],
+			locale: isUa ? "uk_UA" : "en_US",
+			alternateLocale: isUa ? "en_US" : "uk_UA",
+			type: "website",
+		},
+
+		twitter: {
+			card: "summary_large_image",
+			images: ["/opengraph.webp"],
+		},
+
+		robots: {
+			index: true,
+			follow: true,
+			googleBot: { index: true, follow: true },
+		},
 	};
 }
 
