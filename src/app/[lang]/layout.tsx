@@ -80,7 +80,7 @@ export async function generateMetadata() {
 				url: SITE_URL,
 			},
 		],
-		creator: `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`,
+		creator: titleProfile,
 
 		openGraph: {
 			siteName: descriptionProfile,
