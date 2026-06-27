@@ -81,7 +81,7 @@ export async function generateMetadata() {
 
 		openGraph: {
 			siteName: titleProfile,
-			images: [{ url: "../opengraph.webp", width: 1200, height: 630 }],
+			images: [{ url: "/opengraph.webp", width: 1200, height: 630 }],
 			locale: isUa ? "uk_UA" : "en_US",
 			alternateLocale: isUa ? "en_US" : "uk_UA",
 			type: "website",
@@ -89,7 +89,7 @@ export async function generateMetadata() {
 
 		twitter: {
 			card: "summary_large_image",
-			images: ["../opengraph.webp"],
+			images: ["/opengraph.webp"],
 		},
 
 		robots: {
