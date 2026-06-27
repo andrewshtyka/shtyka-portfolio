@@ -100,6 +100,10 @@ export async function generateMetadata() {
 			follow: true,
 			googleBot: { index: true, follow: true },
 		},
+
+		alternates: {
+			canonical: `https://andrewshtyka.pp.ua/${lang}`,
+		},
 	};
 }
 

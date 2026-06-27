@@ -43,6 +43,10 @@ export async function generateMetadata({ params }: Props) {
 	return {
 		title: title,
 		description: description,
+
+		alternates: {
+			canonical: `https://andrewshtyka.pp.ua/${lang}/projects/${slug}`,
+		},
 	};
 }
 
