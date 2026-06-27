@@ -45,7 +45,7 @@ export const viewport: Viewport = {
 	themeColor: "#000000",
 };
 
-// error - meta info
+// meta info
 export async function generateMetadata() {
 	const cookieStore = await cookies();
 	const lang = cookieStore.get("NEXT_LOCALE")?.value ?? "ua";
@@ -63,9 +63,12 @@ export async function generateMetadata() {
 	});
 
 	const isUa = lang === "ua";
-	const titleProfile = `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}, ${uiProfile?.hero?.heroTitle[1]?.children[0]?.text ?? ""}`;
+	const titleProfile = `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`;
+	const descriptionProfile = `${uiProfile?.hero?.heroTitle[1]?.children[0]?.text ?? ""}`;
 
 	return {
+		// Layout is a parent for 404 page,
+		// so meta for 404 is taken from layout.
 		title: ui?.error404?.title ?? "",
 		description: ui?.error404?.description ?? "",
 
@@ -73,14 +76,14 @@ export async function generateMetadata() {
 
 		authors: [
 			{
-				name: `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`,
+				name: titleProfile,
 				url: SITE_URL,
 			},
 		],
 		creator: `${uiProfile?.hero?.heroTitle[0]?.children[0]?.text ?? ""}`,
 
 		openGraph: {
-			siteName: titleProfile,
+			siteName: descriptionProfile,
 			images: [{ url: "/opengraph.webp", width: 1200, height: 630 }],
 			locale: isUa ? "uk_UA" : "en_US",
 			alternateLocale: isUa ? "en_US" : "uk_UA",
