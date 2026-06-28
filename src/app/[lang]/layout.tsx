@@ -83,6 +83,8 @@ export async function generateMetadata() {
 		creator: titleProfile,
 
 		openGraph: {
+			title: titleProfile,
+			description: descriptionProfile,
 			siteName: descriptionProfile,
 			images: [{ url: "/opengraph.webp", width: 1200, height: 630 }],
 			locale: isUa ? "uk_UA" : "en_US",
@@ -91,6 +93,8 @@ export async function generateMetadata() {
 		},
 
 		twitter: {
+			title: titleProfile,
+			description: descriptionProfile,
 			card: "summary_large_image",
 			images: ["/opengraph.webp"],
 		},
