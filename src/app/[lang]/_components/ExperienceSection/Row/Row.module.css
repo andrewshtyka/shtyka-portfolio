@@ -90,3 +90,8 @@
 		grid-row: revert;
 	}
 }
+
+.invisible {
+	visibility: hidden;
+	pointer-events: none;
+}

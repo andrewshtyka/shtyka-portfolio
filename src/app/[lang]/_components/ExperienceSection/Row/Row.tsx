@@ -64,7 +64,11 @@ export default function Row({
 						}}
 						viewport={SECTION_EXPERIENCE_ANIMATION.line.viewport}
 					>
-						<span>{duration}</span>
+						{duration ? (
+							<span>{duration}</span>
+						) : (
+							<span className={css.invisible}>_</span>
+						)}
 					</motion.span>
 				</div>
 
