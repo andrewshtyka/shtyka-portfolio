@@ -27,16 +27,22 @@ type MarkDef = {
 	_key: string;
 	_type: string;
 	href: string;
-	file?: {
+	file?: FileObj;
+};
+
+type FileObj = {
+	_type: string;
+	asset: {
+		_ref: string;
 		_type: string;
-		asset: {
-			_ref: string;
-			_type: string;
-		};
 	};
 };
 
-export default function getLabelsWithLinks(obj: Obj, fileName: string) {
+export default function getLabelsWithLinks(
+	obj: Obj,
+	fileName?: string,
+	fileObj?: FileObj
+) {
 	if (!obj || typeof obj !== "object") return null;
 
 	const textsArr = obj.children.map((item: Child) => {
@@ -54,18 +60,10 @@ export default function getLabelsWithLinks(obj: Obj, fileName: string) {
 	});
 
 	const assetsArr = obj.markDefs.map((item: MarkDef) => {
-		if (item._type === "link") {
-			return {
-				text: "",
-				href: item.href,
-			};
-		} else if (item._type === "fileDownload") {
-			return {
-				text: "",
-				href: item.file ? getUrlForFile(item.file) : "",
-				fileName: fileName,
-			};
-		}
+		return {
+			text: "",
+			href: item.href,
+		};
 	});
 
 	const masterArr = textsArr.map((item: ItemMaster) => {
@@ -76,12 +74,19 @@ export default function getLabelsWithLinks(obj: Obj, fileName: string) {
 		}
 
 		if (item.isLink) {
-			if (!assetsArr[0]) return "";
+			// CV
+			if (!assetsArr[0]) {
+				return {
+					...item,
+					href: fileObj && getUrlForFile(fileObj),
+					name: fileName && fileName,
+				};
+			}
 
+			// other Links
 			const nextObj = {
 				...item,
 				href: assetsArr[0].href,
-				fileName: assetsArr[0].fileName ?? "",
 			};
 
 			assetsArr.shift();

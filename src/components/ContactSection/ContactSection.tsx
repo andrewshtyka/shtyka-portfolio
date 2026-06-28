@@ -86,11 +86,11 @@ export default function ContactSection({ uiString }: Props) {
 
 	// message
 	const dataMessage_1 =
-		getLabelsWithLinks(ui?.message[0], ui?.fileName)?.filter(
+		getLabelsWithLinks(ui?.message[0])?.filter(
 			(item): item is ItemMaster => !!item && typeof item !== "string"
 		) ?? null;
 	const dataMessage_2 =
-		getLabelsWithLinks(ui?.message[1], ui?.fileName)?.filter(
+		getLabelsWithLinks(ui?.message[1], ui?.fileName, ui?.file)?.filter(
 			(item): item is ItemMaster => !!item && typeof item !== "string"
 		) ?? null;
 

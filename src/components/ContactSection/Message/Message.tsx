@@ -19,7 +19,7 @@ export default function Message({ arr }: { arr: ItemMaster[] | null }) {
 					// is plain text
 					return <span key={i}>{fixTypography(item?.text)}</span>;
 				} else {
-					if (!item?.fileName) {
+					if (!item?.name) {
 						// is link to website (not a file)
 						return (
 							<LinkText key={i} href={item?.href} hasIcon={hasIcon}>
@@ -28,7 +28,7 @@ export default function Message({ arr }: { arr: ItemMaster[] | null }) {
 						);
 					} else {
 						// is link to file
-						const appliedHref = `${item?.href}/${item?.fileName}`;
+						const appliedHref = `${item?.href}/${item?.name}`;
 
 						return (
 							<LinkText key={i} href={appliedHref}>
