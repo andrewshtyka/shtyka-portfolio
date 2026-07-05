@@ -39,8 +39,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 // #endregion ===========================
 
 const SITE_URL = "https://andrewshtyka.pp.ua";
-const GOOGLE_ANALYTICS_ID: string =
-	process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 export const viewport: Viewport = {
 	width: "device-width",
@@ -145,8 +143,8 @@ export default async function RootLayout({
 					</TooltipProvider>
 				</LayoutTransition>
 			</body>
-			
-			<GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+
+			<GoogleAnalytics gaId="G-B1T1JM1KNB" />
 		</html>
 	);
 }
