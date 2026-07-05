@@ -121,6 +121,7 @@ export default async function RootLayout({
 }>) {
 	const { lang } = await params;
 	logCredentials();
+	const GA_ID = process.env.GA_ID ?? '';
 
 	return (
 		<html lang={lang}>
@@ -144,7 +145,7 @@ export default async function RootLayout({
 				</LayoutTransition>
 			</body>
 
-			<GoogleAnalytics gaId="G-B1T1JM1KNB" />
+			<GoogleAnalytics gaId={GA_ID} />
 		</html>
 	);
 }
