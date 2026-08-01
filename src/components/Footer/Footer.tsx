@@ -1,9 +1,6 @@
 // #region ============================== Imports
 
 // components
-import Divider from "../Divider/Divider";
-import Dimensions from "./Dimensions/Dimensions";
-import Emblem from "../Icons/Emblem/Emblem";
 
 // styles
 import css from "./Footer.module.css";
@@ -13,7 +10,7 @@ import { Props } from "./Footer.types";
 
 // utils
 import { headers } from "next/headers";
-import { getUkrMonthYear } from "./lib/helpers/getUkrMonthYear";
+// import { getUkrMonthYear } from "./lib/helpers/getUkrMonthYear";
 import FooterClient from "./FooterClient/FooterClient";
 
 // #endregion ===========================
@@ -27,11 +24,12 @@ export default async function Footer({ obj: ui, lang = "en" }: Props) {
 
 	// last website update
 	const appliedLang = lang === "ua" ? "uk" : "en";
-	const date: string = new Intl.DateTimeFormat(appliedLang, {
-		month: "long",
-		year: "numeric",
-	}).format(new Date());
-	const lastUpdate = appliedLang === "uk" ? getUkrMonthYear(date) : date;
+	// const date: string = new Intl.DateTimeFormat(appliedLang, {
+	// 	month: "long",
+	// 	year: "numeric",
+	// }).format(new Date());
+	// const lastUpdate = appliedLang === "uk" ? getUkrMonthYear(date) : date;
+	const lastUpdate = appliedLang === "uk" ? "Лип 2026" : "Jul 2026";
 
 	// current year
 	const currentYear: string = new Intl.DateTimeFormat(lang, {
