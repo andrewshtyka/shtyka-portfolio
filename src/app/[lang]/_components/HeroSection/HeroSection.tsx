@@ -163,7 +163,7 @@ export default function HeroSection({ uiString }: Props) {
 						</motion.ul>
 
 						{/* button */}
-						<motion.span
+						{/* <motion.span
 							initial={SECTION_HERO_ANIMATION.button.initial}
 							animate={SECTION_HERO_ANIMATION.button.animate}
 							transition={SECTION_HERO_ANIMATION.button.transition}
@@ -175,7 +175,7 @@ export default function HeroSection({ uiString }: Props) {
 							>
 								{buttonResumeData?.text}
 							</ButtonPrimary>
-						</motion.span>
+						</motion.span> */}
 					</div>
 				</div>
 			</div>
